@@ -4,6 +4,8 @@ import { isPlatformBrowser } from '@angular/common';
 import { tap, catchError } from 'rxjs/operators';
 import { UserOut, UserProfile, SignUpPayload, LoginResponse } from '../../models/user';
 import { throwError } from 'rxjs';
+import { environment } from '../../../environments/environment';
+
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -11,7 +13,7 @@ export class AuthService {
     private platformId = inject(PLATFORM_ID);
     private isBrowser = isPlatformBrowser(this.platformId);
 
-    private apiBase = 'http://localhost:8000';
+    private apiBase = environment.apiBase;
 
     private tokenKey = 'mnv_token';
 
