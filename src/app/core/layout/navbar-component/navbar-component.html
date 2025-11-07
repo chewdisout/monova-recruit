@@ -48,17 +48,23 @@
   <div class="rail__bottom">
     <div class="profile">
       @if (auth.isLoggedIn()) {
-        <a routerLink="/profile" class="profile__pill">
-          <div class="avatar">
-            {{ auth.currentUser()?.name?.charAt(0) || 'U' }}
-          </div>
-          <span class="name">
-            {{ auth.currentUser()?.name }}
-          </span>
-        </a>
-        <button class="btn btn--ghost" type="button" (click)="auth.logout()">
-          {{ 'NAV.LOGOUT' | translate }}
-        </button>
+        <div class="profile">
+          <a routerLink="/profile" class="profile__pill">
+            <div class="profile__avatar">
+              {{ (auth.currentUser()?.name || auth.currentUser()?.email || 'U').charAt(0) }}
+            </div>
+            <div class="profile__text">
+              <div class="profile__name">
+                {{ auth.currentUser()?.name || auth.currentUser()?.email }}
+              </div>
+              <div class="profile__sub">View profile</div>
+            </div>
+          </a>
+
+          <button type="button" class="btn btn--primary" (click)="auth.logout()">
+            Log out
+          </button>
+        </div>
       } @else {
         <div class="login-buttons">
           <a class="btn btn--primary" routerLink="/auth/login">

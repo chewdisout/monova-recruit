@@ -70,6 +70,95 @@
   display: grid; gap: 12px;
 }
 
+.profile {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.profile__pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: var(--mnv-surface);
+  border: 1px solid var(--mnv-border);
+  box-shadow: var(--mnv-shadow-sm);
+  text-decoration: none;
+  color: var(--mnv-blue-900);
+  transition: background .15s, box-shadow .15s, transform .06s, border-color .15s;
+}
+
+.profile__pill:hover {
+  background: #fff;
+  border-color: color-mix(in srgb, var(--mnv-blue-700) 32%, var(--mnv-border));
+  box-shadow: var(--mnv-shadow-md);
+  transform: translateY(-1px);
+}
+
+.profile__avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: var(--mnv-blue-700);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.profile__text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.profile__name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--mnv-blue-900);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.profile__sub {
+  font-size: 11px;
+  color: var(--mnv-text-soft);
+}
+
+.profile__logout {
+  align-self: flex-start;
+  padding: 0;
+  margin: 0 2px;
+  border: none;
+  background: transparent;
+  font-size: 11px;
+  color: var(--mnv-text-soft);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.profile__logout:hover {
+  color: var(--mnv-danger);
+}
+
+.login-buttons {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.btn--sm {
+  padding: 6px 10px;
+  font-size: 12px;
+  border-radius: 10px;
+}
+
+
 .socials { display: flex; gap: 10px; }
 .sbtn {
   display: inline-grid; place-items: center;
