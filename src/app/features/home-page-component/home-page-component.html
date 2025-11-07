@@ -1,0 +1,80 @@
+<section class="hero">
+  <div class="hero__media" aria-hidden="true">
+    <img src="../../../assets/img/main.jpg" alt="" />
+  </div>
+  <div class="hero__overlay"></div>
+  <div class="hero__container">
+    <div class="hero__content">
+    <div class="hero__eyebrow">Trusted Relocation Partner</div>
+      <h1 class="hero__title">Work Abroad with Monova</h1>
+      <p class="hero__subtitle">
+        From CV to relocation — fast matching with trusted European partners.
+      </p>
+
+      <div class="hero__actions">
+        <a class="btn btn--primary" routerLink="/jobs">Find Job</a>
+        <a class="btn btn--ghost" routerLink="/employers">For Companies</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section--why">
+  <div class="container why">
+    <div class="why__media">
+      <div class="why__photo"></div>
+    </div>
+
+    <div class="why__content">
+      <h2 class="section__title">Why Choose Monova</h2>
+      <ul class="why__points">
+        <li><strong>Fast placement:</strong> pre-vetted partners, decisions in days.</li>
+        <li><strong>Clear contracts:</strong> we explain pay, shifts, housing—no surprises.</li>
+        <li><strong>Relocation help:</strong> travel guidance, documents, onboarding.</li>
+        <li><strong>Support in your language:</strong> PL / EE / RU / LV / LT.</li>
+        <li><strong>Thousands placed:</strong> 92,000+ processes completed across EU.</li>
+      </ul>
+
+      <div class="why__cta">
+        <a class="btn btn--primary" routerLink="/jobs">Browse All Jobs</a>
+        <a class="btn btn--accent" routerLink="/employers">Hire with Monova</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section--countries">
+  <div class="container">
+    <header class="section__head">
+      <h2 class="section__title">Work Abroad — Choose Your Country</h2>
+      <nav class="country-tabs" aria-label="Countries">
+        @for (c of countries; track c.key) {
+          <button
+            type="button"
+            class="country-tab"
+            [class.is-active]="activeCountry()===c.key"
+            (click)="setCountry(c.key)">
+            {{ c.name }}
+          </button>
+        }
+      </nav>
+    </header>
+    @for (c of countries; track c.key) {
+      @if (activeCountry()===c.key) {
+        <article class="country-card">
+          <div class="country-card__text">
+            <h3 class="country-card__title">{{ c.name }}</h3>
+            <p class="country-card__lead">{{ c.blurb }}</p>
+            <p class="country-card__proof">{{ c.proof }}</p>
+            <div class="country-card__cta">
+              <a class="btn btn--primary" [routerLink]="offersLinkByCountry[c.key]">See Jobs in {{ c.name }}</a>
+              <a class="btn btn--ghost" routerLink="/seekers">How it Works</a>
+            </div>
+          </div>
+          <div class="country-card__media" aria-hidden="true">
+            <div class="country-photo country-photo--{{ c.key }}"></div>
+          </div>
+        </article>
+      }
+    }
+  </div>
+</section>
+

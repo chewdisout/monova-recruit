@@ -1,1 +1,176 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+html, body { overflow-x: clip; }
+@supports not (overflow-x: clip) {
+  html, body { overflow-x: hidden; }
+}
+
+.full-bleed {
+  width: 100%;
+}
+
+.u-break {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+img, svg, video { max-width: 100%; height: auto; display: block; }
+
+:root {
+  --mnv-blue-900: #0E2A47;
+  --mnv-blue-800: #12355D;
+  --mnv-blue-700: #0E77CC;
+  --mnv-blue-500: #2E8FD3;
+  --mnv-accent:   #FB7185;
+  --mnv-aqua-400: #22D3EE;
+
+  --mnv-bg:        #FFFFFF;
+  --mnv-surface:   #F7F9FC;
+  --mnv-border:    #E9EEF4;
+  --mnv-text:      rgba(0,0,0,.85);
+  --mnv-text-dim:  rgba(0,0,0,.62);
+  --mnv-text-soft: rgba(0,0,0,.45);
+
+  --mnv-success: #16A34A;
+  --mnv-warning: #F59E0B;
+  --mnv-danger:  #DC2626;
+
+  --mnv-radius:   12px;
+  --mnv-radius-sm: 8px;
+  --mnv-gap:      16px;
+  --mnv-shadow-sm: 0 6px 18px rgba(14,42,71,.08);
+  --mnv-shadow-md: 0 10px 28px rgba(14,42,71,.12);
+
+  --rail-w: 300px;
+}
+
+:root[data-theme="dark"] {
+  --mnv-bg:        #0B1320;
+  --mnv-surface:   #101B2E;
+  --mnv-border:    #1D2A44;
+  --mnv-text:      rgba(255,255,255,.92);
+  --mnv-text-dim:  rgba(255,255,255,.72);
+  --mnv-text-soft: rgba(255,255,255,.55);
+
+  --mnv-blue-900: #CFE4FF;
+  --mnv-blue-800: #A9C9F4;
+  --mnv-blue-700: #7FB5F2;
+  --mnv-blue-500: #63A7F0;
+
+  --mnv-shadow-sm: 0 6px 18px rgba(0,0,0,.35);
+  --mnv-shadow-md: 0 12px 30px rgba(0,0,0,.45);
+}
+
+html, body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--mnv-text);
+  background: var(--mnv-bg);
+  padding-right: var(--rail-w);
+}
+
+@media (max-width: 1024px) {
+  body { padding-right: 0; }
+}
+
+h1,h2,h3,h4 { font-family: "DM Sans", Inter, system-ui, sans-serif; color: var(--mnv-blue-900); }
+
+a { color: var(--mnv-blue-700); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 8px;
+  border-radius: var(--mnv-radius);
+  padding: 10px 14px;
+  font-weight: 600;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform .06s, box-shadow .15s, opacity .15s, background .15s, color .15s;
+  text-decoration: none;
+}
+.btn:active { transform: translateY(1px); }
+
+.btn--primary {
+  background: var(--mnv-blue-700);
+  color: #fff;
+  box-shadow: var(--mnv-shadow-sm);
+}
+.btn--primary:hover { opacity: .95; }
+
+.btn--accent {
+  background: var(--mnv-accent);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(251,113,133,.25);
+}
+.btn--accent:hover { box-shadow: 0 10px 26px rgba(251,113,133,.35); }
+
+.btn--outline {
+  background: transparent;
+  color: var(--mnv-blue-700);
+  border-color: var(--mnv-blue-700);
+}
+.btn--ghost {
+  background: transparent;
+  color: var(--mnv-text);
+}
+.btn--danger { background: var(--mnv-danger); color: #fff; }
+
+.btn[disabled], .btn:disabled { opacity: .55; pointer-events: none; }
+
+.card {
+  background: #fff;
+  color: var(--mnv-text);
+  border: 1px solid var(--mnv-border);
+  border-radius: var(--mnv-radius);
+  padding: 16px;
+  box-shadow: var(--mnv-shadow-sm);
+}
+:root[data-theme="dark"] .card { background: var(--mnv-surface); }
+
+.input, .select, .textarea {
+  width: 100%;
+  background: #fff;
+  color: var(--mnv-text);
+  border: 1px solid var(--mnv-border);
+  border-radius: var(--mnv-radius-sm);
+  padding: 10px 12px;
+  outline: none;
+}
+.input:focus, .select:focus, .textarea:focus {
+  border-color: var(--mnv-blue-700);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--mnv-blue-700) 25%, transparent);
+}
+:root[data-theme="dark"] .input,
+:root[data-theme="dark"] .select,
+:root[data-theme="dark"] .textarea {
+  background: var(--mnv-surface);
+}
+
+.pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--mnv-surface);
+  border: 1px solid var(--mnv-border);
+  color: var(--mnv-text-dim);
+  font-size: 12px;
+}
+
+.hr { height: 1px; background: var(--mnv-border); border: 0; }
+
+.focus-ring { box-shadow: 0 0 0 3px color-mix(in srgb, var(--mnv-blue-700) 25%, transparent); }
+
+:root[data-theme="dark"] .btn--outline {
+  color: var(--mnv-blue-700);
+  border-color: var(--mnv-blue-700);
+}
+
+.hide-on-mobile { display: block; }
+@media (max-width: 1024px) { .hide-on-mobile { display: none; } }
+
+.show-on-mobile { display: none; }
+@media (max-width: 1024px) { .show-on-mobile { display: inline-block; } }
