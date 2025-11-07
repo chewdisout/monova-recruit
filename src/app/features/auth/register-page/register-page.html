@@ -1,0 +1,141 @@
+<section class="auth">
+  <div class="auth__card card">
+    <h1 class="auth__title">Create your Monova account</h1>
+    <p class="auth__subtitle">
+      One profile for all trusted European job opportunities.
+    </p>
+    <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+      <div class="field">
+        <label for="email">Email*</label>
+        <input
+          id="email"
+          type="email"
+          class="input"
+          formControlName="userEmail"
+          placeholder="you@example.com"
+        />
+        <div class="field__error" *ngIf="f.userEmail.touched && f.userEmail.invalid">
+          <span *ngIf="f.userEmail.errors?.['required']">Email is required.</span>
+          <span *ngIf="f.userEmail.errors?.['email']">Enter a valid email.</span>
+        </div>
+      </div>
+      <div class="field">
+        <label for="password">Password* (min 6 characters)</label>
+        <input
+          id="password"
+          type="password"
+          class="input"
+          formControlName="password"
+          placeholder="••••••••"
+        />
+        <div class="field__error" *ngIf="f.password.touched && f.password.invalid">
+          <span *ngIf="f.password.errors?.['required']">Password is required.</span>
+          <span *ngIf="f.password.errors?.['minlength']">
+            Password must be at least 6 characters.
+          </span>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="field">
+          <label for="firstName">First name*</label>
+          <input
+            id="firstName"
+            type="text"
+            class="input"
+            formControlName="userName"
+            placeholder="Name"
+          />
+          <div class="field__error" *ngIf="f.userName.touched && f.userName.invalid">
+            First name is required.
+          </div>
+        </div>
+        <div class="field">
+          <label for="lastName">Last name*</label>
+          <input
+            id="lastName"
+            type="text"
+            class="input"
+            formControlName="userSurname"
+            placeholder="Surname"
+          />
+          <div class="field__error" *ngIf="f.userSurname.touched && f.userSurname.invalid">
+            Last name is required.
+          </div>
+        </div>
+      </div>
+      <div class="grid-3">
+        <div class="field">
+          <label for="age">Age</label>
+          <input
+            id="age"
+            type="number"
+            min="16"
+            class="input"
+            formControlName="userAge"
+            placeholder="Optional"
+          />
+        </div>
+        <div class="field">
+          <label for="gender">Gender*</label>
+          <select id="gender" class="select" formControlName="userGender">
+            <option value="" disabled>Select</option>
+            <option *ngFor="let g of genders" [value]="g.value">
+              {{ g.label }}
+            </option>
+          </select>
+          <div class="field__error" *ngIf="f.userGender.touched && f.userGender.invalid">
+            Please choose your gender.
+          </div>
+        </div>
+        <div class="field">
+          <label for="citizenship">Citizenship*</label>
+          <select
+            id="citizenship"
+            class="select"
+            formControlName="userCitizenship"
+          >
+            <option value="" disabled>Select</option>
+            <option *ngFor="let c of citizenships" [value]="c">
+              {{ c }}
+            </option>
+          </select>
+          <div class="field__error" *ngIf="f.userCitizenship.touched && f.userCitizenship.invalid">
+            Please select your citizenship.
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <label>Phone number*</label>
+        <div class="phone">
+          <select class="select phone__code" formControlName="phoneCode">
+            <option *ngFor="let c of phoneCodes" [value]="c.value">
+              {{ c.label }}
+            </option>
+          </select>
+          <input
+            type="tel"
+            class="input phone__number"
+            formControlName="phoneNumber"
+            placeholder="1234567"
+          />
+        </div>
+        <div class="field__error" *ngIf="(f.phoneCode.touched || f.phoneNumber.touched) && (f.phoneCode.invalid || f.phoneNumber.invalid)">
+          Enter a valid phone with country code.
+        </div>
+      </div>
+      <button
+        type="submit"
+        class="btn btn--primary auth__submit"
+        [disabled]="loading() || form.invalid"
+      >
+        {{ loading() ? 'Creating account...' : 'Create account' }}
+      </button>
+      <div class="auth__error" *ngIf="error()">{{ error() }}</div>
+      <div class="auth__success" *ngIf="success()">{{ success() }}</div>
+      <p class="auth__hint">
+        Already registered?
+        <a routerLink="/auth/login">Sign in</a>
+      </p>
+    </form>
+  </div>
+</section>

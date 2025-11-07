@@ -1,0 +1,54 @@
+<section class="auth">
+  <div class="auth__card card">
+    <h1 class="auth__title">Sign in to Monova</h1>
+    <p class="auth__subtitle">
+      Access your profile and continue your applications.
+    </p>
+    <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+      <div class="field">
+        <label for="email">Email*</label>
+        <input
+          id="email"
+          type="email"
+          class="input"
+          formControlName="email"
+          placeholder="you@example.com"
+        />
+        <div class="field__error" *ngIf="f.email.touched && f.email.invalid">
+          <span *ngIf="f.email.errors?.['required']">Email is required.</span>
+          <span *ngIf="f.email.errors?.['email']">Enter a valid email.</span>
+        </div>
+      </div>
+      <div class="field">
+        <label for="password">Password* (min 6 characters)</label>
+        <input
+          id="password"
+          type="password"
+          class="input"
+          formControlName="password"
+          placeholder="••••••••"
+        />
+        <div class="field__error" *ngIf="f.password.touched && f.password.invalid">
+          <span *ngIf="f.password.errors?.['required']">Password is required.</span>
+          <span *ngIf="f.password.errors?.['minlength']">
+            Password must be at least 6 characters.
+          </span>
+        </div>
+      </div>
+      <button
+        type="submit"
+        class="btn btn--primary auth__submit"
+        [disabled]="loading() || form.invalid"
+      >
+        {{ loading() ? 'Signing in...' : 'Sign in' }}
+      </button>
+      <div class="auth__error" *ngIf="error()">
+        {{ error() }}
+      </div>
+      <p class="auth__hint">
+        Don’t have an account yet?
+        <a routerLink="/auth/register">Create an account</a>
+      </p>
+    </form>
+  </div>
+</section>

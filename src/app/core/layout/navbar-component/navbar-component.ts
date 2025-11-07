@@ -1,6 +1,7 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { TranslateService, TranslatePipe } from '@ngx-translate/core';
+import { AuthService } from '../../../services/auth/auth.services';
 
 type NavItem = {
   label: string;
@@ -16,6 +17,8 @@ type NavItem = {
   styleUrls: ['./navbar-component.scss'],
 })
 export class NavbarComponent {
+  readonly auth = inject(AuthService);
+
   isOpen = false;
   openKey: string | null = 'jobs';
   drawerOpen = false;

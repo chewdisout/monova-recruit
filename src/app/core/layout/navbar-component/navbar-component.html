@@ -29,7 +29,6 @@
             <span class="label">{{ item.label | translate }}</span>
             <span class="chev" aria-hidden="true">▸</span>
           </button>
-
         @if (openKey===item.key) {
             <ul class="subnav">
               @for (c of item.children; track c.label) {
@@ -47,6 +46,30 @@
   </ul>
 
   <div class="rail__bottom">
+    <div class="profile">
+      @if (auth.isLoggedIn()) {
+        <a routerLink="/profile" class="profile__pill">
+          <div class="avatar">
+            {{ auth.currentUser()?.name?.charAt(0) || 'U' }}
+          </div>
+          <span class="name">
+            {{ auth.currentUser()?.name }}
+          </span>
+        </a>
+        <button class="btn btn--ghost" type="button" (click)="auth.logout()">
+          {{ 'NAV.LOGOUT' | translate }}
+        </button>
+      } @else {
+        <div class="login-buttons">
+          <a class="btn btn--primary" routerLink="/auth/login">
+            {{ 'NAV.SIGN_IN' | translate }}
+          </a>
+          <a class="btn btn--outline" routerLink="/auth/register">
+            {{ 'NAV.SIGN_UP' | translate }}
+          </a>
+        </div>
+      }
+    </div>
     <div class="socials" aria-label="Social media">
         @for (s of socials; track s.key) {
             <a class="sbtn" [href]="s.href" target="_blank" rel="noopener" aria-label="{{ s.label }}">

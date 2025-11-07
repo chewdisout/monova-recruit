@@ -218,3 +218,13 @@
     display: grid; grid-template-rows: auto 1fr auto; gap: 10px;
   }
 }
+
+.login-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  
+  a {
+    text-decoration: none;
+  }
+}

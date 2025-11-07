@@ -4,7 +4,9 @@
     "SERVICES": "Services",
     "FAQ": "FAQ",
     "CONTACTS": "Contacts",
-    "UPLOAD_CV": "Upload CV"
+    "UPLOAD_CV": "Upload CV",
+    "SIGN_IN": "Sign in",
+    "SIGN_UP": "Sign up"
   },
   "HOME": {
     "HERO": {
