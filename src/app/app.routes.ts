@@ -20,5 +20,5 @@ export const routes: Routes = [
         loadComponent: () =>
         import('../app/features/profile-page-component/profile-page-component').then(m => m.ProfilePageComponent),
     },
-    { path: '**', redirectTo: '' } 
+    { path: '**', redirectTo: '', pathMatch: 'full' } 
 ];
