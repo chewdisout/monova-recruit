@@ -1,0 +1,21 @@
+{
+  "NAV": {
+    "JOBS": "Oferty pracy",
+    "SERVICES": "Usługi",
+    "FAQ": "FAQ",
+    "CONTACTS": "Kontakt",
+    "UPLOAD_CV": "Dodaj CV"
+  },
+  "HOME": {
+    "HERO": {
+      "EYEBROW": "Zaufany partner relokacji",
+      "TITLE": "Pracuj za granicą z Monova",
+      "SUBTITLE": "Od CV do przyjazdu — szybkie dopasowanie do sprawdzonych europejskich pracodawców.",
+      "FIND_JOB": "Znajdź pracę",
+      "FOR_COMPANIES": "Dla firm"
+    },
+    "WHY": {
+      "TITLE": "Dlaczego Monova"
+    }
+  }
+}

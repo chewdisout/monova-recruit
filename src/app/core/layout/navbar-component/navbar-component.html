@@ -26,7 +26,7 @@
       <li class="nav-item" [class.has-children]="!!item.children" [class.is-open]="openKey===item.key">
         @if (item.children?.length) {
           <button class="nav-link" type="button" (click)="toggleSection(item.key)">
-            <span class="label">{{ item.label }}</span>
+            <span class="label">{{ item.label | translate }}</span>
             <span class="chev" aria-hidden="true">▸</span>
           </button>
 
@@ -39,7 +39,7 @@
           }
         } @else {
           <a class="nav-link" [routerLink]="item.link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-            <span class="label">{{ item.label }}</span>
+            <span class="label">{{ item.label | translate }}</span>
           </a>
         }
       </li>
@@ -87,8 +87,7 @@
           type="button"
           class="lang-pill"
           [class.active]="activeLang===l.code"
-          (click)="setLang(l.code)"
-          [attr.title]="l.name">
+          (click)="setLang(l.code)">
           {{ l.code }}
         </button>
       }
@@ -121,7 +120,11 @@
         </ul>
         <div class="drawer__langs">
           @for (l of langs; track l.code) {
-            <button [class.active]="activeLang===l.code" (click)="setLang(l.code)">{{ l.code }}</button>
+            <button
+              [class.active]="activeLang===l.code"
+              (click)="setLang(l.code)">
+              {{ l.code }}
+            </button>
           }
         </div>
         <a routerLink="/seekers" class="btn btn--accent" (click)="closeDrawer()">Upload CV</a>

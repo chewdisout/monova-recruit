@@ -1,0 +1,21 @@
+{
+  "NAV": {
+    "JOBS": "Job Opportunities",
+    "SERVICES": "Services",
+    "FAQ": "FAQ",
+    "CONTACTS": "Contacts",
+    "UPLOAD_CV": "Upload CV"
+  },
+  "HOME": {
+    "HERO": {
+      "EYEBROW": "Trusted Relocation Partner",
+      "TITLE": "Work Abroad with Monova",
+      "SUBTITLE": "From CV to relocation — fast matching with trusted European partners.",
+      "FIND_JOB": "Find Job",
+      "FOR_COMPANIES": "For Companies"
+    },
+    "WHY": {
+      "TITLE": "Why Choose Monova"
+    }
+  }
+}
