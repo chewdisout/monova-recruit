@@ -1,6 +1,17 @@
 <section class="hero">
   <div class="hero__media" aria-hidden="true">
-    <img src="../../../assets/img/main.jpg" alt="" />
+    <video
+      class="hero__video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      poster="../../../assets/img/main.jpg"
+    >
+      <source src="../../../assets/video/entry-video.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
   </div>
   <div class="hero__overlay"></div>
   <div class="hero__container">
@@ -14,6 +25,40 @@
       <div class="hero__actions">
         <a class="btn btn--primary" routerLink="/jobs">{{ 'HOME.HERO.FIND_JOB' | translate }}</a>
         <a class="btn btn--ghost" routerLink="/employers">{{ 'HOME.HERO.FOR_COMPANIES' | translate }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="strips">
+  <div class="strip strip--1">
+    <div class="strip__inner">
+      <div class="strip__top">
+        {{ 'HOME.STRIPS.ROW_1_TOP' | translate }}
+      </div>
+      <div class="strip__main">
+        {{ 'HOME.STRIPS.ROW_1_MAIN' | translate }}
+      </div>
+    </div>
+  </div>
+
+  <div class="strip strip--2">
+    <div class="strip__inner">
+      <div class="strip__top">
+        {{ 'HOME.STRIPS.ROW_2_TOP' | translate }}
+      </div>
+      <div class="strip__main">
+        {{ 'HOME.STRIPS.ROW_2_MAIN' | translate }}
+      </div>
+    </div>
+  </div>
+
+  <div class="strip strip--3">
+    <div class="strip__inner">
+      <div class="strip__top">
+        {{ 'HOME.STRIPS.ROW_3_TOP' | translate }}
+      </div>
+      <div class="strip__main">
+        {{ 'HOME.STRIPS.ROW_3_MAIN' | translate }}
       </div>
     </div>
   </div>
@@ -83,42 +128,3 @@
     </div>
   </div>
 </section>
-<section class="section section--countries">
-  <div class="container">
-    <header class="section__head">
-      <h2 class="section__title">Work Abroad — Choose Your Country</h2>
-      <nav class="country-tabs" aria-label="Countries">
-        @for (c of countries; track c.key) {
-          <button
-            type="button"
-            class="country-tab"
-            [class.is-active]="activeCountry()===c.key"
-            (click)="setCountry(c.key)">
-            {{ c.name }}
-          </button>
-        }
-      </nav>
-    </header>
-    @for (c of countries; track c.key) {
-      @if (activeCountry()===c.key) {
-        <article class="country-card">
-          <div class="country-card__text">
-            <h3 class="country-card__title">{{ c.name }}</h3>
-            <p class="country-card__lead">{{ c.blurb }}</p>
-            <p class="country-card__proof">{{ c.proof }}</p>
-            <div class="country-card__cta">
-              <a class="btn btn--primary" [routerLink]="offersLinkByCountry[c.key]">See Jobs in {{ c.name }}</a>
-              <a class="btn btn--ghost" routerLink="/seekers">How it Works</a>
-            </div>
-          </div>
-          <div class="country-card__media" aria-hidden="true">
-            <div class="country-photo country-photo--{{ c.key }}"></div>
-          </div>
-        </article>
-      }
-    }
-  </div>
-</section>
-
-
-

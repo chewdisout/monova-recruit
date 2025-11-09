@@ -1,0 +1,145 @@
+<section class="emp-hero">
+  <div class="container emp-hero__inner">
+    <div class="emp-hero__copy">
+      <div class="emp-hero__eyebrow">
+        {{ 'CLIENTS.HERO.EYEBROW' | translate }}
+      </div>
+      <h1 class="emp-hero__title">
+        {{ 'CLIENTS.HERO.TITLE' | translate }}
+      </h1>
+      <p class="emp-hero__subtitle">
+        {{ 'CLIENTS.HERO.SUBTITLE' | translate }}
+      </p>
+      <div class="emp-hero__actions">
+        <a class="btn btn--primary" routerLink="/contacts">
+          Talk to our team
+        </a>
+        <a class="btn btn--ghost" routerLink="/auth/register">
+          Create employer account
+        </a>
+      </div>
+    </div>
+    <div class="emp-hero__stats">
+      <div class="stat">
+        <div class="stat__label">Processes supported</div>
+        <div class="stat__num">92k+</div>
+      </div>
+      <div class="stat">
+        <div class="stat__label">Key sourcing markets</div>
+        <div class="stat__num">4</div>
+      </div>
+      <div class="stat">
+        <div class="stat__label">Support</div>
+        <div class="stat__num">24/7</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="emp-pillars section">
+  <div class="container">
+    <header class="section__head">
+      <h2 class="section__title">
+        {{ 'CLIENTS.PILLARS.TITLE' | translate }}
+      </h2>
+    </header>
+    <div class="pillars">
+      @for (key of pillarKeys; track key) {
+        <article class="pillar pillar--{{ key | lowercase }}">
+          <h3 class="pillar__title">
+            {{ ('CLIENTS.PILLARS.' + key + '_TITLE') | translate }}
+          </h3>
+          <p class="pillar__body">
+            {{ ('CLIENTS.PILLARS.' + key + '_BODY') | translate }}
+          </p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="emp-flow section">
+  <div class="container">
+    <header class="section__head">
+      <h2 class="section__title">
+        {{ 'CLIENTS.FLOW.TITLE' | translate }}
+      </h2>
+    </header>
+    <ol class="flow">
+      @for (no of steps; track no) {
+        <li class="flow__step">
+          <div class="flow__index">{{ no }}</div>
+          <div class="flow__content">
+            <h3 class="flow__title">
+              {{ ('CLIENTS.FLOW.STEP_' + no + '_TITLE') | translate }}
+            </h3>
+            <p class="flow__text">
+              {{ ('CLIENTS.FLOW.STEP_' + no + '_BODY') | translate }}
+            </p>
+          </div>
+        </li>
+      }
+    </ol>
+  </div>
+</section>
+
+<section class="emp-metrics section">
+  <div class="container">
+    <header class="section__head">
+      <h2 class="section__title">Results our partners see</h2>
+      <p class="section__subtitle">
+        Illustrative metrics based on typical Monova partnerships. Exact numbers depend on your roles & markets.
+      </p>
+    </header>
+
+    <div class="metrics">
+      <div class="metric">
+        <div class="metric__label">Show-up rate to first working day</div>
+        <div class="metric__value">92%</div>
+        <div class="metric__bar">
+          <div class="metric__fill metric__fill--92"></div>
+        </div>
+      </div>
+      <div class="metric">
+        <div class="metric__label">Time-to-fill reduction vs. internal only</div>
+        <div class="metric__value">-35%</div>
+        <div class="metric__bar">
+          <div class="metric__fill metric__fill--35"></div>
+        </div>
+      </div>
+      <div class="metric">
+        <div class="metric__label">Qualified candidates per vacancy</div>
+        <div class="metric__value">3–5</div>
+        <div class="metric__bar">
+          <div class="metric__fill metric__fill--70"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="emp-proof section">
+  <div class="container emp-proof__inner">
+    <div class="emp-proof__points">
+      <h2 class="section__title">
+        {{ 'CLIENTS.PROOF.TITLE' | translate }}
+      </h2>
+      <ul>
+        <li>{{ 'CLIENTS.PROOF.POINT_1' | translate }}</li>
+        <li>{{ 'CLIENTS.PROOF.POINT_2' | translate }}</li>
+        <li>{{ 'CLIENTS.PROOF.POINT_3' | translate }}</li>
+      </ul>
+    </div>
+    <div class="emp-proof__cta card">
+      <p class="emp-proof__cta-text">
+        {{ 'CLIENTS.PROOF.CTA_TEXT' | translate }}
+      </p>
+      <a class="btn btn--primary emp-proof__btn" routerLink="/contacts">
+        {{ 'CLIENTS.PROOF.CTA_BUTTON' | translate }}
+      </a>
+      <p class="emp-proof__mini">
+        Share your roles, volumes and timelines — we’ll respond with a clear sourcing plan, not marketing fluff.
+      </p>
+    </div>
+  </div>
+</section>

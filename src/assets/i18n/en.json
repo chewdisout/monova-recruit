@@ -52,6 +52,14 @@
             "STEP_4_TITLE": "Start work with ongoing support",
             "STEP_4_TEXT": "You sign directly with the employer or local partner. We stay in touch to help with onboarding or issues.",
             "STEP_4_HINT": "Monova is your recruitment partner — we never charge workers."
+        },
+        "STRIPS": {
+            "ROW_1_TOP": "In a world of AI & automation",
+            "ROW_1_MAIN": "we see real people.",
+            "ROW_2_TOP": "In a world of complex careers",
+            "ROW_2_MAIN": "we make starting abroad simple.",
+            "ROW_3_TOP": "In a world of uncertainty",
+            "ROW_3_MAIN": "we guide you safely to work."
         }
     },
     "FOOTER": {
@@ -150,6 +158,43 @@
             "TITLE": "Our office",
             "ADDRESS": "Example Street 10, Riga, Latvia",
             "MAP_HINT": "You can visit us or schedule an online consultation."
+        }
+    },
+    "CLIENTS": {
+        "HERO": {
+            "EYEBROW": "For employers & staffing partners",
+            "TITLE": "Scale your teams with Monova",
+            "SUBTITLE": "We combine creative sourcing, always-on delivery, modern technology and strong candidate marketing to move reliable workers into your roles fast."
+        },
+        "PILLARS": {
+            "TITLE": "What we bring to your hiring",
+            "CREATIVITY_TITLE": "Creative sourcing that reaches real people",
+            "CREATIVITY_BODY": "We don’t wait for CVs. We run targeted campaigns, local language messaging and niche channels to reach candidates other agencies miss.",
+            "CONSISTENCY_TITLE": "Consistency you can plan around",
+            "CONSISTENCY_BODY": "Always-on recruitment in key markets ensures a predictable pipeline for logistics, production, seasonal and technical roles.",
+            "INNOVATION_TITLE": "Technology-backed matching",
+            "INNOVATION_BODY": "Screening flows, automation and data help us react quickly, reduce drop-offs and shortlist only candidates ready to start.",
+            "MARKETING_TITLE": "Stronger employer story & marketing",
+            "MARKETING_BODY": "We package your offer in clear, honest language so candidates trust it: pay, shifts, housing, support. Fewer questions, more show-ups."
+        },
+        "FLOW": {
+            "TITLE": "How collaboration with Monova works",
+            "STEP_1_TITLE": "1. Understand your demand",
+            "STEP_1_BODY": "We define profiles, volumes, locations, seasonality, onboarding capacity and non-negotiables so we only send candidates you can hire.",
+            "STEP_2_TITLE": "2. Activate sourcing & campaigns",
+            "STEP_2_BODY": "We launch multi-channel campaigns in target countries, pre-screen in local languages and qualify motivation, documents and availability.",
+            "STEP_3_TITLE": "3. Shortlist & schedule",
+            "STEP_3_BODY": "You receive structured profiles ready for interview or direct placement, with clear expectations set on both sides.",
+            "STEP_4_TITLE": "4. Arrival & retention support",
+            "STEP_4_BODY": "We support candidates with travel, housing information and first days on-site, helping you reduce early churn."
+        },
+        "PROOF": {
+            "TITLE": "Why partners choose Monova",
+            "POINT_1": "Focused on EU markets with proven delivery for logistics, production, hospitality and warehousing.",
+            "POINT_2": "Local language support for candidates from post-Soviet and CEE countries builds trust and reduces no-shows.",
+            "POINT_3": "Transparent cooperation: clear SLAs, reporting, and no over-promising on profiles you cannot hire.",
+            "CTA_TEXT": "Let’s talk about your hiring needs.",
+            "CTA_BUTTON": "Book a call with our team"
         }
     }
 }

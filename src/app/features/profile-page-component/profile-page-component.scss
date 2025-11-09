@@ -219,8 +219,6 @@
   color: var(--mnv-danger);
 }
 
-/* Footer actions */
-
 .actions {
   display: flex;
   justify-content: flex-end;
@@ -228,20 +226,42 @@
 }
 
 @media (max-width: 768px) {
-  .profile-shell {
-    padding: 16px 12px 14px;
-  }
+    .label {
+        font-size: 12px;
+        font-weight: 700;
+    }
 
-  .profile-header {
-    align-items: flex-start;
-  }
+    .input {
+        min-height: 50px;
+    }
 
-  .grid--2 {
-    grid-template-columns: 1fr;
-  }
+    .select {
+        min-height: 50px;
+    }
 
-  .cv-flex {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+    .profile-shell {
+        padding: 16px 12px 14px;
+    }
+
+    .profile-header {
+        align-items: flex-start;
+    }
+
+    .grid--2 {
+        grid-template-columns: 1fr;
+    }
+
+    .cv-flex {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .workexp-add {
+        flex-direction: column;
+
+        .btn {
+            width: 100%;
+            min-height: 30px;
+        }
+    }
 }
