@@ -53,6 +53,7 @@ export class HomePageComponent {
 
   activeCountry = signal<CountryKey>('de');
   setCountry = (k: CountryKey) => this.activeCountry.set(k);
+  steps = [1, 2, 3, 4];
 
   offersLinkByCountry: Record<CountryKey, string> = {
     de: '/jobs/germany',

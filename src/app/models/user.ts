@@ -13,6 +13,12 @@ export interface UserOut {
   userGender?: string | null;
   userPhoneNumber?: string | null;
   userCitizenship?: string | null;
+  userEmploymentStatus?: string | null;
+  userPrefferedJob?: string | null;
+  userSecondPrefferedJob?: string | null;
+  userPrefferedJobLocation?: string | null;
+  userSecondPrefferedJobLocation?: string | null;
+  userTellAboutYourSelf?: string | null;
 }
 
 export interface SignUpPayload {
@@ -24,9 +30,29 @@ export interface SignUpPayload {
   userGender?: string;
   userPhoneNumber?: string;
   userCitizenship?: string;
+  userEmploymentStatus: string;
 }
 
 export interface LoginResponse {
   access_token: string;
   token_type: string;
+}
+
+export interface UserExperience {
+  UserExperienceId: number;
+  userExperience: string;
+}
+
+export interface ProfileUpdatePayload {
+  userName: string;
+  userSurname: string;
+  userAge: number;
+  userGender: string;
+  userPhoneNumber: string;
+  userCitizenship: string;
+  userPrefferedJob?: string | null;
+  userSecondPrefferedJob?: string | null;
+  userPrefferedJobLocation?: string | null;
+  userSecondPrefferedJobLocation?: string | null;
+  userTellAboutYourSelf?: string | null;
 }

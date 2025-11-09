@@ -1,0 +1,155 @@
+{
+    "MAIN": {
+        "GERMANY": "Vokietija",
+        "NETHERLANDS": "Nyderlandai",
+        "FINLAND": "Suomija"
+    },
+    "NAV": {
+        "JOBS": "Darbo pasiūlymai",
+        "SERVICES": "Paslaugos",
+        "FAQ": "DUK",
+        "CONTACTS": "Kontaktai",
+        "UPLOAD_CV": "Įkelti CV",
+        "SIGN_IN": "Prisijungti",
+        "SIGN_UP": "Registruotis",
+        "LOGOUT": "Atsijungti"
+    },
+    "HOME": {
+        "HERO": {
+            "EYEBROW": "Patikimas perkėlimo partneris",
+            "TITLE": "Dirbkite užsienyje su Monova",
+            "SUBTITLE": "Nuo CV iki perkėlimo – greitas įdarbinimas su patikimais Europos partneriais.",
+            "FIND_JOB": "Rasti darbą",
+            "FOR_COMPANIES": "Darbdaviams"
+        },
+        "WHY": {
+            "TITLE": "Kodėl verta rinktis Monova",
+            "LIST": {
+                "OPTION_1_TITLE": "Greitas ir paprastas įdarbinimas:",
+                "OPTION_1_CONTENT": "Sujungiame jus su patikimais Europos partneriais – sprendimai per kelias dienas, o ne savaites.",
+                "OPTION_2_TITLE": "Patikrinti darbdaviai:",
+                "OPTION_2_CONTENT": "Dirbame tik su licencijuotomis ES agentūromis ir įmonėmis, kurios užtikrina teisėtas sutartis, apgyvendinimą ir sąžiningą atlyginimą.",
+                "OPTION_3_TITLE": "Be jokių paslėptų mokesčių:",
+                "OPTION_3_CONTENT": "Mūsų paslaugos kandidatams yra visiškai nemokamos.",
+                "OPTION_4_TITLE": "Visapusiška pagalba užsienyje:",
+                "OPTION_4_CONTENT": "Padedame kelionės, dokumentų ir įsikūrimo klausimais, kad galėtumėte sklandžiai pradėti darbą.",
+                "OPTION_5_TITLE": "Pagalba keliomis kalbomis:",
+                "OPTION_5_CONTENT": "Pagalba rusų, latvių, anglų ir lenkų kalbomis – nuo paraiškos iki atvykimo."
+            }
+        },
+        "STEPS": {
+            "TITLE": "Kaip veikia Monova",
+            "SUBTITLE": "Paprastas ir skaidrus procesas – nuo informacijos pateikimo iki darbo pradžios su patikimu Europos darbdaviu.",
+            "STEP_1_TITLE": "Pateikite savo profilį vieną kartą",
+            "STEP_1_TEXT": "Užpildykite trumpą formą arba įkelkite savo CV. Nurodykite pageidaujamą darbo tipą, kalbą ir šalį.",
+            "STEP_1_HINT": "Vienas profilis suteikia prieigą prie kelių patikrintų darbdavių Vokietijoje, Nyderlanduose, Suomijoje ir kitur.",
+            "STEP_2_TITLE": "Suderiname jus su tikrais pasiūlymais",
+            "STEP_2_TEXT": "Mūsų personalo atrankos specialistai peržiūri jūsų profilį ir pateikia pasiūlymus iš patikimų partnerių – be šlamšto ir netikrų skelbimų.",
+            "STEP_2_HINT": "Galite pasirinkti, kas jums tinka: darbo laikas, atlygis, apgyvendinimas, sutarties trukmė.",
+            "STEP_3_TITLE": "Pokalbiai, sutartys ir pagalba perkeliantis",
+            "STEP_3_TEXT": "Organizuojame pokalbius, paaiškiname sutartis jūsų kalba ir padedame su dokumentais bei kelione.",
+            "STEP_3_HINT": "Visada žinote, kas jus įdarbina, kur gyvensite ir kiek uždirbsite.",
+            "STEP_4_TITLE": "Pradėkite dirbti su nuolatine pagalba",
+            "STEP_4_TEXT": "Sutartį pasirašote tiesiogiai su darbdaviu arba vietiniu partneriu. Mes išliekame jūsų kontaktu, jei prireiktų pagalbos.",
+            "STEP_4_HINT": "Monova – jūsų įdarbinimo partneris. Mes niekada neimame mokesčio iš darbuotojų."
+        }
+    },
+    "FOOTER": {
+        "TITLE": "Monova Recruitment",
+        "TAGLINE": "Jungiame Europos darbdavius su pasiruošusiais dirbti kandidatais.",
+        "DISCLAIMER": "Monova veikia kaip įdarbinimo ir tarpininkavimo partneris. Mes neimame jokių mokesčių iš kandidatų. Darbo sutartys visada pasirašomos tiesiogiai su licencijuotais darbdaviais arba partnerių agentūromis.",
+        "LINKS": {
+            "JOBS": "Darbo pasiūlymai",
+            "SERVICES": "Paslaugos",
+            "FAQ": "DUK",
+            "CONTACTS": "Kontaktai",
+            "FOR_EMPLOYERS": "Darbdaviams"
+        },
+        "CONTACT": {
+            "TITLE": "Kontaktai",
+            "EMAIL": "info@monova.work",
+            "PHONE": "+371 28655822"
+        },
+        "LEGAL": {
+            "COPYRIGHT": "© {{year}} Monova. Visos teisės saugomos.",
+            "PRIVACY": "Privatumo politika",
+            "TERMS": "Taisyklės"
+        }
+    },
+    "FAQ": {
+        "TITLE": "Dažniausiai užduodami klausimai",
+        "INTRO": "Suprantame, kad darbas užsienyje gali kelti abejonių. Čia pateikiame sąžiningus atsakymus į dažniausius klausimus.",
+        "QUESTIONS": [
+            {
+            "q": "Ar reikia diplomo ar specialaus išsilavinimo, kad galėčiau dirbti užsienyje?",
+            "a": "Ne. Dauguma siūlomų darbų (gamyba, sandėliai, logistika, sezoniniai darbai, valymas, viešbučių aptarnavimas ir kt.) nereikalauja aukštojo išsilavinimo. Svarbiausia – motyvacija ir patikimumas."
+            },
+            {
+            "q": "Ar galiu dirbti užsienyje, jei turiu „pilką pasą“ arba nesu ES pilietis?",
+            "a": "Taip. Bendradarbiaujame su licencijuotomis agentūromis, kurios tvarko legalius darbo leidimus ne ES piliečiams. Daugelis kandidatų iš Latvijos, Estijos ir kitų buvusių sovietinių šalių jau sėkmingai dirbo ES su Monova pagalba."
+            },
+            {
+            "q": "Kas, jei moku tik vieną kalbą?",
+            "a": "Tai nėra problema! Daugelis darbdavių nereikalauja anglų ar vietinės kalbos mokėjimo. Mūsų koordinatoriai kalba jūsų kalba ir paaiškins viską – nuo sutarties iki apgyvendinimo."
+            },
+            {
+            "q": "Ar reikia mokėti Monova už darbo paiešką?",
+            "a": "Ne. Mūsų paslaugos yra visiškai nemokamos kandidatams. Mus apmoka darbdaviai, ieškantys patikimų darbuotojų."
+            },
+            {
+            "q": "Kas bus mano tikrasis darbdavys?",
+            "a": "Sutartį pasirašote tiesiogiai su licencijuotu Europos darbdaviu arba partnerių agentūra. Monova padeda rasti darbą ir saugiai persikelti – mes esame jūsų pagalba, o ne darbdavys."
+            },
+            {
+            "q": "Ar Monova suteikia apgyvendinimą?",
+            "a": "Dauguma darbo pasiūlymų apima apgyvendinimą arba pagalbą jį susirandant. Visi duomenys (kaina, atstumas, sąlygos) pateikiami prieš išvykstant."
+            },
+            {
+            "q": "Ar transportas iš mano šalies įskaičiuotas?",
+            "a": "Kartais taip, kitais atvejais padedame surasti pigias kelionės galimybes arba kompensuojame išlaidas po pirmo atlyginimo. Visada prieš kelionę gausite išsamią informaciją."
+            },
+            {
+            "q": "Ar poros ar draugai gali kandidatuoti kartu?",
+            "a": "Taip. Dažnai padedame įsidarbinti poroms ir draugams kartu, ypač sandėliuose ir gamyboje. Tiesiog nurodykite tai paraiškoje."
+            },
+            {
+            "q": "Kiek trunka procesas?",
+            "a": "Priklauso nuo šalies ir darbo tipo – paprastai 3–10 dienų nuo registracijos iki pasiūlymo ir 1–3 savaitės iki išvykimo."
+            },
+            {
+            "q": "Kokią pagalbą gausiu atvykęs?",
+            "a": "Mūsų vietiniai partneriai jus pasitiks, padės registruojantis ir įsidarbinant. Galite bet kada kreiptis į Monova, jei prireiktų pagalbos."
+            }
+        ]
+    },
+    "CONTACT": {
+        "TITLE": "Susisiekite su Monova",
+        "INTRO": "Siųskite mums žinutę dėl darbo pasiūlymų, bendradarbiavimo ar pagalbos. Mūsų komanda dirba 24/7.",
+        "FORM": {
+            "NAME_LABEL": "Jūsų vardas",
+            "EMAIL_LABEL": "El. paštas",
+            "MESSAGE_LABEL": "Žinutė",
+            "MESSAGE_PLACEHOLDER": "Parašykite, kokio darbo ieškote arba kuo galime padėti.",
+            "SUBMIT": "Siųsti žinutę",
+            "SUCCESS": "Ačiū! Jūsų žinutė išsiųsta. Mūsų koordinatorius netrukus susisieks su jumis.",
+            "ERROR": "Nepavyko išsiųsti žinutės. Bandykite dar kartą vėliau."
+        },
+        "VALIDATION": {
+            "NAME_REQUIRED": "Įveskite savo vardą.",
+            "EMAIL_REQUIRED": "Reikalingas el. pašto adresas.",
+            "EMAIL_INVALID": "Įveskite teisingą el. pašto adresą.",
+            "MESSAGE_REQUIRED": "Įveskite trumpą žinutę (bent 10 simbolių)."
+        },
+        "INFO": {
+            "TITLE": "Tiesioginis kontaktas",
+            "PHONE_LABEL": "Telefonas",
+            "EMAIL_LABEL": "El. paštas",
+            "HOURS": "Dirbame visą parą kandidatams ir partneriams."
+        },
+        "OFFICE": {
+            "TITLE": "Mūsų biuras",
+            "ADDRESS": "Example gatvė 10, Ryga, Latvija",
+            "MAP_HINT": "Galite mus aplankyti arba susitarti dėl konsultacijos internetu."
+        }
+    }
+}

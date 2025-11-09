@@ -4,7 +4,10 @@
     <p class="auth__subtitle">
       One profile for all trusted European job opportunities.
     </p>
-    <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+
+    <!-- FORM (only when not successful) -->
+    <form *ngIf="!success()" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+      <!-- Email -->
       <div class="field">
         <label for="email">Email*</label>
         <input
@@ -16,9 +19,12 @@
         />
         <div class="field__error" *ngIf="f.userEmail.touched && f.userEmail.invalid">
           <span *ngIf="f.userEmail.errors?.['required']">Email is required.</span>
-          <span *ngIf="f.userEmail.errors?.['email']">Enter a valid email.</span>
+          <span *ngIf="f.userEmail.errors?.['email']">Enter a valid email address.</span>
+          <span *ngIf="f.userEmail.errors?.['maxlength']">Email is too long.</span>
         </div>
       </div>
+
+      <!-- Password -->
       <div class="field">
         <label for="password">Password* (min 6 characters)</label>
         <input
@@ -33,8 +39,13 @@
           <span *ngIf="f.password.errors?.['minlength']">
             Password must be at least 6 characters.
           </span>
+          <span *ngIf="f.password.errors?.['maxlength']">
+            Password is too long.
+          </span>
         </div>
       </div>
+
+      <!-- Name -->
       <div class="grid-2">
         <div class="field">
           <label for="firstName">First name*</label>
@@ -63,9 +74,11 @@
           </div>
         </div>
       </div>
+
+      <!-- Age / Gender / Citizenship -->
       <div class="grid-3">
         <div class="field">
-          <label for="age">Age</label>
+          <label for="age">Age (optional)</label>
           <input
             id="age"
             type="number"
@@ -74,7 +87,11 @@
             formControlName="userAge"
             placeholder="Optional"
           />
+          <div class="field__error" *ngIf="f.userAge.touched && f.userAge.errors?.['ageRange']">
+            Age should be between 18 and 75.
+          </div>
         </div>
+
         <div class="field">
           <label for="gender">Gender*</label>
           <select id="gender" class="select" formControlName="userGender">
@@ -87,6 +104,7 @@
             Please choose your gender.
           </div>
         </div>
+
         <div class="field">
           <label for="citizenship">Citizenship*</label>
           <select
@@ -104,6 +122,8 @@
           </div>
         </div>
       </div>
+
+      <!-- Phone -->
       <div class="field">
         <label>Phone number*</label>
         <div class="phone">
@@ -119,10 +139,22 @@
             placeholder="1234567"
           />
         </div>
-        <div class="field__error" *ngIf="(f.phoneCode.touched || f.phoneNumber.touched) && (f.phoneCode.invalid || f.phoneNumber.invalid)">
-          Enter a valid phone with country code.
+        <div class="field__error"
+             *ngIf="(f.phoneCode.touched || f.phoneNumber.touched) &&
+                     (f.phoneCode.invalid || f.phoneNumber.invalid)">
+          <span *ngIf="f.phoneCode.errors?.['required']">
+            Country code is required.
+          </span>
+          <span *ngIf="f.phoneNumber.errors?.['required']">
+            Phone number is required.
+          </span>
+          <span *ngIf="f.phoneNumber.errors?.['phoneInvalid']">
+            Enter digits only (5–15 numbers).
+          </span>
         </div>
       </div>
+
+      <!-- Submit -->
       <button
         type="submit"
         class="btn btn--primary auth__submit"
@@ -130,12 +162,28 @@
       >
         {{ loading() ? 'Creating account...' : 'Create account' }}
       </button>
-      <div class="auth__error" *ngIf="error()">{{ error() }}</div>
-      <div class="auth__success" *ngIf="success()">{{ success() }}</div>
+
+      <!-- Global error -->
+      <div class="auth__error" *ngIf="error()">
+        {{ error() }}
+      </div>
+
       <p class="auth__hint">
         Already registered?
         <a routerLink="/auth/login">Sign in</a>
       </p>
     </form>
+
+    <!-- SUCCESS VIEW -->
+    <div class="auth__success-block" *ngIf="success()">
+      <h2>Account created successfully 🎉</h2>
+      <p>
+        Your Monova profile has been created.
+        You can now sign in and complete your profile and CV.
+      </p>
+      <a class="btn btn--primary" routerLink="/auth/login">
+        Go to sign in
+      </a>
+    </div>
   </div>
 </section>

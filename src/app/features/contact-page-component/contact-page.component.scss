@@ -1,0 +1,152 @@
+.contact {
+  padding: 40px 0 56px;
+  background: var(--mnv-bg);
+}
+
+.contact__card {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 22px 22px 20px;
+  border-radius: 18px;
+  display: grid;
+  grid-template-columns: minmax(0, 2.1fr) minmax(260px, 1.4fr);
+  gap: 24px;
+  box-shadow: var(--mnv-shadow-md);
+}
+
+.contact__form {
+  display: grid;
+  gap: 14px;
+}
+
+.contact__title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--mnv-blue-900);
+}
+
+.contact__intro {
+  margin: 2px 0 10px;
+  font-size: 13px;
+  color: var(--mnv-text-soft);
+}
+
+form {
+  display: grid;
+  gap: 10px;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+  position: relative;
+  padding-bottom: 14px;
+}
+
+.field label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--mnv-text-dim);
+}
+
+.input,
+.textarea {
+  font-size: 14px;
+}
+
+.field__error {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  font-size: 10px;
+  color: var(--mnv-danger);
+}
+
+.contact__submit {
+  margin-top: 4px;
+  width: 100%;
+}
+
+.contact__success {
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--mnv-success);
+}
+
+.contact__error {
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--mnv-danger);
+}
+
+.contact__side {
+  display: grid;
+  gap: 10px;
+}
+
+.side-box {
+  padding: 12px 12px 10px;
+  border-radius: 14px;
+  background: var(--mnv-surface);
+  border: 1px solid var(--mnv-border);
+  box-shadow: var(--mnv-shadow-sm);
+  display: grid;
+  gap: 4px;
+}
+
+.side__title {
+  margin: 0 0 2px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--mnv-blue-900);
+}
+
+.side__row {
+  margin: 0;
+  font-size: 12px;
+  color: var(--mnv-text-dim);
+}
+
+.side__row a {
+  color: var(--mnv-blue-700);
+  text-decoration: none;
+}
+
+.side__row a:hover {
+  text-decoration: underline;
+}
+
+.side__hours,
+.side__hint {
+  margin: 2px 0 0;
+  font-size: 10px;
+  color: var(--mnv-text-soft);
+}
+
+.contact__map-wrap {
+  margin-top: 4px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--mnv-border);
+}
+
+.contact__map {
+  width: 100%;
+  height: 150px;
+  border: 0;
+}
+
+@media (max-width: 900px) {
+  .contact__card {
+    grid-template-columns: 1fr;
+    padding: 18px 14px 14px;
+    gap: 16px;
+  }
+
+  .contact__title {
+    font-size: 20px;
+  }
+}

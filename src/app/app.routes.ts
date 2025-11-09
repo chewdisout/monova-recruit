@@ -10,6 +10,16 @@ export const routes: Routes = [
         import('../app/features/auth/login-page/login-page').then(m => m.LoginPageComponent),
     },
     {
+        path: 'faq',
+        loadComponent: () =>
+        import('../app/features/faq-page-component/faq-page.component').then(m => m.FaqPageComponent),
+    },
+    {
+        path: 'contacts',
+        loadComponent: () =>
+        import('../app/features/contact-page-component/contact-page.component').then(m => m.ContactPageComponent),
+    },
+    {
         path: 'auth/register',
         loadComponent: () =>
         import('../app/features/auth/register-page/register-page').then(m => m.RegisterPageComponent),

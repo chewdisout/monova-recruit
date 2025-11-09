@@ -1,24 +1,155 @@
 {
-  "NAV": {
-    "JOBS": "Job Opportunities",
-    "SERVICES": "Services",
-    "FAQ": "FAQ",
-    "CONTACTS": "Contacts",
-    "UPLOAD_CV": "Upload CV",
-    "SIGN_IN": "Sign in",
-    "SIGN_UP": "Sign up",
-    "LOGOUT": "Log out"
-  },
-  "HOME": {
-    "HERO": {
-      "EYEBROW": "Trusted Relocation Partner",
-      "TITLE": "Work Abroad with Monova",
-      "SUBTITLE": "From CV to relocation — fast matching with trusted European partners.",
-      "FIND_JOB": "Find Job",
-      "FOR_COMPANIES": "For Companies"
+    "MAIN": {
+        "GERMANY": "Germany",
+        "NETHERLANDS": "Netherlands",
+        "FINLAND": "Finland"
     },
-    "WHY": {
-      "TITLE": "Why Choose Monova"
+    "NAV": {
+        "JOBS": "Job Opportunities",
+        "SERVICES": "Services",
+        "FAQ": "FAQ",
+        "CONTACTS": "Contacts",
+        "UPLOAD_CV": "Upload CV",
+        "SIGN_IN": "Sign in",
+        "SIGN_UP": "Sign up",
+        "LOGOUT": "Log out"
+    },
+    "HOME": {
+        "HERO": {
+            "EYEBROW": "Trusted Relocation Partner",
+            "TITLE": "Work Abroad with Monova",
+            "SUBTITLE": "From CV to relocation — fast matching with trusted European partners.",
+            "FIND_JOB": "Find Job",
+            "FOR_COMPANIES": "For Companies"
+        },
+        "WHY": {
+            "TITLE": "Why Choose Monova",
+            "LIST": {
+                "OPTION_1_TITLE": "Quick & Easy Placement:",
+                "OPTION_1_CONTENT": "We connect you with trusted European partners — decisions within days, not weeks.",
+                "OPTION_2_TITLE": "Verified Employers:",
+                "OPTION_2_CONTENT": "We only work with licensed EU agencies and companies that guarantee legal contracts, housing, and fair pay.",
+                "OPTION_3_TITLE": "No Hidden Fees:",
+                "OPTION_3_CONTENT": "Our service is 100% free for candidates",
+                "OPTION_4_TITLE": "Full Support Abroad:",
+                "OPTION_4_CONTENT": "We help with travel, documents, and onboarding so you can start working smoothly.",
+                "OPTION_5_TITLE": "Multilingual Assistance:",
+                "OPTION_5_CONTENT": "Support available in Russian, Latvian, English, and Polish — from application to arrival."
+            }
+        },
+        "STEPS": {
+            "TITLE": "How it works with Monova",
+            "SUBTITLE": "Simple, transparent process — from sending your details to starting work with a trusted European employer.",
+            "STEP_1_TITLE": "Send us your profile once",
+            "STEP_1_TEXT": "Fill a short form or upload your CV. Tell us what type of work, language, and country you prefer.",
+            "STEP_1_HINT": "One profile gives you access to multiple verified employers in Germany, the Netherlands, Finland and more.",
+            "STEP_2_TITLE": "We match you with real offers",
+            "STEP_2_TEXT": "Our recruiters review your profile and propose roles from trusted partners — no spam, no fake ads.",
+            "STEP_2_HINT": "You choose what fits: schedule, salary range, accommodation options, contract length.",
+            "STEP_3_TITLE": "Interviews, contracts & relocation support",
+            "STEP_3_TEXT": "We coordinate interviews, explain contracts in your language and guide you through documents and travel.",
+            "STEP_3_HINT": "You always know who employs you, where you will live, and what you will earn.",
+            "STEP_4_TITLE": "Start work with ongoing support",
+            "STEP_4_TEXT": "You sign directly with the employer or local partner. We stay in touch to help with onboarding or issues.",
+            "STEP_4_HINT": "Monova is your recruitment partner — we never charge workers."
+        }
+    },
+    "FOOTER": {
+        "TITLE": "Monova Recruitment",
+        "TAGLINE": "Connecting European employers with ready-to-work candidates.",
+        "DISCLAIMER": "Monova operates as a recruitment and placement partner. We do not charge candidates any fees. Employment contracts are always signed directly with licensed employers or partner agencies.",
+        "LINKS": {
+            "JOBS": "Job opportunities",
+            "SERVICES": "Services",
+            "FAQ": "FAQ",
+            "CONTACTS": "Contacts",
+            "FOR_EMPLOYERS": "For employers"
+        },
+        "CONTACT": {
+            "TITLE": "Contact",
+            "EMAIL": "info@monova.work",
+            "PHONE": "+371 28655822"
+        },
+        "LEGAL": {
+            "COPYRIGHT": "© {{year}} Monova. All rights reserved.",
+            "PRIVACY": "Privacy policy",
+            "TERMS": "Terms"
+        }
+    },
+    "FAQ": {
+        "TITLE": "Frequently Asked Questions",
+        "INTRO": "We know moving abroad for work can feel uncertain. Here are honest answers to the questions we hear most often.",
+        "QUESTIONS": [
+            {
+            "q": "Do I need a diploma or special education to work abroad?",
+            "a": "No. Most positions we offer (factory, warehouse, logistics, seasonal work, cleaning, hotel service, etc.) do not require higher education. What matters most is motivation and reliability."
+            },
+            {
+            "q": "Can I work abroad if I have a 'grey passport' or non-EU citizenship?",
+            "a": "Yes. We work with licensed agencies that arrange legal work permits for non-EU citizens. Many of our candidates from Latvia, Estonia, and other post-Soviet countries have already worked successfully in the EU with Monova’s help."
+            },
+            {
+            "q": "What if I speak only one language?",
+            "a": "That’s completely fine! Many employers don’t require English or local language skills. Our coordinators speak your language and explain everything clearly — from contract to accommodation."
+            },
+            {
+            "q": "Do I need to pay Monova for finding me a job?",
+            "a": "No. Our service is 100% free for candidates. We are paid by employers who need reliable workers. You should never pay anyone for getting a job through Monova."
+            },
+            {
+            "q": "Who will be my actual employer?",
+            "a": "You sign the contract directly with a licensed European employer or partner agency. Monova helps you find, apply, and relocate safely — we are your support, not the hiring company."
+            },
+            {
+            "q": "Does Monova provide accommodation?",
+            "a": "Most job offers include organized housing or help finding accommodation. The details (price, distance, facilities) are always explained before you decide to travel."
+            },
+            {
+            "q": "Is transport from my country included?",
+            "a": "In some cases yes, in others we help you arrange low-cost options or reimburse travel after the first salary. You always receive travel guidance before departure."
+            },
+            {
+            "q": "Can couples or friends apply together?",
+            "a": "Yes. We often place couples and groups of friends together, especially in warehouse and production jobs. Just mention this in your application."
+            },
+            {
+            "q": "How long does the process take?",
+            "a": "It depends on the country and type of job — usually 3–10 days from registration to job offer, and 1–3 weeks until travel."
+            },
+            {
+            "q": "What support will I get after arrival?",
+            "a": "Our local partners meet you on-site, help with registration and onboarding. You can contact Monova anytime during your stay if you need assistance."
+            }
+        ]
+    },
+    "CONTACT": {
+        "TITLE": "Contact Monova",
+        "INTRO": "Send us a message about job opportunities, cooperation or support. Our team is available 24/7.",
+        "FORM": {
+            "NAME_LABEL": "Your name",
+            "EMAIL_LABEL": "Email",
+            "MESSAGE_LABEL": "Your message",
+            "MESSAGE_PLACEHOLDER": "Tell us what kind of work you are looking for, or how we can help.",
+            "SUBMIT": "Send message",
+            "SUCCESS": "Thank you. Your message has been sent. Our coordinator will contact you shortly.",
+            "ERROR": "Could not send your message. Please try again later."
+        },
+        "VALIDATION": {
+            "NAME_REQUIRED": "Please enter your name.",
+            "EMAIL_REQUIRED": "Email is required.",
+            "EMAIL_INVALID": "Enter a valid email address.",
+            "MESSAGE_REQUIRED": "Please enter a short message (at least 10 characters)."
+        },
+        "INFO": {
+            "TITLE": "Direct contact",
+            "PHONE_LABEL": "Phone",
+            "EMAIL_LABEL": "Email",
+            "HOURS": "We are available 24/7 for candidates and partners."
+        },
+        "OFFICE": {
+            "TITLE": "Our office",
+            "ADDRESS": "Example Street 10, Riga, Latvia",
+            "MAP_HINT": "You can visit us or schedule an online consultation."
+        }
     }
-  }
 }

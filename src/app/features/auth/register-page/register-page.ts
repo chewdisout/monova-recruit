@@ -1,9 +1,39 @@
 import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
+import { 
+  ReactiveFormsModule, 
+  FormBuilder, 
+  Validators, 
+  AbstractControl,
+  ValidationErrors,
+  ValidatorFn
+} from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../../services/auth/auth.services';
 import { SignUpPayload } from '../../../models/user';
+
+function ageRangeValidator(min: number, max: number): ValidatorFn {
+  return (control: AbstractControl): ValidationErrors | null => {
+    const value = control.value;
+    if (value === null || value === undefined || value === '') return null;
+    const num = Number(value);
+    if (Number.isNaN(num)) return { ageInvalid: true };
+    if (num < min || num > max) return { ageRange: { min, max } };
+    return null;
+  };
+}
+
+function phoneNumberValidator(): ValidatorFn {
+  return (control: AbstractControl): ValidationErrors | null => {
+    const value = (control.value || '').toString().trim();
+    if (!value) return { required: true };
+    // digits only, length 5–15
+    if (!/^[0-9]{5,15}$/.test(value)) {
+      return { phoneInvalid: true };
+    }
+    return null;
+  };
+}
 
 @Component({
   standalone: true,
@@ -20,7 +50,6 @@ export class RegisterPageComponent {
   genders = [
     { value: 'male', label: 'Male' },
     { value: 'female', label: 'Female' },
-    { value: 'female', label: 'Alex daun' },
     { value: 'other', label: 'Other' },
   ];
 
@@ -61,18 +90,18 @@ export class RegisterPageComponent {
     userName: ['', [Validators.required, Validators.minLength(1)]],
     userSurname: ['', [Validators.required, Validators.minLength(1)]],
 
-    userAge: [null],
+    userAge: [null, [ageRangeValidator(18, 75)]],
     userGender: ['male', [Validators.required]],
 
     phoneCode: ['+371', [Validators.required]],
-    phoneNumber: ['', [Validators.required, Validators.minLength(5)]],
+    phoneNumber: ['', [Validators.required, Validators.minLength(5), phoneNumberValidator()]],
 
     userCitizenship: ['', [Validators.required]],
   });
 
   loading = signal(false);
   error = signal('');
-  success = signal('');
+  success = signal(false);
 
   get f() {
     return this.form.controls;
@@ -80,7 +109,6 @@ export class RegisterPageComponent {
 
   submit() {
     this.error.set('');
-    this.success.set('');
 
     if (this.form.invalid) {
       this.form.markAllAsTouched();
@@ -100,12 +128,14 @@ export class RegisterPageComponent {
       userGender: v.userGender!,
       userPhoneNumber: `${v.phoneCode}${(v.phoneNumber || '').replace(/\s+/g, '')}`,
       userCitizenship: v.userCitizenship!,
+      userEmploymentStatus: 'not-employed'
     };
 
     this.auth.register(payload).subscribe({
       next: () => {
         this.loading.set(false);
-        this.success.set('Account created successfully. You can now sign in.');
+        this.form.disable();  
+        this.success.set(true);
       },
       error: (err) => {
         this.loading.set(false);

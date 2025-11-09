@@ -1,0 +1,88 @@
+<footer class="mnv-footer">
+  <div class="mnv-footer__inner">
+    <!-- Left: brand + tagline + disclaimer -->
+    <div class="mnv-footer__col mnv-footer__col--brand">
+      <div class="mnv-footer__logo">
+        <div class="logo__name">MONOVA</div>
+        <div class="logo__tag">Recruitment</div>
+      </div>
+      <p class="mnv-footer__tagline">
+        {{ 'FOOTER.TAGLINE' | translate }}
+      </p>
+      <p class="mnv-footer__disclaimer">
+        {{ 'FOOTER.DISCLAIMER' | translate }}
+      </p>
+      <div class="mnv-footer__socials">
+        @for (s of socials; track s.key) {
+          <a
+            class="mnv-footer__social"
+            [href]="s.href"
+            target="_blank"
+            rel="noopener"
+            aria-label="{{ s.key | uppercase }}"
+          >
+            <span class="dot"></span>
+          </a>
+        }
+      </div>
+    </div>
+
+    <div class="mnv-footer__col">
+      <h3 class="mnv-footer__title">Explore</h3>
+      <nav class="mnv-footer__nav" aria-label="Footer navigation">
+        <a routerLink="/jobs">
+          {{ 'FOOTER.LINKS.JOBS' | translate }}
+        </a>
+        <a routerLink="/services">
+          {{ 'FOOTER.LINKS.SERVICES' | translate }}
+        </a>
+        <a routerLink="/faq">
+          {{ 'FOOTER.LINKS.FAQ' | translate }}
+        </a>
+        <a routerLink="/contacts">
+          {{ 'FOOTER.LINKS.CONTACTS' | translate }}
+        </a>
+        <a routerLink="/employers">
+          {{ 'FOOTER.LINKS.FOR_EMPLOYERS' | translate }}
+        </a>
+      </nav>
+    </div>
+
+    <div class="mnv-footer__col">
+      <h3 class="mnv-footer__title">
+        {{ 'FOOTER.CONTACT.TITLE' | translate }}
+      </h3>
+      <div class="mnv-footer__contact">
+        <a href="mailto:{{ 'FOOTER.CONTACT.EMAIL' | translate }}">
+          {{ 'FOOTER.CONTACT.EMAIL' | translate }}
+        </a>
+        <a href="tel:{{ 'FOOTER.CONTACT.PHONE' | translate }}">
+          {{ 'FOOTER.CONTACT.PHONE' | translate }}
+        </a>
+      </div>
+      <div class="mnv-footer__cta">
+        <a class="btn btn--primary" routerLink="/auth/register">
+          {{ 'NAV.SIGN_UP' | translate }}
+        </a>
+        <a class="btn btn--ghost" routerLink="/jobs">
+          {{ 'NAV.JOBS' | translate }}
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="mnv-footer__bottom">
+    <div class="mnv-footer__copy">
+      {{ 'FOOTER.LEGAL.COPYRIGHT' | translate:{ year: year } }}
+    </div>
+    <div class="mnv-footer__legal">
+      <a routerLink="/privacy">
+        {{ 'FOOTER.LEGAL.PRIVACY' | translate }}
+      </a>
+      <span>•</span>
+      <a routerLink="/terms">
+        {{ 'FOOTER.LEGAL.TERMS' | translate }}
+      </a>
+    </div>
+  </div>
+</footer>

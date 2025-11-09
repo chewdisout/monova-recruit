@@ -1,0 +1,118 @@
+<section class="contact">
+  <div class="container">
+    <div class="contact__card card">
+      <div class="contact__form">
+        <h1 class="contact__title">
+          {{ 'CONTACT.TITLE' | translate }}
+        </h1>
+        <p class="contact__intro">
+          {{ 'CONTACT.INTRO' | translate }}
+        </p>
+        <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+          <div class="field">
+            <label for="name">
+              {{ 'CONTACT.FORM.NAME_LABEL' | translate }}
+            </label>
+            <input
+              id="name"
+              type="text"
+              class="input"
+              formControlName="name"
+            />
+            <div class="field__error" *ngIf="f.name.touched && f.name.invalid">
+              {{ 'CONTACT.VALIDATION.NAME_REQUIRED' | translate }}
+            </div>
+          </div>
+          <div class="field">
+            <label for="email">
+              {{ 'CONTACT.FORM.EMAIL_LABEL' | translate }}
+            </label>
+            <input
+              id="email"
+              type="email"
+              class="input"
+              formControlName="email"
+            />
+            <div class="field__error" *ngIf="f.email.touched && f.email.invalid">
+              <span *ngIf="f.email.errors?.['required']">
+                {{ 'CONTACT.VALIDATION.EMAIL_REQUIRED' | translate }}
+              </span>
+              <span *ngIf="f.email.errors?.['email']">
+                {{ 'CONTACT.VALIDATION.EMAIL_INVALID' | translate }}
+              </span>
+            </div>
+          </div>
+          <div class="field">
+            <label for="message">
+              {{ 'CONTACT.FORM.MESSAGE_LABEL' | translate }}
+            </label>
+            <textarea
+              id="message"
+              rows="4"
+              class="textarea"
+              formControlName="message"
+              [placeholder]="'CONTACT.FORM.MESSAGE_PLACEHOLDER' | translate"
+            ></textarea>
+            <div class="field__error" *ngIf="f.message.touched && f.message.invalid">
+              {{ 'CONTACT.VALIDATION.MESSAGE_REQUIRED' | translate }}
+            </div>
+          </div>
+          <button
+            type="submit"
+            class="btn btn--primary contact__submit"
+            [disabled]="sending() || form.invalid"
+          >
+            {{
+              sending()
+                ? ('CONTACT.FORM.SUBMIT' | translate) + '...'
+                : ('CONTACT.FORM.SUBMIT' | translate)
+            }}
+          </button>
+          <div class="contact__success" *ngIf="success()">
+            {{ 'CONTACT.FORM.SUCCESS' | translate }}
+          </div>
+          <div class="contact__error" *ngIf="error()">
+            {{ error() }}
+          </div>
+        </form>
+      </div>
+      <aside class="contact__side">
+        <div class="side-box">
+          <h2 class="side__title">
+            {{ 'CONTACT.INFO.TITLE' | translate }}
+          </h2>
+          <p class="side__row">
+            <strong>{{ 'CONTACT.INFO.PHONE_LABEL' | translate }}:</strong>
+            <a href="tel:+37100000000">+37128655822</a>
+          </p>
+          <p class="side__row">
+            <strong>{{ 'CONTACT.INFO.EMAIL_LABEL' | translate }}:</strong>
+            <a href="mailto:info@monova.eu">info@monova.work</a>
+          </p>
+          <p class="side__hours">
+            {{ 'CONTACT.INFO.HOURS' | translate }}
+          </p>
+        </div>
+        <div class="side-box">
+          <h2 class="side__title">
+            {{ 'CONTACT.OFFICE.TITLE' | translate }}
+          </h2>
+          <p class="side__row">
+            {{ 'CONTACT.OFFICE.ADDRESS' | translate }}
+          </p>
+          <p class="side__hint">
+            {{ 'CONTACT.OFFICE.MAP_HINT' | translate }}
+          </p>
+          <div class="contact__map-wrap">
+            <iframe
+              class="contact__map"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d0!2d24.105186!3d56.949649!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46eece29f0dfabcdef%3A0x123456789abcdef!2sRiga!5e0!3m2!1sen!2slv!4v0000000000000"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>

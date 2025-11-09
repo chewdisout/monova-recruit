@@ -1,1 +1,215 @@
-<p>profile-page-component works!</p>
+<section class="profile-page">
+  @if (loading()) {
+    <div class="profile-loading">
+      Loading your profile...
+    </div>
+  }
+
+  @if (error()) {
+    <div class="profile-error">
+      {{ error() }}
+    </div>
+  }
+
+  @if (user(); as u) {
+    <div class="profile-shell card">
+      <header class="profile-header">
+        <div class="avatar">
+          {{ (u.userName || u.userSurname || u.userEmail).charAt(0) }}
+        </div>
+        <div class="header-main">
+          <div class="name-row">
+            <h1>
+              {{ u.userName || 'Your profile' }}
+              @if (u.userSurname) {
+                <span>&nbsp;{{ u.userSurname }}</span>
+              }
+            </h1>
+          </div>
+          <div class="contact-row">
+            <span class="pill">
+              {{ u.userEmail }}
+            </span>
+            @if (u.userPhoneNumber) {
+              <span class="pill">
+                {{ u.userPhoneNumber }}
+              </span>
+            }
+            <span class="status-pill status-pill--idle">
+              Status: {{ u.userEmploymentStatus }}
+            </span>
+          </div>
+        </div>
+      </header>
+      <form class="profile-body" [formGroup]="profileForm" (ngSubmit)="saveProfile()">
+        <section class="section">
+          <h2>Personal & contact information</h2>
+          <div class="grid grid--2">
+            <label class="field">
+              <span class="label">First name</span>
+              <input class="input" formControlName="userName" />
+            </label>
+            <label class="field">
+              <span class="label">Last name</span>
+              <input class="input" formControlName="userSurname" />
+            </label>
+            <label class="field">
+              <span class="label">Email</span>
+              <input class="input" formControlName="userEmail" />
+            </label>
+            <label class="field">
+              <span class="label">Mobile phone</span>
+              <input class="input" formControlName="userPhoneNumber" />
+            </label>
+            <label class="field">
+              <span class="label">Citizenship</span>
+              <input class="input" formControlName="userCitizenship" />
+            </label>
+            <label class="field">
+              <span class="label">Gender</span>
+              <input class="input" formControlName="userGender" />
+            </label>
+            <label class="field">
+              <span class="label">Age</span>
+              <input class="input" type="number" formControlName="userAge" />
+            </label>
+          </div>
+        </section>
+        <section class="section">
+          <h2>About you & preferences</h2>
+          <div class="grid grid--1">
+            <label class="field">
+              <span class="label">Tell about yourself</span>
+              <textarea
+                class="textarea"
+                rows="4"
+                formControlName="userTellAboutYourSelf"
+                placeholder="Briefly describe your experience, languages, and what kind of work you are looking for."
+              ></textarea>
+            </label>
+          </div>
+          <div class="grid grid--2">
+            <label class="field">
+              <span class="label">Preferred job #1</span>
+              <select class="select" formControlName="userPrefferedJob">
+                <option value="">Select</option>
+                @for (job of jobOptions; track job) {
+                  <option [value]="job">{{ job }}</option>
+                }
+              </select>
+            </label>
+            <label class="field">
+              <span class="label">Preferred job #2</span>
+              <select class="select" formControlName="userSecondPrefferedJob">
+                <option value="">Select</option>
+                @for (job of jobOptions; track job) {
+                  <option [value]="job">{{ job }}</option>
+                }
+              </select>
+            </label>
+            <label class="field">
+              <span class="label">Preferred location #1</span>
+              <select class="select" formControlName="userPrefferedJobLocation">
+                <option value="">Select</option>
+                @for (loc of locationOptions; track loc) {
+                  <option [value]="loc">{{ loc }}</option>
+                }
+              </select>
+            </label>
+            <label class="field">
+              <span class="label">Preferred location #2</span>
+              <select class="select" formControlName="userSecondPrefferedJobLocation">
+                <option value="">Select</option>
+                @for (loc of locationOptions; track loc) {
+                  <option [value]="loc">{{ loc }}</option>
+                }
+              </select>
+            </label>
+          </div>
+        </section>
+        <section class="section section--last">
+          <div class="cv-flex">
+            <div>
+              <h2>CV</h2>
+              <p class="muted">
+                Upload your CV so we can quickly match you with suitable employers.
+              </p>
+            </div>
+            <button
+              type="button"
+              class="btn btn--outline btn--sm"
+              (click)="onUploadCvClick()"
+            >
+              Upload CV
+            </button>
+          </div>
+          <div class="workexp">
+            <h2>Work experience</h2>
+            <p class="muted">
+            List your recent roles, projects or relevant experience.
+            </p>
+
+            <div class="workexp-add">
+            <input
+                class="input"
+                [formControl]="newExperienceControl"
+                placeholder="e.g. Warehouse worker, DHL, Germany, 2022–2023"
+            />
+            <button
+                type="button"
+                class="btn btn--primary btn--sm"
+                (click)="addExperience()"
+            >
+                Add
+            </button>
+            </div>
+
+            @if (expLoading()) {
+            <div class="muted">Loading experience...</div>
+            }
+
+            @if (expError()) {
+            <div class="profile-error">{{ expError() }}</div>
+            }
+
+            @if (experiences().length > 0) {
+            <ul class="workexp-list">
+                @for (exp of experiences(); track exp.UserExperienceId) {
+                <li class="workexp-item">
+                    <span>{{ exp.userExperience }}</span>
+                    <button
+                    type="button"
+                    class="workexp-remove"
+                    (click)="removeExperience(exp.UserExperienceId)"
+                    >
+                    ✕
+                    </button>
+                </li>
+                }
+            </ul>
+            }
+        </div>
+        </section>
+        <div class="actions">
+            <button
+                type="submit"
+                class="btn btn--primary"
+                [disabled]="saving() || profileForm.invalid"
+            >
+                {{ saving() ? 'Saving...' : 'Save profile' }}
+            </button>
+            </div>
+
+            @if (saveError()) {
+            <div class="profile-error">{{ saveError() }}</div>
+            }
+
+            @if (saveSuccess()) {
+            <div class="profile-success">
+                Profile updated successfully.
+            </div>
+            }
+      </form>
+    </div>
+  }
+</section>

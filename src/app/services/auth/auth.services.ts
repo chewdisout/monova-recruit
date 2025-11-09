@@ -24,7 +24,7 @@ export class AuthService {
     constructor() {
         if (this.isBrowser) {
         const token = this.getToken();
-        if (token) this.loadProfile(token);
+        if (token) this.loadUserMeta(token);
         }
     }
 
@@ -35,9 +35,9 @@ export class AuthService {
 
     register(payload: SignUpPayload) {
         return this.http.post<UserOut>(`${this.apiBase}/createUser`, payload).pipe(
-        tap(user => {
-            console.log('User created', user);
-        })
+            tap(user => {
+                console.log('User created', user);
+            })
         );
     }
 
@@ -47,7 +47,7 @@ export class AuthService {
             .pipe(
             tap((res) => {
                 this.setToken(res.access_token);
-                this.loadProfile(res.access_token);
+                this.loadUserMeta(res.access_token);
             }),
             catchError(this.handleError('login'))
             );
@@ -58,7 +58,7 @@ export class AuthService {
         this._currentUser.set(null);
     }
 
-    private getToken(): string | null {
+    getToken(): string | null {
         return localStorage.getItem(this.tokenKey);
     }
 
@@ -68,18 +68,18 @@ export class AuthService {
 
     private authHeaders(token: string) {
         return {
-        headers: new HttpHeaders({
-            Authorization: `Bearer ${token}`,
-        }),
+            headers: new HttpHeaders({
+                Authorization: `Bearer ${token}`,
+            }),
         };
     }
 
-    private loadProfile(token?: string) {
+    private loadUserMeta(token?: string) {
         const t = token ?? this.getToken();
         if (!t) return;
 
         this.http
-        .get<UserOut>(`${this.apiBase}/profile`, this.authHeaders(t))
+        .get<UserOut>(`${this.apiBase}/loadUserMeta`, this.authHeaders(t))
         .subscribe({
             next: user => {
             const name =
@@ -93,7 +93,7 @@ export class AuthService {
             });
             },
             error: () => {
-            this.logout();
+
             },
         });
     }
