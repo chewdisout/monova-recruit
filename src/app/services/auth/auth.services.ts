@@ -23,14 +23,14 @@ export class AuthService {
 
     constructor() {
         if (this.isBrowser) {
-        const token = this.getToken();
-        if (token) this.loadUserMeta(token);
+            const token = this.getToken();
+            if (token) this.loadUserMeta(token);
         }
     }
 
     isAuthenticated(): boolean {
         if (!this.isBrowser) return false;
-        return !!this.currentUser() || !!localStorage.getItem(this.tokenKey);
+        return this.isLoggedIn();
     }
 
     register(payload: SignUpPayload) {
@@ -74,7 +74,7 @@ export class AuthService {
         };
     }
 
-    private loadUserMeta(token?: string) {
+    loadUserMeta(token?: string) {
         const t = token ?? this.getToken();
         if (!t) return;
 
@@ -82,18 +82,22 @@ export class AuthService {
         .get<UserOut>(`${this.apiBase}/loadUserMeta`, this.authHeaders(t))
         .subscribe({
             next: user => {
-            const name =
-                user.userName?.trim() ||
-                user.userSurname?.trim() ||
-                user.userEmail;
-            this._currentUser.set({
-                id: user.userId,
-                email: user.userEmail,
-                name,
-            });
+                const name =
+                    user.userName?.trim() ||
+                    user.userSurname?.trim() ||
+                    user.userEmail;
+                this._currentUser.set({
+                    id: user.userId,
+                    email: user.userEmail,
+                    name,
+                });
             },
-            error: () => {
+            error: (err) => {
+                console.error('loadUserMeta failed', err);
 
+                if (err.status === 401 || err.status === 403) {
+                    this.logout();
+                }
             },
         });
     }

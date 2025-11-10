@@ -1,0 +1,118 @@
+<section class="job-details">
+  <div class="container">
+    <a routerLink="/jobs" class="job-details__back">
+      ← Back to all jobs
+    </a>
+
+    <div *ngIf="loading()" class="job-details__loading">
+      Loading job details...
+    </div>
+
+    <div *ngIf="error()" class="job-details__error">
+      {{ error() }}
+    </div>
+
+    <ng-container *ngIf="!loading() && !error() && job() as j">
+      <header class="job-details__header">
+        <div>
+          <h1 class="job-details__title">{{ j.title }}</h1>
+          <div class="job-details__company">
+            {{ j.company_name || 'Monova partner employer' }}
+          </div>
+          <div class="job-details__location">
+            {{ j.city || 'Multiple locations' }}, {{ j.country }}
+          </div>
+        </div>
+
+        <div class="job-details__summary card">
+          <div class="summary__row" *ngIf="j.salary_from">
+            <div class="summary__label">Salary</div>
+            <div class="summary__value">
+              {{ j.salary_from }}
+              <ng-container *ngIf="j.salary_to">
+                – {{ j.salary_to }}
+              </ng-container>
+              {{ j.currency || 'EUR' }}
+              <span *ngIf="j.salary_type">/ {{ j.salary_type }}</span>
+            </div>
+          </div>
+
+          <div class="summary__row">
+            <div class="summary__label">Category</div>
+            <div class="summary__value">
+              {{ j.category | titlecase }}
+            </div>
+          </div>
+
+          <div class="summary__row" *ngIf="j.employment_type">
+            <div class="summary__label">Type</div>
+            <div class="summary__value">{{ j.employment_type }}</div>
+          </div>
+
+          <div class="summary__row" *ngIf="j.shift_type">
+            <div class="summary__label">Shifts</div>
+            <div class="summary__value">{{ j.shift_type }}</div>
+          </div>
+
+          <div class="summary__row">
+            <div class="summary__label">Housing</div>
+            <div class="summary__value">
+              {{ j['housing_provided'] ? 'Provided / assisted' : 'Not included' }}
+            </div>
+          </div>
+
+          <div class="summary__row">
+            <div class="summary__label">Housing</div>
+            <div class="summary__value">
+                {{ j.housing_provided ? 'Provided / assisted' : 'Not included' }}
+            </div>
+            </div>
+
+            <button
+                class="btn btn--primary summary__apply"
+                (click)="onApply()"
+                [disabled]="applying() || hasApplied()"
+            >
+                @if (hasApplied()) {
+                    Already applied
+                } @else if (applying()) {
+                    Applying...
+                } @else {
+                    Apply via Monova
+                }
+            </button>
+
+            @if (applyMessage()) {
+            <div class="apply-message">
+                {{ applyMessage() }}
+            </div>
+            }
+        </div>
+      </header>
+
+      <div class="job-details__body">
+        <section class="job-section">
+          <h2>About this job</h2>
+          <p>{{ j.full_description || j.short_description }}</p>
+        </section>
+
+        <section class="job-section" *ngIf="j['requirements_text']">
+          <h2>Requirements</h2>
+          <p>{{ j['requirements_text'] }}</p>
+        </section>
+
+        <section class="job-section" *ngIf="j['benefits_text']">
+          <h2>What we offer</h2>
+          <p>{{ j['benefits_text'] }}</p>
+        </section>
+
+        <section class="job-section job-hint">
+          <p>
+            All offers are verified through Monova and our licensed partners. We never ask
+            candidates to pay for finding a job.
+          </p>
+        </section>
+      </div>
+    </ng-container>
+  </div>
+</section>

@@ -43,9 +43,9 @@ export class NavbarComponent {
       label: 'NAV.JOBS',
       key: 'jobs',
       children: [
-        { label: 'MAIN.GERMANY', link: '/jobs?country=DE' },
-        { label: 'MAIN.NETHERLANDS', link: '/jobs?country=NL' },
-        { label: 'MAIN.FINLAND', link: '/jobs?country=FI' }
+        { label: 'MAIN.GERMANY', link: 'DE' },
+        { label: 'MAIN.NETHERLANDS', link: 'NL' },
+        { label: 'MAIN.FINLAND', link: 'FI' }
       ]
     },
     { label: 'NAV.SERVICES', link: '/services' },

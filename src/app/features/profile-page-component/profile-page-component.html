@@ -210,6 +210,78 @@
             </div>
             }
       </form>
+      <section class="profile-section profile-apps">
+        <div class="profile-apps__header">
+            <h2 class="section-title">My applications</h2>
+            <span
+            class="profile-apps__count"
+            *ngIf="applications().length && !appsLoading() && !appsError()"
+            >
+            {{ applications().length }} active {{ applications().length === 1 ? 'application' : 'applications' }}
+            </span>
+        </div>
+
+        <!-- Loading / error states -->
+        <div *ngIf="appsLoading()" class="profile-apps__state">
+            Loading your applications...
+        </div>
+
+        <div *ngIf="appsError()" class="profile-apps__state profile-apps__state--error">
+            {{ appsError() }}
+        </div>
+
+        <!-- Empty state -->
+        <div
+            *ngIf="!appsLoading() && !appsError() && applications().length === 0"
+            class="profile-apps__state profile-apps__state--empty"
+        >
+            You haven’t applied for any positions yet.
+            <a routerLink="/jobs">Browse job opportunities</a> to get started.
+        </div>
+
+        <!-- List -->
+        <ul
+            *ngIf="!appsLoading() && !appsError() && applications().length > 0"
+            class="profile-apps__list"
+        >
+            <li *ngFor="let a of applications()" class="profile-apps__item">
+            <div class="profile-apps__primary">
+                <div class="profile-apps__job-title">
+                {{ a.job?.title || ('Job #' + (a.job?.id || a.id)) }}
+                </div>
+
+                <div class="profile-apps__meta">
+                <span *ngIf="a.job?.country">
+                    {{ a.job.country }}
+                    <ng-container *ngIf="a.job?.city">
+                    • {{ a.job.city }}
+                    </ng-container>
+                </span>
+
+                <span>• {{ a.status }}</span>
+
+                <span>
+                    • Applied {{ a.created_at | date:'MMM d, y' }}
+                </span>
+                </div>
+            </div>
+
+            <div class="profile-apps__actions">
+                <span class="pill pill--soft">
+                {{ a.status | titlecase }}
+                </span>
+
+                <a
+                *ngIf="a.job?.id"
+                class="btn btn--outline btn--sm"
+                [routerLink]="['/jobs', a.job.id]"
+                >
+                View job
+                </a>
+            </div>
+            </li>
+        </ul>
+        </section>
     </div>
   }
 </section>

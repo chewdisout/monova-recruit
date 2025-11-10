@@ -15,16 +15,21 @@ import {
 } from '@angular/forms';
 import { UserService } from '../../services/user/user.service';
 import { ProfileUpdatePayload } from '../../models/user';
+import { ApplicationsService, ApplicationWithJob } from '../../services/application/applications.service';
+import { AuthService } from '../../services/auth/auth.services';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-profile-page-component',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink],
   templateUrl: './profile-page-component.html',
   styleUrl: './profile-page-component.scss',
 })
 export class ProfilePageComponent {
     private fb = inject(FormBuilder);
     private userService = inject(UserService);
+    private apps = inject(ApplicationsService);
+    private auth = inject(AuthService);
 
     user = computed(() => this.userService.user());
     loading = computed(() => this.userService.loading());
@@ -37,6 +42,10 @@ export class ProfilePageComponent {
     saving = signal(false);
     saveError = signal('');
     saveSuccess = signal(false);
+
+    applications = signal<ApplicationWithJob[]>([]);
+    appsLoading = signal(false);
+    appsError = signal('');
 
     jobOptions = [
       'Warehouse worker',
@@ -147,6 +156,20 @@ export class ProfilePageComponent {
     ngOnInit() {
       this.userService.loadProfile();
       this.userService.loadExperiences();
+
+       if (this.auth.isAuthenticated()) {
+        this.appsLoading.set(true);
+        this.apps.getMyApplications().subscribe({
+          next: (apps) => {
+            this.applications.set(apps);
+            this.appsLoading.set(false);
+          },
+          error: () => {
+            this.appsError.set('Unable to load your applications right now.');
+            this.appsLoading.set(false);
+          },
+        });
+      }
     }
 
     addExperience() {

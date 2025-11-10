@@ -1,0 +1,50 @@
+.jobs {
+  padding: 48px 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+
+  &__title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 24px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .job-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: var(--mnv-shadow-sm);
+    padding: 18px 20px;
+    display: grid;
+    gap: 8px;
+
+    &__header h3 {
+      font-size: 18px;
+      margin: 0;
+      color: var(--mnv-blue-900);
+    }
+
+    &__company {
+      color: var(--mnv-text-soft);
+      font-size: 13px;
+    }
+
+    &__meta {
+      font-size: 13px;
+      color: var(--mnv-text-dim);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__desc {
+      font-size: 14px;
+      color: var(--mnv-text);
+      margin: 6px 0 12px;
+    }
+  }
+}

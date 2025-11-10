@@ -32,7 +32,7 @@
         @if (openKey===item.key) {
             <ul class="subnav">
               @for (c of item.children; track c.label) {
-                <li><a [routerLink]="c.link">{{ c.label | translate }}</a></li>
+                <li><a href="/jobs?country={{ c.link }}">{{ c.label | translate }}</a></li>
               }
             </ul>
           }
