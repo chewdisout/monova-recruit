@@ -1,142 +1,273 @@
-import { Component, inject, signal, OnInit } from '@angular/core';
+// admin-job-edit.component.ts
+
+import {
+  Component,
+  inject,
+  signal,
+  OnInit,
+} from '@angular/core';
+import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ReactiveFormsModule, FormBuilder } from '@angular/forms';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import {
   AdminApiService,
   AdminJob,
   AdminJobCreate,
   AdminJobUpdate,
   JobTranslationUpsert,
+  JobTranslation,
 } from '../../../services/admin/admin-api.service';
 
-const LANGS = ['en', 'lv', 'lt', 'pl', 'ru'];
+const LANGS = ['en', 'pl', 'ru', 'lv', 'lt', 'ee'];
 
 @Component({
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  selector: 'app-admin-job-edit',
+  imports: [CommonModule, ReactiveFormsModule, RouterLink],
   templateUrl: './admin-job-edit.component.html',
-  styleUrls: [],
 })
 export class AdminJobEditComponent implements OnInit {
-  private route = inject(ActivatedRoute);
-  private router = inject(Router);
-  private api = inject(AdminApiService);
   private fb = inject(FormBuilder);
+  private api = inject(AdminApiService);
+  private route = inject(ActivatedRoute);
 
-  jobId: number | null = null;
-  loading = signal(true);
-  saving = signal(false);
+  jobId = 0;
+
+  loading = signal(false);
+  savingBase = signal(false);
+  savingTr = signal(false);
   error = signal('');
 
+  langs = LANGS;
+  activeLang = signal<string>('en');
+
   baseForm = this.fb.group({
-    title: [''],
-    country: [''],
+    title: ['', Validators.required],
+    company_name: ['', Validators.required],
+    reference_code: [''],
+    country: ['', Validators.required],
     city: [''],
-    category: [''],
-    short_description: [''],
-    full_description: [''],
+    workplace_address: [''],
+    category: ['', Validators.required],
+    employment_type: [''],
+    shift_type: [''],
+    salary_from: [null as number | null],
+    salary_to: [null as number | null],
+    currency: ['EUR'],
+    salary_type: ['monthly'],
+    is_net: [false],
+    housing_provided: [false],
+    housing_details: [''],
+    transport_provided: [false],
+    bonuses: [''],
+    min_experience_years: [0],
+    language_required: [''],
+    documents_required: [''],
+    driving_license_required: [false],
+    short_description: ['', Validators.required],
+    full_description: ['', Validators.required],
+    responsibilities: [''],
+    requirements_text: [''],
+    benefits_text: [''],
     is_active: [true],
   });
 
-  activeLang = signal<'en' | 'lv' | 'lt' | 'pl' | 'ru'>('en');
+  // one reactive form per language
+  trForms: Record<string, ReturnType<FormBuilder['group']>> = {};
 
-  translationForms: Record<string, ReturnType<FormBuilder['group']>> = {};
-
-  constructor() {
-    LANGS.forEach(l => {
-      this.translationForms[l] = this.fb.group({
+  ngOnInit() {
+    this.langs.forEach((l) => {
+      this.trForms[l] = this.fb.group({
         title: [''],
         short_description: [''],
         full_description: [''],
+        responsibilities: [''],
         requirements_text: [''],
         benefits_text: [''],
+        housing_details: [''],
+        documents_required: [''],
+        bonuses: [''],
+        language_required: [''],
       });
     });
-  }
 
-  ngOnInit() {
-    const idParam = this.route.snapshot.paramMap.get('id');
-
-    if (!idParam || idParam === 'new') {
-      this.loading.set(false);
-      return;
-    }
-
-    this.jobId = Number(idParam);
-
-    this.api.getJob(this.jobId).subscribe({
-      next: (job: AdminJob) => {
-        this.baseForm.patchValue({
-          title: job.title,
-          country: job.country,
-          city: job.city || '',
-          category: job.category || '',
-          short_description: job.short_description || '',
-          full_description: job.full_description || '',
-          is_active: job.is_active,
-        });
-
-        this.loading.set(false);
-      },
-      error: () => {
-        this.error.set('Failed to load job.');
-        this.loading.set(false);
-      },
+    this.route.params.subscribe((p) => {
+      const id = Number(p['id']);
+      if (!id) return;
+      this.jobId = id;
+      this.loadJob();
+      this.loadTranslations();
     });
   }
 
-  setLang(lang: any) {
+  setLang(lang: string) {
     this.activeLang.set(lang);
   }
 
-  saveBase() {
-    this.saving.set(true);
-    this.error.set('');
-
-    const payload = this.baseForm.value as AdminJobUpdate | AdminJobCreate;
-
-    if (this.jobId) {
-      this.api.updateJob(this.jobId, payload).subscribe({
-        next: () => (this.saving.set(false)),
-        error: () => {
-          this.error.set('Failed to save job.');
-          this.saving.set(false);
-        },
-      });
-    } else {
-      this.api.createJob(payload as AdminJobCreate).subscribe({
-        next: job => {
-          this.saving.set(false);
-          this.router.navigate(['/admin/jobs', job.id]);
-        },
-        error: () => {
-          this.error.set('Failed to create job.');
-          this.saving.set(false);
-        },
-      });
-    }
-  }
-
-  saveTranslation(lang: string) {
-    if (!this.jobId) return;
-    const form = this.translationForms[lang];
-    const v = form.value;
-
-    const payload: JobTranslationUpsert = {
-      lang_code: lang,
-      title: v.title || null,
-      short_description: v.short_description || null,
-      full_description: v.full_description || null,
-      requirements_text: v.requirements_text || null,
-      benefits_text: v.benefits_text || null,
-    };
-
-    this.api.upsertJobTranslation(this.jobId, lang, payload).subscribe({
-      next: () => {},
+  private loadJob() {
+    this.loading.set(true);
+    this.api.getJob(this.jobId).subscribe({
+      next: (job: AdminJob) => {
+        this.loading.set(false);
+        // patch base form; cast booleans properly
+        this.baseForm.patchValue({
+          ...job,
+          is_active: !!job.is_active,
+          is_net: !!(job as any).is_net,
+          housing_provided: !!(job as any).housing_provided,
+          transport_provided: !!(job as any).transport_provided,
+        });
+      },
       error: () => {
-        this.error.set(`Failed to save ${lang.toUpperCase()} translation.`);
+        this.loading.set(false);
+        this.error.set('Failed to load job.');
       },
     });
   }
+
+  private loadTranslations() {
+    if (!this.jobId) return;
+    this.api.getJobTranslations(this.jobId).subscribe({
+      next: (trs: JobTranslation[]) => {
+        trs.forEach((tr) => {
+          const f = this.trForms[tr.lang_code];
+          if (f) f.patchValue(tr);
+        });
+      },
+      error: () => {
+        // non-fatal
+      },
+    });
+  }
+
+    saveBase() {
+  if (this.baseForm.invalid) {
+    this.baseForm.markAllAsTouched();
+    return;
+  }
+
+  const isUpdate = !!this.jobId;
+  const payload = this.buildJobPayload(isUpdate);
+
+  this.savingBase.set(true);
+
+  const req$ = isUpdate
+    ? this.api.updateJob(this.jobId!, payload as AdminJobUpdate)
+    : this.api.createJob(payload as AdminJobCreate);
+
+  req$.subscribe({
+    next: (job) => {
+      this.savingBase.set(false);
+      this.error.set('');
+      this.jobId = job.id; // now we can edit translations etc
+    },
+    error: () => {
+      this.savingBase.set(false);
+      this.error.set('Failed to save job.');
+    },
+  });
+}
+
+
+  saveTranslation(lang: string) {
+    if (!this.jobId) {
+      this.error.set('Save base job first.');
+      return;
+    }
+
+    const raw = this.trForms[lang].value;
+    const payload: JobTranslationUpsert = {
+      lang_code: lang,
+      ...raw,
+    };
+
+    this.savingTr.set(true);
+
+    this.api.upsertJobTranslation(this.jobId, lang, payload).subscribe({
+      next: () => {
+        this.savingTr.set(false);
+        this.error.set('');
+      },
+      error: () => {
+        this.savingTr.set(false);
+        this.error.set('Failed to save translation.');
+      },
+    });
+  }
+
+    private buildJobPayload(isUpdate: boolean): AdminJobCreate | AdminJobUpdate {
+  const raw = this.baseForm.value;
+  const p: any = {};
+
+  // Required-ish fields
+  if (raw.title != null) {
+    const t = String(raw.title).trim();
+    if (t || !isUpdate) p.title = t;
+  }
+
+  if (raw.country != null) {
+    const c = String(raw.country).trim();
+    if (c || !isUpdate) p.country = c;
+  }
+
+  // Helper for optional string fields
+  const setStr = (key: keyof typeof raw) => {
+    const v = raw[key];
+    if (v != null && String(v).trim() !== '') {
+      p[key] = String(v).trim();
+    }
+  };
+
+  // Only string-ish columns go here
+  const stringFields: (keyof typeof raw)[] = [
+    'company_name',
+    'reference_code',
+    'city',
+    'workplace_address',
+    'category',
+    'employment_type',
+    'shift_type',
+    'currency',
+    'salary_type',
+    'housing_details',
+    'bonuses',
+    'language_required',
+    'documents_required',
+    'short_description',
+    'full_description',
+    'responsibilities',
+    'requirements_text',
+    'benefits_text',
+  ];
+
+  stringFields.forEach((key) => setStr(key));
+
+  // Numbers
+  // Numbers
+if (raw.salary_from !== null && raw.salary_from !== undefined) {
+  p.salary_from = Number(raw.salary_from);
+}
+
+if (raw.salary_to !== null && raw.salary_to !== undefined) {
+  p.salary_to = Number(raw.salary_to);
+}
+
+if (raw.min_experience_years !== null && raw.min_experience_years !== undefined) {
+  p.min_experience_years = Number(raw.min_experience_years);
+}
+
+
+  // Booleans — normalize null/undefined -> omit, defined -> boolean
+  if (raw.is_active != null) p.is_active = !!raw.is_active;
+  if (raw.is_net != null) p.is_net = !!raw.is_net;
+  if (raw.housing_provided != null)
+    p.housing_provided = !!raw.housing_provided;
+  if (raw.transport_provided != null)
+    p.transport_provided = !!raw.transport_provided;
+  if (raw.driving_license_required != null)
+    p.driving_license_required = !!raw.driving_license_required;
+
+  return p as AdminJobCreate | AdminJobUpdate;
+}
+
 }

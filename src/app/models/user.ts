@@ -33,6 +33,7 @@ export interface SignUpPayload {
   userPhoneNumber?: string;
   userCitizenship?: string;
   userEmploymentStatus: string;
+  isAdmin?: boolean;
 }
 
 export interface LoginResponse {

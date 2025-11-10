@@ -1,100 +1,406 @@
-<div class="admin-grid" *ngIf="!loading(); else loadingTpl">
-  <div class="admin-card">
-    <h2>{{ jobId ? 'Edit job' : 'Create job' }}</h2>
-    <p class="hint">Core job information (English / base).</p>
-
-    <form [formGroup]="baseForm" (ngSubmit)="saveBase()" class="form">
-      <label>
-        <span>Title</span>
-        <input class="input" formControlName="title" />
-      </label>
-
-      <div class="grid-3">
-        <label>
-          <span>Country</span>
-          <input class="input" formControlName="country" />
-        </label>
-        <label>
-          <span>City</span>
-          <input class="input" formControlName="city" />
-        </label>
-        <label>
-          <span>Category</span>
-          <input class="input" formControlName="category" />
-        </label>
+<div class="admin-page">
+  <div class="admin-main">
+    <!-- Header -->
+    <header class="admin-header">
+      <div>
+        <h1 class="admin-title">
+          {{ jobId ? 'Edit job' : 'Create job' }}
+        </h1>
+        <p class="admin-subtitle">
+          Configure how this position appears on the site and in candidate matching.
+        </p>
       </div>
+      <a routerLink="/admin/jobs" class="back-link">← Back to jobs</a>
+    </header>
 
-      <label>
-        <span>Short description</span>
-        <textarea class="textarea" rows="2" formControlName="short_description"></textarea>
-      </label>
-
-      <label>
-        <span>Full description</span>
-        <textarea class="textarea" rows="4" formControlName="full_description"></textarea>
-      </label>
-
-      <label class="check-label">
-        <input type="checkbox" formControlName="is_active" />
-        <span>Active / visible to candidates</span>
-      </label>
-
-      <div class="actions">
-        <button type="submit" class="btn btn--primary" [disabled]="saving()">
-          {{ saving() ? 'Saving...' : 'Save job' }}
-        </button>
-        <span class="error" *ngIf="error()">{{ error() }}</span>
-      </div>
-    </form>
-  </div>
-
-  <div class="admin-card">
-    <h3>Translations</h3>
-    <p class="hint">Localize candidate-facing content by language.</p>
-
-    <div class="lang-tabs">
-      <button
-        *ngFor="let l of ['en', 'lv', 'lt', 'pl', 'ru']"
-        type="button"
-        class="lang-tab"
-        [class.is-active]="activeLang() === l"
-        (click)="setLang(l)"
-      >
-        {{ l.toUpperCase() }}
-      </button>
+    <!-- Global states -->
+    <div class="state state--loading" *ngIf="loading()">Loading…</div>
+    <div class="state state--error" *ngIf="!loading() && error()">
+      {{ error() }}
     </div>
 
-    <div
-      class="lang-pane"
-      *ngFor="let l of ['en', 'lv', 'lt', 'pl', 'ru']"
-      [class.is-active]="activeLang() === l"
-    >
-      <form [formGroup]="translationForms[l]" (ngSubmit)="saveTranslation(l)">
-        <label>
-          <span>Title ({{ l.toUpperCase() }})</span>
-          <input class="input" formControlName="title" />
-        </label>
+    <!-- Base job form -->
+    <section class="admin-card" *ngIf="!loading()">
+      <form
+        [formGroup]="baseForm"
+        (ngSubmit)="saveBase()"
+        class="job-form"
+      >
+        <!-- Core info -->
+        <div class="grid-2">
+          <div class="field">
+            <label>Title*</label>
+            <input class="input" formControlName="title" />
+          </div>
+          <div class="field">
+            <label>Company</label>
+            <input class="input" formControlName="company_name" />
+          </div>
+        </div>
 
-        <label>
-          <span>Short description</span>
-          <textarea class="textarea" rows="2" formControlName="short_description"></textarea>
-        </label>
+        <div class="grid-3">
+          <div class="field">
+            <label>Reference code</label>
+            <input class="input" formControlName="reference_code" />
+          </div>
+          <div class="field">
+            <div class="field">
+                <label>Country*</label>
+                <select class="select" formControlName="country">
+                    <option value="NL">Netherlands</option>
+                    <option value="DE">Germany</option>
+                    <option value="FN">Finland</option>
+                    <option value="FR">France</option>
+                    <!-- extend as needed -->
+                </select>
+            </div>
+          </div>
+          <div class="field">
+            <label>City</label>
+            <input class="input" formControlName="city" />
+          </div>
+        </div>
 
-        <label>
-          <span>Full description</span>
-          <textarea class="textarea" rows="4" formControlName="full_description"></textarea>
-        </label>
+        <div class="grid-2">
+          <div class="field">
+            <label>Workplace address</label>
+            <input class="input" formControlName="workplace_address" />
+          </div>
+          <div class="field">
+            <label>Category</label>
+            <input class="input" formControlName="category" />
+          </div>
+        </div>
 
+        <!-- Employment -->
+        <div class="grid-3">
+          <div class="field">
+            <label>Employment type</label>
+            <input class="input" formControlName="employment_type" />
+          </div>
+          <div class="field">
+            <label>Shift type</label>
+            <input class="input" formControlName="shift_type" />
+          </div>
+          <div class="field">
+            <label>Experience (years)</label>
+            <input
+              type="number"
+              class="input"
+              formControlName="min_experience_years"
+            />
+          </div>
+        </div>
+
+        <!-- Salary -->
+        <div class="grid-3">
+          <div class="field">
+            <label>Salary from</label>
+            <input
+              type="number"
+              class="input"
+              formControlName="salary_from"
+            />
+          </div>
+          <div class="field">
+            <label>Salary to</label>
+            <input
+              type="number"
+              class="input"
+              formControlName="salary_to"
+            />
+          </div>
+          <div class="field">
+            <label>Currency</label>
+            <input class="input" formControlName="currency" />
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <div class="field">
+            <label>Salary type</label>
+            <input class="input" formControlName="salary_type" />
+          </div>
+          <div class="field checkbox-field">
+            <label>
+              <input type="checkbox" formControlName="is_net" />
+              Net salary
+            </label>
+          </div>
+          <div class="field">
+            <!-- spacer / free slot -->
+          </div>
+        </div>
+
+        <!-- Extras -->
+        <div class="grid-3">
+          <div class="field checkbox-field">
+            <label>
+              <input type="checkbox" formControlName="housing_provided" />
+              Housing provided
+            </label>
+          </div>
+          <div class="field checkbox-field">
+            <label>
+              <input type="checkbox" formControlName="transport_provided" />
+              Transport provided
+            </label>
+          </div>
+          <div class="field checkbox-field">
+            <label>
+              <input
+                type="checkbox"
+                formControlName="driving_license_required"
+              />
+              Driving license required
+            </label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Housing details</label>
+          <textarea
+            class="textarea"
+            rows="2"
+            formControlName="housing_details"
+          ></textarea>
+        </div>
+
+        <!-- Descriptions -->
+        <div class="field">
+          <label>Short description</label>
+          <textarea
+            class="textarea"
+            rows="2"
+            formControlName="short_description"
+          ></textarea>
+        </div>
+
+        <div class="field">
+          <label>Full description</label>
+          <textarea
+            class="textarea"
+            rows="4"
+            formControlName="full_description"
+          ></textarea>
+        </div>
+
+        <div class="field">
+          <label>Responsibilities</label>
+          <textarea
+            class="textarea"
+            rows="3"
+            formControlName="responsibilities"
+          ></textarea>
+        </div>
+
+        <div class="field">
+          <label>Requirements</label>
+          <textarea
+            class="textarea"
+            rows="3"
+            formControlName="requirements_text"
+          ></textarea>
+        </div>
+
+        <div class="field">
+          <label>Benefits</label>
+          <textarea
+            class="textarea"
+            rows="3"
+            formControlName="benefits_text"
+          ></textarea>
+        </div>
+
+        <!-- Lang / docs / bonuses -->
+        <div class="grid-2">
+          <div class="field">
+            <label>Language requirements</label>
+            <textarea
+              class="textarea"
+              rows="2"
+              formControlName="language_required"
+            ></textarea>
+          </div>
+          <div class="field">
+            <label>Documents required</label>
+            <textarea
+              class="textarea"
+              rows="2"
+              formControlName="documents_required"
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Bonuses / notes</label>
+          <textarea
+            class="textarea"
+            rows="2"
+            formControlName="bonuses"
+          ></textarea>
+        </div>
+
+        <!-- Active switch -->
+        <div class="field field--switch">
+          <label class="switch">
+            <input type="checkbox" formControlName="is_active" />
+            <span></span>
+          </label>
+          <div class="switch-label">
+            <div class="switch-title">Active</div>
+            <div class="switch-sub">
+              Visible on the website when enabled.
+            </div>
+          </div>
+        </div>
+
+        <!-- Actions -->
         <div class="actions">
-          <button type="submit" class="btn btn--outline btn-sm" [disabled]="!jobId">
-            Save {{ l.toUpperCase() }}
+          <button
+            class="btn btn--primary"
+            type="submit"
+            [disabled]="savingBase() || baseForm.invalid"
+          >
+            {{ savingBase() ? 'Saving…' : 'Save job' }}
           </button>
         </div>
       </form>
-    </div>
+    </section>
+
+    <!-- Translations (only when job exists) -->
+    <section class="admin-card mt-24" *ngIf="jobId">
+      <div class="card__header">
+        <h2>Translations</h2>
+        <p class="muted">
+          Localize job descriptions per language.
+          Empty fields fall back to the base job content.
+        </p>
+      </div>
+
+      <div class="lang-tabs">
+        <button
+          *ngFor="let l of langs"
+          type="button"
+          class="lang-tab"
+          [class.is-active]="activeLang() === l"
+          (click)="setLang(l)"
+        >
+          {{ l.toUpperCase() }}
+        </button>
+      </div>
+
+      <div *ngFor="let l of langs">
+        <form
+          *ngIf="activeLang() === l"
+          [formGroup]="trForms[l]"
+          class="tr-form"
+          (ngSubmit)="saveTranslation(l)"
+        >
+          <div class="grid-2">
+            <div class="field">
+              <label>Title ({{ l.toUpperCase() }})</label>
+              <input class="input" formControlName="title" />
+            </div>
+            <div class="field">
+              <label>Language requirement</label>
+              <input
+                class="input"
+                formControlName="language_required"
+              />
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Short description</label>
+            <textarea
+              class="textarea"
+              rows="2"
+              formControlName="short_description"
+            ></textarea>
+          </div>
+
+          <div class="field">
+            <label>Full description</label>
+            <textarea
+              class="textarea"
+              rows="3"
+              formControlName="full_description"
+            ></textarea>
+          </div>
+
+          <div class="grid-2">
+            <div class="field">
+              <label>Responsibilities</label>
+              <textarea
+                class="textarea"
+                rows="2"
+                formControlName="responsibilities"
+              ></textarea>
+            </div>
+            <div class="field">
+              <label>Requirements</label>
+              <textarea
+                class="textarea"
+                rows="2"
+                formControlName="requirements_text"
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="field">
+              <label>Benefits</label>
+              <textarea
+                class="textarea"
+                rows="2"
+                formControlName="benefits_text"
+              ></textarea>
+            </div>
+            <div class="field">
+              <label>Housing details</label>
+              <textarea
+                class="textarea"
+                rows="2"
+                formControlName="housing_details"
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="field">
+              <label>Documents required</label>
+              <textarea
+                class="textarea"
+                rows="2"
+                formControlName="documents_required"
+              ></textarea>
+            </div>
+            <div class="field">
+              <label>Bonuses</label>
+              <textarea
+                class="textarea"
+                rows="2"
+                formControlName="bonuses"
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="actions actions--tr">
+            <button
+              type="submit"
+              class="btn btn--primary"
+              [disabled]="savingTr()"
+            >
+              {{
+                savingTr()
+                  ? 'Saving…'
+                  : 'Save ' + l.toUpperCase() + ' copy'
+              }}
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
   </div>
 </div>
-
-<ng-template #loadingTpl>
-  <div class="muted">Loading job...</div>
-</ng-template>
