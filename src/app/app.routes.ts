@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { HomePageComponent } from './features/home-page-component/home-page-component';
-import { authGuard } from './services/auth/auth.guard';
+import { authGuard, adminGuard } from './services/auth/auth.guard';
 
 export const routes: Routes = [
     { path: '', component: HomePageComponent},
@@ -44,6 +44,45 @@ export const routes: Routes = [
         canActivate: [authGuard],
         loadComponent: () =>
         import('../app/features/profile-page-component/profile-page-component').then(m => m.ProfilePageComponent),
+    },
+    {
+        path: 'admin',
+        canActivate: [adminGuard],
+        loadComponent: () =>
+            import('./features/admin/admin-layout.component').then(m => m.AdminLayoutComponent),
+        children: [
+            { path: '', pathMatch: 'full', redirectTo: 'users' },
+            {
+                path: 'users',
+                loadComponent: () =>
+                    import('./features/admin/users/admin-users-list.component')
+                    .then(m => m.AdminUsersListComponent),
+            },
+            {
+                path: 'users/:id',
+                loadComponent: () =>
+                    import('./features/admin/users/admin-user-detail.component')
+                    .then(m => m.AdminUserDetailComponent),
+            },
+            {
+                path: 'jobs',
+                loadComponent: () =>
+                    import('./features/admin/jobs/admin-jobs-list.component')
+                    .then(m => m.AdminJobsListComponent),
+            },
+            {
+                path: 'jobs/:id',
+                loadComponent: () =>
+                    import('./features/admin/jobs/admin-job-edit.component')
+                    .then(m => m.AdminJobEditComponent),
+            },
+            {
+                path: 'jobs/new',
+                loadComponent: () =>
+                    import('./features/admin/jobs/admin-job-edit.component')
+                    .then(m => m.AdminJobEditComponent),
+            },
+        ],
     },
     { path: '**', redirectTo: '', pathMatch: 'full' } 
 ];

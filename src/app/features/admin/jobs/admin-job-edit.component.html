@@ -1,0 +1,100 @@
+<div class="admin-grid" *ngIf="!loading(); else loadingTpl">
+  <div class="admin-card">
+    <h2>{{ jobId ? 'Edit job' : 'Create job' }}</h2>
+    <p class="hint">Core job information (English / base).</p>
+
+    <form [formGroup]="baseForm" (ngSubmit)="saveBase()" class="form">
+      <label>
+        <span>Title</span>
+        <input class="input" formControlName="title" />
+      </label>
+
+      <div class="grid-3">
+        <label>
+          <span>Country</span>
+          <input class="input" formControlName="country" />
+        </label>
+        <label>
+          <span>City</span>
+          <input class="input" formControlName="city" />
+        </label>
+        <label>
+          <span>Category</span>
+          <input class="input" formControlName="category" />
+        </label>
+      </div>
+
+      <label>
+        <span>Short description</span>
+        <textarea class="textarea" rows="2" formControlName="short_description"></textarea>
+      </label>
+
+      <label>
+        <span>Full description</span>
+        <textarea class="textarea" rows="4" formControlName="full_description"></textarea>
+      </label>
+
+      <label class="check-label">
+        <input type="checkbox" formControlName="is_active" />
+        <span>Active / visible to candidates</span>
+      </label>
+
+      <div class="actions">
+        <button type="submit" class="btn btn--primary" [disabled]="saving()">
+          {{ saving() ? 'Saving...' : 'Save job' }}
+        </button>
+        <span class="error" *ngIf="error()">{{ error() }}</span>
+      </div>
+    </form>
+  </div>
+
+  <div class="admin-card">
+    <h3>Translations</h3>
+    <p class="hint">Localize candidate-facing content by language.</p>
+
+    <div class="lang-tabs">
+      <button
+        *ngFor="let l of ['en', 'lv', 'lt', 'pl', 'ru']"
+        type="button"
+        class="lang-tab"
+        [class.is-active]="activeLang() === l"
+        (click)="setLang(l)"
+      >
+        {{ l.toUpperCase() }}
+      </button>
+    </div>
+
+    <div
+      class="lang-pane"
+      *ngFor="let l of ['en', 'lv', 'lt', 'pl', 'ru']"
+      [class.is-active]="activeLang() === l"
+    >
+      <form [formGroup]="translationForms[l]" (ngSubmit)="saveTranslation(l)">
+        <label>
+          <span>Title ({{ l.toUpperCase() }})</span>
+          <input class="input" formControlName="title" />
+        </label>
+
+        <label>
+          <span>Short description</span>
+          <textarea class="textarea" rows="2" formControlName="short_description"></textarea>
+        </label>
+
+        <label>
+          <span>Full description</span>
+          <textarea class="textarea" rows="4" formControlName="full_description"></textarea>
+        </label>
+
+        <div class="actions">
+          <button type="submit" class="btn btn--outline btn-sm" [disabled]="!jobId">
+            Save {{ l.toUpperCase() }}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<ng-template #loadingTpl>
+  <div class="muted">Loading job...</div>
+</ng-template>

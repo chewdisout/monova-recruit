@@ -45,19 +45,20 @@ export class NavbarComponent {
       children: [
         { label: 'MAIN.GERMANY', link: 'DE' },
         { label: 'MAIN.NETHERLANDS', link: 'NL' },
-        { label: 'MAIN.FINLAND', link: 'FI' }
+        { label: 'MAIN.FINLAND', link: 'FI' },
+        { label: 'MAIN.BELGIUM', link: 'BE' },
+        { label: 'MAIN.FRANCE', link: 'FR' },
       ]
     },
-    { label: 'NAV.SERVICES', link: '/services' },
     { label: 'NAV.FAQ',      link: '/faq' },
     { label: 'NAV.CONTACTS', link: '/contacts' },
   ];
 
   socials = [
-    { key: 'tiktok',   href: 'https://www.tiktok.com/@monova',    label: 'TikTok' },
-    { key: 'linkedin', href: 'https://www.linkedin.com/company/', label: 'LinkedIn' },
-    { key: 'facebook', href: 'https://facebook.com/',             label: 'Facebook' },
-    { key: 'instagram',href: 'https://instagram.com/',            label: 'Instagram' },
+    { key: 'tiktok',   href: 'https://www.tiktok.com/@monovarecruit?_r=1&_t=ZN-91HcctpOzji',    label: 'TikTok' },
+    { key: 'linkedin', href: 'https://www.linkedin.com/company/monova-recruitment/', label: 'LinkedIn' },
+    { key: 'facebook', href: 'https://facebook.com/', label: 'Facebook' },
+    { key: 'instagram',href: 'https://www.instagram.com/monovarecruit?igsh=MW12dDd4MTczd3dweA%3D%3D&utm_source=qr', label: 'Instagram' },
   ];
 
   langs = [

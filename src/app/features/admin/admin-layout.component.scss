@@ -1,0 +1,72 @@
+.admin-layout {
+  display: grid;
+  grid-template-columns: 210px minmax(0, 1fr);
+  height: 100vh;
+  background: #f4f6fb;
+  color: var(--mnv-blue-900);
+}
+
+.admin-sidebar {
+  background: #0e77cc;
+  color: #fff;
+  padding: 18px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.admin-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  .dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 999px;
+    background: #fff;
+    opacity: 0.92;
+  }
+
+  .name {
+    font-weight: 700;
+    font-size: 16px;
+  }
+
+  .tag {
+    font-size: 11px;
+    opacity: 0.9;
+  }
+}
+
+.admin-nav {
+  margin-top: 10px;
+  display: grid;
+  gap: 4px;
+}
+
+.admin-nav__item {
+  padding: 9px 10px;
+  border-radius: 10px;
+  font-size: 13px;
+  color: #e5f2ff;
+  text-decoration: none;
+  opacity: 0.8;
+  transition: all 0.16s ease;
+}
+
+.admin-nav__item:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.admin-nav__item.is-active {
+  background: #fff;
+  color: #0e77cc;
+  opacity: 1;
+}
+
+.admin-main {
+  padding: 22px 26px;
+  overflow-y: auto;
+}

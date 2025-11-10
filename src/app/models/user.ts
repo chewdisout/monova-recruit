@@ -2,6 +2,7 @@ export interface UserProfile {
   id: number;
   email: string;
   name: string;
+  isAdmin?: boolean;
 }
 
 export interface UserOut {
@@ -19,6 +20,7 @@ export interface UserOut {
   userPrefferedJobLocation?: string | null;
   userSecondPrefferedJobLocation?: string | null;
   userTellAboutYourSelf?: string | null;
+  isAdmin?: boolean;
 }
 
 export interface SignUpPayload {

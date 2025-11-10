@@ -1,0 +1,152 @@
+<div class="admin-page">
+  <main class="admin-main">
+
+    <header class="admin-header">
+      <h1>User profile</h1>
+      <p class="admin-header__subtitle">
+        Edit candidate information, status and admin permissions.
+      </p>
+    </header>
+
+    <!-- Loading state -->
+    <div class="state state--loading" *ngIf="loading()">
+      Loading user…
+    </div>
+
+    <!-- Error state when user failed to load -->
+    <div class="state state--error" *ngIf="!loading() && error()">
+      {{ error() }}
+    </div>
+
+    <!-- Form card -->
+    <section class="admin-card" *ngIf="!loading() && !error()">
+      <form [formGroup]="form" (ngSubmit)="save()" class="user-form">
+        <div class="form-grid-2">
+          <div class="field">
+            <label for="firstName">First name</label>
+            <input
+              id="firstName"
+              type="text"
+              class="input"
+              formControlName="userName"
+              placeholder="Candidate first name"
+            />
+          </div>
+
+          <div class="field">
+            <label for="lastName">Last name</label>
+            <input
+              id="lastName"
+              type="text"
+              class="input"
+              formControlName="userSurname"
+              placeholder="Candidate last name"
+            />
+          </div>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input
+              id="phone"
+              type="text"
+              class="input"
+              formControlName="userPhoneNumber"
+              placeholder="+371…"
+            />
+          </div>
+
+          <div class="field">
+            <label for="citizenship">Citizenship</label>
+            <input
+              id="citizenship"
+              type="text"
+              class="input"
+              formControlName="userCitizenship"
+              placeholder="Country"
+            />
+          </div>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="field">
+            <label for="status">Status</label>
+            <input
+              id="status"
+              type="text"
+              class="input"
+              formControlName="userEmploymentStatus"
+              placeholder="not-employed / active / placed…"
+            />
+          </div>
+
+          <div class="field field--checkbox">
+            <label class="checkbox-label">
+              <input type="checkbox" formControlName="is_admin" />
+              <span>Admin access</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="actions-row">
+          <button
+            type="submit"
+            class="btn btn--primary"
+            [disabled]="saving() || !touched()"
+          >
+            {{ saving() ? 'Saving…' : 'Save changes' }}
+          </button>
+
+          <span class="saved" *ngIf="!error() && !saving() && !touched()">
+            Saved
+          </span>
+
+          <span class="error-inline" *ngIf="error() && !loading()">
+            {{ error() }}
+          </span>
+        </div>
+      </form>
+    </section>
+
+    <!-- Applications card -->
+    <section class="admin-card apps-card">
+      <h2>Applications</h2>
+      <p class="admin-header__subtitle">
+        Jobs this user has applied for.
+      </p>
+
+      <ul class="apps-list" *ngIf="applications().length; else noApps">
+        <li *ngFor="let a of applications()" class="app-item">
+          <div class="app-item__top">
+            <div class="app-title">
+              {{ a.job_title || ('Job #' + a.job_id) }}
+            </div>
+            <span class="badge badge--status">{{ a.status }}</span>
+          </div>
+
+          <div class="app-meta">
+            <span *ngIf="a.job_country">{{ a.job_country }}</span>
+            <span>• {{ a.created_at | date: 'MMM d, y HH:mm' }}</span>
+
+            <a
+              *ngIf="a.job_id"
+              class="app-link"
+              [routerLink]="['/jobs', a.job_id]"
+              target="_blank"
+            >
+              View job
+            </a>
+          </div>
+        </li>
+      </ul>
+
+      <ng-template #noApps>
+        <div class="state state--muted">
+          No applications yet.
+        </div>
+      </ng-template>
+    </section>
+
+  </main>
+</div>

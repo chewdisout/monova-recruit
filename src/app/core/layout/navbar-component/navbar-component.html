@@ -12,7 +12,7 @@
 }
 
 <nav class="rail mnv-sidebar" role="navigation" aria-label="Main" [class.open]="isOpen">
-  <div class="rail__header">
+  <div class="rail__header" routerLink="/">
     <div class="brand">
       <img src="../../../../assets/img/left_horz.svg" alt="Monova logo" class="navbar-logo" />
     </div>
@@ -153,7 +153,6 @@
             </button>
           }
         </div>
-        <a routerLink="/seekers" class="btn btn--accent" (click)="closeDrawer()">Upload CV</a>
       </aside>
     </div>
   }

@@ -1,0 +1,78 @@
+<section class="page">
+  <header class="page__header">
+    <div>
+      <div class="eyebrow">Operations overview</div>
+      <h1>Registered users</h1>
+      <p class="lead">
+        View and edit candidate profiles and see where they applied.
+      </p>
+    </div>
+  </header>
+
+  <div class="card">
+    <div class="card__head">
+      <div class="card__title">Users</div>
+      <div class="card__meta" *ngIf="!loading()">
+        {{ users().length }} total
+      </div>
+    </div>
+
+    <div *ngIf="loading()" class="state">Loading users…</div>
+    <div *ngIf="error()" class="state state--error">
+      {{ error() }}
+    </div>
+
+    <table
+      class="table"
+      *ngIf="!loading() && !error() && users().length"
+    >
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Citizenship</th>
+          <th>Status</th>
+          <th>Admin</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let u of users()">
+          <td>
+            {{ u.userName || u.userSurname
+              ? (u.userName || '') + ' ' + (u.userSurname || '')
+              : '—' }}
+          </td>
+          <td class="mono">{{ u.userEmail }}</td>
+          <td>{{ u.userPhoneNumber || '—' }}</td>
+          <td>{{ u.userCitizenship || '—' }}</td>
+          <td>
+            <span class="pill pill--soft">
+              {{ u.userEmploymentStatus || 'not-set' }}
+            </span>
+          </td>
+          <td>
+            <span class="pill" [class.pill--yes]="u.is_admin">
+              {{ u.is_admin ? 'Yes' : 'No' }}
+            </span>
+          </td>
+          <td class="ta-right">
+            <a
+              [routerLink]="['/admin/users', u.userId]"
+              class="link-view"
+              >View</a
+            >
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div
+      *ngIf="!loading() && !error() && !users().length"
+      class="state"
+    >
+      No users yet.
+    </div>
+  </div>
+</section>

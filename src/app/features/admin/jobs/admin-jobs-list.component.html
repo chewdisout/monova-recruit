@@ -1,0 +1,40 @@
+<div class="admin-card">
+  <div class="admin-card__head row">
+    <div>
+      <h2>Jobs</h2>
+      <p class="hint">Manage open positions and their visibility.</p>
+    </div>
+    <a routerLink="/admin/jobs/new" class="btn btn--primary btn-sm">+ New job</a>
+  </div>
+
+  <div *ngIf="loading()" class="muted">Loading jobs...</div>
+
+  <table *ngIf="!loading()" class="admin-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Country</th>
+        <th>Category</th>
+        <th>Status</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let j of jobs()">
+        <td>{{ j.id }}</td>
+        <td>{{ j.title }}</td>
+        <td>{{ j.country }}</td>
+        <td>{{ j.category || '—' }}</td>
+        <td>
+          <span class="pill" [class.pill--yes]="j.is_active">
+            {{ j.is_active ? 'Active' : 'Hidden' }}
+          </span>
+        </td>
+        <td class="ta-right">
+          <a [routerLink]="['/admin/jobs', j.id]" class="link-sm">Edit</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

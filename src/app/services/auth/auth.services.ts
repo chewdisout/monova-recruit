@@ -90,6 +90,7 @@ export class AuthService {
                     id: user.userId,
                     email: user.userEmail,
                     name,
+                    isAdmin: !!user.isAdmin,
                 });
             },
             error: (err) => {

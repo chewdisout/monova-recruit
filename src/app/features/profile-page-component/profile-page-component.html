@@ -247,7 +247,7 @@
             <li *ngFor="let a of applications()" class="profile-apps__item">
             <div class="profile-apps__primary">
                 <div class="profile-apps__job-title">
-                {{ a.job?.title || ('Job #' + (a.job?.id || a.id)) }}
+                {{ a.job.title || ('Job #' + (a.job.id || a.id)) }}
                 </div>
 
                 <div class="profile-apps__meta">

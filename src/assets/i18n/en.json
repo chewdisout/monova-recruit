@@ -2,7 +2,9 @@
     "MAIN": {
         "GERMANY": "Germany",
         "NETHERLANDS": "Netherlands",
-        "FINLAND": "Finland"
+        "FINLAND": "Finland",
+        "BELGIUM": "Belgium",
+        "FRANCE": "France"
     },
     "NAV": {
         "JOBS": "Job Opportunities",
