@@ -1,28 +1,53 @@
 <section class="jobs">
-  <h1 class="jobs__title">Available Jobs</h1>
+  <div class="jobs__header">
+    <h1 class="jobs__title">Available Jobs</h1>
+    <p class="jobs__subtitle">Explore verified positions across Europe.</p>
+  </div>
 
-  <div *ngIf="loading()" class="jobs__loading">Loading jobs...</div>
-  <div *ngIf="error()" class="jobs__error">{{ error() }}</div>
+  <div *ngIf="loading()" class="jobs__state jobs__state--loading">Loading jobs...</div>
+  <div *ngIf="error()" class="jobs__state jobs__state--error">{{ error() }}</div>
 
-  <div *ngIf="!loading() && !error() && jobs().length === 0" class="jobs__empty">
+  <div *ngIf="!loading() && !error() && jobs().length === 0" class="jobs__state jobs__state--empty">
     No jobs found for selected country.
   </div>
 
-  <div class="jobs__grid" *ngIf="jobs().length > 0">
-    <div *ngFor="let job of jobs()" class="job-card">
-      <div class="job-card__header">
-        <h3>{{ job.title }}</h3>
-        <p class="job-card__company">{{ job.company_name || '—' }}</p>
+  <div class="jobs__list" *ngIf="!loading() && !error() && jobs().length > 0">
+    <article *ngFor="let job of jobs()" class="job-row">
+      <div class="job-row__image-wrap" *ngIf="job.image">
+        <img [src]="job.image" [alt]="job.title" class="job-row__image" />
       </div>
-      <div class="job-card__meta">
-        <span>{{ job.city || '' }}, {{ job.country }}</span>
-        <span *ngIf="job.salary_from">
-          {{ job.salary_from }} - {{ job.salary_to }} {{ job.currency }}
-          <small>/{{ job.salary_type }}</small>
-        </span>
+
+      <div class="job-row__content">
+        <header class="job-row__header">
+          <div class="job-row__title-block">
+            <h3 class="job-row__title">{{ job.title }}</h3>
+            <p class="job-row__company">{{ job.company_name || 'Verified employer' }}</p>
+          </div>
+
+          <div class="job-row__location">
+            <span>{{ job.city || '—' }}, {{ job.country }}</span>
+          </div>
+        </header>
+
+        <div class="job-row__meta">
+          <span *ngIf="job.salary_from" class="job-row__salary">
+            💶 {{ job.salary_from }}
+            <span *ngIf="job.salary_to">– {{ job.salary_to }}</span>
+            {{ job.currency || 'EUR' }}
+            <ng-container *ngIf="job.salary_type">/{{ job.salary_type }}</ng-container>
+          </span>
+
+          <span *ngIf="job.employment_type" class="job-row__type">
+            {{ job.employment_type }}
+          </span>
+        </div>
+
+        <p class="job-row__desc">{{ job.short_description || job.full_description }}</p>
+
+        <div class="job-row__footer">
+          <a class="btn btn--outline" [routerLink]="['/jobs', job.id]">View details</a>
+        </div>
       </div>
-      <p class="job-card__desc">{{ job.short_description }}</p>
-      <a class="btn btn--outline" [routerLink]="['/jobs', job.id]">View details</a>
-    </div>
+    </article>
   </div>
 </section>

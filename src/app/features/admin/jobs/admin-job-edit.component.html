@@ -29,6 +29,10 @@
         <!-- Core info -->
         <div class="grid-2">
           <div class="field">
+            <label>Image*</label>
+            <input class="input" formControlName="image" />
+          </div>
+          <div class="field">
             <label>Title*</label>
             <input class="input" formControlName="title" />
           </div>
@@ -50,6 +54,7 @@
                     <option value="NL">Netherlands</option>
                     <option value="DE">Germany</option>
                     <option value="FN">Finland</option>
+                    <option value="BE">Belgium</option>
                     <option value="FR">France</option>
                 </select>
             </div>
@@ -66,8 +71,32 @@
             <input class="input" formControlName="workplace_address" />
           </div>
           <div class="field">
-            <label>Category</label>
-            <input class="input" formControlName="category" />
+            <label>Category*</label>
+            <select class="select" formControlName="category">
+              <optgroup label="Industrial & Construction">
+                <option value="JOBS.CATEGORIES.SHIPBUILDING">Shipbuilding</option>
+                <option value="JOBS.CATEGORIES.WELDER">Welder</option>
+                <option value="JOBS.CATEGORIES.ELECTRICIAN">Electrician</option>
+                <option value="JOBS.CATEGORIES.PIPEFITTER">Pipefitter</option>
+                <option value="JOBS.CATEGORIES.CARPENTER">Carpenter</option>
+                <option value="JOBS.CATEGORIES.INDUSTRIALPAINTER">Industrial Painter</option>
+                <option value="JOBS.CATEGORIES.SCAFFOLDER">Scaffolder</option>
+                <option value="JOBS.CATEGORIES.CRANEOPERATOR">Crane Operator</option>
+              </optgroup>
+              <optgroup label="Manufacturing & Production">
+                <option value="JOBS.CATEGORIES.FACTORYWORKER">Factory Worker</option>
+                <option value="JOBS.CATEGORIES.MACHINEOPERATOR">Machine Operator</option>
+                <option value="JOBS.CATEGORIES.CNCOPERATOR">CNC Operator</option>
+                <option value="JOBS.CATEGORIES.ASSEMBLER">Assembler</option>
+                <option value="JOBS.CATEGORIES.QUALITYCONTROL">Quality Control</option>
+              </optgroup>
+              <optgroup label="Logistics & Transport">
+                <option value="JOBS.CATEGORIES.TRUCKDRIVER">Truck Driver (CE License)</option>
+                <option value="JOBS.CATEGORIES.FORKLIFTDRIVER">Forklift Driver</option>
+                <option value="JOBS.CATEGORIES.WAREHOUSEOPERATIVE">Warehouse Operative</option>
+                <option value="JOBS.CATEGORIES.DELIVERYDRIVER">Delivery Driver</option>
+              </optgroup>
+            </select>
           </div>
         </div>
 
@@ -75,11 +104,19 @@
         <div class="grid-3">
           <div class="field">
             <label>Employment type</label>
-            <input class="input" formControlName="employment_type" />
+            <select formControlName="employment_type" class="select">
+              <option value="JOBS.CATEGORIES.FULLTIME">Full-Time</option>
+              <option value="JOBS.CATEGORIES.PARTTIME">Part-Time</option>
+            </select>
           </div>
           <div class="field">
             <label>Shift type</label>
-            <input class="input" formControlName="shift_type" />
+            <select formControlName="shift_type" class="select">
+              <option value="JOBS.CATEGORIES.NIGHT">Night</option>
+              <option value="JOBS.CATEGORIES.DAY">Day</option>
+              <option value="JOBS.CATEGORIES.MORNING">Morning</option>
+              <option value="JOBS.CATEGORIES.MIXED">Mixed</option>
+            </select>
           </div>
           <div class="field">
             <label>Experience (years)</label>
@@ -261,6 +298,8 @@
             {{ savingBase() ? 'Saving…' : 'Save job' }}
           </button>
         </div>
+        <div> {{ error() }} </div>
+        <div> {{ error() }} </div>
       </form>
     </section>
 

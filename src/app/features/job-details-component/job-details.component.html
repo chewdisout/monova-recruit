@@ -1,115 +1,72 @@
 <section class="job-details">
-  <div class="container">
-    <a routerLink="/jobs" class="job-details__back">
-      ← Back to all jobs
-    </a>
+  <div class="job-details__hero" *ngIf="job() as j">
+    <div class="job-details__hero-overlay"></div>
+    <div class="job-details__hero-inner">
+      <div class="job-details__hero-main">
+        <a routerLink="/jobs" class="job-details__back">← {{ "JOBS.JOBDETAILS.BACKTOALLJOBS" | translate }}</a>
 
-    <div *ngIf="loading()" class="job-details__loading">
-      Loading job details...
+        <h1 class="job-details__title">{{ j.title }}</h1>
+
+        <div class="job-details__company">
+          {{ j.company_name || 'Monova partner employer' }}
+        </div>
+
+        <div class="job-details__chips">
+          <span class="chip">
+            {{ j.city || 'Multiple locations' }}, {{ j.country }}
+          </span>
+          <span class="chip" *ngIf="j.category">{{ j.category | translate }}</span>
+          <span class="chip" *ngIf="j.employment_type">
+            {{ j.employment_type | translate }}
+          </span>
+          <span class="chip" *ngIf="j.shift_type">{{ j.shift_type }}</span>
+          <span class="chip chip--soft" *ngIf="j.housing_provided">
+              {{ "JOBS.JOBDETAILS.HOUSINGPROVIDED" | translate }}
+          </span>
+          <span class="chip chip--soft" *ngIf="j.transport_provided">
+              {{ "JOBS.JOBDETAILS.TRANSPORTSUPPORT" | translate }}
+          </span>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <div *ngIf="error()" class="job-details__error">
+  <div class="job-details__body-wrap">
+    <div *ngIf="loading()" class="job-details__state">Loading job details...</div>
+    <div *ngIf="error()" class="job-details__state job-details__state--err">
       {{ error() }}
     </div>
 
     <ng-container *ngIf="!loading() && !error() && job() as j">
-      <header class="job-details__header">
-        <div>
-          <h1 class="job-details__title">{{ j.title }}</h1>
-          <div class="job-details__company">
-            {{ j.company_name || 'Monova partner employer' }}
-          </div>
-          <div class="job-details__location">
-            {{ j.city || 'Multiple locations' }}, {{ j.country }}
-          </div>
-        </div>
-
-        <div class="job-details__summary card">
-          <div class="summary__row" *ngIf="j.salary_from">
-            <div class="summary__label">Salary</div>
-            <div class="summary__value">
-              {{ j.salary_from }}
-              <ng-container *ngIf="j.salary_to">
-                – {{ j.salary_to }}
-              </ng-container>
-              {{ j.currency || 'EUR' }}
-              <span *ngIf="j.salary_type">/ {{ j.salary_type }}</span>
-            </div>
-          </div>
-
-          <div class="summary__row">
-            <div class="summary__label">Category</div>
-            <div class="summary__value">
-              {{ j.category | titlecase }}
-            </div>
-          </div>
-
-          <div class="summary__row" *ngIf="j.employment_type">
-            <div class="summary__label">Type</div>
-            <div class="summary__value">{{ j.employment_type }}</div>
-          </div>
-
-          <div class="summary__row" *ngIf="j.shift_type">
-            <div class="summary__label">Shifts</div>
-            <div class="summary__value">{{ j.shift_type }}</div>
-          </div>
-
-          <div class="summary__row">
-            <div class="summary__label">Housing</div>
-            <div class="summary__value">
-              {{ j['housing_provided'] ? 'Provided / assisted' : 'Not included' }}
-            </div>
-          </div>
-
-          <div class="summary__row">
-            <div class="summary__label">Housing</div>
-            <div class="summary__value">
-                {{ j.housing_provided ? 'Provided / assisted' : 'Not included' }}
-            </div>
-            </div>
-
-            <button
-                class="btn btn--primary summary__apply"
-                (click)="onApply()"
-                [disabled]="applying() || hasApplied()"
-            >
-                @if (hasApplied()) {
-                    Already applied
-                } @else if (applying()) {
-                    Applying...
-                } @else {
-                    Apply via Monova
-                }
-            </button>
-
-            @if (applyMessage()) {
-            <div class="apply-message">
-                {{ applyMessage() }}
-            </div>
-            }
-        </div>
-      </header>
-
       <div class="job-details__body">
         <section class="job-section">
-          <h2>About this job</h2>
+          <h2>{{ "JOBS.JOBDETAILS.ABOUTTHISJOB" | translate }}</h2>
           <p>{{ j.full_description || j.short_description }}</p>
         </section>
 
-        <section class="job-section" *ngIf="j['requirements_text']">
-          <h2>Requirements</h2>
-          <p>{{ j['requirements_text'] }}</p>
+        <section class="job-section" *ngIf="j.requirements_text">
+          <h2>{{ 'JOBS.JOBDETAILS.REQUIREMENTS' | translate }}</h2>
+          <p>{{ j.requirements_text }}</p>
         </section>
 
-        <section class="job-section" *ngIf="j['benefits_text']">
-          <h2>What we offer</h2>
-          <p>{{ j['benefits_text'] }}</p>
+        <section class="job-section" *ngIf="j.benefits_text">
+          <h2>{{ 'JOBS.JOBDETAILS.WHATWEOFFER' | translate }}</h2>
+          <p>{{ j.benefits_text }}</p>
+        </section>
+
+        <section class="job-section" *ngIf="j.housing_details">
+          <h2>{{ 'JOBS.JOBDETAILS.HOUSINGANDCONDITIONS' | translate }}</h2>
+          <p>{{ j.housing_details }}</p>
+        </section>
+
+        <section class="job-section" *ngIf="j.requirements_text">
+          <h2>{{ 'JOBS.JOBDETAILS.REQUIREDDOCUMENTS' | translate }}</h2>
+          <p>{{ j.requirements_text }}</p>
         </section>
 
         <section class="job-section job-hint">
           <p>
-            All offers are verified through Monova and our licensed partners. We never ask
-            candidates to pay for finding a job.
+            {{ 'JOBS.JOBDETAILS.JOBHINT' | translate }}
           </p>
         </section>
       </div>

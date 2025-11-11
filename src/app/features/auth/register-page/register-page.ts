@@ -11,6 +11,7 @@ import {
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../../services/auth/auth.services';
 import { SignUpPayload } from '../../../models/user';
+import { TranslatePipe } from '@ngx-translate/core';
 
 function ageRangeValidator(min: number, max: number): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
@@ -38,7 +39,7 @@ function phoneNumberValidator(): ValidatorFn {
 @Component({
   standalone: true,
   selector: 'app-register-page',
-  imports: [CommonModule, ReactiveFormsModule, RouterLink],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink, TranslatePipe],
   templateUrl: './register-page.html',
   styleUrls: ['./register-page.scss'],
 })
@@ -268,7 +269,6 @@ export class RegisterPageComponent {
 
   loading = signal(false);
   error = signal('');
-  success = signal(false);
 
   get f() {
     return this.form.controls;
@@ -302,7 +302,18 @@ export class RegisterPageComponent {
       next: () => {
         this.loading.set(false);
         this.form.disable();  
-        this.success.set(true);
+        this.auth.login(payload.userEmail!, payload.password!).subscribe({
+          next: () => {
+            this.loading.set(false);
+            this.router.navigate(['/profile']);
+          },
+          error: (err) => {
+            this.loading.set(false);
+            this.error.set(
+              err?.error?.detail || 'Incorrect email or password.'
+            );
+          },
+        });
       },
       error: (err) => {
         this.loading.set(false);

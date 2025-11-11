@@ -5,11 +5,12 @@ import { tap, catchError } from 'rxjs/operators';
 import { UserOut, UserProfile, SignUpPayload, LoginResponse } from '../../models/user';
 import { throwError } from 'rxjs';
 import { environment } from '../../../environments/environment';
-
+import { Router } from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
     private http = inject(HttpClient);
+    private router = inject(Router);
     private platformId = inject(PLATFORM_ID);
     private isBrowser = isPlatformBrowser(this.platformId);
 
@@ -56,6 +57,7 @@ export class AuthService {
     logout() {
         localStorage.removeItem(this.tokenKey);
         this._currentUser.set(null);
+        this.router.navigate(['/']);
     }
 
     getToken(): string | null {

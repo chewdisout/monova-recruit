@@ -198,5 +198,52 @@
             "CTA_TEXT": "Let’s talk about your hiring needs.",
             "CTA_BUTTON": "Book a call with our team"
         }
+    },
+    "JOBS": {
+        "CATEGORIES": {
+            "SHIPBUILDING": "Shipbuilding",
+            "WELDER": "Welder",
+            "ELECTRICIAN": "Electrician",
+            "PIPEFITTER": "Pipefitter",
+            "CARPENTER": "Carpenter",
+            "INDUSTRIALPAINTER": "Industrial Painter",
+            "SCAFFOLDER": "Scaffolder",
+            "CRANEOPERATOR": "Crane Operator",
+            "FACTORYWORKER": "Factory Worker",
+            "MACHINEOPERATOR": "Machine Operator",
+            "CNCOPERATOR": "CNC Operator",
+            "ASSEMBLER": "Assembler",
+            "QUALITYCONTROL": "Quality Control",
+            "TRUCKDRIVER": "Truck Driver (CE License)",
+            "FORKLIFTDRIVER": "Forklift Driver",
+            "WAREHOUSEOPERATIVE": "Warehouse Operative",
+            "DELIVERYDRIVER": "Delivery Driver",
+            "FULLTIME": "Full-Time",
+            "PARTTIME": "Part-Time",
+            "NIGHT": "Night",
+            "DAY": "Day",
+            "MORNING": "Morning",
+            "MIXED": "Mixed"
+        },
+        "JOBDETAILS": {
+            "BACKTOALLJOBS": "Back to all jobs",
+            "HOUSINGPROVIDED": "Housing provided / assisted",
+            "TRANSPORTSUPPORT": "Transport support",
+            "ABOUTTHISJOB": "About this job",
+            "JOBHINT": "All offers are verified through Monova and our licensed partners. We never charge candidates any fees. Employment contracts are always signed directly with employers or partner agencies.",
+            "REQUIREDDOCUMENTS": "Required documents",
+            "HOUSINGANDCONDITIONS": "Housing & conditions",
+            "WHATWEOFFER": "What we offer",
+            "REQUIREMENTS": "Requirements"
+        }
+    },
+    "REGISTRATION": {
+        "TITLE": "Create your Monova account",
+        "SUBTITLE": "One profile for all trusted European job opportunities.",
+        "EMAIL": "Email",
+        "PASSWORD": "Password",
+        "FIRSTNAME": "First name",
+        "LASTNAME": "Last name",
+        "CREATEACCOUNT": "Create account"
     }
 }

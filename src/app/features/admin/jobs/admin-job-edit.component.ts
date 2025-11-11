@@ -42,6 +42,7 @@ export class AdminJobEditComponent implements OnInit {
     activeLang = signal<string>('en');
 
     baseForm = this.fb.group({
+        image: ['', Validators.required],
         title: ['', Validators.required],
         company_name: ['', Validators.required],
         reference_code: [''],
@@ -154,13 +155,13 @@ export class AdminJobEditComponent implements OnInit {
 
         req$.subscribe({
             next: (job) => {
-            this.savingBase.set(false);
-            this.error.set('');
-            this.jobId = job.id;
+                this.savingBase.set(false);
+                this.error.set('');
+                this.jobId = job.id;
             },
             error: () => {
-            this.savingBase.set(false);
-            this.error.set('Failed to save job.');
+                this.savingBase.set(false);
+                this.error.set('Failed to save job.');
             },
         });
     }
@@ -232,6 +233,7 @@ export class AdminJobEditComponent implements OnInit {
             'responsibilities',
             'requirements_text',
             'benefits_text',
+            'image'
         ];
 
         stringFields.forEach((key) => setStr(key));

@@ -57,6 +57,7 @@ export interface AdminJob {
   requirements_text?: string | null;
   benefits_text?: string | null;
   is_active: boolean;
+  image?: string;
 }
 
 export interface AdminJobCreate {
@@ -87,7 +88,8 @@ export interface AdminJobCreate {
   responsibilities?: string | null;
   requirements_text?: string | null;
   benefits_text?: string | null;
-  is_active?: boolean | null;      // <— here
+  is_active?: boolean | null; 
+  image?: string;
 }
 
 export interface AdminJobUpdate extends Partial<AdminJobCreate> {

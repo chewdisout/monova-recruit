@@ -39,7 +39,7 @@
             </ul>
           }
         } @else {
-          <a class="nav-link" [routerLink]="item.link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <a (click)="close()" class="nav-link" [routerLink]="item.link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
             <span class="label">{{ item.label | translate }}</span>
           </a>
         }
@@ -64,7 +64,7 @@
           </a>
 
           <button type="button" class="btn btn--primary" (click)="auth.logout()">
-            Log out
+            {{ 'NAV.LOGOUT' | translate }}
           </button>
         </div>
       } @else {

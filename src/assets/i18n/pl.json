@@ -1,155 +1,249 @@
 {
-    "MAIN": {
-        "GERMANY": "Niemcy",
-        "NETHERLANDS": "Holandia",
-        "FINLAND": "Finlandia"
+  "MAIN": {
+    "GERMANY": "Niemcy",
+    "NETHERLANDS": "Holandia",
+    "FINLAND": "Finlandia",
+    "BELGIUM": "Belgia",
+    "FRANCE": "Francja"
+  },
+  "NAV": {
+    "JOBS": "Oferty pracy",
+    "SERVICES": "Usługi",
+    "FAQ": "FAQ",
+    "CONTACTS": "Kontakt",
+    "UPLOAD_CV": "Prześlij CV",
+    "SIGN_IN": "Zaloguj się",
+    "SIGN_UP": "Zarejestruj się",
+    "LOGOUT": "Wyloguj się"
+  },
+  "HOME": {
+    "HERO": {
+      "EYEBROW": "Zaufany partner w zatrudnieniu za granicą",
+      "TITLE": "Pracuj za granicą z Monova",
+      "SUBTITLE": "Od CV po relokację – szybkie dopasowanie z zaufanymi partnerami w całej Europie.",
+      "FIND_JOB": "Znajdź pracę",
+      "FOR_COMPANIES": "Dla firm"
     },
-    "NAV": {
-        "JOBS": "Oferty pracy",
-        "SERVICES": "Usługi",
-        "FAQ": "FAQ",
-        "CONTACTS": "Kontakt",
-        "UPLOAD_CV": "Prześlij CV",
-        "SIGN_IN": "Zaloguj się",
-        "SIGN_UP": "Zarejestruj się",
-        "LOGOUT": "Wyloguj się"
+    "WHY": {
+      "TITLE": "Dlaczego warto wybrać Monova",
+      "LIST": {
+        "OPTION_1_TITLE": "Szybkie i proste zatrudnienie:",
+        "OPTION_1_CONTENT": "Łączymy Cię z wiarygodnymi partnerami w Europie – decyzje w ciągu kilku dni, nie tygodni.",
+        "OPTION_2_TITLE": "Zweryfikowani pracodawcy:",
+        "OPTION_2_CONTENT": "Współpracujemy wyłącznie z licencjonowanymi agencjami i firmami, które gwarantują legalne umowy, zakwaterowanie i uczciwe wynagrodzenie.",
+        "OPTION_3_TITLE": "Brak ukrytych opłat:",
+        "OPTION_3_CONTENT": "Nasze usługi dla kandydatów są całkowicie bezpłatne.",
+        "OPTION_4_TITLE": "Pełne wsparcie za granicą:",
+        "OPTION_4_CONTENT": "Pomagamy w podróży, dokumentach i adaptacji, abyś mógł płynnie rozpocząć pracę.",
+        "OPTION_5_TITLE": "Pomoc w wielu językach:",
+        "OPTION_5_CONTENT": "Wsparcie dostępne w języku rosyjskim, łotewskim, angielskim i polskim – od aplikacji po przyjazd."
+      }
     },
-    "HOME": {
-        "HERO": {
-            "EYEBROW": "Zaufany partner relokacyjny",
-            "TITLE": "Pracuj za granicą z Monova",
-            "SUBTITLE": "Od CV do relokacji — szybkie dopasowanie z zaufanymi partnerami w Europie.",
-            "FIND_JOB": "Znajdź pracę",
-            "FOR_COMPANIES": "Dla firm"
-        },
-        "WHY": {
-            "TITLE": "Dlaczego warto wybrać Monova",
-            "LIST": {
-                "OPTION_1_TITLE": "Szybkie i proste zatrudnienie:",
-                "OPTION_1_CONTENT": "Łączymy Cię ze sprawdzonymi partnerami w Europie — decyzja w ciągu dni, a nie tygodni.",
-                "OPTION_2_TITLE": "Zweryfikowani pracodawcy:",
-                "OPTION_2_CONTENT": "Współpracujemy tylko z licencjonowanymi agencjami i firmami w UE, które gwarantują legalne umowy, zakwaterowanie i uczciwe wynagrodzenie.",
-                "OPTION_3_TITLE": "Brak ukrytych opłat:",
-                "OPTION_3_CONTENT": "Nasze usługi są w 100% darmowe dla kandydatów.",
-                "OPTION_4_TITLE": "Pełne wsparcie za granicą:",
-                "OPTION_4_CONTENT": "Pomagamy w podróży, dokumentach i wdrożeniu, abyś mógł spokojnie rozpocząć pracę.",
-                "OPTION_5_TITLE": "Pomoc w wielu językach:",
-                "OPTION_5_CONTENT": "Wsparcie w języku rosyjskim, łotewskim, angielskim i polskim — od aplikacji po przyjazd."
-            }
-        },
-        "STEPS": {
-            "TITLE": "Jak działa Monova",
-            "SUBTITLE": "Prosty i przejrzysty proces — od wysłania danych po rozpoczęcie pracy u zaufanego europejskiego pracodawcy.",
-            "STEP_1_TITLE": "Wyślij swój profil raz",
-            "STEP_1_TEXT": "Wypełnij krótki formularz lub prześlij CV. Powiedz nam, jaki rodzaj pracy, język i kraj preferujesz.",
-            "STEP_1_HINT": "Jeden profil daje Ci dostęp do wielu zweryfikowanych pracodawców w Niemczech, Holandii, Finlandii i innych krajach.",
-            "STEP_2_TITLE": "Dopasujemy Cię do realnych ofert",
-            "STEP_2_TEXT": "Nasi rekruterzy analizują Twój profil i proponują oferty od zaufanych partnerów — bez spamu i fałszywych ogłoszeń.",
-            "STEP_2_HINT": "Wybierasz to, co Ci odpowiada: grafik, wynagrodzenie, zakwaterowanie, długość kontraktu.",
-            "STEP_3_TITLE": "Rozmowy, umowy i wsparcie relokacyjne",
-            "STEP_3_TEXT": "Organizujemy rozmowy, tłumaczymy umowy na Twój język i pomagamy w dokumentach oraz podróży.",
-            "STEP_3_HINT": "Zawsze wiesz, kto Cię zatrudnia, gdzie będziesz mieszkać i ile zarabiać.",
-            "STEP_4_TITLE": "Rozpocznij pracę ze stałym wsparciem",
-            "STEP_4_TEXT": "Podpisujesz umowę bezpośrednio z pracodawcą lub lokalnym partnerem. Pozostajemy w kontakcie, aby pomóc w razie potrzeby.",
-            "STEP_4_HINT": "Monova to Twój partner rekrutacyjny — nigdy nie pobieramy opłat od pracowników."
-        }
+    "STEPS": {
+      "TITLE": "Jak działa Monova",
+      "SUBTITLE": "Prosty i przejrzysty proces – od przesłania danych po rozpoczęcie pracy u zaufanego pracodawcy w Europie.",
+      "STEP_1_TITLE": "Prześlij nam swój profil tylko raz",
+      "STEP_1_TEXT": "Wypełnij krótki formularz lub prześlij CV. Powiedz, jaką pracę, język i kraj preferujesz.",
+      "STEP_1_HINT": "Jeden profil daje dostęp do wielu zweryfikowanych pracodawców w Niemczech, Holandii, Finlandii i innych krajach.",
+      "STEP_2_TITLE": "Dopasowujemy rzeczywiste oferty",
+      "STEP_2_TEXT": "Nasi rekruterzy analizują Twój profil i proponują oferty od sprawdzonych partnerów – bez spamu i fałszywych ogłoszeń.",
+      "STEP_2_HINT": "Ty wybierasz, co Ci odpowiada: grafik, wynagrodzenie, zakwaterowanie, długość kontraktu.",
+      "STEP_3_TITLE": "Wywiady, umowy i wsparcie relokacyjne",
+      "STEP_3_TEXT": "Koordynujemy rozmowy, wyjaśniamy umowy w Twoim języku i pomagamy w dokumentach oraz podróży.",
+      "STEP_3_HINT": "Zawsze wiesz, kto Cię zatrudnia, gdzie mieszkasz i ile zarabiasz.",
+      "STEP_4_TITLE": "Rozpocznij pracę z ciągłym wsparciem",
+      "STEP_4_TEXT": "Podpisujesz umowę bezpośrednio z pracodawcą lub lokalnym partnerem. Jesteśmy z Tobą, aby pomóc w adaptacji i rozwiązywaniu problemów.",
+      "STEP_4_HINT": "Monova to Twój partner rekrutacyjny – nigdy nie pobieramy opłat od pracowników."
     },
-    "FOOTER": {
-        "TITLE": "Monova Recruitment",
-        "TAGLINE": "Łączymy europejskich pracodawców z gotowymi do pracy kandydatami.",
-        "DISCLAIMER": "Monova działa jako partner rekrutacyjny i pośredniczący. Nie pobieramy żadnych opłat od kandydatów. Umowy o pracę są zawsze podpisywane bezpośrednio z licencjonowanymi pracodawcami lub agencjami partnerskimi.",
-        "LINKS": {
-            "JOBS": "Oferty pracy",
-            "SERVICES": "Usługi",
-            "FAQ": "FAQ",
-            "CONTACTS": "Kontakt",
-            "FOR_EMPLOYERS": "Dla pracodawców"
-        },
-        "CONTACT": {
-            "TITLE": "Kontakt",
-            "EMAIL": "info@monova.work",
-            "PHONE": "+371 28655822"
-        },
-        "LEGAL": {
-            "COPYRIGHT": "© {{year}} Monova. Wszelkie prawa zastrzeżone.",
-            "PRIVACY": "Polityka prywatności",
-            "TERMS": "Regulamin"
-        }
-    },
-    "FAQ": {
-        "TITLE": "Najczęściej zadawane pytania",
-        "INTRO": "Wiemy, że wyjazd do pracy za granicą może budzić wątpliwości. Oto szczere odpowiedzi na najczęściej zadawane pytania.",
-        "QUESTIONS": [
-            {
-            "q": "Czy potrzebuję dyplomu lub specjalnego wykształcenia, aby pracować za granicą?",
-            "a": "Nie. Większość oferowanych przez nas stanowisk (produkcja, magazyn, logistyka, praca sezonowa, sprzątanie, hotelarstwo itp.) nie wymaga wyższego wykształcenia. Najważniejsze są motywacja i rzetelność."
-            },
-            {
-            "q": "Czy mogę pracować za granicą, jeśli mam „szary paszport” lub nie jestem obywatelem UE?",
-            "a": "Tak. Współpracujemy z licencjonowanymi agencjami, które organizują legalne pozwolenia na pracę dla obywateli spoza UE. Wielu naszych kandydatów z Łotwy, Estonii i innych krajów postradzieckich już pracowało w UE dzięki pomocy Monova."
-            },
-            {
-            "q": "Co jeśli mówię tylko w jednym języku?",
-            "a": "To żaden problem! Wielu pracodawców nie wymaga znajomości angielskiego ani lokalnego języka. Nasi koordynatorzy mówią w Twoim języku i wyjaśnią wszystko — od umowy po zakwaterowanie."
-            },
-            {
-            "q": "Czy muszę płacić Monova za znalezienie pracy?",
-            "a": "Nie. Nasza usługa jest całkowicie darmowa dla kandydatów. Wynagrodzenie otrzymujemy od pracodawców, którzy szukają rzetelnych pracowników."
-            },
-            {
-            "q": "Kto będzie moim faktycznym pracodawcą?",
-            "a": "Umowę podpisujesz bezpośrednio z licencjonowanym europejskim pracodawcą lub agencją partnerską. Monova pomaga Ci znaleźć, aplikować i bezpiecznie się przenieść — jesteśmy wsparciem, nie pracodawcą."
-            },
-            {
-            "q": "Czy Monova zapewnia zakwaterowanie?",
-            "a": "Większość ofert pracy obejmuje zorganizowane zakwaterowanie lub pomoc w jego znalezieniu. Szczegóły (cena, odległość, warunki) są zawsze podawane przed wyjazdem."
-            },
-            {
-            "q": "Czy transport z mojego kraju jest wliczony?",
-            "a": "Czasami tak, w innych przypadkach pomagamy zorganizować tanie opcje lub zwrot kosztów po pierwszej wypłacie. Zawsze otrzymujesz wskazówki dotyczące podróży przed wyjazdem."
-            },
-            {
-            "q": "Czy pary lub znajomi mogą aplikować razem?",
-            "a": "Tak. Często zatrudniamy pary i grupy znajomych, szczególnie w magazynach i produkcji. Wystarczy wspomnieć o tym w zgłoszeniu."
-            },
-            {
-            "q": "Jak długo trwa cały proces?",
-            "a": "Zależy to od kraju i rodzaju pracy — zazwyczaj 3–10 dni od rejestracji do oferty pracy oraz 1–3 tygodnie do wyjazdu."
-            },
-            {
-            "q": "Jakie wsparcie otrzymam po przyjeździe?",
-            "a": "Nasi lokalni partnerzy spotykają Cię na miejscu, pomagają w rejestracji i wdrożeniu. Możesz kontaktować się z Monova w każdej chwili, gdy potrzebujesz pomocy."
-            }
-        ]
+    "STRIPS": {
+      "ROW_1_TOP": "W świecie sztucznej inteligencji i automatyzacji",
+      "ROW_1_MAIN": "widzi­my prawdziwych ludzi.",
+      "ROW_2_TOP": "W świecie skomplikowanych karier",
+      "ROW_2_MAIN": "upraszczamy start za granicą.",
+      "ROW_3_TOP": "W świecie niepewności",
+      "ROW_3_MAIN": "prowadzimy Cię bezpiecznie do pracy."
+    }
+  },
+  "FOOTER": {
+    "TITLE": "Rekrutacja Monova",
+    "TAGLINE": "Łączymy europejskich pracodawców z gotowymi do pracy kandydatami.",
+    "DISCLAIMER": "Monova działa jako partner rekrutacyjny i pośredniczący w zatrudnieniu. Nie pobieramy żadnych opłat od kandydatów. Umowy o pracę są zawsze podpisywane bezpośrednio z licencjonowanymi pracodawcami lub agencjami partnerskimi.",
+    "LINKS": {
+      "JOBS": "Oferty pracy",
+      "SERVICES": "Usługi",
+      "FAQ": "FAQ",
+      "CONTACTS": "Kontakt",
+      "FOR_EMPLOYERS": "Dla pracodawców"
     },
     "CONTACT": {
-        "TITLE": "Skontaktuj się z Monova",
-        "INTRO": "Wyślij nam wiadomość dotyczącą ofert pracy, współpracy lub wsparcia. Nasz zespół jest dostępny 24/7.",
-        "FORM": {
-            "NAME_LABEL": "Twoje imię",
-            "EMAIL_LABEL": "Email",
-            "MESSAGE_LABEL": "Wiadomość",
-            "MESSAGE_PLACEHOLDER": "Napisz, jakiej pracy szukasz lub w czym możemy pomóc.",
-            "SUBMIT": "Wyślij wiadomość",
-            "SUCCESS": "Dziękujemy. Twoja wiadomość została wysłana. Nasz koordynator wkrótce się z Tobą skontaktuje.",
-            "ERROR": "Nie udało się wysłać wiadomości. Spróbuj ponownie później."
-        },
-        "VALIDATION": {
-            "NAME_REQUIRED": "Wpisz swoje imię.",
-            "EMAIL_REQUIRED": "Adres e-mail jest wymagany.",
-            "EMAIL_INVALID": "Podaj prawidłowy adres e-mail.",
-            "MESSAGE_REQUIRED": "Wpisz krótką wiadomość (minimum 10 znaków)."
-        },
-        "INFO": {
-            "TITLE": "Kontakt bezpośredni",
-            "PHONE_LABEL": "Telefon",
-            "EMAIL_LABEL": "Email",
-            "HOURS": "Dostępni jesteśmy 24/7 dla kandydatów i partnerów."
-        },
-        "OFFICE": {
-            "TITLE": "Nasze biuro",
-            "ADDRESS": "ul. Example 10, Ryga, Łotwa",
-            "MAP_HINT": "Możesz nas odwiedzić lub umówić się na konsultację online."
-        }
+      "TITLE": "Kontakt",
+      "EMAIL": "info@monova.work",
+      "PHONE": "+371 28655822"
+    },
+    "LEGAL": {
+      "COPYRIGHT": "© {{year}} Monova. Wszelkie prawa zastrzeżone.",
+      "PRIVACY": "Polityka prywatności",
+      "TERMS": "Regulamin"
     }
+  },
+  "FAQ": {
+    "TITLE": "Najczęściej zadawane pytania",
+    "INTRO": "Rozumiemy, że praca za granicą może budzić wątpliwości. Oto szczere odpowiedzi na najczęstsze pytania.",
+    "QUESTIONS": [
+      {
+        "q": "Czy potrzebuję dyplomu lub specjalnego wykształcenia, aby pracować za granicą?",
+        "a": "Nie. Większość naszych ofert pracy (produkcja, magazyn, logistyka, prace sezonowe, sprzątanie, hotelarstwo itp.) nie wymaga wyższego wykształcenia. Najważniejsze są motywacja i rzetelność."
+      },
+      {
+        "q": "Czy mogę pracować za granicą, jeśli mam szary paszport lub nie jestem obywatelem UE?",
+        "a": "Tak. Współpracujemy z licencjonowanymi agencjami, które pomagają uzyskać legalne pozwolenia na pracę dla obywateli spoza UE. Wielu kandydatów z Łotwy, Estonii i innych krajów już z powodzeniem pracuje w UE z pomocą Monova."
+      },
+      {
+        "q": "Co jeśli mówię tylko jednym językiem?",
+        "a": "To nie problem! Wielu pracodawców nie wymaga znajomości języka angielskiego ani lokalnego. Nasi koordynatorzy mówią w Twoim języku i jasno wszystko wyjaśniają – od umowy po zakwaterowanie."
+      },
+      {
+        "q": "Czy muszę płacić Monova za znalezienie pracy?",
+        "a": "Nie. Nasza usługa dla kandydatów jest w 100% bezpłatna. Opłacają nas pracodawcy, którzy szukają rzetelnych pracowników. Nigdy nie płać nikomu za pracę przez Monova."
+      },
+      {
+        "q": "Kim będzie mój faktyczny pracodawca?",
+        "a": "Umowę podpisujesz bezpośrednio z licencjonowanym pracodawcą europejskim lub agencją partnerską. Monova pomaga w znalezieniu, aplikacji i bezpiecznej relokacji – jesteśmy wsparciem, nie pracodawcą."
+      },
+      {
+        "q": "Czy Monova zapewnia zakwaterowanie?",
+        "a": "Większość ofert pracy obejmuje zorganizowane zakwaterowanie lub pomoc w jego znalezieniu. Szczegóły (cena, odległość, warunki) są zawsze wyjaśniane przed wyjazdem."
+      },
+      {
+        "q": "Czy transport z mojego kraju jest wliczony?",
+        "a": "W niektórych przypadkach tak, w innych pomagamy znaleźć niedrogie opcje podróży lub zwrot kosztów po pierwszej wypłacie. Przed wyjazdem otrzymasz pełne informacje."
+      },
+      {
+        "q": "Czy pary lub znajomi mogą aplikować razem?",
+        "a": "Tak. Często zatrudniamy pary lub grupy przyjaciół, szczególnie w logistyce i produkcji. Wystarczy wspomnieć o tym w aplikacji."
+      },
+      {
+        "q": "Jak długo trwa proces?",
+        "a": "Zależy od kraju i rodzaju pracy – zazwyczaj 3–10 dni od rejestracji do oferty i 1–3 tygodnie do wyjazdu."
+      },
+      {
+        "q": "Jakie wsparcie otrzymam po przyjeździe?",
+        "a": "Nasi lokalni partnerzy przywitają Cię na miejscu, pomogą w rejestracji i wdrożeniu. Możesz skontaktować się z Monova w każdej chwili podczas pobytu."
+      }
+    ]
+  },
+  "CONTACT": {
+    "TITLE": "Skontaktuj się z Monova",
+    "INTRO": "Wyślij nam wiadomość w sprawie ofert pracy, współpracy lub pomocy. Nasz zespół jest dostępny 24/7.",
+    "FORM": {
+      "NAME_LABEL": "Twoje imię",
+      "EMAIL_LABEL": "Adres e-mail",
+      "MESSAGE_LABEL": "Wiadomość",
+      "MESSAGE_PLACEHOLDER": "Napisz, jakiej pracy szukasz lub jak możemy pomóc.",
+      "SUBMIT": "Wyślij wiadomość",
+      "SUCCESS": "Dziękujemy! Twoja wiadomość została wysłana. Nasz koordynator skontaktuje się z Tobą wkrótce.",
+      "ERROR": "Nie udało się wysłać wiadomości. Spróbuj ponownie później."
+    },
+    "VALIDATION": {
+      "NAME_REQUIRED": "Wprowadź swoje imię.",
+      "EMAIL_REQUIRED": "Adres e-mail jest wymagany.",
+      "EMAIL_INVALID": "Podaj poprawny adres e-mail.",
+      "MESSAGE_REQUIRED": "Wpisz krótką wiadomość (co najmniej 10 znaków)."
+    },
+    "INFO": {
+      "TITLE": "Kontakt bezpośredni",
+      "PHONE_LABEL": "Telefon",
+      "EMAIL_LABEL": "E-mail",
+      "HOURS": "Jesteśmy dostępni 24/7 dla kandydatów i partnerów."
+    },
+    "OFFICE": {
+      "TITLE": "Nasze biuro",
+      "ADDRESS": "ul. Przykładowa 10, Ryga, Łotwa",
+      "MAP_HINT": "Możesz nas odwiedzić lub umówić konsultację online."
+    }
+  },
+  "CLIENTS": {
+    "HERO": {
+      "EYEBROW": "Dla pracodawców i partnerów rekrutacyjnych",
+      "TITLE": "Rozwijaj swoje zespoły z Monova",
+      "SUBTITLE": "Łączymy kreatywne pozyskiwanie kandydatów, ciągłą rekrutację, nowoczesną technologię i silny marketing, aby szybko dostarczać wiarygodnych pracowników."
+    },
+    "PILLARS": {
+      "TITLE": "Co wnosimy do Twojej rekrutacji",
+      "CREATIVITY_TITLE": "Kreatywne pozyskiwanie prawdziwych kandydatów",
+      "CREATIVITY_BODY": "Nie czekamy na CV. Prowadzimy ukierunkowane kampanie, w lokalnych językach i kanałach, aby dotrzeć do kandydatów, których inni nie znajdują.",
+      "CONSISTENCY_TITLE": "Stałość, na której możesz polegać",
+      "CONSISTENCY_BODY": "Stała rekrutacja na kluczowych rynkach zapewnia przewidywalny dopływ pracowników dla logistyki, produkcji i stanowisk technicznych.",
+      "INNOVATION_TITLE": "Dopasowanie oparte na technologii",
+      "INNOVATION_BODY": "Automatyzacja i dane pozwalają szybko reagować, ograniczać rezygnacje i dostarczać tylko gotowych kandydatów.",
+      "MARKETING_TITLE": "Silniejsza marka pracodawcy",
+      "MARKETING_BODY": "Tworzymy oferty w jasnym, uczciwym języku: wynagrodzenie, zmiany, zakwaterowanie, wsparcie. Mniej pytań, więcej kandydatów."
+    },
+    "FLOW": {
+      "TITLE": "Jak wygląda współpraca z Monova",
+      "STEP_1_TITLE": "1. Zrozumienie Twoich potrzeb",
+      "STEP_1_BODY": "Określamy profile, ilości, lokalizacje, sezonowość i wymagania, aby dostarczać tylko kandydatów, których możesz zatrudnić.",
+      "STEP_2_TITLE": "2. Aktywacja kampanii rekrutacyjnych",
+      "STEP_2_BODY": "Uruchamiamy wielokanałowe kampanie, weryfikujemy motywację, dokumenty i dostępność kandydatów.",
+      "STEP_3_TITLE": "3. Prezentacja kandydatów",
+      "STEP_3_BODY": "Otrzymujesz przygotowane profile gotowe do rozmowy lub zatrudnienia – oczekiwania są jasno określone.",
+      "STEP_4_TITLE": "4. Przyjazd i wsparcie",
+      "STEP_4_BODY": "Pomagamy z podróżą, zakwaterowaniem i pierwszymi dniami w pracy, ograniczając rotację."
+    },
+    "PROOF": {
+      "TITLE": "Dlaczego partnerzy wybierają Monova",
+      "POINT_1": "Działamy na rynkach UE z doświadczeniem w logistyce, produkcji, hotelarstwie i magazynowaniu.",
+      "POINT_2": "Wsparcie w lokalnych językach buduje zaufanie i zmniejsza liczbę nieobecności.",
+      "POINT_3": "Przejrzysta współpraca: jasne umowy, raportowanie i realistyczne obietnice.",
+      "CTA_TEXT": "Porozmawiajmy o Twoich potrzebach rekrutacyjnych.",
+      "CTA_BUTTON": "Umów rozmowę z naszym zespołem"
+    }
+  },
+  "JOBS": {
+    "CATEGORIES": {
+      "SHIPBUILDING": "Stoczniowość",
+      "WELDER": "Spawacz",
+      "ELECTRICIAN": "Elektryk",
+      "PIPEFITTER": "Monter rur",
+      "CARPENTER": "Stolarz",
+      "INDUSTRIALPAINTER": "Malarz przemysłowy",
+      "SCAFFOLDER": "Monter rusztowań",
+      "CRANEOPERATOR": "Operator dźwigu",
+      "FACTORYWORKER": "Pracownik fabryki",
+      "MACHINEOPERATOR": "Operator maszyn",
+      "CNCOPERATOR": "Operator CNC",
+      "ASSEMBLER": "Monter",
+      "QUALITYCONTROL": "Kontroler jakości",
+      "TRUCKDRIVER": "Kierowca ciężarówki (kat. CE)",
+      "FORKLIFTDRIVER": "Operator wózka widłowego",
+      "WAREHOUSEOPERATIVE": "Pracownik magazynu",
+      "DELIVERYDRIVER": "Kierowca dostawczy",
+      "FULLTIME": "Pełny etat",
+      "PARTTIME": "Niepełny etat",
+      "NIGHT": "Zmiana nocna",
+      "DAY": "Zmiana dzienna",
+      "MORNING": "Zmiana poranna",
+      "MIXED": "Zmiany rotacyjne"
+    },
+    "JOBDETAILS": {
+      "BACKTOALLJOBS": "Wróć do wszystkich ofert",
+      "HOUSINGPROVIDED": "Zakwaterowanie zapewnione / pomoc w zakwaterowaniu",
+      "TRANSPORTSUPPORT": "Wsparcie transportowe",
+      "ABOUTTHISJOB": "O tej pracy",
+      "JOBHINT": "Wszystkie oferty są zweryfikowane przez Monova i naszych licencjonowanych partnerów. Nie pobieramy żadnych opłat od kandydatów. Umowy o pracę zawsze podpisywane są bezpośrednio z pracodawcami lub agencjami partnerskimi.",
+      "REQUIREDDOCUMENTS": "Wymagane dokumenty",
+      "HOUSINGANDCONDITIONS": "Zakwaterowanie i warunki",
+      "WHATWEOFFER": "Co oferujemy",
+      "REQUIREMENTS": "Wymagania"
+    }
+  },
+  "REGISTRATION": {
+    "TITLE": "Utwórz konto Monova",
+    "SUBTITLE": "Jeden profil dla wszystkich zaufanych ofert pracy w Europie.",
+    "EMAIL": "E-mail",
+    "PASSWORD": "Hasło",
+    "FIRSTNAME": "Imię",
+    "LASTNAME": "Nazwisko",
+    "CREATEACCOUNT": "Utwórz konto"
+  }
 }

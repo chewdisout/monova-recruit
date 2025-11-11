@@ -1,155 +1,249 @@
 {
-    "MAIN": {
-        "GERMANY": "Vokietija",
-        "NETHERLANDS": "Nyderlandai",
-        "FINLAND": "Suomija"
+  "MAIN": {
+    "GERMANY": "Vokietija",
+    "NETHERLANDS": "Nyderlandai",
+    "FINLAND": "Suomija",
+    "BELGIUM": "Belgija",
+    "FRANCE": "Prancūzija"
+  },
+  "NAV": {
+    "JOBS": "Darbo pasiūlymai",
+    "SERVICES": "Paslaugos",
+    "FAQ": "DUK",
+    "CONTACTS": "Kontaktai",
+    "UPLOAD_CV": "Įkelti CV",
+    "SIGN_IN": "Prisijungti",
+    "SIGN_UP": "Registruotis",
+    "LOGOUT": "Atsijungti"
+  },
+  "HOME": {
+    "HERO": {
+      "EYEBROW": "Patikimas darbo užsienyje partneris",
+      "TITLE": "Dirbk užsienyje su Monova",
+      "SUBTITLE": "Nuo CV iki persikėlimo – greitas suderinimas su patikimais Europos partneriais.",
+      "FIND_JOB": "Rasti darbą",
+      "FOR_COMPANIES": "Įmonėms"
     },
-    "NAV": {
-        "JOBS": "Darbo pasiūlymai",
-        "SERVICES": "Paslaugos",
-        "FAQ": "DUK",
-        "CONTACTS": "Kontaktai",
-        "UPLOAD_CV": "Įkelti CV",
-        "SIGN_IN": "Prisijungti",
-        "SIGN_UP": "Registruotis",
-        "LOGOUT": "Atsijungti"
+    "WHY": {
+      "TITLE": "Kodėl verta rinktis Monova",
+      "LIST": {
+        "OPTION_1_TITLE": "Greitas ir paprastas įsidarbinimas:",
+        "OPTION_1_CONTENT": "Jungiame tave su patikimais Europos partneriais – sprendimai priimami per kelias dienas, o ne savaites.",
+        "OPTION_2_TITLE": "Patikimi darbdaviai:",
+        "OPTION_2_CONTENT": "Dirbame tik su licencijuotomis agentūromis ir įmonėmis, kurios užtikrina legalius kontraktus, apgyvendinimą ir sąžiningą atlyginimą.",
+        "OPTION_3_TITLE": "Jokių paslėptų mokesčių:",
+        "OPTION_3_CONTENT": "Mūsų paslauga kandidatams yra 100 % nemokama.",
+        "OPTION_4_TITLE": "Visapusiška pagalba užsienyje:",
+        "OPTION_4_CONTENT": "Padedame su kelione, dokumentais ir įsikūrimu, kad galėtum sklandžiai pradėti dirbti.",
+        "OPTION_5_TITLE": "Pagalba keliomis kalbomis:",
+        "OPTION_5_CONTENT": "Pagalba rusų, latvių, anglų ir lenkų kalbomis – nuo paraiškos iki atvykimo."
+      }
     },
-    "HOME": {
-        "HERO": {
-            "EYEBROW": "Patikimas perkėlimo partneris",
-            "TITLE": "Dirbkite užsienyje su Monova",
-            "SUBTITLE": "Nuo CV iki perkėlimo – greitas įdarbinimas su patikimais Europos partneriais.",
-            "FIND_JOB": "Rasti darbą",
-            "FOR_COMPANIES": "Darbdaviams"
-        },
-        "WHY": {
-            "TITLE": "Kodėl verta rinktis Monova",
-            "LIST": {
-                "OPTION_1_TITLE": "Greitas ir paprastas įdarbinimas:",
-                "OPTION_1_CONTENT": "Sujungiame jus su patikimais Europos partneriais – sprendimai per kelias dienas, o ne savaites.",
-                "OPTION_2_TITLE": "Patikrinti darbdaviai:",
-                "OPTION_2_CONTENT": "Dirbame tik su licencijuotomis ES agentūromis ir įmonėmis, kurios užtikrina teisėtas sutartis, apgyvendinimą ir sąžiningą atlyginimą.",
-                "OPTION_3_TITLE": "Be jokių paslėptų mokesčių:",
-                "OPTION_3_CONTENT": "Mūsų paslaugos kandidatams yra visiškai nemokamos.",
-                "OPTION_4_TITLE": "Visapusiška pagalba užsienyje:",
-                "OPTION_4_CONTENT": "Padedame kelionės, dokumentų ir įsikūrimo klausimais, kad galėtumėte sklandžiai pradėti darbą.",
-                "OPTION_5_TITLE": "Pagalba keliomis kalbomis:",
-                "OPTION_5_CONTENT": "Pagalba rusų, latvių, anglų ir lenkų kalbomis – nuo paraiškos iki atvykimo."
-            }
-        },
-        "STEPS": {
-            "TITLE": "Kaip veikia Monova",
-            "SUBTITLE": "Paprastas ir skaidrus procesas – nuo informacijos pateikimo iki darbo pradžios su patikimu Europos darbdaviu.",
-            "STEP_1_TITLE": "Pateikite savo profilį vieną kartą",
-            "STEP_1_TEXT": "Užpildykite trumpą formą arba įkelkite savo CV. Nurodykite pageidaujamą darbo tipą, kalbą ir šalį.",
-            "STEP_1_HINT": "Vienas profilis suteikia prieigą prie kelių patikrintų darbdavių Vokietijoje, Nyderlanduose, Suomijoje ir kitur.",
-            "STEP_2_TITLE": "Suderiname jus su tikrais pasiūlymais",
-            "STEP_2_TEXT": "Mūsų personalo atrankos specialistai peržiūri jūsų profilį ir pateikia pasiūlymus iš patikimų partnerių – be šlamšto ir netikrų skelbimų.",
-            "STEP_2_HINT": "Galite pasirinkti, kas jums tinka: darbo laikas, atlygis, apgyvendinimas, sutarties trukmė.",
-            "STEP_3_TITLE": "Pokalbiai, sutartys ir pagalba perkeliantis",
-            "STEP_3_TEXT": "Organizuojame pokalbius, paaiškiname sutartis jūsų kalba ir padedame su dokumentais bei kelione.",
-            "STEP_3_HINT": "Visada žinote, kas jus įdarbina, kur gyvensite ir kiek uždirbsite.",
-            "STEP_4_TITLE": "Pradėkite dirbti su nuolatine pagalba",
-            "STEP_4_TEXT": "Sutartį pasirašote tiesiogiai su darbdaviu arba vietiniu partneriu. Mes išliekame jūsų kontaktu, jei prireiktų pagalbos.",
-            "STEP_4_HINT": "Monova – jūsų įdarbinimo partneris. Mes niekada neimame mokesčio iš darbuotojų."
-        }
+    "STEPS": {
+      "TITLE": "Kaip veikia Monova procesas",
+      "SUBTITLE": "Paprastas ir skaidrus procesas – nuo duomenų pateikimo iki darbo pradžios su patikimu darbdaviu Europoje.",
+      "STEP_1_TITLE": "Atsiųsk mums savo profilį vieną kartą",
+      "STEP_1_TEXT": "Užpildyk trumpą formą arba įkelk CV. Nurodyk, kokio darbo, kalbos ir šalies pageidauji.",
+      "STEP_1_HINT": "Vienas profilis suteikia prieigą prie kelių patvirtintų darbdavių Vokietijoje, Nyderlanduose, Suomijoje ir kitur.",
+      "STEP_2_TITLE": "Mes pateikiame realius pasiūlymus",
+      "STEP_2_TEXT": "Mūsų personalo atrankos specialistai įvertina tavo profilį ir pateikia patikimų partnerių pasiūlymus – be šlamšto ir netikrų skelbimų.",
+      "STEP_2_HINT": "Tu pasirenki, kas tinka: darbo laikas, atlygio intervalas, apgyvendinimo sąlygos, sutarties trukmė.",
+      "STEP_3_TITLE": "Interviu, sutartys ir pagalba persikeliant",
+      "STEP_3_TEXT": "Organizuojame interviu, paaiškiname sutartis tavo kalba ir padedame su dokumentais bei kelione.",
+      "STEP_3_HINT": "Visada žinai, kas tave įdarbina, kur gyvensi ir kiek uždirbsi.",
+      "STEP_4_TITLE": "Pradėk darbą su nuolatine pagalba",
+      "STEP_4_TEXT": "Pasirašai sutartį tiesiogiai su darbdaviu arba vietiniu partneriu. Mes išliekame ryšyje ir padedame įsikurti ar išspręsti klausimus.",
+      "STEP_4_HINT": "Monova yra tavo įdarbinimo partneris – mes niekada neimame mokesčio iš darbuotojų."
     },
-    "FOOTER": {
-        "TITLE": "Monova Recruitment",
-        "TAGLINE": "Jungiame Europos darbdavius su pasiruošusiais dirbti kandidatais.",
-        "DISCLAIMER": "Monova veikia kaip įdarbinimo ir tarpininkavimo partneris. Mes neimame jokių mokesčių iš kandidatų. Darbo sutartys visada pasirašomos tiesiogiai su licencijuotais darbdaviais arba partnerių agentūromis.",
-        "LINKS": {
-            "JOBS": "Darbo pasiūlymai",
-            "SERVICES": "Paslaugos",
-            "FAQ": "DUK",
-            "CONTACTS": "Kontaktai",
-            "FOR_EMPLOYERS": "Darbdaviams"
-        },
-        "CONTACT": {
-            "TITLE": "Kontaktai",
-            "EMAIL": "info@monova.work",
-            "PHONE": "+371 28655822"
-        },
-        "LEGAL": {
-            "COPYRIGHT": "© {{year}} Monova. Visos teisės saugomos.",
-            "PRIVACY": "Privatumo politika",
-            "TERMS": "Taisyklės"
-        }
-    },
-    "FAQ": {
-        "TITLE": "Dažniausiai užduodami klausimai",
-        "INTRO": "Suprantame, kad darbas užsienyje gali kelti abejonių. Čia pateikiame sąžiningus atsakymus į dažniausius klausimus.",
-        "QUESTIONS": [
-            {
-            "q": "Ar reikia diplomo ar specialaus išsilavinimo, kad galėčiau dirbti užsienyje?",
-            "a": "Ne. Dauguma siūlomų darbų (gamyba, sandėliai, logistika, sezoniniai darbai, valymas, viešbučių aptarnavimas ir kt.) nereikalauja aukštojo išsilavinimo. Svarbiausia – motyvacija ir patikimumas."
-            },
-            {
-            "q": "Ar galiu dirbti užsienyje, jei turiu „pilką pasą“ arba nesu ES pilietis?",
-            "a": "Taip. Bendradarbiaujame su licencijuotomis agentūromis, kurios tvarko legalius darbo leidimus ne ES piliečiams. Daugelis kandidatų iš Latvijos, Estijos ir kitų buvusių sovietinių šalių jau sėkmingai dirbo ES su Monova pagalba."
-            },
-            {
-            "q": "Kas, jei moku tik vieną kalbą?",
-            "a": "Tai nėra problema! Daugelis darbdavių nereikalauja anglų ar vietinės kalbos mokėjimo. Mūsų koordinatoriai kalba jūsų kalba ir paaiškins viską – nuo sutarties iki apgyvendinimo."
-            },
-            {
-            "q": "Ar reikia mokėti Monova už darbo paiešką?",
-            "a": "Ne. Mūsų paslaugos yra visiškai nemokamos kandidatams. Mus apmoka darbdaviai, ieškantys patikimų darbuotojų."
-            },
-            {
-            "q": "Kas bus mano tikrasis darbdavys?",
-            "a": "Sutartį pasirašote tiesiogiai su licencijuotu Europos darbdaviu arba partnerių agentūra. Monova padeda rasti darbą ir saugiai persikelti – mes esame jūsų pagalba, o ne darbdavys."
-            },
-            {
-            "q": "Ar Monova suteikia apgyvendinimą?",
-            "a": "Dauguma darbo pasiūlymų apima apgyvendinimą arba pagalbą jį susirandant. Visi duomenys (kaina, atstumas, sąlygos) pateikiami prieš išvykstant."
-            },
-            {
-            "q": "Ar transportas iš mano šalies įskaičiuotas?",
-            "a": "Kartais taip, kitais atvejais padedame surasti pigias kelionės galimybes arba kompensuojame išlaidas po pirmo atlyginimo. Visada prieš kelionę gausite išsamią informaciją."
-            },
-            {
-            "q": "Ar poros ar draugai gali kandidatuoti kartu?",
-            "a": "Taip. Dažnai padedame įsidarbinti poroms ir draugams kartu, ypač sandėliuose ir gamyboje. Tiesiog nurodykite tai paraiškoje."
-            },
-            {
-            "q": "Kiek trunka procesas?",
-            "a": "Priklauso nuo šalies ir darbo tipo – paprastai 3–10 dienų nuo registracijos iki pasiūlymo ir 1–3 savaitės iki išvykimo."
-            },
-            {
-            "q": "Kokią pagalbą gausiu atvykęs?",
-            "a": "Mūsų vietiniai partneriai jus pasitiks, padės registruojantis ir įsidarbinant. Galite bet kada kreiptis į Monova, jei prireiktų pagalbos."
-            }
-        ]
+    "STRIPS": {
+      "ROW_1_TOP": "Dirbtinio intelekto ir automatizacijos pasaulyje",
+      "ROW_1_MAIN": "mes matome tikrus žmones.",
+      "ROW_2_TOP": "Sudėtingų karjerų pasaulyje",
+      "ROW_2_MAIN": "darome darbo pradžią užsienyje paprastą.",
+      "ROW_3_TOP": "Neapibrėžtumo pasaulyje",
+      "ROW_3_MAIN": "saugiai vedame tave į darbą."
+    }
+  },
+  "FOOTER": {
+    "TITLE": "Monova įdarbinimas",
+    "TAGLINE": "Jungiame Europos darbdavius su motyvuotais darbuotojais.",
+    "DISCLAIMER": "Monova veikia kaip įdarbinimo ir personalo partneris. Mes neimame jokių mokesčių iš kandidatų. Darbo sutartys visada pasirašomos tiesiogiai su licencijuotais darbdaviais ar partnerių agentūromis.",
+    "LINKS": {
+      "JOBS": "Darbo pasiūlymai",
+      "SERVICES": "Paslaugos",
+      "FAQ": "DUK",
+      "CONTACTS": "Kontaktai",
+      "FOR_EMPLOYERS": "Darbdaviams"
     },
     "CONTACT": {
-        "TITLE": "Susisiekite su Monova",
-        "INTRO": "Siųskite mums žinutę dėl darbo pasiūlymų, bendradarbiavimo ar pagalbos. Mūsų komanda dirba 24/7.",
-        "FORM": {
-            "NAME_LABEL": "Jūsų vardas",
-            "EMAIL_LABEL": "El. paštas",
-            "MESSAGE_LABEL": "Žinutė",
-            "MESSAGE_PLACEHOLDER": "Parašykite, kokio darbo ieškote arba kuo galime padėti.",
-            "SUBMIT": "Siųsti žinutę",
-            "SUCCESS": "Ačiū! Jūsų žinutė išsiųsta. Mūsų koordinatorius netrukus susisieks su jumis.",
-            "ERROR": "Nepavyko išsiųsti žinutės. Bandykite dar kartą vėliau."
-        },
-        "VALIDATION": {
-            "NAME_REQUIRED": "Įveskite savo vardą.",
-            "EMAIL_REQUIRED": "Reikalingas el. pašto adresas.",
-            "EMAIL_INVALID": "Įveskite teisingą el. pašto adresą.",
-            "MESSAGE_REQUIRED": "Įveskite trumpą žinutę (bent 10 simbolių)."
-        },
-        "INFO": {
-            "TITLE": "Tiesioginis kontaktas",
-            "PHONE_LABEL": "Telefonas",
-            "EMAIL_LABEL": "El. paštas",
-            "HOURS": "Dirbame visą parą kandidatams ir partneriams."
-        },
-        "OFFICE": {
-            "TITLE": "Mūsų biuras",
-            "ADDRESS": "Example gatvė 10, Ryga, Latvija",
-            "MAP_HINT": "Galite mus aplankyti arba susitarti dėl konsultacijos internetu."
-        }
+      "TITLE": "Kontaktai",
+      "EMAIL": "info@monova.work",
+      "PHONE": "+371 28655822"
+    },
+    "LEGAL": {
+      "COPYRIGHT": "© {{year}} Monova. Visos teisės saugomos.",
+      "PRIVACY": "Privatumo politika",
+      "TERMS": "Taisyklės"
     }
+  },
+  "FAQ": {
+    "TITLE": "Dažniausiai užduodami klausimai",
+    "INTRO": "Suprantame, kad išvykti dirbti į užsienį gali atrodyti neapibrėžta. Štai nuoširdūs atsakymai į klausimus, kuriuos girdime dažniausiai.",
+    "QUESTIONS": [
+      {
+        "q": "Ar man reikia diplomo ar specialaus išsilavinimo, kad galėčiau dirbti užsienyje?",
+        "a": "Ne. Dauguma mūsų siūlomų darbo vietų (gamyboje, sandėliuose, logistikoje, sezoniniuose darbuose, valyme, viešbučiuose ir pan.) nereikalauja aukštojo išsilavinimo. Svarbiausia – motyvacija ir patikimumas."
+      },
+      {
+        "q": "Ar galiu dirbti užsienyje, jei turiu pilką pasą arba esu ne ES pilietis?",
+        "a": "Taip. Dirbame su licencijuotomis agentūromis, kurios padeda gauti legalius leidimus dirbti ne ES piliečiams. Daugelis kandidatų iš Latvijos, Estijos ir kitų šalių sėkmingai dirbo Europoje su Monova pagalba."
+      },
+      {
+        "q": "Kas, jei kalbu tik viena kalba?",
+        "a": "Viskas gerai! Daugelis darbdavių nereikalauja anglų ar vietinės kalbos žinių. Mūsų koordinatoriai kalba tavo kalba ir viską paaiškina – nuo sutarties iki apgyvendinimo."
+      },
+      {
+        "q": "Ar turiu mokėti Monova už darbo suradimą?",
+        "a": "Ne. Mūsų paslauga kandidatams yra visiškai nemokama. Mus apmoka darbdaviai, ieškantys patikimų darbuotojų. Tu niekada neturėtum mokėti už darbą per Monova."
+      },
+      {
+        "q": "Kas bus mano faktinis darbdavys?",
+        "a": "Sutartį pasirašysi tiesiogiai su licencijuotu Europos darbdaviu arba partnerių agentūra. Monova padeda rasti darbą, kandidatuoti ir saugiai persikelti – mes esame tavo pagalba, o ne darbdavys."
+      },
+      {
+        "q": "Ar Monova suteikia apgyvendinimą?",
+        "a": "Dauguma darbo pasiūlymų apima organizuotą apgyvendinimą arba pagalbą jį surandant. Sąlygos (kaina, atstumas, patogumai) visada paaiškinamos prieš priimant sprendimą."
+      },
+      {
+        "q": "Ar kelionė iš mano šalies įtraukta?",
+        "a": "Kai kuriais atvejais taip, kitais padedame surasti ekonomiškas kelionės galimybes arba išlaidų kompensaciją po pirmo atlygio. Prieš išvykstant visada suteikiame kelionės instrukcijas."
+      },
+      {
+        "q": "Ar poros ar draugai gali kandidatuoti kartu?",
+        "a": "Taip. Dažnai įdarbiname poras ar draugų grupes, ypač sandėliuose ir gamyboje. Tiesiog paminėk tai paraiškoje."
+      },
+      {
+        "q": "Kiek laiko trunka procesas?",
+        "a": "Tai priklauso nuo šalies ir darbo tipo – paprastai 3–10 dienų nuo registracijos iki pasiūlymo ir 1–3 savaitės iki išvykimo."
+      },
+      {
+        "q": "Kokią pagalbą gausiu atvykęs?",
+        "a": "Mūsų vietiniai partneriai pasitinka tave vietoje, padeda registruotis ir įsikurti. Su Monova gali susisiekti bet kada darbo metu, jei prireiktų pagalbos."
+      }
+    ]
+  },
+  "CONTACT": {
+    "TITLE": "Susisiek su Monova",
+    "INTRO": "Atsiųsk mums žinutę dėl darbo pasiūlymų, bendradarbiavimo ar pagalbos. Mūsų komanda dirba visą parą.",
+    "FORM": {
+      "NAME_LABEL": "Vardas",
+      "EMAIL_LABEL": "El. paštas",
+      "MESSAGE_LABEL": "Žinutė",
+      "MESSAGE_PLACEHOLDER": "Parašyk, kokio darbo ieškai arba kuo galime padėti.",
+      "SUBMIT": "Siųsti žinutę",
+      "SUCCESS": "Ačiū! Tavo žinutė išsiųsta. Mūsų koordinatorius netrukus susisieks su tavimi.",
+      "ERROR": "Nepavyko išsiųsti žinutės. Bandyk dar kartą vėliau."
+    },
+    "VALIDATION": {
+      "NAME_REQUIRED": "Įvesk savo vardą.",
+      "EMAIL_REQUIRED": "El. paštas yra privalomas.",
+      "EMAIL_INVALID": "Įvesk teisingą el. pašto adresą.",
+      "MESSAGE_REQUIRED": "Įvesk trumpą žinutę (bent 10 simbolių)."
+    },
+    "INFO": {
+      "TITLE": "Tiesioginis kontaktas",
+      "PHONE_LABEL": "Telefonas",
+      "EMAIL_LABEL": "El. paštas",
+      "HOURS": "Dirbame 24/7 kandidatams ir partneriams."
+    },
+    "OFFICE": {
+      "TITLE": "Mūsų biuras",
+      "ADDRESS": "Pavyzdžio g. 10, Ryga, Latvija",
+      "MAP_HINT": "Galite apsilankyti arba susitarti dėl nuotolinės konsultacijos."
+    }
+  },
+  "CLIENTS": {
+    "HERO": {
+      "EYEBROW": "Darbdaviams ir personalo partneriams",
+      "TITLE": "Plėskite savo komandas su Monova",
+      "SUBTITLE": "Deriname kūrybišką kandidatų paiešką, nuolatinį tiekimą, šiuolaikines technologijas ir stiprią kandidato rinkodarą, kad patikimi darbuotojai greitai pasiektų jūsų įmonę."
+    },
+    "PILLARS": {
+      "TITLE": "Ką suteikia Monova jūsų įdarbinimui",
+      "CREATIVITY_TITLE": "Kūrybiška paieška, pasiekianti tikrus žmones",
+      "CREATIVITY_BODY": "Nelaukiame tik CV. Vykdome tikslines kampanijas, naudojame vietines kalbas ir kanalus, kad pasiektume kandidatus, kurių kiti agentai nepasiekia.",
+      "CONSISTENCY_TITLE": "Nuoseklumas, kuriuo galite pasitikėti",
+      "CONSISTENCY_BODY": "Nuolatinė atranka pagrindinėse rinkose užtikrina stabilų darbo jėgos srautą logistikos, gamybos, sezoniniuose ir techniniuose sektoriuose.",
+      "INNOVATION_TITLE": "Technologijomis paremta atranka",
+      "INNOVATION_BODY": "Atrankos srautai, automatizavimas ir duomenys padeda greitai reaguoti, sumažinti atkritimą ir pateikti tik pasiruošusius kandidatus.",
+      "MARKETING_TITLE": "Stipresnis darbdavio įvaizdis",
+      "MARKETING_BODY": "Paruošiame jūsų pasiūlymą aiškia, sąžininga kalba: atlygis, pamainos, apgyvendinimas, parama – mažiau klausimų, daugiau atvykusių darbuotojų."
+    },
+    "FLOW": {
+      "TITLE": "Kaip vyksta bendradarbiavimas su Monova",
+      "STEP_1_TITLE": "1. Suprantame jūsų poreikius",
+      "STEP_1_BODY": "Nustatome profilius, kiekius, vietas, sezoniškumą, mokymo galimybes ir pagrindines sąlygas, kad pateiktume tik tinkamus kandidatus.",
+      "STEP_2_TITLE": "2. Aktyvuojame paiešką ir kampanijas",
+      "STEP_2_BODY": "Pradedame daugiakanales kampanijas tikslinėse šalyse, tikriname motyvaciją, dokumentus ir pasirengimą dirbti.",
+      "STEP_3_TITLE": "3. Pateikiame atrinktus kandidatus",
+      "STEP_3_BODY": "Gaunate struktūrizuotus profilius, paruoštus interviu arba tiesioginiam įdarbinimui, su aiškiais abiejų pusių lūkesčiais.",
+      "STEP_4_TITLE": "4. Atvykimas ir palaikymas",
+      "STEP_4_BODY": "Padedame kandidatams su kelione, būstu ir pirmosiomis dienomis darbe – taip sumažiname ankstyvą darbuotojų kaitą."
+    },
+    "PROOF": {
+      "TITLE": "Kodėl partneriai renkasi Monova",
+      "POINT_1": "Dirbame ES rinkose ir turime patirties logistikos, gamybos, svetingumo bei sandėliavimo sektoriuose.",
+      "POINT_2": "Pagalba vietos kalba kandidatams iš Rytų Europos kuria pasitikėjimą ir sumažina neatvykimo atvejus.",
+      "POINT_3": "Skaidrus bendradarbiavimas: aiškūs susitarimai, ataskaitos ir realūs pažadai dėl kandidatų.",
+      "CTA_TEXT": "Aptarkime jūsų įdarbinimo poreikius.",
+      "CTA_BUTTON": "Užsisakykite skambutį su mūsų komanda"
+    }
+  },
+  "JOBS": {
+    "CATEGORIES": {
+      "SHIPBUILDING": "Laivų statyba",
+      "WELDER": "Suvirintojas",
+      "ELECTRICIAN": "Elektrikas",
+      "PIPEFITTER": "Vamzdynų montuotojas",
+      "CARPENTER": "Stalius",
+      "INDUSTRIALPAINTER": "Pramoninis dažytojas",
+      "SCAFFOLDER": "Pastolių montuotojas",
+      "CRANEOPERATOR": "Krano operatorius",
+      "FACTORYWORKER": "Gamyklos darbuotojas",
+      "MACHINEOPERATOR": "Mašinų operatorius",
+      "CNCOPERATOR": "CNC operatorius",
+      "ASSEMBLER": "Surinkėjas",
+      "QUALITYCONTROL": "Kokybės kontrolierius",
+      "TRUCKDRIVER": "Vilkiko vairuotojas (CE kategorija)",
+      "FORKLIFTDRIVER": "Krautuvų vairuotojas",
+      "WAREHOUSEOPERATIVE": "Sandėlio darbuotojas",
+      "DELIVERYDRIVER": "Kurjeris",
+      "FULLTIME": "Pilnas etatas",
+      "PARTTIME": "Dalinis etatas",
+      "NIGHT": "Naktinė pamaina",
+      "DAY": "Dieninė pamaina",
+      "MORNING": "Rytinė pamaina",
+      "MIXED": "Mišrios pamainos"
+    },
+    "JOBDETAILS": {
+      "BACKTOALLJOBS": "Atgal į visus darbus",
+      "HOUSINGPROVIDED": "Suteikiamas arba organizuojamas apgyvendinimas",
+      "TRANSPORTSUPPORT": "Transporto pagalba",
+      "ABOUTTHISJOB": "Apie darbą",
+      "JOBHINT": "Visi pasiūlymai patvirtinti Monova ir mūsų licencijuotų partnerių. Mes niekada neimame mokesčio iš kandidatų. Darbo sutartys visada pasirašomos tiesiogiai su darbdaviais arba partnerių agentūromis.",
+      "REQUIREDDOCUMENTS": "Reikalingi dokumentai",
+      "HOUSINGANDCONDITIONS": "Apgyvendinimas ir sąlygos",
+      "WHATWEOFFER": "Ką siūlome",
+      "REQUIREMENTS": "Reikalavimai"
+    }
+  },
+  "REGISTRATION": {
+    "TITLE": "Sukurk Monova paskyrą",
+    "SUBTITLE": "Vienas profilis – visoms patikimoms Europos darbo galimybėms.",
+    "EMAIL": "El. paštas",
+    "PASSWORD": "Slaptažodis",
+    "FIRSTNAME": "Vardas",
+    "LASTNAME": "Pavardė",
+    "CREATEACCOUNT": "Sukurti paskyrą"
+  }
 }

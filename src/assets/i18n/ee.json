@@ -1,156 +1,249 @@
 {
-    "MAIN": {
-        "GERMANY": "Saksamaa",
-        "NETHERLANDS": "Holland",
-        "FINLAND": "Soome"
+  "MAIN": {
+    "GERMANY": "Saksamaa",
+    "NETHERLANDS": "Holland",
+    "FINLAND": "Soome",
+    "BELGIUM": "Belgia",
+    "FRANCE": "Prantsusmaa"
+  },
+  "NAV": {
+    "JOBS": "Tööpakkumised",
+    "SERVICES": "Teenused",
+    "FAQ": "KKK",
+    "CONTACTS": "Kontaktid",
+    "UPLOAD_CV": "Laadi CV üles",
+    "SIGN_IN": "Logi sisse",
+    "SIGN_UP": "Loo konto",
+    "LOGOUT": "Logi välja"
+  },
+  "HOME": {
+    "HERO": {
+      "EYEBROW": "Usaldusväärne värbamis- ja kolimispartner",
+      "TITLE": "Tööta välismaal koos Monovaga",
+      "SUBTITLE": "Alates CV saatmisest kuni kolimiseni – kiire vastavus usaldusväärsete Euroopa partneritega.",
+      "FIND_JOB": "Leia töö",
+      "FOR_COMPANIES": "Ettevõtetele"
     },
-    "NAV": {
-        "JOBS": "Tööpakkumised",
-        "SERVICES": "Teenused",
-        "FAQ": "KKK",
-        "CONTACTS": "Kontaktid",
-        "UPLOAD_CV": "Laadi CV üles",
-        "SIGN_IN": "Logi sisse",
-        "SIGN_UP": "Registreeru",
-        "LOGOUT": "Logi välja"
+    "WHY": {
+      "TITLE": "Miks valida Monova",
+      "LIST": {
+        "OPTION_1_TITLE": "Kiire ja lihtne tööleasumine:",
+        "OPTION_1_CONTENT": "Ühendame sind usaldusväärsete Euroopa partneritega – otsused mõne päevaga, mitte nädalatega.",
+        "OPTION_2_TITLE": "Kinnitatud tööandjad:",
+        "OPTION_2_CONTENT": "Teeme koostööd ainult litsentseeritud EL agentuuride ja ettevõtetega, kes tagavad seaduslikud lepingud, eluaseme ja õiglase töötasu.",
+        "OPTION_3_TITLE": "Varjatud tasusid pole:",
+        "OPTION_3_CONTENT": "Meie teenus on kandidaatidele 100% tasuta.",
+        "OPTION_4_TITLE": "Täielik tugi välismaal:",
+        "OPTION_4_CONTENT": "Aitame reisikorralduse, dokumentide ja sisseelamisega, et saaksid sujuvalt tööle asuda.",
+        "OPTION_5_TITLE": "Mitmekeelne tugi:",
+        "OPTION_5_CONTENT": "Pakume abi vene, läti, inglise ja poola keeles – alates kandideerimisest kuni kohalejõudmiseni."
+      }
     },
-    "HOME": {
-        "HERO": {
-            "EYEBROW": "Usaldusväärne töövahendaja Euroopas",
-            "TITLE": "Tööta välismaal Monova abil",
-            "SUBTITLE": "Alates CV-st kuni kolimiseni — kiire sobitamine usaldusväärsete Euroopa partneritega.",
-            "FIND_JOB": "Leia töö",
-            "FOR_COMPANIES": "Ettevõtetele"
-        },
-        "WHY": {
-            "TITLE": "Miks valida Monova",
-            "LIST": {
-                "OPTION_1_TITLE": "Kiire ja lihtne tööleasumine:",
-                "OPTION_1_CONTENT": "Ühendame sind usaldusväärsete Euroopa partneritega — otsused mõne päevaga, mitte nädalatega.",
-                "OPTION_2_TITLE": "Kontrollitud tööandjad:",
-                "OPTION_2_CONTENT": "Teeme koostööd ainult litsentseeritud agentuuride ja ettevõtetega, kes tagavad legaalsed lepingud, majutuse ja õiglase töötasu.",
-                "OPTION_3_TITLE": "Pole varjatud tasusid:",
-                "OPTION_3_CONTENT": "Meie teenus on kandidaatidele täiesti tasuta.",
-                "OPTION_4_TITLE": "Täielik tugi välismaal:",
-                "OPTION_4_CONTENT": "Aitame reisikorralduse, dokumentide ja kohanemisega, et saaksid tööle asuda sujuvalt.",
-                "OPTION_5_TITLE": "Mitmekeelne abi:",
-                "OPTION_5_CONTENT": "Tugi vene, läti, inglise ja poola keeles — alates kandideerimisest kuni saabumiseni."
-            }
-        },
-        "STEPS": {
-            "TITLE": "Kuidas Monova töötab",
-            "SUBTITLE": "Lihtne ja läbipaistev protsess — alates andmete esitamisest kuni töö alustamiseni usaldusväärse Euroopa tööandjaga.",
-            "STEP_1_TITLE": "Saada oma profiil üks kord",
-            "STEP_1_TEXT": "Täida lühike vorm või laadi oma CV üles. Räägi meile, millist tööd, keelt ja riiki eelistad.",
-            "STEP_1_HINT": "Üks profiil annab sulle juurdepääsu mitmele kontrollitud tööandjale Saksamaal, Hollandis, Soomes ja mujal.",
-            "STEP_2_TITLE": "Leiame sulle sobivad pakkumised",
-            "STEP_2_TEXT": "Meie värbajad vaatavad su profiili üle ja pakuvad reaalseid tööpakkumisi — ilma spämmita ja võltsreklaamideta.",
-            "STEP_2_HINT": "Sa valid, mis sobib: tööaeg, palk, majutus, lepingu kestus.",
-            "STEP_3_TITLE": "Intervjuud, lepingud ja kolimistoetus",
-            "STEP_3_TEXT": "Korraldame intervjuud, selgitame lepingud sinu keeles ja aitame dokumentide ning reisiga.",
-            "STEP_3_HINT": "Sa tead alati, kes sind palkab, kus elad ja kui palju teenid.",
-            "STEP_4_TITLE": "Alusta tööd pideva toega",
-            "STEP_4_TEXT": "Allkirjastad lepingu otse tööandjaga või kohaliku partneriga. Oleme sinuga ühenduses ja aitame vajadusel.",
-            "STEP_4_HINT": "Monova on sinu värbamispartner — me ei võta töötajatelt tasu."
-        }
+    "STEPS": {
+      "TITLE": "Kuidas koostöö Monovaga toimib",
+      "SUBTITLE": "Lihtne ja läbipaistev protsess – alates andmete saatmisest kuni töö alustamiseni usaldusväärse Euroopa tööandjaga.",
+      "STEP_1_TITLE": "Saada meile oma profiil ühe korra",
+      "STEP_1_TEXT": "Täida lühike vorm või laadi üles oma CV. Kirjelda, millist tööd, keelt ja riiki eelistad.",
+      "STEP_1_HINT": "Üks profiil annab juurdepääsu mitmele kinnitatud tööandjale Saksamaal, Hollandis, Soomes ja mujal.",
+      "STEP_2_TITLE": "Leiame sulle reaalsed pakkumised",
+      "STEP_2_TEXT": "Meie värbajad vaatavad sinu profiili üle ja pakuvad töökohti usaldusväärsetelt partneritelt – ilma spämmita ja võltsreklaamideta.",
+      "STEP_2_HINT": "Sina valid, mis sobib: tööaeg, palgavahemik, majutusvõimalused, lepingu kestus.",
+      "STEP_3_TITLE": "Intervjuud, lepingud ja kolimistoetus",
+      "STEP_3_TEXT": "Koordineerime intervjuusid, selgitame lepingud sinu keeles ja toetame dokumentide ja reisi korraldamisel.",
+      "STEP_3_HINT": "Sa tead alati, kes sind palkab, kus elad ja kui palju teenid.",
+      "STEP_4_TITLE": "Alusta tööd koos jätkuva toega",
+      "STEP_4_TEXT": "Allkirjastad lepingu otse tööandja või kohaliku partneriga. Oleme olemas, et aidata sisseelamisel ja vajadusel toetada.",
+      "STEP_4_HINT": "Monova on sinu värbamispartner – me ei võta töötajatelt tasu."
     },
-    "FOOTER": {
-        "TITLE": "Monova Recruitment",
-        "TAGLINE": "Ühendame Euroopa tööandjad motiveeritud töötajatega.",
-        "DISCLAIMER": "Monova tegutseb töövahenduse ja värbamispartnerina. Me ei võta kandidaatide käest mingeid tasusid. Töösuhted sõlmitakse alati otse litsentseeritud tööandja või partneragentuuriga.",
-        "LINKS": {
-            "JOBS": "Tööpakkumised",
-            "SERVICES": "Teenused",
-            "FAQ": "KKK",
-            "CONTACTS": "Kontaktid",
-            "FOR_EMPLOYERS": "Tööandjatele"
-        },
-        "CONTACT": {
-            "TITLE": "Kontakt",
-            "EMAIL": "info@monova.work",
-            "PHONE": "+371 28655822"
-        },
-        "LEGAL": {
-            "COPYRIGHT": "© {{year}} Monova. Kõik õigused kaitstud.",
-            "PRIVACY": "Privaatsuspoliitika",
-            "TERMS": "Tingimused"
-        }
-    },
-    "FAQ": {
-        "TITLE": "Korduma kippuvad küsimused",
-        "INTRO": "Mõistame, et tööle asumine välismaale võib tunduda keeruline. Siin on ausad vastused levinumatele küsimustele.",
-        "QUESTIONS": [
-            {
-            "q": "Kas mul on vaja diplomit või eriharidust, et töötada välismaal?",
-            "a": "Ei ole vaja. Enamik pakutavatest töödest (tehased, laod, logistika, hooajatöö, koristus, hotellitöö jne) ei nõua kõrgharidust. Oluline on motivatsioon ja usaldusväärsus."
-            },
-            {
-            "q": "Kas ma saan töötada välismaal, kui mul on hall pass või ma ei ole EL-i kodanik?",
-            "a": "Jah. Teeme koostööd litsentseeritud agentuuridega, kes korraldavad seaduslikke töölubasid väljaspool EL-i kodanikele. Paljud meie kandidaadid Lätist, Eestist ja teistest SRÜ riikidest on juba edukalt töötanud EL-is Monova abiga."
-            },
-            {
-            "q": "Mis siis, kui ma räägin ainult ühte keelt?",
-            "a": "Pole probleemi! Paljud tööandjad ei nõua inglise ega kohaliku keele oskust. Meie koordinaatorid räägivad sinu keelt ja selgitavad kõike — alates lepingust kuni majutuseni."
-            },
-            {
-            "q": "Kas pean maksma Monovale töö leidmise eest?",
-            "a": "Ei. Meie teenus on kandidaatidele täiesti tasuta. Meie tasu maksavad tööandjad, kes otsivad usaldusväärseid töötajaid."
-            },
-            {
-            "q": "Kes on minu tegelik tööandja?",
-            "a": "Sa sõlmid lepingu otse litsentseeritud Euroopa tööandja või partneragentuuriga. Monova aitab sul töö leida ja turvaliselt kolida — me oleme sinu tugi, mitte tööandja."
-            },
-            {
-            "q": "Kas Monova pakub majutust?",
-            "a": "Enamik tööpakkumisi sisaldab korraldatud majutust või abi selle leidmisel. Kõik detailid (hind, kaugus, tingimused) selgitatakse enne reisi.",
-            "a2": ""
-            },
-            {
-            "q": "Kas transport minu riigist on hinna sees?",
-            "a": "Mõnikord jah, muul juhul aitame korraldada soodsaid reisimisvõimalusi või hüvitame kulud pärast esimest palka. Enne väljasõitu saad alati juhised."
-            },
-            {
-            "q": "Kas paarid või sõbrad saavad koos kandideerida?",
-            "a": "Jah. Sageli aitame tööle asuda paaridel ja sõpradel koos, eriti laotöödes ja tootmises. Maini seda lihtsalt avalduses."
-            },
-            {
-            "q": "Kui kaua protsess kestab?",
-            "a": "Sõltub riigist ja töö tüübist — tavaliselt 3–10 päeva registreerimisest tööpakkumiseni ja 1–3 nädalat väljasõiduni."
-            },
-            {
-            "q": "Millist abi ma saan pärast saabumist?",
-            "a": "Meie kohalikud partnerid võtavad sind vastu, aitavad registreerimisel ja tööle asumisel. Sa saad Monovaga alati ühendust võtta, kui vajad abi."
-            }
-        ]
+    "STRIPS": {
+      "ROW_1_TOP": "Tehisintellekti ja automatiseerimise maailmas",
+      "ROW_1_MAIN": "näeme me päris inimesi.",
+      "ROW_2_TOP": "Keeruliste karjääride maailmas",
+      "ROW_2_MAIN": "muudame töö alustamise välismaal lihtsaks.",
+      "ROW_3_TOP": "Ebamäärasuse maailmas",
+      "ROW_3_MAIN": "aitame sul turvaliselt tööle jõuda."
+    }
+  },
+  "FOOTER": {
+    "TITLE": "Monova värbamine",
+    "TAGLINE": "Ühendame Euroopa tööandjad motiveeritud töötajatega.",
+    "DISCLAIMER": "Monova tegutseb värbamis- ja töövahenduspartnerina. Me ei võta kandidaatide käest mingeid tasusid. Töösuhted sõlmitakse alati otse litsentseeritud tööandjate või partneragentuuridega.",
+    "LINKS": {
+      "JOBS": "Tööpakkumised",
+      "SERVICES": "Teenused",
+      "FAQ": "KKK",
+      "CONTACTS": "Kontaktid",
+      "FOR_EMPLOYERS": "Tööandjatele"
     },
     "CONTACT": {
-        "TITLE": "Võta ühendust Monovaga",
-        "INTRO": "Saada meile sõnum tööpakkumiste, koostöö või toe kohta. Meie meeskond on saadaval ööpäevaringselt.",
-        "FORM": {
-            "NAME_LABEL": "Sinu nimi",
-            "EMAIL_LABEL": "E-post",
-            "MESSAGE_LABEL": "Sõnum",
-            "MESSAGE_PLACEHOLDER": "Kirjelda, millist tööd otsid või kuidas saame aidata.",
-            "SUBMIT": "Saada sõnum",
-            "SUCCESS": "Aitäh! Sõnum on saadetud. Meie koordinaator võtab sinuga peagi ühendust.",
-            "ERROR": "Sõnumi saatmine ebaõnnestus. Palun proovi hiljem uuesti."
-        },
-        "VALIDATION": {
-            "NAME_REQUIRED": "Palun sisesta oma nimi.",
-            "EMAIL_REQUIRED": "E-post on kohustuslik.",
-            "EMAIL_INVALID": "Palun sisesta kehtiv e-posti aadress.",
-            "MESSAGE_REQUIRED": "Palun sisesta lühike sõnum (vähemalt 10 tähemärki)."
-        },
-        "INFO": {
-            "TITLE": "Otsekontakt",
-            "PHONE_LABEL": "Telefon",
-            "EMAIL_LABEL": "E-post",
-            "HOURS": "Oleme saadaval 24/7 kandidaatide ja partnerite jaoks."
-        },
-        "OFFICE": {
-            "TITLE": "Meie kontor",
-            "ADDRESS": "Example tänav 10, Riia, Läti",
-            "MAP_HINT": "Võid meid külastada või leppida kokku veebikonsultatsiooni."
-        }
+      "TITLE": "Kontakt",
+      "EMAIL": "info@monova.work",
+      "PHONE": "+371 28655822"
+    },
+    "LEGAL": {
+      "COPYRIGHT": "© {{year}} Monova. Kõik õigused kaitstud.",
+      "PRIVACY": "Privaatsuspoliitika",
+      "TERMS": "Tingimused"
     }
+  },
+  "FAQ": {
+    "TITLE": "Korduma kippuvad küsimused",
+    "INTRO": "Mõistame, et tööle asumine välismaal võib tunduda ebakindel. Siin on ausad vastused küsimustele, mida meilt kõige sagedamini küsitakse.",
+    "QUESTIONS": [
+      {
+        "q": "Kas ma vajan välismaal töötamiseks diplomit või eriharidust?",
+        "a": "Ei. Enamik meie pakutavaid töökohti (tehases, laos, logistikas, hooajatööd, koristus, hotellindus jne) ei nõua kõrgharidust. Oluline on motivatsioon ja usaldusväärsus."
+      },
+      {
+        "q": "Kas ma saan välismaal töötada, kui mul on nn hall pass või olen kolmanda riigi kodanik?",
+        "a": "Jah. Teeme koostööd litsentseeritud agentuuridega, kes korraldavad seaduslikud töölubade protsessid EL-i mittekuuluvatele kodanikele. Paljud meie kandidaadid Lätist, Eestist ja teistest endistest SRÜ riikidest on Monova abil edukalt töötanud Euroopas."
+      },
+      {
+        "q": "Mis siis, kui ma räägin ainult üht keelt?",
+        "a": "Pole probleemi! Paljud tööandjad ei nõua inglise ega kohaliku keele oskust. Meie koordinaatorid räägivad sinu keelt ja selgitavad kõik sammud — lepingust majutuseni."
+      },
+      {
+        "q": "Kas pean Monovale maksma töö leidmise eest?",
+        "a": "Ei. Meie teenus on kandidaatidele täiesti tasuta. Tööandjad maksavad meile usaldusväärsete töötajate leidmise eest. Mitte kunagi ei tohiks sa kellelegi maksta töökoha eest Monova kaudu."
+      },
+      {
+        "q": "Kes on minu tegelik tööandja?",
+        "a": "Lepingu allkirjastad otse litsentseeritud Euroopa tööandja või partneragentuuriga. Monova aitab sul töökoha leida, kandideerida ja turvaliselt kolida — meie oleme tugi, mitte tööandja."
+      },
+      {
+        "q": "Kas Monova korraldab majutuse?",
+        "a": "Enamik tööpakkumisi sisaldab korraldatud eluaset või abi selle leidmisel. Täpsemad tingimused (hind, kaugus, mugavused) selgitatakse alati enne reisiotsust."
+      },
+      {
+        "q": "Kas transport minu koduriigist on kaasas?",
+        "a": "Mõnel juhul jah, mõnel juhul aitame leida soodsad reisivõimalused või korraldame transpordikulude hüvitamise pärast esimest palka. Enne väljasõitu saad alati reisinõuanded."
+      },
+      {
+        "q": "Kas paarid või sõbrad saavad koos kandideerida?",
+        "a": "Jah. Sageli leiame töökohti paaridele ja sõpradele, eriti lao- ja tootmisvaldkonnas. Lihtsalt maini seda oma avalduses."
+      },
+      {
+        "q": "Kui kaua protsess aega võtab?",
+        "a": "See sõltub riigist ja töö liigist — tavaliselt 3–10 päeva registreerimisest tööpakkumiseni ja 1–3 nädalat kuni väljasõiduni."
+      },
+      {
+        "q": "Millist tuge saan pärast saabumist?",
+        "a": "Meie kohalikud partnerid võtavad sind kohapeal vastu, aitavad registreerimise ja sisseelamisega. Monova meeskond on sinu käsutuses kogu tööperioodi jooksul."
+      }
+    ]
+  },
+  "CONTACT": {
+    "TITLE": "Võta ühendust Monovaga",
+    "INTRO": "Saada meile sõnum töövõimaluste, koostöö või toe kohta. Meie meeskond on saadaval ööpäevaringselt.",
+    "FORM": {
+      "NAME_LABEL": "Sinu nimi",
+      "EMAIL_LABEL": "E-post",
+      "MESSAGE_LABEL": "Sõnum",
+      "MESSAGE_PLACEHOLDER": "Kirjelda, millist tööd otsid või kuidas saame sind aidata.",
+      "SUBMIT": "Saada sõnum",
+      "SUCCESS": "Aitäh! Sinu sõnum on saadetud. Meie koordinaator võtab sinuga peagi ühendust.",
+      "ERROR": "Sõnumi saatmine ebaõnnestus. Palun proovi hiljem uuesti."
+    },
+    "VALIDATION": {
+      "NAME_REQUIRED": "Palun sisesta oma nimi.",
+      "EMAIL_REQUIRED": "E-posti aadress on kohustuslik.",
+      "EMAIL_INVALID": "Sisesta kehtiv e-posti aadress.",
+      "MESSAGE_REQUIRED": "Palun sisesta lühike sõnum (vähemalt 10 tähemärki)."
+    },
+    "INFO": {
+      "TITLE": "Otsene kontakt",
+      "PHONE_LABEL": "Telefon",
+      "EMAIL_LABEL": "E-post",
+      "HOURS": "Oleme kandidaatidele ja partneritele saadaval 24/7."
+    },
+    "OFFICE": {
+      "TITLE": "Meie kontor",
+      "ADDRESS": "Näidistänav 10, Riia, Läti",
+      "MAP_HINT": "Sa võid meid külastada või leppida kokku veebikonsultatsiooni."
+    }
+  },
+  "CLIENTS": {
+    "HERO": {
+      "EYEBROW": "Tööandjatele ja personalipartneritele",
+      "TITLE": "Kasvata oma meeskondi koos Monovaga",
+      "SUBTITLE": "Ühendame loova värbamise, pideva tööjõu tarnimise, kaasaegse tehnoloogia ja tugeva kandidaaditurunduse, et tuua usaldusväärsed töötajad sinu ettevõttesse kiiresti."
+    },
+    "PILLARS": {
+      "TITLE": "Mida Monova pakub sinu värbamisele",
+      "CREATIVITY_TITLE": "Loov värbamine, mis jõuab tõeliste inimesteni",
+      "CREATIVITY_BODY": "Me ei oota lihtsalt CV-sid. Viime läbi sihitud kampaaniaid, kasutame kohalikke keeli ja kanaleid, et jõuda kandidaatideni, keda teised agentuurid ei leia.",
+      "CONSISTENCY_TITLE": "Järjepidevus, millega saad arvestada",
+      "CONSISTENCY_BODY": "Pidev värbamine peamistel turgudel tagab stabiilse tööjõu voo logistikasse, tootmisse, hooajatöödele ja tehnilistele ametikohtadele.",
+      "INNOVATION_TITLE": "Tehnoloogiapõhine sobitamine",
+      "INNOVATION_BODY": "Automatiseeritud töövood ja andmeanalüüs aitavad kiiresti reageerida, vähendada väljalangemist ja esitada ainult motiveeritud kandidaate.",
+      "MARKETING_TITLE": "Tugev tööandja bränd ja turundus",
+      "MARKETING_BODY": "Koostame sinu pakkumise selges ja ausas vormis: palk, vahetused, majutus, tugi. Tulemuseks on vähem küsimusi ja rohkem tööleasumisi."
+    },
+    "FLOW": {
+      "TITLE": "Kuidas koostöö Monovaga toimub",
+      "STEP_1_TITLE": "1. Mõistame sinu vajadusi",
+      "STEP_1_BODY": "Määratleme profiilid, mahud, asukohad, hooajalisuse, koolitusvõime ja tingimused, et saaksime esitada ainult kandidaadid, keda saad reaalselt palgata.",
+      "STEP_2_TITLE": "2. Käivitame värbamise ja kampaaniad",
+      "STEP_2_BODY": "Käivitame mitmekanalilised kampaaniad sihtriikides, eelsõelume kohalikes keeltes ja kontrollime motivatsiooni, dokumente ja saadavust.",
+      "STEP_3_TITLE": "3. Lühinimekiri ja ajastamine",
+      "STEP_3_BODY": "Saad struktureeritud profiilid, mis on valmis intervjuuks või otse tööle suunamiseks – ootused on mõlemal poolel selged.",
+      "STEP_4_TITLE": "4. Saabumine ja hoidmine",
+      "STEP_4_BODY": "Toetame kandidaate reisi, majutuse ja esimestel tööpäevadel, aidates vähendada varajast töölt lahkumist."
+    },
+    "PROOF": {
+      "TITLE": "Miks partnerid valivad Monova",
+      "POINT_1": "Keskendume EL-i turgudele ning pakume tõestatud värbamislahendusi logistika, tootmise, majutuse ja lao valdkondades.",
+      "POINT_2": "Kohalik keel ja tugi kandidaatidele SRÜ ja Kesk- ja Ida-Euroopa riikidest suurendab usaldust ja vähendab tööle mitteilmumise riski.",
+      "POINT_3": "Läbipaistev koostöö: selged kokkulepped, aruandlus ja realistlikud lubadused tööprofiilide osas.",
+      "CTA_TEXT": "Räägime sinu värbamisvajadustest.",
+      "CTA_BUTTON": "Broneeri kõne meie meeskonnaga"
+    }
+  },
+  "JOBS": {
+    "CATEGORIES": {
+      "SHIPBUILDING": "Laevaehitus",
+      "WELDER": "Keevitaja",
+      "ELECTRICIAN": "Elektrik",
+      "PIPEFITTER": "Torulukksepp",
+      "CARPENTER": "Puusepp",
+      "INDUSTRIALPAINTER": "Tööstusvärvija",
+      "SCAFFOLDER": "Tellingupaigaldaja",
+      "CRANEOPERATOR": "Kraanaoperaator",
+      "FACTORYWORKER": "Tehase töötaja",
+      "MACHINEOPERATOR": "Masinaoperaator",
+      "CNCOPERATOR": "CNC operaator",
+      "ASSEMBLER": "Koostaja",
+      "QUALITYCONTROL": "Kvaliteedikontroll",
+      "TRUCKDRIVER": "Veokijuht (CE kategooria)",
+      "FORKLIFTDRIVER": "Tõstukijuht",
+      "WAREHOUSEOPERATIVE": "Laotöötaja",
+      "DELIVERYDRIVER": "Kuller",
+      "FULLTIME": "Täistööaeg",
+      "PARTTIME": "Osalise tööajaga",
+      "NIGHT": "Öövahetus",
+      "DAY": "Päevavahetus",
+      "MORNING": "Hommikuvahetus",
+      "MIXED": "Vahelduvad vahetused"
+    },
+    "JOBDETAILS": {
+      "BACKTOALLJOBS": "Tagasi kõikide tööde juurde",
+      "HOUSINGPROVIDED": "Majutus on tagatud / korraldatud",
+      "TRANSPORTSUPPORT": "Transporditugi",
+      "ABOUTTHISJOB": "Töö kirjeldus",
+      "JOBHINT": "Kõik pakkumised on kinnitatud Monova ja meie litsentseeritud partnerite kaudu. Me ei võta kandidaatidelt tasusid. Töölepingud sõlmitakse alati otse tööandjate või partneragentuuridega.",
+      "REQUIREDDOCUMENTS": "Vajalikud dokumendid",
+      "HOUSINGANDCONDITIONS": "Majutus ja tingimused",
+      "WHATWEOFFER": "Mida pakume",
+      "REQUIREMENTS": "Nõuded"
+    }
+  },
+  "REGISTRATION": {
+    "TITLE": "Loo oma Monova konto",
+    "SUBTITLE": "Üks profiil kõigi usaldusväärsete Euroopa töövõimaluste jaoks.",
+    "EMAIL": "E-post",
+    "PASSWORD": "Parool",
+    "FIRSTNAME": "Eesnimi",
+    "LASTNAME": "Perekonnanimi",
+    "CREATEACCOUNT": "Loo konto"
+  }
 }

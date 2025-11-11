@@ -6,11 +6,12 @@ import { Job } from '../../models/user';
 import { ApplicationsService, ApplicationWithJob } from '../../services/application/applications.service';
 import { AuthService } from '../../services/auth/auth.services';
 import { Router } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   standalone: true,
   selector: 'app-job-details',
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, TranslatePipe],
   templateUrl: './job-details.component.html',
   styleUrls: ['./job-details.component.scss'],
 })

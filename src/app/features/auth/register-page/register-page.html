@@ -1,15 +1,13 @@
 <section class="auth">
   <div class="auth__card card">
-    <h1 class="auth__title">Create your Monova account</h1>
+    <h1 class="auth__title">{{ 'REGISTRATION.TITLE' | translate }}</h1>
     <p class="auth__subtitle">
-      One profile for all trusted European job opportunities.
+        {{ 'REGISTRATION.SUBTITLE' | translate }}
     </p>
 
-    <!-- FORM (only when not successful) -->
-    <form *ngIf="!success()" [formGroup]="form" (ngSubmit)="submit()" novalidate>
-      <!-- Email -->
+    <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
       <div class="field">
-        <label for="email">Email*</label>
+        <label for="email">{{ 'REGISTRATION.EMAIL' | translate }}*</label>
         <input
           id="email"
           type="email"
@@ -26,7 +24,7 @@
 
       <!-- Password -->
       <div class="field">
-        <label for="password">Password* (min 6 characters)</label>
+        <label for="password">{{ 'REGISTRATION.PASSWORD' | translate }}* (min 6 characters)</label>
         <input
           id="password"
           type="password"
@@ -48,7 +46,7 @@
       <!-- Name -->
       <div class="grid-2">
         <div class="field">
-          <label for="firstName">First name*</label>
+          <label for="firstName">{{ 'REGISTRATION.FIRSTNAME' | translate }}*</label>
           <input
             id="firstName"
             type="text"
@@ -61,7 +59,7 @@
           </div>
         </div>
         <div class="field">
-          <label for="lastName">Last name*</label>
+          <label for="lastName">{{ 'REGISTRATION.LASTNAME' | translate }}*</label>
           <input
             id="lastName"
             type="text"
@@ -78,7 +76,7 @@
       <!-- Age / Gender / Citizenship -->
       <div class="grid-3">
         <div class="field">
-          <label for="age">Age (optional)</label>
+          <label for="age">Age*</label>
           <input
             id="age"
             type="number"
@@ -160,7 +158,7 @@
         class="btn btn--primary auth__submit"
         [disabled]="loading() || form.invalid"
       >
-        {{ loading() ? 'Creating account...' : 'Create account' }}
+        {{ loading() ? 'Creating account...' : ('REGISTRATION.CREATEACCOUNT' | translate) }}
       </button>
 
       <!-- Global error -->
@@ -173,17 +171,5 @@
         <a routerLink="/auth/login">Sign in</a>
       </p>
     </form>
-
-    <!-- SUCCESS VIEW -->
-    <div class="auth__success-block" *ngIf="success()">
-      <h2>Account created successfully 🎉</h2>
-      <p>
-        Your Monova profile has been created.
-        You can now sign in and complete your profile and CV.
-      </p>
-      <a class="btn btn--primary" routerLink="/auth/login">
-        Go to sign in
-      </a>
-    </div>
   </div>
 </section>

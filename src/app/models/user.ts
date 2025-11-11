@@ -62,39 +62,29 @@ export interface ProfileUpdatePayload {
 
 export interface Job {
   id: number;
-
-  // Core
   title: string;
   company_name?: string;
-
-  // Location
   country: string;         // 'DE', 'NL', etc.
   city?: string;
-
-  // Classification
   category: string;        // 'logistics', 'production', etc.
   employment_type?: string; // 'full-time', 'seasonal', etc.
   shift_type?: string;      // 'day', 'night', 'rotation', etc.
-
-  // Salary
   salary_from?: number;
   salary_to?: number;
   currency?: string;        // 'EUR'
   salary_type?: string;     // 'hourly', 'monthly'
   is_net?: boolean;
-
-  // Benefits / flags
   housing_provided?: boolean;
   transport_provided?: boolean;
-
-  // Text fields
   short_description: string;
   full_description?: string;
+  housing_details?: string;
+  language_required?: string;
   requirements_text?: string;
+  min_experience_year?: number;
   benefits_text?: string;
-
-  // Control (optional for FE)
   is_active?: boolean;
   created_at?: string;
   updated_at?: string;
+  image: string;
 }
