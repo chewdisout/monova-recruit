@@ -1,6 +1,6 @@
-import { Component, signal  } from '@angular/core';
+import { Component, ElementRef, Inject, PLATFORM_ID, signal, ViewChild  } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
 
 type CountryKey = 'de' | 'fi' | 'fr' | 'nl';
@@ -13,4 +13,35 @@ type CountryKey = 'de' | 'fi' | 'fr' | 'nl';
 })
 export class HomePageComponent {
   steps = [1, 2, 3, 4];
+
+   @ViewChild('heroVideo') heroVideo!: ElementRef<HTMLVideoElement>;
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
+  ngAfterViewInit(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
+
+    // small delay to ensure it's in DOM and layout is stable
+    setTimeout(() => {
+      const video = this.heroVideo?.nativeElement;
+      if (!video) return;
+
+      // make 100% sure properties are set
+      video.muted = true;
+      video.autoplay = true;
+      video.playsInline = true;
+
+      const playPromise = video.play();
+
+      if (playPromise) {
+        playPromise
+          .then(() => {
+            console.log('Hero video autoplay started');
+          })
+          .catch(err => {
+            console.warn('Hero video autoplay blocked:', err);
+          });
+      }
+    }, 0);
+  }
 }
