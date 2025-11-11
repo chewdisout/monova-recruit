@@ -4,11 +4,14 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ReactiveFormsModule, FormBuilder } from '@angular/forms';
 
 import {
-  AdminApiService,
-  AdminUser,
-  AdminUserUpdate,
-  AdminApplicationJob,
+    AdminApiService,
 } from '../../../services/admin/admin-api.service';
+
+import { 
+    AdminUser,
+    AdminUserUpdate,
+    AdminApplicationJob, 
+} from '../../../models/admin';
 
 @Component({
   standalone: true,

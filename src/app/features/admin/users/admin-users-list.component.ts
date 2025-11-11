@@ -3,8 +3,10 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import {
   AdminApiService,
-  AdminUser
 } from '../../../services/admin/admin-api.service';
+import {
+    AdminUser
+} from '../../../models/admin';
 
 @Component({
   standalone: true,

@@ -10,7 +10,6 @@ import { CommonModule } from '@angular/common';
 import {
   FormBuilder,
   ReactiveFormsModule,
-  FormArray,
   Validators,
 } from '@angular/forms';
 import { UserService } from '../../services/user/user.service';

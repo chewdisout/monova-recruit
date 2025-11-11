@@ -14,7 +14,12 @@
 <nav class="rail mnv-sidebar" role="navigation" aria-label="Main" [class.open]="isOpen">
   <div class="rail__header" routerLink="/">
     <div class="brand">
-      <img src="../../../../assets/img/left_horz.svg" alt="Monova logo" class="navbar-logo" />
+      <img 
+        src="../../../../assets/img/left_horz.svg" 
+        alt="Monova logo" 
+        class="navbar-logo" 
+        (click)="close()"
+      />
     </div>
   </div>
 
@@ -29,7 +34,7 @@
         @if (openKey===item.key) {
             <ul class="subnav">
               @for (c of item.children; track c.label) {
-                <li><a href="/jobs?country={{ c.link }}">{{ c.label | translate }}</a></li>
+                <li><a href="/jobs?country={{ c.link }}" (click)="close()">{{ c.label | translate }}</a></li>
               }
             </ul>
           }
@@ -46,7 +51,7 @@
     <div class="profile">
       @if (auth.isLoggedIn()) {
         <div class="profile">
-          <a routerLink="/profile" class="profile__pill">
+          <a routerLink="/profile" class="profile__pill" (click)="close()">
             <div class="profile__avatar">
               {{ (auth.currentUser()?.name || auth.currentUser()?.email || 'U').charAt(0) }}
             </div>
@@ -64,10 +69,10 @@
         </div>
       } @else {
         <div class="login-buttons">
-          <a class="btn btn--primary" routerLink="/auth/login">
+          <a class="btn btn--primary" routerLink="/auth/login" (click)="close()">
             {{ 'NAV.SIGN_IN' | translate }}
           </a>
-          <a class="btn btn--outline" routerLink="/auth/register">
+          <a class="btn btn--outline" routerLink="/auth/register" (click)="close()">
             {{ 'NAV.SIGN_UP' | translate }}
           </a>
         </div>

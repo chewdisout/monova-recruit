@@ -1,7 +1,8 @@
 import { Component, inject, signal, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { AdminApiService, AdminJob } from '../../../services/admin/admin-api.service';
+import { AdminApiService } from '../../../services/admin/admin-api.service';
+import { AdminJob } from '../../../models/admin';
 
 @Component({
   standalone: true,

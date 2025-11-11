@@ -22,4 +22,8 @@ export class App {
           this.isAdminRoute = e.urlAfterRedirects.startsWith('/admin');
         });
     }
+
+    ngAfterContentInit() {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
 }

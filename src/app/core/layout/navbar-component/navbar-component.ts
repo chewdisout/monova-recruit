@@ -86,10 +86,7 @@ export class NavbarComponent {
 
   toggleTheme() {
     const el = document.documentElement;
-    el.setAttribute(
-      'data-theme',
-      el.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'
-    );
+    el.setAttribute('data-theme', 'dark');
   }
 
   setLang(code: string) {
