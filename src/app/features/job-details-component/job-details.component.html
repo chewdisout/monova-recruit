@@ -1,75 +1,298 @@
-<section class="job-details">
-  <div class="job-details__hero" *ngIf="job() as j">
+<section class="job-details" *ngIf="job() as j">
+  <!-- HERO -->
+  <div class="job-details__hero">
     <div class="job-details__hero-overlay"></div>
-    <div class="job-details__hero-inner">
-      <div class="job-details__hero-main">
-        <a routerLink="/jobs" class="job-details__back">← {{ "JOBS.JOBDETAILS.BACKTOALLJOBS" | translate }}</a>
 
-        <h1 class="job-details__title">{{ j.title }}</h1>
+    <div class="job-details__hero-inner">
+      <!-- LEFT: MAIN INFO -->
+      <div class="job-details__hero-main">
+        <a routerLink="/jobs" class="job-details__back">
+          ← {{ "JOBS.JOBDETAILS.BACKTOALLJOBS" | translate }}
+        </a>
+
+        <h1 class="job-details__title">
+          {{ j.title }}
+        </h1>
 
         <div class="job-details__company">
           {{ j.company_name || 'Monova partner employer' }}
         </div>
 
         <div class="job-details__chips">
-          <span class="chip">
-            {{ j.city || 'Multiple locations' }}, {{ j.country }}
+          <!-- Location -->
+          <span class="chip" *ngIf="j.city || j.country">
+            {{ j.city || ('MAIN.' + j.country | translate) }},
+            {{ j.country }}
           </span>
-          <span class="chip" *ngIf="j.category">{{ j.category | translate }}</span>
+
+          <!-- Category -->
+          <span class="chip" *ngIf="j.category">
+            {{ resolveLabel(j.category, 'JOBS.CATEGORIES.') }}
+          </span>
+
+          <!-- Employment type -->
           <span class="chip" *ngIf="j.employment_type">
-            {{ j.employment_type | translate }}
+            {{ resolveLabel(j.employment_type, 'JOBS.CATEGORIES.') }}
           </span>
-          <span class="chip" *ngIf="j.shift_type">{{ j.shift_type }}</span>
+
+          <!-- Shift -->
+          <span class="chip" *ngIf="j.shift_type">
+            {{ resolveLabel(j.shift_type, 'JOBS.CATEGORIES.') }}
+          </span>
+
+          <!-- Housing / Transport -->
           <span class="chip chip--soft" *ngIf="j.housing_provided">
-              {{ "JOBS.JOBDETAILS.HOUSINGPROVIDED" | translate }}
+            {{ "JOBS.JOBDETAILS.HOUSINGPROVIDED" | translate }}
           </span>
           <span class="chip chip--soft" *ngIf="j.transport_provided">
-              {{ "JOBS.JOBDETAILS.TRANSPORTSUPPORT" | translate }}
+            {{ "JOBS.JOBDETAILS.TRANSPORTSUPPORT" | translate }}
           </span>
         </div>
       </div>
+
+      <!-- RIGHT: SUMMARY CARD -->
+      <aside class="job-details__summary" aria-label="Job highlights">
+        <!-- Image -->
+        <div class="summary__image">
+          <img
+            [src]="getJobImageUrl(j.image)"
+            [alt]="j.title"
+            loading="lazy"
+          />
+        </div>
+
+        <!-- Reference -->
+        <div class="summary__row" *ngIf="j.reference_code">
+          <div class="summary__label">Reference</div>
+          <div class="summary__value">{{ j.reference_code }}</div>
+        </div>
+
+        <!-- Location -->
+        <div class="summary__row" *ngIf="j.city || j.country">
+          <div class="summary__label">Location</div>
+          <div class="summary__value">
+            <span *ngIf="j.city">{{ j.city }}, </span>{{ j.country }}
+          </div>
+        </div>
+
+        <!-- Employment -->
+        <div class="summary__row" *ngIf="j.employment_type">
+          <div class="summary__label">Employment</div>
+          <div class="summary__value">
+            {{ resolveLabel(j.employment_type, 'JOBS.CATEGORIES.') }}
+          </div>
+        </div>
+
+        <!-- Shift -->
+        <div class="summary__row" *ngIf="j.shift_type">
+          <div class="summary__label">Shift</div>
+          <div class="summary__value">
+            {{ resolveLabel(j.shift_type, 'JOBS.CATEGORIES.') }}
+          </div>
+        </div>
+
+        <!-- Salary -->
+        <div class="summary__row" *ngIf="j.salary_from || j.salary_to">
+          <div class="summary__label">Salary</div>
+          <div class="summary__value">
+            <ng-container *ngIf="j.salary_from && j.salary_to">
+              {{ j.salary_from | number:'1.0-0' }}
+              – {{ j.salary_to | number:'1.0-0' }}
+            </ng-container>
+            <ng-container *ngIf="j.salary_from && !j.salary_to">
+              from {{ j.salary_from | number:'1.0-0' }}
+            </ng-container>
+            <ng-container *ngIf="!j.salary_from && j.salary_to">
+              up to {{ j.salary_to | number:'1.0-0' }}
+            </ng-container>
+            {{ j.currency || 'EUR' }}
+            <span class="summary__pill" *ngIf="j.is_net">NET</span>
+            <span class="summary__pill" *ngIf="!j.is_net && j.salary_type">
+              {{ j.salary_type }}
+            </span>
+          </div>
+        </div>
+
+        <!-- Experience -->
+        <div class="summary__row" *ngIf="j.min_experience_years">
+          <div class="summary__label">Experience</div>
+          <div class="summary__value">
+            {{ j.min_experience_years }}+ years
+          </div>
+        </div>
+
+        <!-- Languages -->
+        <div class="summary__row" *ngIf="j.language_required">
+          <div class="summary__label">Languages</div>
+          <div class="summary__value">{{ j.language_required }}</div>
+        </div>
+
+        <!-- License -->
+        <div class="summary__row" *ngIf="j.driving_license_required">
+          <div class="summary__label">Driving license</div>
+          <div class="summary__value">Required</div>
+        </div>
+
+        <!-- Extras -->
+        <div class="summary__row" *ngIf="j.housing_provided || j.transport_provided">
+          <div class="summary__label">Extras</div>
+          <div class="summary__value">
+            <span *ngIf="j.housing_provided">Housing</span>
+            <span *ngIf="j.housing_provided && j.transport_provided"> · </span>
+            <span *ngIf="j.transport_provided">Transport</span>
+          </div>
+        </div>
+
+        <!-- Bonuses -->
+        <div class="summary__row" *ngIf="j.bonuses">
+          <div class="summary__label">Bonuses</div>
+          <div class="summary__value">{{ j.bonuses }}</div>
+        </div>
+
+        <!-- CTA -->
+        <button
+          class="summary__apply"
+          type="button"
+          [disabled]="applying() || hasApplied()"
+          (click)="onApply()"
+        >
+          <ng-container *ngIf="!applying() && !hasApplied()">{{ "JOBS.JOBDETAILS.APPLYFORJOB" | translate }}</ng-container>
+          <ng-container *ngIf="applying()">Submitting...</ng-container>
+          <ng-container *ngIf="hasApplied()">Already applied</ng-container>
+        </button>
+
+        <div class="apply-message" *ngIf="applyMessage()">
+          {{ applyMessage() }}
+        </div>
+      </aside>
     </div>
   </div>
 
+  <!-- BODY -->
   <div class="job-details__body-wrap">
-    <div *ngIf="loading()" class="job-details__state">Loading job details...</div>
+    <div *ngIf="loading()" class="job-details__state">
+      Loading job details...
+    </div>
+
     <div *ngIf="error()" class="job-details__state job-details__state--err">
       {{ error() }}
     </div>
 
-    <ng-container *ngIf="!loading() && !error() && job() as j">
+    <ng-container *ngIf="!loading() && !error()">
       <div class="job-details__body">
-        <section class="job-section">
+        <!-- About -->
+        <section class="job-section" *ngIf="j.full_description || j.short_description">
           <h2>{{ "JOBS.JOBDETAILS.ABOUTTHISJOB" | translate }}</h2>
           <p>{{ j.full_description || j.short_description }}</p>
         </section>
 
-        <section class="job-section" *ngIf="j.requirements_text">
-          <h2>{{ 'JOBS.JOBDETAILS.REQUIREMENTS' | translate }}</h2>
-          <p>{{ j.requirements_text }}</p>
+        <!-- Responsibilities -->
+        <section class="job-section" *ngIf="j.responsibilities">
+          <h2>Responsibilities</h2>
+          <p>{{ j.responsibilities }}</p>
         </section>
 
-        <section class="job-section" *ngIf="j.benefits_text">
-          <h2>{{ 'JOBS.JOBDETAILS.WHATWEOFFER' | translate }}</h2>
-          <p>{{ j.benefits_text }}</p>
+        <!-- Requirements -->
+        <section
+          class="job-section"
+          *ngIf="j.requirements_text || j.min_experience_years || j.language_required || j.driving_license_required"
+        >
+          <h2>{{ "JOBS.JOBDETAILS.REQUIREMENTS" | translate }}</h2>
+          <ul class="job-list">
+            <li *ngIf="j.requirements_text">{{ j.requirements_text }}</li>
+            <li *ngIf="j.min_experience_years">
+              Minimum experience: {{ j.min_experience_years }}+ years
+            </li>
+            <li *ngIf="j.language_required">
+              Required languages: {{ j.language_required }}
+            </li>
+            <li *ngIf="j.driving_license_required">
+              Valid driving license required
+            </li>
+          </ul>
         </section>
 
-        <section class="job-section" *ngIf="j.housing_details">
-          <h2>{{ 'JOBS.JOBDETAILS.HOUSINGANDCONDITIONS' | translate }}</h2>
-          <p>{{ j.housing_details }}</p>
+        <!-- What we offer -->
+        <section class="job-section" *ngIf="j.benefits_text || j.bonuses">
+          <h2>{{ "JOBS.JOBDETAILS.WHATWEOFFER" | translate }}</h2>
+          <ul class="job-list">
+            <li *ngIf="j.benefits_text">{{ j.benefits_text }}</li>
+            <li *ngIf="j.bonuses">{{ j.bonuses }}</li>
+          </ul>
         </section>
 
-        <section class="job-section" *ngIf="j.requirements_text">
-          <h2>{{ 'JOBS.JOBDETAILS.REQUIREDDOCUMENTS' | translate }}</h2>
-          <p>{{ j.requirements_text }}</p>
-        </section>
-
-        <section class="job-section job-hint">
-          <p>
-            {{ 'JOBS.JOBDETAILS.JOBHINT' | translate }}
+        <!-- Housing -->
+        <section class="job-section" *ngIf="j.housing_provided || j.housing_details">
+          <h2>{{ "JOBS.JOBDETAILS.HOUSINGANDCONDITIONS" | translate }}</h2>
+          <p *ngIf="j.housing_provided && !j.housing_details">
+            Housing is provided or arranged by employer or partner.
           </p>
+          <p *ngIf="j.housing_details">{{ j.housing_details }}</p>
+        </section>
+
+        <!-- Documents -->
+        <section class="job-section" *ngIf="j.documents_required">
+          <h2>{{ "JOBS.JOBDETAILS.REQUIREDDOCUMENTS" | translate }}</h2>
+          <p>{{ j.documents_required }}</p>
+        </section>
+
+        <!-- Hint -->
+        <section class="job-section job-hint">
+          <p>{{ "JOBS.JOBDETAILS.JOBHINT" | translate }}</p>
         </section>
       </div>
     </ng-container>
+  </div>
+  <!-- APPLY MODAL BACKDROP -->
+  <div
+    class="apply-modal__backdrop"
+    *ngIf="showApplyModal()"
+    (click)="closeApplyModal()"
+  ></div>
+
+  <!-- APPLY MODAL -->
+  <div
+    class="apply-modal"
+    *ngIf="showApplyModal()"
+    (click)="$event.stopPropagation()"
+  >
+    <button
+      type="button"
+      class="apply-modal__close"
+      (click)="closeApplyModal()"
+      aria-label="Close"
+    >
+      ✕
+    </button>
+
+    <h3 class="apply-modal__title">
+      {{ "JOBS.JOBDETAILS.TITLEMODAL" | translate }}
+    </h3>
+
+    <p class="apply-modal__text">
+      {{ "JOBS.JOBDETAILS.INFOMODAL" | translate }}
+    </p>
+
+    <button
+      type="button"
+      class="apply-modal__btn apply-modal__btn--primary"
+      (click)="goToSignup()"
+    >
+      {{ "JOBS.JOBDETAILS.SIGNUPORLOGIN" | translate }}
+    </button>
+
+    <button
+      type="button"
+      class="apply-modal__btn apply-modal__btn--ghost"
+      (click)="goToContact()"
+    >
+      {{ "JOBS.JOBDETAILS.CONTACTUSFORMOREDETAILS" | translate }}
+    </button>
+
+    <div class="apply-modal__contacts">
+      <a href="tel:+37128655822">+371 28655822</a>
+      <span>·</span>
+      <a href="mailto:info@monova.work">info@monova.work</a>
+    </div>
   </div>
 </section>

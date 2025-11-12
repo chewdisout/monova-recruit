@@ -226,15 +226,20 @@
       "MIXED": "Vahelduvad vahetused"
     },
     "JOBDETAILS": {
-      "BACKTOALLJOBS": "Tagasi kõikide tööde juurde",
-      "HOUSINGPROVIDED": "Majutus on tagatud / korraldatud",
-      "TRANSPORTSUPPORT": "Transporditugi",
-      "ABOUTTHISJOB": "Töö kirjeldus",
-      "JOBHINT": "Kõik pakkumised on kinnitatud Monova ja meie litsentseeritud partnerite kaudu. Me ei võta kandidaatidelt tasusid. Töölepingud sõlmitakse alati otse tööandjate või partneragentuuridega.",
-      "REQUIREDDOCUMENTS": "Vajalikud dokumendid",
-      "HOUSINGANDCONDITIONS": "Majutus ja tingimused",
-      "WHATWEOFFER": "Mida pakume",
-      "REQUIREMENTS": "Nõuded"
+        "BACKTOALLJOBS": "Tagasi kõikide tööde juurde",
+        "HOUSINGPROVIDED": "Majutus on tagatud / korraldatud",
+        "TRANSPORTSUPPORT": "Transporditugi",
+        "ABOUTTHISJOB": "Töö kirjeldus",
+        "JOBHINT": "Kõik pakkumised on kinnitatud Monova ja meie litsentseeritud partnerite kaudu. Me ei võta kandidaatidelt tasusid. Töölepingud sõlmitakse alati otse tööandjate või partneragentuuridega.",
+        "REQUIREDDOCUMENTS": "Vajalikud dokumendid",
+        "HOUSINGANDCONDITIONS": "Majutus ja tingimused",
+        "WHATWEOFFER": "Mida pakume",
+        "REQUIREMENTS": "Nõuded",
+        "CONTACTUSFORMOREDETAILS": "Võta meiega ühendust lisainfo saamiseks",
+        "SIGNUPORLOGIN": "Registreeru / Logi sisse, et kandideerida",
+        "INFOMODAL": "Sellele ametikohale kandideerimiseks loo konto või logi sisse, et saaksime sinu andmeid turvaliselt töödelda. Soovi korral võid meie meeskonnaga ka otse ühendust võtta.",
+        "TITLEMODAL": "Jätka oma kandideerimisega",
+        "APPLYFORJOB": "Kandideeri sellele ametikohale"
     }
   },
   "REGISTRATION": {

@@ -21,12 +21,10 @@ export class HomePageComponent {
   ngAfterViewInit(): void {
     if (!isPlatformBrowser(this.platformId)) return;
 
-    // small delay to ensure it's in DOM and layout is stable
     setTimeout(() => {
       const video = this.heroVideo?.nativeElement;
       if (!video) return;
 
-      // make 100% sure properties are set
       video.muted = true;
       video.autoplay = true;
       video.playsInline = true;

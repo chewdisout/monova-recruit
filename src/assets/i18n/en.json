@@ -234,7 +234,12 @@
             "REQUIREDDOCUMENTS": "Required documents",
             "HOUSINGANDCONDITIONS": "Housing & conditions",
             "WHATWEOFFER": "What we offer",
-            "REQUIREMENTS": "Requirements"
+            "REQUIREMENTS": "Requirements",
+            "CONTACTUSFORMOREDETAILS": "Contact us for more details",
+            "SIGNUPORLOGIN": "Sign up / Log in to apply",
+            "INFOMODAL": "To apply for this position, please create an account or log in so we can process your details securely. You can also contact our team directly if you prefer to talk first.",
+            "TITLEMODAL": "Continue with your application",
+            "APPLYFORJOB": "Apply for this job"
         }
     },
     "REGISTRATION": {

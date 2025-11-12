@@ -234,7 +234,12 @@
       "REQUIREDDOCUMENTS": "Nepieciešamie dokumenti",
       "HOUSINGANDCONDITIONS": "Dzīvesvieta un apstākļi",
       "WHATWEOFFER": "Ko piedāvājam",
-      "REQUIREMENTS": "Prasības"
+      "REQUIREMENTS": "Prasības",
+      "CONTACTUSFORMOREDETAILS": "Sazinies ar mums, lai uzzinātu vairāk",
+        "SIGNUPORLOGIN": "Reģistrējies / Pieslēdzies, lai pieteiktos darbam",
+        "INFOMODAL": "Lai pieteiktos šim darbam, lūdzu, izveido profilu vai pieslēdzies, lai mēs varētu droši apstrādāt tavas detaļas. Ja vēlies, vari arī sazināties ar mūsu komandu tieši.",
+        "TITLEMODAL": "Turpini ar savu pieteikumu",
+        "APPLYFORJOB": "Pieteikties darbam"
     }
   },
   "REGISTRATION": {

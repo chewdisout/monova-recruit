@@ -1,12 +1,11 @@
 import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { JobService } from '../../services/job/job.service';
 import { Job } from '../../models/user';
 import { ApplicationsService, ApplicationWithJob } from '../../services/application/applications.service';
 import { AuthService } from '../../services/auth/auth.services';
-import { Router } from '@angular/router';
-import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   standalone: true,
@@ -18,6 +17,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 export class JobDetailsComponent {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
+  private translate = inject(TranslateService);
   private auth = inject(AuthService);
   private apps = inject(ApplicationsService);
   private jobsService = inject(JobService);
@@ -28,6 +28,9 @@ export class JobDetailsComponent {
   applying = signal(false);
   hasApplied = signal(false);
   applyMessage = signal('');
+
+  // modal visibility
+  showApplyModal = signal(false);
 
   ngOnInit() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
@@ -40,14 +43,15 @@ export class JobDetailsComponent {
         if (this.auth.isAuthenticated()) {
           this.apps.getMyApplications().subscribe({
             next: (apps: ApplicationWithJob[]) => {
-              const applied = apps.some(a =>
-                (a.job && a.job.id === job.id) ||
-                (a as any).job_id === job.id // fallback if backend returns plain Application
+              const applied = apps.some(
+                (a) =>
+                  (a.job && a.job.id === job.id) ||
+                  (a as any).job_id === job.id
               );
               this.hasApplied.set(applied);
             },
             error: () => {
-              // ignore, keep hasApplied = false
+              // ignore, keep default false
             },
           });
         }
@@ -59,18 +63,23 @@ export class JobDetailsComponent {
     });
   }
 
+  /** Click handler from UI */
   onApply() {
     const job = this.job();
     if (!job) return;
 
-    // Not logged in → go login, then back here
     if (!this.auth.isAuthenticated()) {
-      this.router.navigate(['/auth/login'], {
-        queryParams: { redirectTo: `/jobs/${job.id}` },
-      });
+      // not logged in -> open modal instead of auto-redirect
+      this.showApplyModal.set(true);
       return;
     }
 
+    // logged in -> run normal apply flow
+    this.performApply(job.id);
+  }
+
+  /** Actual apply logic for authenticated users */
+  private performApply(jobId: number) {
     if (this.hasApplied()) {
       this.applyMessage.set('You have already applied for this job.');
       return;
@@ -79,7 +88,7 @@ export class JobDetailsComponent {
     this.applying.set(true);
     this.applyMessage.set('');
 
-    this.apps.apply(job.id).subscribe({
+    this.apps.apply(jobId).subscribe({
       next: () => {
         this.applying.set(false);
         this.hasApplied.set(true);
@@ -87,14 +96,64 @@ export class JobDetailsComponent {
       },
       error: (err) => {
         this.applying.set(false);
-        const msg = err?.error?.detail || 'Could not submit application. Please try again.';
+        const msg =
+          err?.error?.detail ||
+          'Could not submit application. Please try again.';
         this.applyMessage.set(msg);
 
-        // if backend says already applied, sync UI
         if (msg.toLowerCase().includes('already')) {
           this.hasApplied.set(true);
         }
       },
     });
+  }
+
+  /* Modal actions */
+
+  closeApplyModal() {
+    this.showApplyModal.set(false);
+  }
+
+  goToSignup() {
+    const job = this.job();
+    this.showApplyModal.set(false);
+
+    // send them to registration/login with redirect back to this job
+    this.router.navigate(['/auth/register'], {
+      queryParams: job ? { redirectTo: `/jobs/${job.id}` } : {},
+    });
+  }
+
+  goToContact() {
+    this.showApplyModal.set(false);
+    // either navigate to contact page, or leave tel/mail links in modal
+    this.router.navigate(['/contact']);
+  }
+
+  /* Helpers */
+
+  resolveLabel(value: string, prefix: string): string {
+    if (!value) return '';
+
+    // if already full key
+    if (value.startsWith(prefix)) {
+      return this.translate.instant(value);
+    }
+
+    const normalized = value.toUpperCase().replace(/\s|-/g, '');
+    const key = `${prefix}${normalized}`;
+    const translated = this.translate.instant(key);
+
+    return translated === key ? value : translated;
+  }
+
+  getJobImageUrl(image?: string | null): string {
+    if (!image) {
+      return 'assets/images/job-default.jpg';
+    }
+    if (image.startsWith('http://') || image.startsWith('https://')) {
+      return image;
+    }
+    return `assets/job-images/${image}`;
   }
 }

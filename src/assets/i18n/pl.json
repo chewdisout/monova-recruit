@@ -234,7 +234,12 @@
       "REQUIREDDOCUMENTS": "Wymagane dokumenty",
       "HOUSINGANDCONDITIONS": "Zakwaterowanie i warunki",
       "WHATWEOFFER": "Co oferujemy",
-      "REQUIREMENTS": "Wymagania"
+      "REQUIREMENTS": "Wymagania",
+      "CONTACTUSFORMOREDETAILS": "Skontaktuj się z nami, aby uzyskać więcej informacji",
+        "SIGNUPORLOGIN": "Zarejestruj się / Zaloguj, aby aplikować",
+        "INFOMODAL": "Aby aplikować na to stanowisko, załóż konto lub zaloguj się, abyśmy mogli bezpiecznie przetworzyć Twoje dane. Jeśli wolisz, możesz też skontaktować się z naszym zespołem bezpośrednio.",
+        "TITLEMODAL": "Kontynuuj proces aplikacji",
+        "APPLYFORJOB": "Aplikuj na to stanowisko"
     }
   },
   "REGISTRATION": {

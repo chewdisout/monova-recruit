@@ -64,24 +64,30 @@ export interface Job {
   id: number;
   title: string;
   company_name?: string;
-  country: string;         // 'DE', 'NL', etc.
+  reference_code?: string;
+  country: string;
   city?: string;
-  category: string;        // 'logistics', 'production', etc.
-  employment_type?: string; // 'full-time', 'seasonal', etc.
-  shift_type?: string;      // 'day', 'night', 'rotation', etc.
+  workplace_address?: string;
+  category: string;
+  employment_type?: string;
+  shift_type?: string;
   salary_from?: number;
   salary_to?: number;
-  currency?: string;        // 'EUR'
-  salary_type?: string;     // 'hourly', 'monthly'
+  currency?: string;  
+  salary_type?: string;
   is_net?: boolean;
   housing_provided?: boolean;
   transport_provided?: boolean;
+  housing_details?: string;
+  bonuses?: string;
+  min_experience_years?: number;
+  language_required?: string;
+  documents_required?: string;
+  driving_license_required?: boolean;
   short_description: string;
   full_description?: string;
-  housing_details?: string;
-  language_required?: string;
+  responsibilities?: string;
   requirements_text?: string;
-  min_experience_year?: number;
   benefits_text?: string;
   is_active?: boolean;
   created_at?: string;

@@ -234,7 +234,12 @@
       "REQUIREDDOCUMENTS": "Reikalingi dokumentai",
       "HOUSINGANDCONDITIONS": "Apgyvendinimas ir sąlygos",
       "WHATWEOFFER": "Ką siūlome",
-      "REQUIREMENTS": "Reikalavimai"
+      "REQUIREMENTS": "Reikalavimai",
+      "CONTACTUSFORMOREDETAILS": "Susisiekite su mumis dėl išsamesnės informacijos",
+        "SIGNUPORLOGIN": "Prisiregistruokite / Prisijunkite, kad kandidatuotumėte",
+        "INFOMODAL": "Norėdami kandidatuoti į šią poziciją, sukurkite paskyrą arba prisijunkite, kad galėtume saugiai apdoroti jūsų duomenis. Taip pat galite tiesiogiai susisiekti su mūsų komanda, jei norite pasikalbėti prieš tai.",
+        "TITLEMODAL": "Tęskite savo kandidatuojamą procesą",
+        "APPLYFORJOB": "Kandidatuoti į šią poziciją"
     }
   },
   "REGISTRATION": {
