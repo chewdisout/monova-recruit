@@ -15,6 +15,21 @@ export const routes: Routes = [
         import('../app/features/employers-page-component/employers-page.component').then(m => m.EmployersPageComponent),
     },
     {
+        path: 'referral',
+        loadComponent: () =>
+        import('../app/features/referral-page-component/referral-page.component').then(m => m.ReferralPageComponent),
+    },
+    {
+        path: 'terms',
+        loadComponent: () =>
+        import('../app/features/terms-page-component/terms-page.component').then(m => m.TermsPageComponent),
+    },
+    {
+        path: 'privacy',
+        loadComponent: () =>
+        import('../app/features/privacy-page-component/privacy-page.component').then(m => m.PrivacyPageComponent),
+    },
+    {
         path: 'jobs',
         loadComponent: () =>
         import('../app/features/jobs-page-component/jobs-page.component').then(m => m.JobsPageComponent),

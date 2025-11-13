@@ -249,6 +249,73 @@
     "PASSWORD": "Slaptažodis",
     "FIRSTNAME": "Vardas",
     "LASTNAME": "Pavardė",
-    "CREATEACCOUNT": "Sukurti paskyrą"
+    "CREATEACCOUNT": "Sukurti paskyrą",
+    "ACCEPT_PREFIX": "Aš sutinku su",
+    "ACCEPT_AND": "ir",
+    "TERMS_LINK": "naudojimo taisyklėmis",
+    "PRIVACY_LINK": "privatumo politika",
+    "ACCEPT_ERROR": "Norėdami sukurti paskyrą, turite sutikti su taisyklėmis ir privatumo politika."
+  },
+
+  "TERMS": {
+    "TITLE": "Naudojimo taisyklės",
+    "UPDATED": "Paskutinį kartą atnaujinta: 2025 m. lapkričio 13 d.",
+
+    "SECTION_INTRO_TITLE": "1. Įvadas",
+    "SECTION_INTRO_BODY": "Šios taisyklės reglamentuoja Monova Recruit svetainės ir paslaugų naudojimą. Sukurdami paskyrą, sutinkate su šiomis taisyklėmis.",
+
+    "SECTION_USE_TITLE": "2. Paslaugos naudojimas",
+    "SECTION_USE_BODY": "Jūs sutinkate teikti tikslią informaciją ir naudotis platforma tik teisėtais darbo paieškos tikslais.",
+
+    "SECTION_ACCOUNT_TITLE": "3. Paskyros atsakomybė",
+    "SECTION_ACCOUNT_BODY": "Esate atsakingi už savo prisijungimo duomenų saugumą ir visą veiklą paskyroje.",
+
+    "SECTION_PRIVACY_TITLE": "4. Duomenys ir privatumas",
+    "SECTION_PRIVACY_BODY": "Jūsų duomenys tvarkomi vadovaujantis mūsų privatumo politika. Registruodamiesi duodate sutikimą duomenų tvarkymui.",
+
+    "SECTION_CHANGES_TITLE": "5. Taisyklių pakeitimai",
+    "SECTION_CHANGES_BODY": "Taisyklės gali būti kartais atnaujinamos. Toliau naudodamiesi platforma jūs sutinkate su pakeitimais.",
+
+    "SECTION_CONTACT_TITLE": "6. Kontaktai",
+    "SECTION_CONTACT_BODY": "Jei turite klausimų dėl taisyklių, susisiekite su mumis svetainėje nurodytais kontaktais."
+  },
+
+  "PRIVACY": {
+    "TITLE": "Privatumo politika",
+    "UPDATED": "Paskutinį kartą atnaujinta: 2025 m. lapkričio 13 d.",
+
+    "SECTION_INTRO_TITLE": "1. Įvadas",
+    "SECTION_INTRO_BODY": "Ši privatumo politika paaiškina, kaip mes renkame ir tvarkome jūsų asmens duomenis naudojantis Monova Recruit platforma.",
+
+    "SECTION_DATA_TITLE": "2. Kokius duomenis renkame",
+    "SECTION_DATA_BODY": "Galime rinkti tokius duomenis kaip vardas, el. paštas, telefono numeris, amžius, lytis, pilietybė ir kita profilyje pateikta informacija.",
+
+    "SECTION_USE_TITLE": "3. Kaip naudojame jūsų duomenis",
+    "SECTION_USE_BODY": "Duomenis naudojame darbo paieškos paslaugoms teikti, gerinti ir su jumis bendrauti.",
+
+    "SECTION_SHARING_TITLE": "4. Duomenų perdavimas",
+    "SECTION_SHARING_BODY": "Duomenys gali būti perduodami darbdaviams ir partneriams tik darbo paieškos tikslais.",
+
+    "SECTION_RETENTION_TITLE": "5. Duomenų saugojimas",
+    "SECTION_RETENTION_BODY": "Jūsų duomenys saugomi tol, kol paskyra aktyvi arba to reikalauja teisės aktai.",
+
+    "SECTION_RIGHTS_TITLE": "6. Jūsų teisės",
+    "SECTION_RIGHTS_BODY": "Galite turėti teises susipažinti, ištaisyti, ištrinti ar apriboti duomenų tvarkymą.",
+
+    "SECTION_CONTACT_TITLE": "7. Kontaktai",
+    "SECTION_CONTACT_BODY": "Dėl privatumo politikos klausimų susisiekite per svetainėje nurodytus kontaktus."
+  },
+  "REFERRAL": {
+    "TITLE": "Rekomendacijų programa",
+    "SUBTITLE": "Dalinkitės galimybėmis. Uždirbkite atlygį.",
+    "HOW_TITLE": "Kaip tai veikia",
+    "HOW_BODY": "Pakvieskite draugus registruotis naudojant jūsų rekomendacijos nuorodą arba nurodant jūsų vardą. Kai jūsų rekomenduotas asmuo baigs reikiamus įsidarbinimo etapus, jūs gausite teisę į atlygį. Kuo daugiau žmonių pakviesite, tuo daugiau galite uždirbti.",
+    "REWARD_TITLE": "Kiek galite uždirbti?",
+    "REWARD_BODY": "Tiksli atlygio suma priklauso nuo darbo tipo, pozicijos ir rekomenduotų žmonių skaičiaus. Norėdami sužinoti tikslų pasiūlymą, susisiekite su mumis.",
+    "WHY_TITLE": "Kodėl verta rekomenduoti draugus?",
+    "WHY_BODY": "Padėkite draugams rasti darbą užsienyje, prisidėkite prie bendruomenės augimo ir gaukite atlygį už rekomendacijas.",
+    "CONTACT": "Jei turite klausimų arba norite sužinoti daugiau, susisiekite su mūsų pagalbos komanda.",
+    "HERO_BADGE": "Kuo daugiau rekomendacijų, tuo daugiau gaunate",
+    "CTA_CONTACT": "Pasiteiraukite dėl savo atlygio"
   }
 }

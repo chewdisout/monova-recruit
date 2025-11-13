@@ -1,0 +1,44 @@
+<section class="page referral">
+  <div class="referral__hero card">
+    <div class="referral__hero-badge">
+      {{ 'REFERRAL.HERO_BADGE' | translate }}
+    </div>
+
+    <h1>{{ 'REFERRAL.TITLE' | translate }}</h1>
+    <p class="referral__subtitle">
+      {{ 'REFERRAL.SUBTITLE' | translate }}
+    </p>
+
+    <div class="referral__hero-footer">
+      <a
+        routerLink="/contacts"
+        class="btn btn--primary referral__cta-btn"
+      >
+        {{ 'REFERRAL.CTA_CONTACT' | translate }}
+      </a>
+      <span class="referral__hint">
+        {{ 'REFERRAL.CONTACT' | translate }}
+      </span>
+    </div>
+  </div>
+
+  <div class="referral__grid">
+    <article class="referral__card">
+      <div class="referral__icon">🤝</div>
+      <h2>{{ 'REFERRAL.HOW_TITLE' | translate }}</h2>
+      <p>{{ 'REFERRAL.HOW_BODY' | translate }}</p>
+    </article>
+
+    <article class="referral__card">
+      <div class="referral__icon">💸</div>
+      <h2>{{ 'REFERRAL.REWARD_TITLE' | translate }}</h2>
+      <p>{{ 'REFERRAL.REWARD_BODY' | translate }}</p>
+    </article>
+
+    <article class="referral__card">
+      <div class="referral__icon">🌍</div>
+      <h2>{{ 'REFERRAL.WHY_TITLE' | translate }}</h2>
+      <p>{{ 'REFERRAL.WHY_BODY' | translate }}</p>
+    </article>
+  </div>
+</section>

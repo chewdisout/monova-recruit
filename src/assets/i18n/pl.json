@@ -249,6 +249,73 @@
     "PASSWORD": "Hasło",
     "FIRSTNAME": "Imię",
     "LASTNAME": "Nazwisko",
-    "CREATEACCOUNT": "Utwórz konto"
+    "CREATEACCOUNT": "Utwórz konto",
+    "ACCEPT_PREFIX": "Zgadzam się na",
+    "ACCEPT_AND": "oraz",
+    "TERMS_LINK": "regulamin",
+    "PRIVACY_LINK": "politykę prywatności",
+    "ACCEPT_ERROR": "Aby utworzyć konto, musisz zaakceptować regulamin i politykę prywatności."
+  },
+
+  "TERMS": {
+    "TITLE": "Regulamin",
+    "UPDATED": "Ostatnia aktualizacja: 13 listopada 2025",
+
+    "SECTION_INTRO_TITLE": "1. Wprowadzenie",
+    "SECTION_INTRO_BODY": "Regulamin określa zasady korzystania ze strony Monova Recruit. Tworząc konto, akceptujesz jego postanowienia.",
+
+    "SECTION_USE_TITLE": "2. Korzystanie z usługi",
+    "SECTION_USE_BODY": "Zobowiązujesz się podawać prawdziwe informacje i korzystać z platformy wyłącznie zgodnie z prawem.",
+
+    "SECTION_ACCOUNT_TITLE": "3. Odpowiedzialność za konto",
+    "SECTION_ACCOUNT_BODY": "Jesteś odpowiedzialny za bezpieczeństwo swoich danych logowania oraz działania wykonywane na koncie.",
+
+    "SECTION_PRIVACY_TITLE": "4. Dane i prywatność",
+    "SECTION_PRIVACY_BODY": "Twoje dane przetwarzane są zgodnie z naszą polityką prywatności.",
+
+    "SECTION_CHANGES_TITLE": "5. Zmiany regulaminu",
+    "SECTION_CHANGES_BODY": "Regulamin może być okresowo aktualizowany. Dalsze korzystanie oznacza akceptację zmian.",
+
+    "SECTION_CONTACT_TITLE": "6. Kontakt",
+    "SECTION_CONTACT_BODY": "W przypadku pytań skontaktuj się z nami przez dane kontaktowe na stronie."
+  },
+
+  "PRIVACY": {
+    "TITLE": "Polityka prywatności",
+    "UPDATED": "Ostatnia aktualizacja: 13 listopada 2025",
+
+    "SECTION_INTRO_TITLE": "1. Wprowadzenie",
+    "SECTION_INTRO_BODY": "Polityka prywatności wyjaśnia, jak przetwarzamy dane osobowe użytkowników platformy Monova Recruit.",
+
+    "SECTION_DATA_TITLE": "2. Jakie dane zbieramy",
+    "SECTION_DATA_BODY": "Zbieramy dane takie jak imię, adres e-mail, numer telefonu, wiek, płeć, obywatelstwo i inne dane z profilu.",
+
+    "SECTION_USE_TITLE": "3. Jak wykorzystujemy dane",
+    "SECTION_USE_BODY": "Dane są wykorzystywane do świadczenia i ulepszania usług rekrutacyjnych oraz komunikacji z użytkownikiem.",
+
+    "SECTION_SHARING_TITLE": "4. Udostępnianie danych",
+    "SECTION_SHARING_BODY": "Dane mogą być przekazywane pracodawcom i partnerom wyłącznie w celach rekrutacyjnych.",
+
+    "SECTION_RETENTION_TITLE": "5. Przechowywanie danych",
+    "SECTION_RETENTION_BODY": "Dane przechowujemy tak długo, jak konto pozostaje aktywne lub wymagają tego przepisy prawa.",
+
+    "SECTION_RIGHTS_TITLE": "6. Twoje prawa",
+    "SECTION_RIGHTS_BODY": "Możesz mieć prawo do wglądu, poprawiania, usuwania lub ograniczenia przetwarzania danych.",
+
+    "SECTION_CONTACT_TITLE": "7. Kontakt",
+    "SECTION_CONTACT_BODY": "W sprawach dotyczących prywatności skontaktuj się z nami przez dane kontaktowe na stronie."
+  },
+  "REFERRAL": {
+    "TITLE": "Program poleceń",
+    "SUBTITLE": "Polecaj możliwości. Odbieraj nagrody.",
+    "HOW_TITLE": "Jak to działa",
+    "HOW_BODY": "Zaproś znajomych do rejestracji za pomocą twojego linku polecającego lub podając twoje imię. Gdy polecona osoba przejdzie wymagane etapy zatrudnienia, otrzymasz nagrodę. Im więcej osób polecisz, tym więcej możesz zarobić.",
+    "REWARD_TITLE": "Ile możesz zarobić?",
+    "REWARD_BODY": "Dokładna kwota nagrody zależy od rodzaju pracy, stanowiska i liczby poleconych osób. Aby poznać szczegóły oferty, skontaktuj się z nami.",
+    "WHY_TITLE": "Dlaczego warto polecać znajomych?",
+    "WHY_BODY": "Pomagasz innym znaleźć pracę za granicą, rozwijasz społeczność i otrzymujesz realne nagrody za polecenia.",
+    "CONTACT": "W razie pytań lub chęci uzyskania więcej informacji skontaktuj się z naszym działem wsparcia.",
+    "HERO_BADGE": "Im więcej poleceń, tym większa nagroda",
+    "CTA_CONTACT": "Zapytaj o swoją nagrodę"
   }
 }

@@ -265,6 +265,8 @@ export class RegisterPageComponent {
     phoneNumber: ['', [Validators.required, Validators.minLength(5), phoneNumberValidator()]],
 
     userCitizenship: ['', [Validators.required]],
+
+    acceptTerms: [false, [Validators.requiredTrue]],
   });
 
   loading = signal(false);

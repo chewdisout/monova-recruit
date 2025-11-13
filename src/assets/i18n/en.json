@@ -249,6 +249,71 @@
         "PASSWORD": "Password",
         "FIRSTNAME": "First name",
         "LASTNAME": "Last name",
-        "CREATEACCOUNT": "Create account"
+        "CREATEACCOUNT": "Create account",
+        "ACCEPT_PREFIX": "I agree to the",
+        "ACCEPT_AND": "and",
+        "TERMS_LINK": "Terms and Conditions",
+        "PRIVACY_LINK": "Privacy Policy",
+        "ACCEPT_ERROR": "You must accept the Terms and Conditions and Privacy Policy to create an account."
+    },
+    "TERMS": {
+        "TITLE": "Terms and Conditions",
+        "UPDATED": "Last updated: 13 November 2025",
+
+        "SECTION_INTRO_TITLE": "1. Introduction",
+        "SECTION_INTRO_BODY": "These Terms and Conditions govern your use of the Monova Recruit website and services. By creating an account, you agree to be bound by these Terms.",
+
+        "SECTION_USE_TITLE": "2. Use of the Service",
+        "SECTION_USE_BODY": "You agree to provide accurate and truthful information and to use the platform only for lawful purposes related to employment and recruitment.",
+
+        "SECTION_ACCOUNT_TITLE": "3. Account Responsibility",
+        "SECTION_ACCOUNT_BODY": "You are responsible for keeping your login details secure and for all activity that takes place through your account.",
+
+        "SECTION_PRIVACY_TITLE": "4. Data & Privacy",
+        "SECTION_PRIVACY_BODY": "We process your personal data in line with our privacy practices. By registering, you consent to the processing of your data for recruitment purposes.",
+
+        "SECTION_CHANGES_TITLE": "5. Changes to These Terms",
+        "SECTION_CHANGES_BODY": "We may update these Terms from time to time. Continued use of the platform after changes are published means you accept the updated Terms.",
+
+        "SECTION_CONTACT_TITLE": "6. Contact",
+        "SECTION_CONTACT_BODY": "If you have any questions about these Terms, please contact us using the contact information provided on the website."
+    },
+    "PRIVACY": {
+        "TITLE": "Privacy Policy",
+        "UPDATED": "Last updated: 13 November 2025",
+
+        "SECTION_INTRO_TITLE": "1. Introduction",
+        "SECTION_INTRO_BODY": "This Privacy Policy explains how we collect, use and protect your personal data when you use the Monova Recruit platform.",
+
+        "SECTION_DATA_TITLE": "2. Data We Collect",
+        "SECTION_DATA_BODY": "We may collect information such as your name, email, phone number, age, gender, citizenship and other details that you provide in your profile or applications.",
+
+        "SECTION_USE_TITLE": "3. How We Use Your Data",
+        "SECTION_USE_BODY": "We use your data to provide and improve our recruitment services, match you with job opportunities, communicate with you and comply with legal obligations.",
+
+        "SECTION_SHARING_TITLE": "4. Data Sharing",
+        "SECTION_SHARING_BODY": "We may share your information with employers and trusted partners strictly for recruitment purposes, and only as necessary to provide the services.",
+
+        "SECTION_RETENTION_TITLE": "5. Data Retention",
+        "SECTION_RETENTION_BODY": "We retain your personal data for as long as your account is active or as required to provide services and meet legal requirements.",
+
+        "SECTION_RIGHTS_TITLE": "6. Your Rights",
+        "SECTION_RIGHTS_BODY": "Depending on applicable law, you may have rights to access, correct, delete or restrict the processing of your personal data.",
+
+        "SECTION_CONTACT_TITLE": "7. Contact",
+        "SECTION_CONTACT_BODY": "If you have any questions about this Privacy Policy or how your data is handled, please contact us using the contact information provided on the website."
+    },
+    "REFERRAL": {
+        "TITLE": "Referral Program",
+        "SUBTITLE": "Share opportunities. Earn rewards.",
+        "HOW_TITLE": "How it works",
+        "HOW_BODY": "Invite your friends to register using your referral link or by mentioning your name. Once your referral completes the required employment steps, you become eligible for a reward. The more people you bring, the more you can earn.",
+        "REWARD_TITLE": "How much can you get?",
+        "REWARD_BODY": "The exact reward amount depends on factors such as the job type, vacancy, and number of people you refer. To receive full details about your personal reward offer, please contact us directly.",
+        "WHY_TITLE": "Why refer your friends?",
+        "WHY_BODY": "Help someone find a job abroad, grow the community, and earn real rewards for your recommendations.",
+        "CONTACT": "If you have questions or want to learn more, feel free to contact our support team.",
+        "HERO_BADGE": "Earn more with every referral",
+        "CTA_CONTACT": "Ask us about your reward"
     }
 }

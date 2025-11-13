@@ -52,6 +52,7 @@ export class NavbarComponent {
     },
     { label: 'NAV.FAQ',      link: '/faq' },
     { label: 'NAV.CONTACTS', link: '/contacts' },
+    { label: 'REFERRAL.TITLE', link: '/referral' }
   ];
 
   socials = [

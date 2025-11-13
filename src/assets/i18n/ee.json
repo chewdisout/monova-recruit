@@ -249,6 +249,73 @@
     "PASSWORD": "Parool",
     "FIRSTNAME": "Eesnimi",
     "LASTNAME": "Perekonnanimi",
-    "CREATEACCOUNT": "Loo konto"
+    "CREATEACCOUNT": "Loo konto",
+    "ACCEPT_PREFIX": "Nõustun",
+    "ACCEPT_AND": "ja",
+    "TERMS_LINK": "tingimustega",
+    "PRIVACY_LINK": "privaatsuspoliitikaga",
+    "ACCEPT_ERROR": "Konto loomiseks peab nõustuma tingimuste ja privaatsuspoliitikaga."
+  },
+
+  "TERMS": {
+    "TITLE": "Kasutustingimused",
+    "UPDATED": "Viimati uuendatud: 13. november 2025",
+
+    "SECTION_INTRO_TITLE": "1. Sissejuhatus",
+    "SECTION_INTRO_BODY": "Need kasutustingimused reguleerivad Monova Recruit veebilehe ja teenuste kasutamist. Konto loomisel nõustute tingimustega.",
+
+    "SECTION_USE_TITLE": "2. Teenuse kasutamine",
+    "SECTION_USE_BODY": "Kohustute esitama õiget teavet ning kasutama platvormi ainult seaduslikel eesmärkidel, mis on seotud töövahendusega.",
+
+    "SECTION_ACCOUNT_TITLE": "3. Konto vastutus",
+    "SECTION_ACCOUNT_BODY": "Olete vastutav oma sisselogimisandmete turvalisuse ja konto kaudu tehtud tegevuste eest.",
+
+    "SECTION_PRIVACY_TITLE": "4. Andmed ja privaatsus",
+    "SECTION_PRIVACY_BODY": "Töötleme teie andmeid vastavalt meie privaatsuspõhimõtetele. Konto loomisel annate nõusoleku andmete töötlemiseks töövahenduse eesmärkidel.",
+
+    "SECTION_CHANGES_TITLE": "5. Tingimuste muutmine",
+    "SECTION_CHANGES_BODY": "Võime neid tingimusi aeg-ajalt uuendada. Teenuse jätkuv kasutamine tähendab muudatustega nõustumist.",
+
+    "SECTION_CONTACT_TITLE": "6. Kontakt",
+    "SECTION_CONTACT_BODY": "Kui teil on nende tingimuste kohta küsimusi, võtke meiega ühendust veebilehel toodud kontaktandmetel."
+  },
+
+  "PRIVACY": {
+    "TITLE": "Privaatsuspoliitika",
+    "UPDATED": "Viimati uuendatud: 13. november 2025",
+
+    "SECTION_INTRO_TITLE": "1. Sissejuhatus",
+    "SECTION_INTRO_BODY": "See privaatsuspoliitika selgitab, kuidas me kogume ja töötleme teie isikuandmeid Monova Recruit platvormil.",
+
+    "SECTION_DATA_TITLE": "2. Kogutavad andmed",
+    "SECTION_DATA_BODY": "Võime koguda andmeid nagu nimi, e-post, telefoninumber, vanus, sugu, kodakondsus ja muud profiilis esitatud andmed.",
+
+    "SECTION_USE_TITLE": "3. Kuidas me teie andmeid kasutame",
+    "SECTION_USE_BODY": "Kasutame teie andmeid töövahenduse teenuste osutamiseks, parendamiseks ning suhtluseks.",
+
+    "SECTION_SHARING_TITLE": "4. Andmete jagamine",
+    "SECTION_SHARING_BODY": "Võime jagada andmeid tööandjate ja partneritega üksnes töövahenduse eesmärgil.",
+
+    "SECTION_RETENTION_TITLE": "5. Andmete säilitamine",
+    "SECTION_RETENTION_BODY": "Säilitame teie isikuandmeid seni, kuni konto on aktiivne või vajalikud õiguslikud kohustused seda nõuavad.",
+
+    "SECTION_RIGHTS_TITLE": "6. Teie õigused",
+    "SECTION_RIGHTS_BODY": "Teil võib olla õigus juurdepääsule, parandamisele, kustutamisele või andmete töötlemise piiramiseks.",
+
+    "SECTION_CONTACT_TITLE": "7. Kontakt",
+    "SECTION_CONTACT_BODY": "Küsimuste korral privaatsuspoliitika kohta võtke meiega ühendust veebilehel toodud kontaktandmete kaudu."
+  },
+  "REFERRAL": {
+    "TITLE": "Sõbra soovitamise programm",
+    "SUBTITLE": "Jaga võimalusi. Teeni preemiaid.",
+    "HOW_TITLE": "Kuidas see töötab",
+    "HOW_BODY": "Kutsu sõpru registreeruma sinu soovituslingi kaudu või mainides sinu nime. Kui sinu soovitatu täidab vajalikud tööle asumise sammud, on sul õigus saada preemiat. Mida rohkem inimesi tood, seda rohkem saad teenida.",
+    "REWARD_TITLE": "Kui palju võid teenida?",
+    "REWARD_BODY": "Täpset preemia summat mõjutavad mitmed tegurid, näiteks töö tüüp, ametikoht ja soovitatud inimeste arv. Täpse pakkumise saamiseks palume ühendust võtta.",
+    "WHY_TITLE": "Miks soovitada sõpru?",
+    "WHY_BODY": "Aita kellelgi leida töö välismaal, kasvata kogukonda ja teeni päris preemiaid oma soovituste eest.",
+    "CONTACT": "Kui sul on küsimusi või soovid lisainfot, võta meie tugitiimiga ühendust.",
+    "HERO_BADGE": "Mida rohkem soovitusi, seda rohkem preemiat",
+    "CTA_CONTACT": "Küsi oma preemia kohta"
   }
 }

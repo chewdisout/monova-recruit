@@ -249,6 +249,71 @@
     "PASSWORD": "Parole",
     "FIRSTNAME": "Vārds",
     "LASTNAME": "Uzvārds",
-    "CREATEACCOUNT": "Izveidot kontu"
+    "CREATEACCOUNT": "Izveidot kontu",
+    "ACCEPT_PREFIX": "Es piekrītu",
+    "ACCEPT_AND": "un",
+    "TERMS_LINK": "noteikumiem",
+    "PRIVACY_LINK": "privātuma politikai",
+    "ACCEPT_ERROR": "Lai izveidotu profilu, ir jāpiekrīt noteikumiem un privātuma politikai."
+  },
+  "TERMS": {
+    "TITLE": "Lietošanas noteikumi",
+    "UPDATED": "Pēdējo reizi atjaunināts: 2025. gada 13. novembris",
+
+    "SECTION_INTRO_TITLE": "1. Ievads",
+    "SECTION_INTRO_BODY": "Šie lietošanas noteikumi regulē Monova Recruit mājaslapas un pakalpojumu izmantošanu. Izveidojot profilu, tu piekrīti šiem noteikumiem.",
+
+    "SECTION_USE_TITLE": "2. Pakalpojuma izmantošana",
+    "SECTION_USE_BODY": "Tu apņemies norādīt patiesu informāciju un lietot platformu tikai likumīgiem mērķiem, kas saistīti ar nodarbinātību un personāla atlasi.",
+
+    "SECTION_ACCOUNT_TITLE": "3. Konta atbildība",
+    "SECTION_ACCOUNT_BODY": "Tu esi atbildīgs par savu piekļuves datu konfidencialitāti un visām darbībām, kas veiktas, izmantojot tavu profilu.",
+
+    "SECTION_PRIVACY_TITLE": "4. Dati un privātums",
+    "SECTION_PRIVACY_BODY": "Mēs apstrādājam tavus personas datus saskaņā ar mūsu privātuma politiku. Reģistrējoties tu piekrīti datu apstrādei darbā iekārtošanas nolūkos.",
+
+    "SECTION_CHANGES_TITLE": "5. Izmaiņas noteikumos",
+    "SECTION_CHANGES_BODY": "Mēs varam laiku pa laikam atjaunināt šos noteikumus. Turpinot izmantot platformu pēc izmaiņām, tu piekrīti atjauninātajiem noteikumiem.",
+
+    "SECTION_CONTACT_TITLE": "6. Kontakti",
+    "SECTION_CONTACT_BODY": "Ja ir jautājumi par šiem noteikumiem, sazinies ar mums, izmantojot mājaslapā norādīto kontaktinformāciju."
+  },
+  "PRIVACY": {
+    "TITLE": "Privātuma politika",
+    "UPDATED": "Pēdējo reizi atjaunināta: 2025. gada 13. novembris",
+
+    "SECTION_INTRO_TITLE": "1. Ievads",
+    "SECTION_INTRO_BODY": "Šī privātuma politika skaidro, kā mēs vācam, izmantojam un aizsargājam tavus personas datus, izmantojot Monova Recruit platformu.",
+
+    "SECTION_DATA_TITLE": "2. Kādi dāti tiek vākti",
+    "SECTION_DATA_BODY": "Mēs varam apstrādāt informāciju, piemēram, tavu vārdu, e-pastu, telefona numuru, vecumu, dzimumu, pilsonību un citus datus, ko norādi profilā vai pieteikumos.",
+
+    "SECTION_USE_TITLE": "3. Kā mēs izmantojam tavus datus",
+    "SECTION_USE_BODY": "Tavi dati tiek izmantoti, lai nodrošinātu un uzlabotu darbā iekārtošanas pakalpojumus, piedāvātu darba iespējas, sazinātos ar tevi un izpildītu juridiskās prasības.",
+
+    "SECTION_SHARING_TITLE": "4. Datu nodošana trešajām pusēm",
+    "SECTION_SHARING_BODY": "Mēs varam nodot tavu informāciju darba devējiem un uzticamiem partneriem tikai darbā iekārtošanas nolūkos un tikai nepieciešamajā apjomā.",
+
+    "SECTION_RETENTION_TITLE": "5. Datu glabāšana",
+    "SECTION_RETENTION_BODY": "Mēs glabājam tavus personas datus tik ilgi, cik ilgi ir aktīvs tavs profils vai tas nepieciešams pakalpojumu sniegšanai un juridisko prasību izpildei.",
+
+    "SECTION_RIGHTS_TITLE": "6. Tavas tiesības",
+    "SECTION_RIGHTS_BODY": "Atkarībā no piemērojamajiem tiesību aktiem tev var būt tiesības piekļūt saviem datiem, tos labot, dzēst vai ierobežot datu apstrādi.",
+
+    "SECTION_CONTACT_TITLE": "7. Kontakti",
+    "SECTION_CONTACT_BODY": "Ja ir jautājumi par šo privātuma politiku vai tavu datu apstrādi, sazinies ar mums, izmantojot mājaslapā norādīto kontaktinformāciju."
+  },
+  "REFERRAL": {
+    "TITLE": "Ieteikšanas programma",
+    "SUBTITLE": "Dalies ar iespējām. Saņem atlīdzību.",
+    "HOW_TITLE": "Kā tas darbojas",
+    "HOW_BODY": "Uzaicini draugus reģistrēties, izmantojot tavu ieteikuma saiti vai norādot tavu vārdu. Kad tavs ieteiktais pabeidz nepieciešamos nodarbinātības soļus, tu kļūsti tiesīgs saņemt atlīdzību. Jo vairāk cilvēku atvedīsi, jo vairāk varēsi nopelnīt.",
+    "REWARD_TITLE": "Cik var nopelnīt?",
+    "REWARD_BODY": "Precīza atlīdzības summa ir atkarīga no vairākiem faktoriem, piemēram, darba veida, vakances un ieteikto cilvēku skaita. Lai uzzinātu precīzu piedāvājumu, lūdzu, sazinies ar mums.",
+    "WHY_TITLE": "Kāpēc ieteikt draugus?",
+    "WHY_BODY": "Palīdzi kādam atrast darbu ārzemēs, paplašini kopienu un saņem atlīdzību par savām rekomendācijām.",
+    "CONTACT": "Ja ir jautājumi vai vēlies uzzināt vairāk, sazinies ar mūsu atbalsta komandu.",
+    "HERO_BADGE": "Jo vairāk iesaki, jo vairāk saņem",
+    "CTA_CONTACT": "Uzzini par savu atlīdzību"
   }
 }
