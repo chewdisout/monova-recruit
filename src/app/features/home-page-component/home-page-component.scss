@@ -481,6 +481,215 @@
   }
 }
 
+/* =======================
+   Industries Section
+========================== */
+
+.section--industries {
+  background: var(--mnv-bg);
+  border-top: 1px solid var(--mnv-border);
+  padding: clamp(40px, 6vw, 60px) 0;
+
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.industries {
+  display: grid;
+  gap: 24px;
+}
+
+.industries__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+  margin-top: 12px;
+}
+
+.industry {
+  background: var(--mnv-surface);
+  border: 1px solid var(--mnv-border);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: var(--mnv-shadow-sm);
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.industry:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 22px rgba(14, 42, 71, 0.12);
+}
+
+.industry__icon {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.industry__title {
+  margin: 0 0 6px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--mnv-blue-900);
+}
+
+.industry__text {
+  margin: 0;
+  font-size: 14px;
+  color: var(--mnv-text-dim);
+}
+
+/* Stagger animation delays */
+.industry:nth-child(1) { transition-delay: 0.10s; }
+.industry:nth-child(2) { transition-delay: 0.20s; }
+.industry:nth-child(3) { transition-delay: 0.30s; }
+.industry:nth-child(4) { transition-delay: 0.40s; }
+.industry:nth-child(5) { transition-delay: 0.50s; }
+.industry:nth-child(6) { transition-delay: 0.60s; }
+
+/* =======================
+   Success Stories – timeline
+========================== */
+
+.section--stories {
+  background: var(--mnv-bg);
+  border-top: 1px solid var(--mnv-border);
+  padding: clamp(40px, 6vw, 56px) 0;
+}
+
+.stories {
+  display: grid;
+  gap: 24px;
+}
+
+.stories__head {
+  max-width: 640px;
+}
+
+.stories__list {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+}
+
+.story-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 210px) minmax(0, 1fr);
+  gap: 16px;
+  padding: 10px 0;
+}
+
+/* subtle vertical accent */
+.story-row__line {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  bottom: 2px;
+  width: 2px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to bottom,
+    rgba(30, 102, 255, 0.18),
+    rgba(34, 211, 238, 0.0)
+  );
+}
+
+/* left side: name + role */
+.story-row__badge {
+  position: relative;
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.story-row__badge::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 6px;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--mnv-blue-700);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--mnv-blue-700) 28%, transparent);
+}
+
+.story-row__name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--mnv-blue-900);
+}
+
+.story-row__role {
+  font-size: 12px;
+  color: var(--mnv-text-dim);
+}
+
+/* right side: card */
+.story-row__body {
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: var(--mnv-surface);
+  border: 1px solid var(--mnv-border);
+  box-shadow: var(--mnv-shadow-sm);
+}
+
+.story-row__country {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--mnv-text-soft);
+  margin-bottom: 4px;
+}
+
+.story-row__summary {
+  margin: 0 0 4px;
+  font-size: 13px;
+  color: var(--mnv-text);
+}
+
+.story-row__quote {
+  margin: 0;
+  font-size: 12px;
+  color: var(--mnv-text-dim);
+  font-style: italic;
+  border-left: 2px solid rgba(30, 102, 255, 0.3);
+  padding-left: 10px;
+}
+
+/* hover: very subtle lift */
+.story-row__body:hover {
+  box-shadow: 0 10px 24px rgba(14, 42, 71, 0.12);
+  border-color: color-mix(in srgb, var(--mnv-blue-700) 26%, var(--mnv-border));
+}
+
+/* stagger with appInView animation */
+.story-row:nth-child(1) { transition-delay: 0.08s; }
+.story-row:nth-child(2) { transition-delay: 0.18s; }
+.story-row:nth-child(3) { transition-delay: 0.28s; }
+
+@media (max-width: 720px) {
+  .story-row {
+    grid-template-columns: 1fr;
+    padding: 8px 0;
+  }
+
+  .story-row__badge {
+    padding-left: 18px;
+  }
+
+  .story-row__body {
+    padding: 10px 12px;
+  }
+}
+
 /* === Scroll / in-view animations === */
 
 /* base "hidden" state for anything with appInView */

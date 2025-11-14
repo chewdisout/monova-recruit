@@ -55,13 +55,39 @@
             "STEP_4_TEXT": "You sign directly with the employer or local partner. We stay in touch to help with onboarding or issues.",
             "STEP_4_HINT": "Monova is your recruitment partner — we never charge workers."
         },
-        "STRIPS": {
-            "ROW_1_TOP": "In a world of AI & automation",
-            "ROW_1_MAIN": "we see real people.",
-            "ROW_2_TOP": "In a world of complex careers",
-            "ROW_2_MAIN": "we make starting abroad simple.",
-            "ROW_3_TOP": "In a world of uncertainty",
-            "ROW_3_MAIN": "we guide you safely to work."
+        "INDUSTRIES": {
+            "TITLE": "Our most popular industries",
+            "SUBTITLE": "We connect workers with trusted employers across different fields in Europe.",
+            "SHIPBUILDING": "Shipbuilding",
+            "SHIPBUILDING_TEXT": "Welders, fitters, electricians, pipe workers and specialists for European shipyards.",
+            "WAREHOUSE": "Warehousing & Logistics",
+            "WAREHOUSE_TEXT": "Order pickers, forklift drivers, packaging, sorting and logistics support roles.",
+            "CONSTRUCTION": "Construction",
+            "CONSTRUCTION_TEXT": "General labor, carpenters, painters, scaffolders, electricians and more.",
+            "HOSPITALITY": "Hospitality & Services",
+            "HOSPITALITY_TEXT": "Waiters, housekeeping, cleaners, kitchen assistants and hotel staff."
+        },
+        "STORIES": {
+            "TITLE": "Real success stories",
+            "SUBTITLE": "Real people who trusted Monova with their next step – and changed their lives by working abroad.",
+
+            "STORY_1_NAME": "Aleks",
+            "STORY_1_ROLE": "Construction worker → Site supervisor",
+            "STORY_1_COUNTRY": "From local market to Western Europe",
+            "STORY_1_SUMMARY": "Aleks was a good construction worker earning slightly above the average salary in his country. Monova helped him move abroad and join a company that saw his potential.",
+            "STORY_1_QUOTE": "With Monova I didn’t just get a new job – I got a four-digit salary and a supervisor position. I finally feel that my experience is valued.",
+
+            "STORY_2_NAME": "Marta",
+            "STORY_2_ROLE": "Warehouse picker → Team lead",
+            "STORY_2_COUNTRY": "Poland → Netherlands",
+            "STORY_2_SUMMARY": "Marta worked night shifts in a local warehouse with unstable hours. Through Monova she moved to a modern logistics center with clear schedules and growth opportunities.",
+            "STORY_2_QUOTE": "At my new job I know my schedule, my salary is always on time and after a few months I was promoted to team lead. I finally have balance and a future.",
+
+            "STORY_3_NAME": "Sergei",
+            "STORY_3_ROLE": "Waiter → Hotel staff abroad",
+            "STORY_3_COUNTRY": "Baltics → Scandinavia",
+            "STORY_3_SUMMARY": "Sergei had experience in restaurants but wanted something more stable. Monova matched him with a hotel abroad looking for motivated staff, not just CVs.",
+            "STORY_3_QUOTE": "The process was clear from day one. Monova checked the employer, helped with documents and now I work in a hotel where I’m respected and well paid."
         }
     },
     "FOOTER": {
