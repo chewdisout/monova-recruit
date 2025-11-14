@@ -480,3 +480,72 @@
     }
   }
 }
+
+/* === Scroll / in-view animations === */
+
+/* base "hidden" state for anything with appInView */
+.is-animatable {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.is-animatable.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* specific slide-in from left for WHY image */
+.why__media.is-animatable {
+  transform: translateX(-40px);
+}
+.why__media.is-animatable.is-visible {
+  transform: translateX(0);
+}
+
+/* Stagger for WHY points */
+.why__points li:nth-child(1) {
+  transition-delay: 0.10s;
+}
+.why__points li:nth-child(2) {
+  transition-delay: 0.20s;
+}
+.why__points li:nth-child(3) {
+  transition-delay: 0.30s;
+}
+.why__points li:nth-child(4) {
+  transition-delay: 0.40s;
+}
+.why__points li:nth-child(5) {
+  transition-delay: 0.50s;
+}
+
+/* Stagger for Steps section */
+.step:nth-child(1) {
+  transition-delay: 0.10s;
+}
+.step:nth-child(2) {
+  transition-delay: 0.20s;
+}
+.step:nth-child(3) {
+  transition-delay: 0.30s;
+}
+.step:nth-child(4) {
+  transition-delay: 0.40s;
+}
+
+/* Hero text stagger */
+.hero__eyebrow.is-animatable {
+  transition-delay: 0.05s;
+}
+.hero__title.is-animatable {
+  transition-delay: 0.18s;
+}
+.hero__subtitle.is-animatable {
+  transition-delay: 0.30s;
+}
+.hero__actions.is-animatable {
+  transition-delay: 0.42s;
+}

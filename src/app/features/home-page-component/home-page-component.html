@@ -16,13 +16,10 @@
   <div class="hero__overlay"></div>
   <div class="hero__container">
     <div class="hero__content">
-    <div class="hero__eyebrow">{{ 'HOME.HERO.EYEBROW' | translate }}</div>
-      <h1 class="hero__title">{{ 'HOME.HERO.TITLE' | translate }}</h1>
-      <p class="hero__subtitle">
-        {{ 'HOME.HERO.SUBTITLE' | translate }}
-      </p>
-
-      <div class="hero__actions">
+    <div class="hero__eyebrow" appInView>{{ 'HOME.HERO.EYEBROW' | translate }}</div>
+      <h1 class="hero__title" appInView>{{ 'HOME.HERO.TITLE' | translate }}</h1>
+      <p class="hero__subtitle" appInView>{{ 'HOME.HERO.SUBTITLE' | translate }}</p>
+      <div class="hero__actions" appInView>
         <a class="btn btn--primary" routerLink="/jobs">{{ 'HOME.HERO.FIND_JOB' | translate }}</a>
         <a class="btn btn--ghost" routerLink="/employers">{{ 'HOME.HERO.FOR_COMPANIES' | translate }}</a>
       </div>
@@ -37,11 +34,11 @@
     <div class="why__content">
       <h2 class="section__title">{{ 'HOME.WHY.TITLE' | translate }}</h2>
       <ul class="why__points">
-        <li><strong>{{ 'HOME.WHY.LIST.OPTION_1_TITLE' | translate }}</strong> {{ 'HOME.WHY.LIST.OPTION_1_CONTENT' | translate }}</li>
-        <li><strong>{{ 'HOME.WHY.LIST.OPTION_2_TITLE' | translate }}</strong> {{ 'HOME.WHY.LIST.OPTION_2_CONTENT' | translate }}</li>
-        <li><strong>{{ 'HOME.WHY.LIST.OPTION_3_TITLE' | translate }}</strong> {{ 'HOME.WHY.LIST.OPTION_3_CONTENT' | translate }}</li>
-        <li><strong>{{ 'HOME.WHY.LIST.OPTION_4_TITLE' | translate }}</strong> {{ 'HOME.WHY.LIST.OPTION_4_CONTENT' | translate }}</li>
-        <li><strong>{{ 'HOME.WHY.LIST.OPTION_5_TITLE' | translate }}</strong> {{ 'HOME.WHY.LIST.OPTION_5_CONTENT' | translate }}</li>
+        <li appInView><strong>{{ 'HOME.WHY.LIST.OPTION_1_TITLE' | translate }}</strong> {{ 'HOME.WHY.LIST.OPTION_1_CONTENT' | translate }}</li>
+        <li appInView><strong>{{ 'HOME.WHY.LIST.OPTION_2_TITLE' | translate }}</strong> {{ 'HOME.WHY.LIST.OPTION_2_CONTENT' | translate }}</li>
+        <li appInView><strong>{{ 'HOME.WHY.LIST.OPTION_3_TITLE' | translate }}</strong> {{ 'HOME.WHY.LIST.OPTION_3_CONTENT' | translate }}</li>
+        <li appInView><strong>{{ 'HOME.WHY.LIST.OPTION_4_TITLE' | translate }}</strong> {{ 'HOME.WHY.LIST.OPTION_4_CONTENT' | translate }}</li>
+        <li appInView><strong>{{ 'HOME.WHY.LIST.OPTION_5_TITLE' | translate }}</strong> {{ 'HOME.WHY.LIST.OPTION_5_CONTENT' | translate }}</li>
       </ul>
 
       <div class="why__cta">
@@ -64,7 +61,7 @@
 
     <ol class="steps">
       @for (no of steps; track no) {
-        <li class="step">
+        <li class="step" appInView>
           <div class="step__index">{{ no }}</div>
           <div class="step__body">
             <h3 class="step__title">

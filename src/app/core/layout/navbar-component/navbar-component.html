@@ -27,17 +27,20 @@
     @for (item of menu; track item.label) {
       <li class="nav-item" [class.has-children]="!!item.children" [class.is-open]="openKey===item.key">
         @if (item.children?.length) {
-          <button class="nav-link" type="button" (click)="toggleSection(item.key)">
+          <button class="nav-link job-desktop" type="button" (click)="toggleSection(item.key)">
             <span class="label">{{ item.label | translate }}</span>
             <span class="chev" aria-hidden="true">▸</span>
           </button>
-        @if (openKey===item.key) {
-            <ul class="subnav">
-              @for (c of item.children; track c.label) {
-                <li><a href="/jobs?country={{ c.link }}" (click)="close()">{{ c.label | translate }}</a></li>
-              }
-            </ul>
-          }
+          <button class="nav-link job-mobile" type="button" (click)="close()" routerLink="/jobs">
+            <span class="label">{{ item.label | translate }}</span>
+          </button>
+          @if (openKey===item.key) {
+              <ul class="subnav job-desktop">
+                @for (c of item.children; track c.label) {
+                  <li><a href="/jobs?country={{ c.link }}" (click)="close()">{{ c.label | translate }}</a></li>
+                }
+              </ul>
+            }
         } @else {
           <a (click)="close()" class="nav-link" [routerLink]="item.link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
             <span class="label">{{ item.label | translate }}</span>

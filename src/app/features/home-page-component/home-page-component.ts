@@ -2,12 +2,13 @@ import { Component, ElementRef, Inject, PLATFORM_ID, signal, ViewChild  } from '
 import { RouterLink } from '@angular/router';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
+import { InViewDirective } from '../../core/shared/directives/in-view.directive';
 
 type CountryKey = 'de' | 'fi' | 'fr' | 'nl';
 
 @Component({
   selector: 'app-home-page-component',
-  imports: [RouterLink, CommonModule, TranslatePipe],
+  imports: [RouterLink, CommonModule, TranslatePipe, InViewDirective],
   templateUrl: './home-page-component.html',
   styleUrl: './home-page-component.scss',
 })
