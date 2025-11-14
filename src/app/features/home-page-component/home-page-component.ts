@@ -10,7 +10,7 @@ type CountryKey = 'de' | 'fi' | 'fr' | 'nl';
   selector: 'app-home-page-component',
   imports: [RouterLink, CommonModule, TranslatePipe, InViewDirective],
   templateUrl: './home-page-component.html',
-  styleUrl: './home-page-component.scss',
+  styleUrls: ['./home-page-component.scss', './home-page-sections.scss'],
 })
 export class HomePageComponent {
   steps = [1, 2, 3, 4];
