@@ -55,13 +55,39 @@
       "STEP_4_TEXT": "Līgumu paraksti tieši ar darba devēju vai vietējo partneri. Mēs paliekam tev līdzās, lai palīdzētu iekārtoties un risinātu jautājumus.",
       "STEP_4_HINT": "Monova ir tavs darbā iekārtošanas partneris – mēs nekad neņemam maksu no darbiniekiem."
     },
-    "STRIPS": {
-      "ROW_1_TOP": "Mākslīgā intelekta un automatizācijas pasaulē",
-      "ROW_1_MAIN": "mēs redzam īstus cilvēkus.",
-      "ROW_2_TOP": "Sarežģītu karjeru pasaulē",
-      "ROW_2_MAIN": "padarām darbu ārzemēs vienkāršu.",
-      "ROW_3_TOP": "Nenoteiktības pasaulē",
-      "ROW_3_MAIN": "palīdzam tev droši sākt darbu."
+    "INDUSTRIES": {
+      "TITLE": "Mūsu populārākās nozares",
+      "SUBTITLE": "Mēs savienojam darbiniekus ar uzticamiem darba devējiem visā Eiropā.",
+      "SHIPBUILDING": "Kuģu būve",
+      "SHIPBUILDING_TEXT": "Metinātāji, montieri, elektriķi, cauruļu strādnieki un speciālisti Eiropas kuģu būvētavām.",
+      "WAREHOUSE": "Noliktavas un loģistika",
+      "WAREHOUSE_TEXT": "Komplektētāji, iekrāvēju vadītāji, pakošana, šķirošana un loģistikas atbalsta darbi.",
+      "CONSTRUCTION": "Būvniecība",
+      "CONSTRUCTION_TEXT": "Vispārējie strādnieki, galdnieki, krāsotāji, sastatņu montētāji, elektriķi u.c.",
+      "HOSPITALITY": "Viesmīlība un pakalpojumi",
+      "HOSPITALITY_TEXT": "Viesmīļi, apkopēji, istabenes, virtuves palīgi un viesnīcu personāls."
+    },
+    "STORIES": {
+      "TITLE": "Īsti veiksmes stāsti",
+      "SUBTITLE": "Cilvēki, kuri uzticējās Monova un mainīja savu dzīvi, sākot strādāt ārzemēs.",
+
+      "STORY_1_NAME": "Aleks",
+      "STORY_1_ROLE": "Būvstrādnieks → Darbu vadītājs",
+      "STORY_1_COUNTRY": "No vietējā tirgus uz Rietumeiropu",
+      "STORY_1_SUMMARY": "Aleks bija labs būvstrādnieks ar nedaudz virs vidējā atalgojumu. Monova palīdzēja viņam atrast darbu ārzemēs uzņēmumā, kas novērtēja viņa potenciālu.",
+      "STORY_1_QUOTE": "Ar Monova es ieguvu ne tikai jaunu darbu – bet arī četrus ciparus algā un vadītāja amatu. Beidzot jūtos novērtēts.",
+
+      "STORY_2_NAME": "Marta",
+      "STORY_2_ROLE": "Noliktavas darbiniece → Komandas vadītāja",
+      "STORY_2_COUNTRY": "Polija → Nīderlande",
+      "STORY_2_SUMMARY": "Marta strādāja nakts maiņās ar neparedzamu grafiku. Monova palīdzēja viņai pāriet uz modernu loģistikas centru ar stabilu darba laiku un izaugsmes iespējām.",
+      "STORY_2_QUOTE": "Tagad zinu savu grafiku, alga vienmēr laikā un pēc dažiem mēnešiem mani paaugstināja. Beidzot ir līdzsvars un nākotne.",
+
+      "STORY_3_NAME": "Sergejs",
+      "STORY_3_ROLE": "Viesmīlis → Viesnīcas darbinieks ārzemēs",
+      "STORY_3_COUNTRY": "Baltija → Skandināvija",
+      "STORY_3_SUMMARY": "Sergejam bija pieredze ēdināšanā, bet viņš vēlējās stabilāku darbu. Monova savienoja viņu ar viesnīcu ārzemēs, kas meklēja motivētus darbiniekus.",
+      "STORY_3_QUOTE": "Process bija skaidrs jau no pirmās dienas. Monova pārbaudīja darba devēju, palīdzēja ar dokumentiem un tagad es strādāju vietā, kur mani novērtē un labi apmaksā."
     }
   },
   "FOOTER": {

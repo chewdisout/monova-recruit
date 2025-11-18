@@ -2,15 +2,82 @@
   <div class="jobs__header">
     <h1 class="jobs__title">Available Jobs</h1>
     <p class="jobs__subtitle">Explore verified positions across Europe.</p>
+
+    <!-- TOP FILTER CONTROLS -->
+    <div class="jobs__controls">
+      <div class="jobs__control">
+        <label for="countryFilter" class="jobs__control-label">
+          Country
+        </label>
+        <select
+          id="countryFilter"
+          class="select"
+          [value]="currentCountry() || ''"
+          (change)="onCountryChange($event)"
+        >
+          <option value="">All countries</option>
+          <option *ngFor="let c of countries" [value]="c.value">
+            {{ c.label }}
+          </option>
+        </select>
+      </div>
+
+      <!-- 
+      <div class="jobs__control">
+        <label for="categoryFilter" class="jobs__control-label">
+          Category
+        </label>
+        <select
+          id="categoryFilter"
+          class="select"
+          [value]="currentCategory() || ''"
+          (change)="onCategoryChange($event)"
+        >
+          <option value="">All categories</option>
+          <option *ngFor="let cat of categories" [value]="cat.value">
+            {{ cat.label }}
+          </option>
+        </select>
+      </div>
+      -->
+    </div>
+
+    <!-- ACTIVE FILTERS INFO -->
+    <div class="jobs__filters" *ngIf="currentCountry() || currentCategory()">
+      <span class="jobs__filter-label">
+        Showing jobs
+        <ng-container *ngIf="currentCountry()">
+          in <strong>{{ currentCountry() }}</strong>
+        </ng-container>
+        <ng-container *ngIf="currentCategory()">
+          <ng-container *ngIf="currentCountry()"> · </ng-container>
+          category: <strong>{{ currentCategory() }}</strong>
+        </ng-container>
+      </span>
+
+      <a class="jobs__filter-reset" [routerLink]="['/jobs']">
+        Clear filters
+      </a>
+    </div>
   </div>
 
-  <div *ngIf="loading()" class="jobs__state jobs__state--loading">Loading jobs...</div>
-  <div *ngIf="error()" class="jobs__state jobs__state--error">{{ error() }}</div>
-
-  <div *ngIf="!loading() && !error() && jobs().length === 0" class="jobs__state jobs__state--empty">
-    No jobs found for selected country.
+  <!-- STATES -->
+  <div *ngIf="loading()" class="jobs__state jobs__state--loading">
+    Loading jobs...
   </div>
 
+  <div *ngIf="error()" class="jobs__state jobs__state--error">
+    {{ error() }}
+  </div>
+
+  <div
+    *ngIf="!loading() && !error() && jobs().length === 0"
+    class="jobs__state jobs__state--empty"
+  >
+    No jobs found for selected filters.
+  </div>
+
+  <!-- JOB LIST -->
   <div class="jobs__list" *ngIf="!loading() && !error() && jobs().length > 0">
     <article *ngFor="let job of jobs()" class="job-row">
       <div class="job-row__image-wrap" *ngIf="job.image">
@@ -21,7 +88,9 @@
         <header class="job-row__header">
           <div class="job-row__title-block">
             <h3 class="job-row__title">{{ job.title }}</h3>
-            <p class="job-row__company">{{ job.company_name || 'Verified employer' }}</p>
+            <p class="job-row__company">
+              {{ job.company_name || 'Verified employer' }}
+            </p>
           </div>
 
           <div class="job-row__location">
@@ -34,7 +103,9 @@
             💶 {{ job.salary_from }}
             <span *ngIf="job.salary_to">– {{ job.salary_to }}</span>
             {{ job.currency || 'EUR' }}
-            <ng-container *ngIf="job.salary_type">/{{ job.salary_type }}</ng-container>
+            <ng-container *ngIf="job.salary_type">
+              /{{ job.salary_type }}
+            </ng-container>
           </span>
 
           <span *ngIf="job.employment_type" class="job-row__type">
@@ -42,10 +113,14 @@
           </span>
         </div>
 
-        <p class="job-row__desc">{{ job.short_description || job.full_description }}</p>
+        <p class="job-row__desc">
+          {{ job.short_description || job.full_description }}
+        </p>
 
         <div class="job-row__footer">
-          <a class="btn btn--outline" [routerLink]="['/jobs', job.id]">View details</a>
+          <a class="btn btn--outline" [routerLink]="['/jobs', job.id]">
+            View details
+          </a>
         </div>
       </div>
     </article>

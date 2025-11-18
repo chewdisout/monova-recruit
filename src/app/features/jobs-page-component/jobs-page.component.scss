@@ -20,6 +20,60 @@
     font-size: 15px;
   }
 
+  /* TOP FILTER CONTROLS */
+  &__controls {
+    margin-top: 18px;
+    margin-bottom: 8px;
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  &__control {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 180px;
+    max-width: 220px;
+    font-size: 12px;
+    color: var(--mnv-text-soft);
+  }
+
+  &__control-label {
+    margin-bottom: 4px;
+  }
+
+  /* ACTIVE FILTER SUMMARY */
+  &__filters {
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--mnv-text-dim);
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &__filter-label {
+    background: #f5f6fa;
+    border-radius: 999px;
+    padding: 4px 12px;
+  }
+
+  &__filter-reset {
+    font-size: 13px;
+    color: var(--mnv-blue-700);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  &__filter-reset:hover {
+    text-decoration: underline;
+  }
+
+  /* STATES */
   &__state {
     text-align: center;
     font-size: 14px;
@@ -38,6 +92,7 @@
     }
   }
 
+  /* JOB LIST */
   &__list {
     display: flex;
     flex-direction: column;
@@ -45,6 +100,7 @@
   }
 }
 
+/* JOB CARD */
 .job-row {
   display: flex;
   background: #fff;
@@ -141,6 +197,7 @@
   }
 }
 
+/* MOBILE */
 @media (max-width: 768px) {
   .job-row {
     flex-direction: column;
@@ -161,5 +218,13 @@
     &__desc {
       -webkit-line-clamp: 4;
     }
+  }
+
+  .jobs {
+    padding: 0 16px;
+  }
+
+  .jobs__control {
+    min-width: 100%;
   }
 }

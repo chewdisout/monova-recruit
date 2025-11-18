@@ -55,13 +55,39 @@
       "STEP_4_TEXT": "Pasirašai sutartį tiesiogiai su darbdaviu arba vietiniu partneriu. Mes išliekame ryšyje ir padedame įsikurti ar išspręsti klausimus.",
       "STEP_4_HINT": "Monova yra tavo įdarbinimo partneris – mes niekada neimame mokesčio iš darbuotojų."
     },
-    "STRIPS": {
-      "ROW_1_TOP": "Dirbtinio intelekto ir automatizacijos pasaulyje",
-      "ROW_1_MAIN": "mes matome tikrus žmones.",
-      "ROW_2_TOP": "Sudėtingų karjerų pasaulyje",
-      "ROW_2_MAIN": "darome darbo pradžią užsienyje paprastą.",
-      "ROW_3_TOP": "Neapibrėžtumo pasaulyje",
-      "ROW_3_MAIN": "saugiai vedame tave į darbą."
+    "INDUSTRIES": {
+      "TITLE": "Mūsų populiariausios sritys",
+      "SUBTITLE": "Sujungiame darbuotojus su patikimais darbdaviais visoje Europoje.",
+      "SHIPBUILDING": "Laivų statyba",
+      "SHIPBUILDING_TEXT": "Suvirintojai, surinkėjai, elektrikai, vamzdininkai ir specialistai Europos laivų statykloms.",
+      "WAREHOUSE": "Sandėliavimas ir logistika",
+      "WAREHOUSE_TEXT": "Rinkėjai, krautuvų vairuotojai, pakavimas, rūšiavimas ir logistikos pagalba.",
+      "CONSTRUCTION": "Statyba",
+      "CONSTRUCTION_TEXT": "Statybininkai, dailidės, dažytojai, pastolių montuotojai, elektrikai ir kt.",
+      "HOSPITALITY": "Viešbučiai ir paslaugos",
+      "HOSPITALITY_TEXT": "Padavėjai, kambarinės, valytojai, virtuvės pagalbininkai ir viešbučių personalas."
+    },
+    "STORIES": {
+      "TITLE": "Tikros sėkmės istorijos",
+      "SUBTITLE": "Žmonės, kurie pasitikėjo Monova ir pakeitė savo gyvenimą dirbdami užsienyje.",
+
+      "STORY_1_NAME": "Aleksas",
+      "STORY_1_ROLE": "Statybininkas → Darbų vadovas",
+      "STORY_1_COUNTRY": "Iš vietinės rinkos į Vakarų Europą",
+      "STORY_1_SUMMARY": "Aleksas buvo geras statybininkas, gaunantis šiek tiek virš vidutinio atlyginimo. Monova padėjo jam išvykti dirbti į užsienį įmonėje, kuri įvertino jo potencialą.",
+      "STORY_1_QUOTE": "Su Monova gavau ne tik naują darbą – gavau keturženklį atlyginimą ir vadovo poziciją. Pagaliau jaučiu, kad mano patirtis yra vertinama.",
+
+      "STORY_2_NAME": "Marta",
+      "STORY_2_ROLE": "Sandėlio darbuotoja → Komandos vadė",
+      "STORY_2_COUNTRY": "Lenkija → Nyderlandai",
+      "STORY_2_SUMMARY": "Marta dirbo naktinėse pamainose su nestabiliu grafiku. Monova padėjo jai pereiti į modernų logistikos centrą su aiškiu grafiku ir karjeros galimybėmis.",
+      "STORY_2_QUOTE": "Naujame darbe žinau savo darbo laiką, atlyginimas visada laiku, o po kelių mėnesių mane paaukštino. Pagaliau turiu pusiausvyrą ir ateitį.",
+
+      "STORY_3_NAME": "Sergejus",
+      "STORY_3_ROLE": "Padavėjas → Viešbučio darbuotojas užsienyje",
+      "STORY_3_COUNTRY": "Baltijos šalys → Skandinavija",
+      "STORY_3_SUMMARY": "Sergejus turėjo patirties restoranuose, bet norėjo stabilesnio darbo. Monova jį sujungė su viešbučiu, ieškančiu motyvuotų darbuotojų.",
+      "STORY_3_QUOTE": "Procesas buvo aiškus nuo pat pirmos dienos. Monova patikrino darbdavį, padėjo su dokumentais, o dabar dirbu viešbutyje, kuriame esu gerbiamas ir gerai apmokamas."
     }
   },
   "FOOTER": {

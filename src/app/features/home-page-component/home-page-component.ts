@@ -4,8 +4,6 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
 import { InViewDirective } from '../../core/shared/directives/in-view.directive';
 
-type CountryKey = 'de' | 'fi' | 'fr' | 'nl';
-
 @Component({
   selector: 'app-home-page-component',
   imports: [RouterLink, CommonModule, TranslatePipe, InViewDirective],
@@ -15,7 +13,7 @@ type CountryKey = 'de' | 'fi' | 'fr' | 'nl';
 export class HomePageComponent {
   steps = [1, 2, 3, 4];
 
-   @ViewChild('heroVideo') heroVideo!: ElementRef<HTMLVideoElement>;
+  @ViewChild('heroVideo') heroVideo!: ElementRef<HTMLVideoElement>;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
@@ -23,24 +21,24 @@ export class HomePageComponent {
     if (!isPlatformBrowser(this.platformId)) return;
 
     setTimeout(() => {
-      const video = this.heroVideo?.nativeElement;
-      if (!video) return;
+        const video = this.heroVideo?.nativeElement;
+        if (!video) return;
 
-      video.muted = true;
-      video.autoplay = true;
-      video.playsInline = true;
+        video.muted = true;
+        video.autoplay = true;
+        video.playsInline = true;
 
-      const playPromise = video.play();
+        const playPromise = video.play();
 
-      if (playPromise) {
-        playPromise
-          .then(() => {
-            console.log('Hero video autoplay started');
-          })
-          .catch(err => {
-            console.warn('Hero video autoplay blocked:', err);
-          });
-      }
+        if (playPromise) {
+          playPromise
+            .then(() => {
+              console.log('Hero video autoplay started');
+            })
+            .catch(err => {
+              console.warn('Hero video autoplay blocked:', err);
+            });
+        }
     }, 0);
   }
 }

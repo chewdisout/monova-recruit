@@ -55,13 +55,39 @@
       "STEP_4_TEXT": "Allkirjastad lepingu otse tööandja või kohaliku partneriga. Oleme olemas, et aidata sisseelamisel ja vajadusel toetada.",
       "STEP_4_HINT": "Monova on sinu värbamispartner – me ei võta töötajatelt tasu."
     },
-    "STRIPS": {
-      "ROW_1_TOP": "Tehisintellekti ja automatiseerimise maailmas",
-      "ROW_1_MAIN": "näeme me päris inimesi.",
-      "ROW_2_TOP": "Keeruliste karjääride maailmas",
-      "ROW_2_MAIN": "muudame töö alustamise välismaal lihtsaks.",
-      "ROW_3_TOP": "Ebamäärasuse maailmas",
-      "ROW_3_MAIN": "aitame sul turvaliselt tööle jõuda."
+    "INDUSTRIES": {
+      "TITLE": "Meie populaarseimad valdkonnad",
+      "SUBTITLE": "Ühendame töötajaid usaldusväärsete tööandjatega üle Euroopa.",
+      "SHIPBUILDING": "Laevaehitus",
+      "SHIPBUILDING_TEXT": "Keevitajad, paigaldajad, elektrikud, torutöölised ja spetsialistid Euroopa laevatehastele.",
+      "WAREHOUSE": "Laondus ja logistika",
+      "WAREHOUSE_TEXT": "Tellimuste komplekteerijad, tõstukijuhid, pakkijad, sorteerijad ja logistikatoe töötajad.",
+      "CONSTRUCTION": "Ehitus",
+      "CONSTRUCTION_TEXT": "Üldehitus, puusepad, maalrid, tellingute paigaldajad, elektrikud ja palju muud.",
+      "HOSPITALITY": "Hotellindus ja teenindus",
+      "HOSPITALITY_TEXT": "Kelnerid, toateenindus, koristajad, köögiabilised ja hotelli personal."
+    },
+    "STORIES": {
+      "TITLE": "Tõelised edulood",
+      "SUBTITLE": "Päris inimesed, kes usaldasid Monovat ja muutsid oma elu töötades välismaal.",
+
+      "STORY_1_NAME": "Aleks",
+      "STORY_1_ROLE": "Ehitus­tööline → Objektijuht",
+      "STORY_1_COUNTRY": "Kohalikult turult Lääne-Euroopasse",
+      "STORY_1_SUMMARY": "Aleks oli hea ehitustööline, teenides veidi üle riigi keskmise. Monova aitas tal kolida välismaale ja liituda ettevõttega, mis nägi tema potentsiaali.",
+      "STORY_1_QUOTE": "Monova abil ei saanud ma lihtsalt uut tööd – sain neljakohalise palga ja juhipositsiooni. Tunnen lõpuks, et minu kogemust hinnatakse.",
+
+      "STORY_2_NAME": "Marta",
+      "STORY_2_ROLE": "Laotöötaja → Tiimijuht",
+      "STORY_2_COUNTRY": "Poola → Holland",
+      "STORY_2_SUMMARY": "Marta töötas öövahetustes ebastabiilse graafikuga. Monova aitas tal liikuda kaasaegsesse logistikakeskusesse selgete graafikute ja arenguvõimalustega.",
+      "STORY_2_QUOTE": "Uues töökohas tean oma graafikut, palk on alati õigel ajal ja mind edutati tiimijuhiks. Lõpuks on mul tasakaal ja tulevik.",
+
+      "STORY_3_NAME": "Sergei",
+      "STORY_3_ROLE": "Kelner → Hotellipersonal välismaal",
+      "STORY_3_COUNTRY": "Baltikum → Skandinaavia",
+      "STORY_3_SUMMARY": "Sergeil oli kogemus restoranides, kuid ta soovis stabiilsemat tööd. Monova sobitas ta hotelliga, mis otsis motiveeritud töötajaid, mitte ainult CV-sid.",
+      "STORY_3_QUOTE": "Protsess oli algusest peale selge. Monova kontrollis tööandjat, aitas dokumentidega ja nüüd töötan hotellis, kus mind hinnatakse ja hästi tasustatakse."
     }
   },
   "FOOTER": {

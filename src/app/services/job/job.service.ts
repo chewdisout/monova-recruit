@@ -26,6 +26,12 @@ export class JobService {
     return this.http.get<Job[]>(`${this.apiBase}/jobs`, { params });
   }
 
+  getJobsByCategory(category?: string): Observable<Job[]> {
+    const params: any = { lang: this.getLang() };
+    if (category) params.country = category;
+    return this.http.get<Job[]>(`${this.apiBase}/jobsByCategory`, { params });
+  }
+
   getJob(id: number): Observable<Job> {
     const params = { lang: this.getLang() };
     return this.http.get<Job>(`${this.apiBase}/jobs/${id}`, { params });

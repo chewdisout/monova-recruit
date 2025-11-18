@@ -55,13 +55,39 @@
       "STEP_4_TEXT": "Podpisujesz umowę bezpośrednio z pracodawcą lub lokalnym partnerem. Jesteśmy z Tobą, aby pomóc w adaptacji i rozwiązywaniu problemów.",
       "STEP_4_HINT": "Monova to Twój partner rekrutacyjny – nigdy nie pobieramy opłat od pracowników."
     },
-    "STRIPS": {
-      "ROW_1_TOP": "W świecie sztucznej inteligencji i automatyzacji",
-      "ROW_1_MAIN": "widzi­my prawdziwych ludzi.",
-      "ROW_2_TOP": "W świecie skomplikowanych karier",
-      "ROW_2_MAIN": "upraszczamy start za granicą.",
-      "ROW_3_TOP": "W świecie niepewności",
-      "ROW_3_MAIN": "prowadzimy Cię bezpiecznie do pracy."
+    "INDUSTRIES": {
+      "TITLE": "Nasze najpopularniejsze branże",
+      "SUBTITLE": "Łączymy pracowników z zaufanymi pracodawcami w całej Europie.",
+      "SHIPBUILDING": "Stocznia",
+      "SHIPBUILDING_TEXT": "Spawacze, monterzy, elektrycy, rurarze i specjaliści dla europejskich stoczni.",
+      "WAREHOUSE": "Magazyn i logistyka",
+      "WAREHOUSE_TEXT": "Pickerzy, operatorzy wózków widłowych, pakowanie, sortowanie i wsparcie logistyczne.",
+      "CONSTRUCTION": "Budownictwo",
+      "CONSTRUCTION_TEXT": "Pracownicy ogólnobudowlani, cieśle, malarze, monterzy rusztowań, elektrycy i inni.",
+      "HOSPITALITY": "Hotelarstwo i usługi",
+      "HOSPITALITY_TEXT": "Kelnerzy, housekeeping, sprzątanie, pomoc kuchenna i personel hotelowy."
+    },
+    "STORIES": {
+      "TITLE": "Prawdziwe historie sukcesu",
+      "SUBTITLE": "Prawdziwi ludzie, którzy zaufali Monova i zmienili swoje życie, pracując za granicą.",
+
+      "STORY_1_NAME": "Aleks",
+      "STORY_1_ROLE": "Pracownik budowlany → Kierownik robót",
+      "STORY_1_COUNTRY": "Z lokalnego rynku do Europy Zachodniej",
+      "STORY_1_SUMMARY": "Aleks był dobrym pracownikiem budowlanym, zarabiającym nieco powyżej średniej. Monova pomogła mu wyjechać za granicę i znaleźć firmę, która dostrzegła jego potencjał.",
+      "STORY_1_QUOTE": "Dzięki Monova zyskałem nie tylko nową pracę — zyskałem czterocyfrową pensję i stanowisko kierownicze. W końcu czuję, że mój doświadczenie ma wartość.",
+
+      "STORY_2_NAME": "Marta",
+      "STORY_2_ROLE": "Pracownik magazynu → Lider zespołu",
+      "STORY_2_COUNTRY": "Polska → Holandia",
+      "STORY_2_SUMMARY": "Marta pracowała na nocnych zmianach w magazynie z nieregularnym grafikiem. Monova pomogła jej przejść do nowoczesnego centrum logistycznego z jasnym harmonogramem i możliwościami rozwoju.",
+      "STORY_2_QUOTE": "W nowej pracy znam swój grafik, wypłata jest zawsze na czas i po kilku miesiącach zostałam awansowana. Mam wreszcie równowagę i przyszłość.",
+
+      "STORY_3_NAME": "Sergei",
+      "STORY_3_ROLE": "Kelner → Pracownik hotelu za granicą",
+      "STORY_3_COUNTRY": "Bałtyk → Skandynawia",
+      "STORY_3_SUMMARY": "Sergei miał doświadczenie w gastronomii, ale chciał stabilniejszej pracy. Monova dopasowała go do hotelu za granicą, który szukał zmotywowanych pracowników.",
+      "STORY_3_QUOTE": "Proces był jasny od pierwszego dnia. Monova sprawdziła pracodawcę, pomogła z dokumentami, a teraz pracuję w hotelu, gdzie jestem szanowany i dobrze opłacany."
     }
   },
   "FOOTER": {
