@@ -4,11 +4,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { RouterLink } from '@angular/router';
 import { Job } from '../../models/user';
 import { JobService } from '../../services/job/job.service';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   standalone: true,
   selector: 'app-jobs-page',
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, TranslatePipe],
   templateUrl: './jobs-page.component.html',
   styleUrls: ['./jobs-page.component.scss'],
 })

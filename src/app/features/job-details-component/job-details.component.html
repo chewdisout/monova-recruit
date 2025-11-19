@@ -189,7 +189,7 @@
         <!-- Responsibilities -->
         <section class="job-section" *ngIf="j.responsibilities">
           <h2>Responsibilities</h2>
-          <p>{{ j.responsibilities }}</p>
+          <p style="white-space: pre-line;">{{ j.responsibilities }}</p>
         </section>
 
         <!-- Requirements -->
@@ -199,7 +199,7 @@
         >
           <h2>{{ "JOBS.JOBDETAILS.REQUIREMENTS" | translate }}</h2>
           <ul class="job-list">
-            <li *ngIf="j.requirements_text">{{ j.requirements_text }}</li>
+            <li *ngIf="j.requirements_text" style="white-space: pre-line;">{{ j.requirements_text }}</li>
             <li *ngIf="j.min_experience_years">
               Minimum experience: {{ j.min_experience_years }}+ years
             </li>
@@ -216,7 +216,7 @@
         <section class="job-section" *ngIf="j.benefits_text || j.bonuses">
           <h2>{{ "JOBS.JOBDETAILS.WHATWEOFFER" | translate }}</h2>
           <ul class="job-list">
-            <li *ngIf="j.benefits_text">{{ j.benefits_text }}</li>
+            <li *ngIf="j.benefits_text" style="white-space: pre-line;">{{ j.benefits_text }}</li>
             <li *ngIf="j.bonuses">{{ j.bonuses }}</li>
           </ul>
         </section>
