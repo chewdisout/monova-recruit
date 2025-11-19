@@ -6,6 +6,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
+import { EmailService } from '../../services/email/email.service';
+import { EmailContact } from '../../models/email';
 
 @Component({
   standalone: true,
@@ -16,6 +18,7 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class ContactPageComponent {
   private fb = inject(FormBuilder);
+  private emailService = inject(EmailService);
 
   form = this.fb.group({
     name: ['', [Validators.required, Validators.minLength(2)]],
@@ -45,13 +48,25 @@ export class ContactPageComponent {
 
     this.sending.set(true);
 
-    const payload = this.form.value;
+    const payload: EmailContact = {
+      userEmail: this.form.value.email!,
+      message: this.form.value.message!,
+    };
+
     console.log('Contact form payload:', payload);
 
-    setTimeout(() => {
-      this.sending.set(false);
-      this.success.set(true);
-      this.form.reset();
-    }, 500);
+    this.emailService.postEmailContact(payload).subscribe({
+      next: (res) => {
+        console.log('Contact saved:', res);
+        this.sending.set(false);
+        this.success.set(true);
+        this.form.reset();
+      },
+      error: (err) => {
+        console.error('Error sending contact email:', err);
+        this.sending.set(false);
+        this.error.set('Something went wrong. Please try again.');
+      },
+    });
   }
 }
