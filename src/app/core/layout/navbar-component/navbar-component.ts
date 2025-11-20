@@ -58,7 +58,7 @@ export class NavbarComponent {
   socials = [
     { key: 'tiktok',   href: 'https://www.tiktok.com/@monovarecruit?_r=1&_t=ZN-91HcctpOzji',    label: 'TikTok' },
     { key: 'linkedin', href: 'https://www.linkedin.com/company/monova-recruitment/', label: 'LinkedIn' },
-    { key: 'facebook', href: 'https://facebook.com/', label: 'Facebook' },
+    { key: 'facebook', href: 'https://www.facebook.com/monovarecruit/', label: 'Facebook' },
     { key: 'instagram',href: 'https://www.instagram.com/monovarecruit?igsh=MW12dDd4MTczd3dweA%3D%3D&utm_source=qr', label: 'Instagram' },
   ];
 
