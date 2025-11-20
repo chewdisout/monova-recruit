@@ -16,6 +16,82 @@
   --mnv-shadow-sm: 0 6px 18px rgba(0, 0, 0, 0.18);
 }
 
+.top-bar {
+  width: 100%;
+  position: relative;
+  z-index: 40; // keep it clearly above hero
+  overflow: hidden;
+
+  background: #ffffff;
+  color: var(--mnv-text);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.12);
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.06);
+
+  font-family: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  font-size: 12px;
+  line-height: 1.4;
+
+  padding-block: 6px;
+
+  &__marquee {
+    display: flex;
+    width: max-content;
+    animation: top-bar-marquee 16s linear infinite; // faster but still smooth
+    will-change: transform;
+  }
+
+  &__group {
+    display: inline-flex;
+    align-items: center;
+    gap: 36px;
+    padding-inline: 32px;
+    white-space: nowrap;
+  }
+
+  &__item {
+    margin: 0;
+    opacity: 0.92;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+  }
+
+  a {
+    color: var(--mnv-blue-700);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    font-weight: 700;
+
+    &:hover {
+      color: var(--mnv-blue-800);
+    }
+  }
+
+  @keyframes top-bar-marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%); // seamless loop with 2 groups
+    }
+  }
+
+  // Optional: pause on hover
+  &:hover &__marquee {
+    animation-play-state: paused;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 11px;
+
+    &__group {
+      gap: 24px;
+      padding-inline: 20px;
+    }
+  }
+}
+
 .hero {
   position: relative;
   width: 100vw;
