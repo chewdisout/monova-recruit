@@ -2,8 +2,8 @@ import { inject, Injectable, computed, signal } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { AuthService } from '../auth/auth.services';
-import { UserOut, UserExperience, ProfileUpdatePayload } from '../../models/user';
-import { catchError, throwError, tap } from 'rxjs';
+import { UserOut, UserExperience, ProfileUpdatePayload, CvUploadResponse } from '../../models/user';
+import { catchError, throwError, tap, Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
@@ -172,4 +172,15 @@ export class UserService {
         })
       );
   }
+
+  uploadCv(file: File): Observable<CvUploadResponse> {
+    const formData = new FormData();
+    formData.append('file', file);
+
+    return this.http.post<CvUploadResponse>(`${this.apiBase}/profile/cv/upload`, formData);
+  }
+
+  deleteCv() {
+    return this.http.delete<void>(`${this.apiBase}/profile/cv`);
+}
 }

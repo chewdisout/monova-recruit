@@ -389,3 +389,27 @@
     }
   }
 }
+
+.cv-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn--danger {
+  border-color: #e55353;
+  color: #e55353;
+}
+.btn--danger:hover:enabled {
+  background: #e55353;
+  color: #fff;
+}
+
+.cv-input-hidden {
+  display: none;
+}
+
+.cv-status {
+  margin-top: 8px;
+  font-size: 14px;
+}
+

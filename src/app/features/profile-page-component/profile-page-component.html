@@ -135,13 +135,43 @@
                 Upload your CV so we can quickly match you with suitable employers.
               </p>
             </div>
-            <button
-              type="button"
-              class="btn btn--outline btn--sm"
-              (click)="onUploadCvClick()"
-            >
-              Upload CV
-            </button>
+
+            <div class="cv-actions">
+              <button
+                type="button"
+                class="btn btn--outline btn--sm"
+                (click)="onUploadCvClick()"
+                [disabled]="cvUploading() || cvDeleting()"
+              >
+                {{ cvUploading() ? 'Uploading…' : 'Upload CV' }}
+              </button>
+
+              <button
+                *ngIf="cvFileName()"
+                type="button"
+                class="btn btn--outline btn--sm btn--danger"
+                (click)="onDeleteCvClick()"
+                [disabled]="cvUploading() || cvDeleting()"
+              >
+                {{ cvDeleting() ? 'Deleting…' : 'Delete CV' }}
+              </button>
+            </div>
+          </div>
+          <input
+            #cvInput
+            type="file"
+            class="cv-input-hidden"
+            accept=".pdf,.doc,.docx"
+            (change)="onCvFileSelected($event)"
+          />
+
+          <div class="cv-status" *ngIf="cvFileName()">
+            <span>Current CV:</span>
+            <strong>{{ cvFileName() }}</strong>
+          </div>
+
+          <div class="profile-error" *ngIf="cvError()">
+            {{ cvError() }}
           </div>
           <div class="workexp">
             <h2>Work experience</h2>

@@ -21,6 +21,8 @@ export interface UserOut {
   userSecondPrefferedJobLocation?: string | null;
   userTellAboutYourSelf?: string | null;
   isAdmin?: boolean;
+  cv_s3_key?: string | null;
+  cv_original_name?: string | null;
 }
 
 export interface SignUpPayload {
@@ -93,4 +95,9 @@ export interface Job {
   created_at?: string;
   updated_at?: string;
   image: string;
+}
+
+export interface CvUploadResponse {
+  url: string;
+  original_name: string;
 }

@@ -4,7 +4,9 @@ import {
   inject,
   computed,
   effect,
-  signal
+  signal,
+  ViewChild,
+  ElementRef
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
@@ -29,6 +31,13 @@ export class ProfilePageComponent {
     private userService = inject(UserService);
     private apps = inject(ApplicationsService);
     private auth = inject(AuthService);
+
+    @ViewChild('cvInput') cvInput?: ElementRef<HTMLInputElement>;
+
+    cvUploading = signal(false);
+    cvError = signal('');
+    cvFileName = signal<string | null>(null);
+    cvDeleting = signal(false);
 
     user = computed(() => this.userService.user());
     loading = computed(() => this.userService.loading());
@@ -109,6 +118,8 @@ export class ProfilePageComponent {
             },
             { emitEvent: false }
           );
+          
+          this.cvFileName.set(u.cv_original_name || null);
         }
       });
     }
@@ -183,6 +194,66 @@ export class ProfilePageComponent {
     }
 
     onUploadCvClick() {
-      console.log('CV upload clicked (to be implemented)');
+      this.cvError.set('');
+      this.cvInput?.nativeElement.click();
+    }
+
+    onDeleteCvClick() {
+      this.cvError.set('');
+      this.cvDeleting.set(true);
+
+      this.userService.deleteCv().subscribe({
+        next: () => {
+          this.cvDeleting.set(false);
+          this.cvFileName.set(null);
+        },
+        error: (err) => {
+          this.cvDeleting.set(false);
+          this.cvError.set(
+            err?.error?.detail || 'Failed to delete CV. Please try again.'
+          );
+        },
+      });
+    }
+
+    onCvFileSelected(event: Event) {
+      const input = event.target as HTMLInputElement;
+      if (!input.files || input.files.length === 0) return;
+
+      const file = input.files[0];
+
+      // Optional: basic client-side validation
+      const allowedTypes = [
+        'application/pdf',
+        'application/msword',
+        'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+      ];
+      if (!allowedTypes.includes(file.type)) {
+        this.cvError.set('Please upload a PDF or Word document.');
+        input.value = '';
+        return;
+      }
+
+      this.cvUploading.set(true);
+      this.cvError.set('');
+
+      this.userService.uploadCv(file).subscribe({
+        next: (res) => {
+          this.cvUploading.set(false);
+          this.cvFileName.set(res.original_name || file.name);
+
+          // TODO: if backend returns URL/key, save it to the user profile
+          // e.g. this.userService.updateProfile({ cvUrl: res.url }).subscribe(...)
+        },
+        error: (err) => {
+          this.cvUploading.set(false);
+          this.cvError.set(
+            err?.error?.detail || 'Failed to upload CV. Please try again.'
+          );
+        },
+      });
+
+      // reset input so selecting the same file again still triggers change
+      input.value = '';
     }
 }
