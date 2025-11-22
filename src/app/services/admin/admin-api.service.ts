@@ -37,6 +37,10 @@ export class AdminApiService {
         );
     }
 
+    deleteUser(id: number) {
+        return this.http.delete<void>(`${this.apiBase}/admin/users/${id}`);
+    }
+
     // --- Jobs ---
 
     getJobs() {
@@ -53,6 +57,10 @@ export class AdminApiService {
 
     updateJob(id: number, payload: AdminJobUpdate) {
         return this.http.put<AdminJob>(`${this.apiBase}/admin/jobs/${id}`, payload);
+    }
+
+    deleteJob(id: number) {
+        return this.http.delete<void>(`${this.apiBase}/admin/jobs/${id}`);
     }
 
     // --- Translations ---

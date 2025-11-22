@@ -9,4 +9,12 @@ import { CommonModule } from '@angular/common';
   templateUrl: './admin-layout.component.html',
   styleUrls: ['./admin-layout.component.scss'],
 })
-export class AdminLayoutComponent {}
+export class AdminLayoutComponent {
+  ngOnInit() {
+    document.body.classList.add('no-rail-padding');
+  }
+
+  ngOnDestroy() {
+    document.body.classList.remove('no-rail-padding');
+  }
+}

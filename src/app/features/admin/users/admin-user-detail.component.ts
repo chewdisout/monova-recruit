@@ -1,6 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ReactiveFormsModule, FormBuilder } from '@angular/forms';
 
 import {
@@ -24,6 +24,9 @@ export class AdminUserDetailComponent {
   private fb = inject(FormBuilder);
   private route = inject(ActivatedRoute);
   private api = inject(AdminApiService);
+  private router = inject(Router);
+
+  deleting = signal(false);
 
   userId = Number(this.route.snapshot.paramMap.get('id'));
 
@@ -33,8 +36,16 @@ export class AdminUserDetailComponent {
     userPhoneNumber: [''],
     userCitizenship: [''],
     userEmploymentStatus: [''],
+    userGender: [''],
+    userAge: [null as number | null],
+    userPrefferedJob: [''],
+    userSecondPrefferedJob: [''],
+    userPrefferedJobLocation: [''],
+    userSecondPrefferedJobLocation: [''],
+    userTellAboutYourSelf: [''],
     is_admin: [false],
   });
+
 
   loading = signal(true);
   saving = signal(false);
@@ -64,7 +75,14 @@ export class AdminUserDetailComponent {
           userPhoneNumber: user.userPhoneNumber || '',
           userCitizenship: user.userCitizenship || '',
           userEmploymentStatus: user.userEmploymentStatus || '',
-          is_admin: !!user.is_admin,
+          userGender: user.userGender || '',
+          userAge: user.userAge ?? null,
+          userPrefferedJob: user.userPrefferedJob || '',
+          userSecondPrefferedJob: user.userSecondPrefferedJob || '',
+          userPrefferedJobLocation: user.userPrefferedJobLocation || '',
+          userSecondPrefferedJobLocation: user.userSecondPrefferedJobLocation || '',
+          userTellAboutYourSelf: user.userTellAboutYourSelf || '',
+          is_admin: !!user.is_admin, // or !!user.isAdmin depending on your AdminUser model
         });
 
         this.loading.set(false);
@@ -76,6 +94,7 @@ export class AdminUserDetailComponent {
       },
     });
   }
+
 
   private loadApplications() {
     this.api.getUserApplications(this.userId).subscribe({
@@ -95,12 +114,19 @@ export class AdminUserDetailComponent {
     const v = this.form.value;
 
     const payload: AdminUserUpdate = {
-        userName: v.userName ?? undefined,
-        userSurname: v.userSurname ?? undefined,
-        userPhoneNumber: v.userPhoneNumber ?? undefined,
-        userCitizenship: v.userCitizenship ?? undefined,
-        userEmploymentStatus: v.userEmploymentStatus ?? undefined,
-        is_admin: v.is_admin ?? undefined,
+      userName: v.userName ?? undefined,
+      userSurname: v.userSurname ?? undefined,
+      userPhoneNumber: v.userPhoneNumber ?? undefined,
+      userCitizenship: v.userCitizenship ?? undefined,
+      userEmploymentStatus: v.userEmploymentStatus ?? undefined,
+      userGender: v.userGender ?? undefined,
+      userAge: v.userAge ?? undefined,
+      userPrefferedJob: v.userPrefferedJob ?? undefined,
+      userSecondPrefferedJob: v.userSecondPrefferedJob ?? undefined,
+      userPrefferedJobLocation: v.userPrefferedJobLocation ?? undefined,
+      userSecondPrefferedJobLocation: v.userSecondPrefferedJobLocation ?? undefined,
+      userTellAboutYourSelf: v.userTellAboutYourSelf ?? undefined,
+      is_admin: v.is_admin ?? undefined,
     };
 
     this.api.updateUser(this.userId, payload).subscribe({
@@ -111,6 +137,27 @@ export class AdminUserDetailComponent {
       error: () => {
         this.error.set('Failed to save changes.');
         this.saving.set(false);
+      },
+    });
+  }
+
+  deleteUser() {
+    const confirmed = window.confirm(
+      'Delete this user and all related applications? This cannot be undone.'
+    );
+    if (!confirmed) return;
+
+    this.deleting.set(true);
+    this.error.set('');
+
+    this.api.deleteUser(this.userId).subscribe({
+      next: () => {
+        this.deleting.set(false);
+        this.router.navigate(['/admin/users']);
+      },
+      error: () => {
+        this.deleting.set(false);
+        this.error.set('Failed to delete user.');
       },
     });
   }

@@ -8,8 +8,14 @@
   </div>
 
   <div *ngIf="loading()" class="muted">Loading jobs...</div>
+  <div *ngIf="!loading() && error()" class="state state--error">
+    {{ error() }}
+  </div>
+  <div *ngIf="!loading() && !error() && jobs().length === 0" class="muted">
+    No jobs yet. Click <strong>+ New job</strong> to create one.
+  </div>
 
-  <table *ngIf="!loading()" class="admin-table">
+  <table *ngIf="!loading() && jobs().length > 0" class="admin-table">
     <thead>
       <tr>
         <th>ID</th>
@@ -17,13 +23,15 @@
         <th>Country</th>
         <th>Category</th>
         <th>Status</th>
-        <th></th>
+        <th class="ta-right">Actions</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let j of jobs()">
         <td>{{ j.id }}</td>
-        <td>{{ j.title }}</td>
+        <td class="admin-table__title">
+          {{ j.title }}
+        </td>
         <td>{{ j.country }}</td>
         <td>{{ j.category || '—' }}</td>
         <td>
@@ -32,7 +40,17 @@
           </span>
         </td>
         <td class="ta-right">
-          <a [routerLink]="['/admin/jobs', j.id]" class="link-sm">Edit</a>
+          <div class="table-actions">
+            <a [routerLink]="['/admin/jobs', j.id]" class="link-sm">Edit</a>
+            <button
+              type="button"
+              class="link-sm link-sm--danger"
+              (click)="onDelete(j)"
+              [disabled]="deletingId() === j.id"
+            >
+              {{ deletingId() === j.id ? 'Deleting…' : 'Delete' }}
+            </button>
+          </div>
         </td>
       </tr>
     </tbody>

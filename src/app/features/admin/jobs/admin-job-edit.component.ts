@@ -17,6 +17,7 @@ import {
     JobTranslationUpsert,
     JobTranslation
 } from '../../../models/admin';
+import { Router } from '@angular/router';
 
 const LANGS = ['en', 'pl', 'ru', 'lv', 'lt', 'ee'];
 
@@ -30,6 +31,7 @@ export class AdminJobEditComponent implements OnInit {
     private fb = inject(FormBuilder);
     private api = inject(AdminApiService);
     private route = inject(ActivatedRoute);
+    private router = inject(Router);
 
     jobId = 0;
 
@@ -263,4 +265,26 @@ export class AdminJobEditComponent implements OnInit {
         return p as AdminJobCreate | AdminJobUpdate;
     }
 
+    deleteJob() {
+        if (!this.jobId) return;
+
+        const confirmed = window.confirm(
+        'Delete this job and all related applications/translations?'
+        );
+        if (!confirmed) return;
+
+        this.savingBase.set(true);
+        this.error.set('');
+
+        this.api.deleteJob(this.jobId).subscribe({
+        next: () => {
+            this.savingBase.set(false);
+            this.router.navigate(['/admin/jobs']);
+        },
+        error: () => {
+            this.savingBase.set(false);
+            this.error.set('Failed to delete job.');
+        },
+        });
+    }
 }

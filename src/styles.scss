@@ -82,9 +82,12 @@ body {
   color: var(--mnv-text);
   background: var(--mnv-bg);
   padding-right: var(--rail-w);
-
   padding-bottom: 16px;
   padding-bottom: calc(env(safe-area-inset-bottom) + 16px);
+}
+
+body.no-rail-padding {
+  padding-right: 0 !important;
 }
 
 @media (max-width: 1024px) {

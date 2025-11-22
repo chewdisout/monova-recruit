@@ -3,11 +3,20 @@ export interface AdminUser {
   userEmail: string;
   userName?: string | null;
   userSurname?: string | null;
+  userGender?: string | null;
+  userAge?: number | null;
   userPhoneNumber?: string | null;
   userCitizenship?: string | null;
+  userPrefferedJob?: string | null;
+  userSecondPrefferedJob?: string | null;
+  userPrefferedJobLocation?: string | null;
+  userSecondPrefferedJobLocation?: string | null;
+  userTellAboutYourSelf?: string | null;
   userEmploymentStatus?: string | null;
-  is_admin: boolean;
+  is_admin?: boolean;
+  cv_original_name?: string | null;
 }
+
 
 export interface AdminUserUpdate {
   userName?: string | null;
@@ -15,6 +24,13 @@ export interface AdminUserUpdate {
   userPhoneNumber?: string | null;
   userCitizenship?: string | null;
   userEmploymentStatus?: string | null;
+  userGender?: string | null;
+  userAge?: number | null;
+  userPrefferedJob?: string | null;
+  userSecondPrefferedJob?: string | null;
+  userPrefferedJobLocation?: string | null;
+  userSecondPrefferedJobLocation?: string | null;
+  userTellAboutYourSelf?: string | null;
   is_admin?: boolean;
 }
 

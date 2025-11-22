@@ -297,6 +297,15 @@
           >
             {{ savingBase() ? 'Saving…' : 'Save job' }}
           </button>
+          <button
+            *ngIf="jobId"
+            type="button"
+            class="btn btn--outline btn--danger"
+            (click)="deleteJob()"
+            [disabled]="savingBase()"
+          >
+            Delete job
+          </button>
         </div>
         <div> {{ error() }} </div>
         <div> {{ error() }} </div>

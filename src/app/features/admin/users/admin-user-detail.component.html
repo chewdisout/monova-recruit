@@ -89,6 +89,48 @@
           </div>
         </div>
 
+        <div class="form-grid-3">
+          <div class="field">
+            <label for="gender">Gender</label>
+            <input id="gender" class="input" formControlName="userGender" />
+          </div>
+          <div class="field">
+            <label for="age">Age</label>
+            <input id="age" type="number" class="input" formControlName="userAge" />
+          </div>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="field">
+            <label>Preferred job #1</label>
+            <input class="input" formControlName="userPrefferedJob" />
+          </div>
+          <div class="field">
+            <label>Preferred job #2</label>
+            <input class="input" formControlName="userSecondPrefferedJob" />
+          </div>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="field">
+            <label>Preferred location #1</label>
+            <input class="input" formControlName="userPrefferedJobLocation" />
+          </div>
+          <div class="field">
+            <label>Preferred location #2</label>
+            <input class="input" formControlName="userSecondPrefferedJobLocation" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label>About candidate</label>
+          <textarea
+            class="textarea"
+            rows="3"
+            formControlName="userTellAboutYourSelf"
+          ></textarea>
+        </div>
+
         <div class="actions-row">
           <button
             type="submit"
@@ -96,6 +138,15 @@
             [disabled]="saving() || !touched()"
           >
             {{ saving() ? 'Saving…' : 'Save changes' }}
+          </button>
+
+          <button
+            type="button"
+            class="btn btn--outline btn--danger"
+            (click)="deleteUser()"
+            [disabled]="deleting() || loading()"
+          >
+            {{ deleting() ? 'Deleting…' : 'Delete user' }}
           </button>
 
           <span class="saved" *ngIf="!error() && !saving() && !touched()">
