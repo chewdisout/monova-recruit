@@ -55,6 +55,8 @@ export class ProfilePageComponent {
     appsLoading = signal(false);
     appsError = signal('');
 
+    cancelAppId = signal<number | null>(null);
+
     jobOptions = [
       'Warehouse worker',
       'Production worker',
@@ -118,7 +120,7 @@ export class ProfilePageComponent {
             },
             { emitEvent: false }
           );
-          
+
           this.cvFileName.set(u.cv_original_name || null);
         }
       });
@@ -213,6 +215,24 @@ export class ProfilePageComponent {
             err?.error?.detail || 'Failed to delete CV. Please try again.'
           );
         },
+      });
+    }
+
+    cancelApplication(appId: number) {
+      this.appsError.set('');
+      this.cancelAppId.set(appId);
+
+      this.apps.removeMyApplication(appId).subscribe({
+        next: () => {
+          this.applications.update(apps =>
+            apps.filter(a => a.id !== appId)
+          );
+          this.cancelAppId.set(null);
+        },
+        error: () => {
+          this.appsError.set('Unable to cancel application.');
+          this.cancelAppId.set(null);
+        }
       });
     }
 

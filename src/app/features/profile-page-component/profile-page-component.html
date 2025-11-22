@@ -298,16 +298,24 @@
 
             <div class="profile-apps__actions">
                 <span class="pill pill--soft">
-                {{ a.status | titlecase }}
+                  {{ a.status | titlecase }}
                 </span>
 
                 <a
-                *ngIf="a.job?.id"
-                class="btn btn--outline btn--sm"
-                [routerLink]="['/jobs', a.job.id]"
+                  *ngIf="a.job?.id"
+                  class="btn btn--outline btn--sm"
+                  [routerLink]="['/jobs', a.job.id]"
                 >
-                View job
+                  View job
                 </a>
+                <button
+                  type="button"
+                  class="btn btn--outline btn--sm btn--danger"
+                  (click)="cancelApplication(a.id)"
+                  [disabled]="cancelAppId() === a.id"
+                >
+                  {{ cancelAppId() === a.id ? 'Cancelling…' : 'Cancel' }}
+                </button>
             </div>
             </li>
         </ul>

@@ -47,4 +47,11 @@ export class ApplicationsService {
         { headers: this.getAuthHeaders() }
       );
     }
+
+    removeMyApplication(appId: number): Observable<void> {
+      return this.http.delete<void>(
+        `${this.apiBase}/applications/me/${appId}`,
+        { headers: this.getAuthHeaders() }
+      );
+    }
 }
