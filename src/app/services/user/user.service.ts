@@ -121,7 +121,7 @@ export class UserService {
         this.http
         .post<UserExperience>(
             `${this.apiBase}/profile/experience`,
-            { userExperience: trimmed },
+            { description: trimmed },
             headers
         )
         .subscribe({
@@ -143,7 +143,7 @@ export class UserService {
         .subscribe({
             next: () => {
                 this._experiences.update((list) =>
-                    list.filter((e) => e.UserExperienceId !== id)
+                    list.filter((e) => e.id !== id)
             );
             },
             error: (err) => {

@@ -204,13 +204,13 @@
 
             @if (experiences().length > 0) {
             <ul class="workexp-list">
-                @for (exp of experiences(); track exp.UserExperienceId) {
+                @for (exp of experiences(); track exp.id) {
                 <li class="workexp-item">
-                    <span>{{ exp.userExperience }}</span>
+                    <span>{{ exp.description }}</span>
                     <button
                     type="button"
                     class="workexp-remove"
-                    (click)="removeExperience(exp.UserExperienceId)"
+                    (click)="removeExperience(exp.id)"
                     >
                     ✕
                     </button>

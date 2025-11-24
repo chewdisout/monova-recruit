@@ -44,8 +44,8 @@ export interface LoginResponse {
 }
 
 export interface UserExperience {
-  UserExperienceId: number;
-  userExperience: string;
+  id: number;
+  description: string;
 }
 
 export interface ProfileUpdatePayload {

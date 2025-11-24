@@ -35,7 +35,7 @@ export class AuthService {
     }
 
     register(payload: SignUpPayload) {
-        return this.http.post<UserOut>(`${this.apiBase}/createUser`, payload).pipe(
+        return this.http.post<UserOut>(`${this.apiBase}/auth/createUser`, payload).pipe(
             tap(user => {
                 console.log('User created', user);
             })
@@ -44,7 +44,7 @@ export class AuthService {
 
     login(email: string, password: string) {
         return this.http
-            .post<LoginResponse>(`${this.apiBase}/login`, { email, password })
+            .post<LoginResponse>(`${this.apiBase}/auth/login`, { email, password })
             .pipe(
             tap((res) => {
                 this.setToken(res.access_token);
