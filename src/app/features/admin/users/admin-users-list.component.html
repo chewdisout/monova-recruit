@@ -53,8 +53,11 @@
             </span>
           </td>
           <td>
-            <span class="pill" [class.pill--yes]="u.is_admin">
-              {{ u.is_admin ? 'Yes' : 'No' }}
+            <span
+              class="pill"
+              [class.pill--yes]="u.is_admin || u.isAdmin"
+            >
+              {{ (u.is_admin || u.isAdmin) ? 'Yes' : 'No' }}
             </span>
           </td>
           <td class="ta-right">

@@ -24,16 +24,9 @@ export const authGuard: CanActivateFn = (route, state) => {
     }
 
     // 3) Token exists but no user yet:
-    //    - fire loadUserMeta() (it does HTTP + updates signals internally)
-    //    - wait until:
-    //        a) user becomes non-null  -> allow
-    //        b) token disappears (logout on 401) -> redirect
     auth.loadUserMeta(token);
 
     return toObservable(auth.currentUser).pipe(
-        // Wait until either:
-        // - we have a user, or
-        // - token was cleared (meaning auth failed)
         filter(user => !!user || !auth.getToken()),
         take(1),
         map(user => {
@@ -54,7 +47,12 @@ function isAdminFromToken(token: string | null): boolean {
         const [, payloadB64] = token.split('.');
         const payloadJson = atob(payloadB64.replace(/-/g, '+').replace(/_/g, '/'));
         const payload = JSON.parse(payloadJson);
-        return !!payload.isAdmin;
+
+        if (payload.role === 'admin') {
+            return true;
+        }
+
+        return false;
     } catch {
         return false;
     }
