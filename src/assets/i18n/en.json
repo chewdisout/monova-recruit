@@ -280,7 +280,9 @@
         "ACCEPT_AND": "and",
         "TERMS_LINK": "Terms and Conditions",
         "PRIVACY_LINK": "Privacy Policy",
-        "ACCEPT_ERROR": "You must accept the Terms and Conditions and Privacy Policy to create an account."
+        "ACCEPT_ERROR": "You must accept the Terms and Conditions and Privacy Policy to create an account.",
+        "FAST": "Fast registration",
+        "FULL": "Full registration"
     },
     "TERMS": {
         "TITLE": "Terms and Conditions",

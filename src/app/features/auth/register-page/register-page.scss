@@ -151,3 +151,36 @@ form {
     width: fit-content;
   }
 }
+
+.auth__switch {
+  display: flex;
+  gap: 8px;
+  margin: 8px 0 16px;
+  padding: 4px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.auth__switch-btn {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--mnv-text-soft);
+  transition: background 0.15s ease, color 0.15s ease, transform 0.1s ease;
+}
+
+.auth__switch-btn--active {
+  background: var(--mnv-blue-600);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+}
+
+.auth__switch-btn:not(.auth__switch-btn--active):hover {
+  background: rgba(0, 0, 0, 0.04);
+}

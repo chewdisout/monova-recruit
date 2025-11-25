@@ -280,7 +280,9 @@
     "ACCEPT_AND": "ir",
     "TERMS_LINK": "naudojimo taisyklėmis",
     "PRIVACY_LINK": "privatumo politika",
-    "ACCEPT_ERROR": "Norėdami sukurti paskyrą, turite sutikti su taisyklėmis ir privatumo politika."
+    "ACCEPT_ERROR": "Norėdami sukurti paskyrą, turite sutikti su taisyklėmis ir privatumo politika.",
+    "FAST": "Greita registracija su",
+    "FULL": "Pilna registracija"
   },
 
   "TERMS": {

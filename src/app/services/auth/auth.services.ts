@@ -2,7 +2,7 @@ import { inject, Injectable, computed, signal, PLATFORM_ID } from '@angular/core
 import { HttpClient, HttpHeaders, HttpErrorResponse  } from '@angular/common/http';
 import { isPlatformBrowser } from '@angular/common';
 import { tap, catchError } from 'rxjs/operators';
-import { UserOut, UserProfile, SignUpPayload, LoginResponse } from '../../models/user';
+import { UserOut, UserProfile, SignUpPayload, LoginResponse, FastSignUpPayload } from '../../models/user';
 import { throwError } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { Router } from '@angular/router';
@@ -36,6 +36,14 @@ export class AuthService {
 
     register(payload: SignUpPayload) {
         return this.http.post<UserOut>(`${this.apiBase}/auth/createUser`, payload).pipe(
+            tap(user => {
+                console.log('User created', user);
+            })
+        );
+    }
+
+    fastRegister(payload: FastSignUpPayload) {
+        return this.http.post<UserOut>(`${this.apiBase}/auth/register`, payload).pipe(
             tap(user => {
                 console.log('User created', user);
             })

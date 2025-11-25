@@ -280,7 +280,9 @@
     "ACCEPT_AND": "un",
     "TERMS_LINK": "noteikumiem",
     "PRIVACY_LINK": "privātuma politikai",
-    "ACCEPT_ERROR": "Lai izveidotu profilu, ir jāpiekrīt noteikumiem un privātuma politikai."
+    "ACCEPT_ERROR": "Lai izveidotu profilu, ir jāpiekrīt noteikumiem un privātuma politikai.",
+    "FAST": "Ātrā reģistrācija ar",
+    "FULL": "Vai aizpildi visu formu zemāk"
   },
   "TERMS": {
     "TITLE": "Lietošanas noteikumi",

@@ -280,7 +280,9 @@
     "ACCEPT_AND": "oraz",
     "TERMS_LINK": "regulamin",
     "PRIVACY_LINK": "politykę prywatności",
-    "ACCEPT_ERROR": "Aby utworzyć konto, musisz zaakceptować regulamin i politykę prywatności."
+    "ACCEPT_ERROR": "Aby utworzyć konto, musisz zaakceptować regulamin i politykę prywatności.",
+    "FAST": "Szybka rejestracja",
+    "FULL": "Pełna rejestracja"
   },
 
   "TERMS": {

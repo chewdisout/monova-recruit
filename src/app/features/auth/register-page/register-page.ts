@@ -10,7 +10,7 @@ import {
 } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../../services/auth/auth.services';
-import { SignUpPayload } from '../../../models/user';
+import { FastSignUpPayload, SignUpPayload } from '../../../models/user';
 import { TranslatePipe } from '@ngx-translate/core';
 
 function ageRangeValidator(min: number, max: number): ValidatorFn {
@@ -47,6 +47,8 @@ export class RegisterPageComponent {
   private fb = inject(FormBuilder);
   private auth = inject(AuthService);
   private router = inject(Router);
+
+  mode = signal<'fast' | 'full'>('fast');
 
   genders = [
     { value: 'male', label: 'Male' },
@@ -251,7 +253,13 @@ export class RegisterPageComponent {
     'Non-EU',
   ];
 
-  form = this.fb.group({
+  fastForm = this.fb.group({
+    userEmail: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(6)]],
+    acceptTerms: [false, [Validators.requiredTrue]],
+  });
+
+  fullForm = this.fb.group({
     userEmail: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]],
 
@@ -272,38 +280,41 @@ export class RegisterPageComponent {
   loading = signal(false);
   error = signal('');
 
-  get f() {
-    return this.form.controls;
+  get fFast() {
+    return this.fastForm.controls;
   }
 
-  submit() {
+  get fFull() {
+    return this.fullForm.controls;
+  }
+
+  setMode(m: 'fast' | 'full') {
+    this.mode.set(m);
+    this.error.set('');
+  }
+
+  submitFast() {
     this.error.set('');
 
-    if (this.form.invalid) {
-      this.form.markAllAsTouched();
+    if (this.fastForm.invalid) {
+      this.fastForm.markAllAsTouched();
       return;
     }
 
     this.loading.set(true);
 
-    const v = this.form.value;
+    const v = this.fastForm.value;
 
-    const payload: SignUpPayload = {
+    // ONLY email + password
+    const payload: Partial<FastSignUpPayload> = {
       userEmail: v.userEmail!.trim(),
       password: v.password!,
-      userName: v.userName!.trim(),
-      userSurname: v.userSurname!.trim(),
-      userAge: v.userAge ?? undefined,
-      userGender: v.userGender!,
-      userPhoneNumber: `${v.phoneCode}${(v.phoneNumber || '').replace(/\s+/g, '')}`,
-      userCitizenship: v.userCitizenship!,
-      userEmploymentStatus: 'not-employed'
     };
 
-    this.auth.register(payload).subscribe({
+    this.auth.fastRegister(payload as FastSignUpPayload).subscribe({
       next: () => {
         this.loading.set(false);
-        this.form.disable();  
+        this.fastForm.disable();
         this.auth.login(payload.userEmail!, payload.password!).subscribe({
           next: () => {
             this.loading.set(false);
@@ -321,7 +332,58 @@ export class RegisterPageComponent {
         this.loading.set(false);
         this.error.set(
           err?.error?.detail ??
-            'Failed to create account. Please check your data and try again.'
+          'Failed to create account. Please check your data and try again.'
+        );
+      },
+    });
+  }
+
+  submitFull() {
+    this.error.set('');
+
+    if (this.fullForm.invalid) {
+      this.fullForm.markAllAsTouched();
+      return;
+    }
+
+    this.loading.set(true);
+
+    const v = this.fullForm.value;
+
+    const payload: SignUpPayload = {
+      userEmail: v.userEmail!.trim(),
+      password: v.password!,
+      userName: v.userName!.trim(),
+      userSurname: v.userSurname!.trim(),
+      userAge: v.userAge ?? undefined,
+      userGender: v.userGender!,
+      userPhoneNumber: `${v.phoneCode}${(v.phoneNumber || '').replace(/\s+/g, '')}`,
+      userCitizenship: v.userCitizenship!,
+      userEmploymentStatus: 'not-employed'
+    };
+
+    this.auth.register(payload).subscribe({
+      next: () => {
+        this.loading.set(false);
+        this.fullForm.disable();
+        this.auth.login(payload.userEmail!, payload.password!).subscribe({
+          next: () => {
+            this.loading.set(false);
+            this.router.navigate(['/profile']);
+          },
+          error: (err) => {
+            this.loading.set(false);
+            this.error.set(
+              err?.error?.detail || 'Incorrect email or password.'
+            );
+          },
+        });
+      },
+      error: (err) => {
+        this.loading.set(false);
+        this.error.set(
+          err?.error?.detail ??
+          'Failed to create account. Please check your data and try again.'
         );
       },
     });

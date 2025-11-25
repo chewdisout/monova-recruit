@@ -280,7 +280,9 @@
     "ACCEPT_AND": "ja",
     "TERMS_LINK": "tingimustega",
     "PRIVACY_LINK": "privaatsuspoliitikaga",
-    "ACCEPT_ERROR": "Konto loomiseks peab nõustuma tingimuste ja privaatsuspoliitikaga."
+    "ACCEPT_ERROR": "Konto loomiseks peab nõustuma tingimuste ja privaatsuspoliitikaga.",
+    "FAST": "Kiire registreerimine",
+    "FULL": "Täielik registreerimine"
   },
 
   "TERMS": {

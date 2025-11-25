@@ -2,10 +2,131 @@
   <div class="auth__card card">
     <h1 class="auth__title">{{ 'REGISTRATION.TITLE' | translate }}</h1>
     <p class="auth__subtitle">
-        {{ 'REGISTRATION.SUBTITLE' | translate }}
+      {{ 'REGISTRATION.SUBTITLE' | translate }}
     </p>
 
-    <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+    <!-- Mode switch -->
+    <div class="auth__switch">
+      <button
+        type="button"
+        class="auth__switch-btn"
+        [class.auth__switch-btn--active]="mode() === 'fast'"
+        (click)="setMode('fast')"
+      >
+        {{ 'REGISTRATION.FAST' | translate }}
+      </button>
+      <button
+        type="button"
+        class="auth__switch-btn"
+        [class.auth__switch-btn--active]="mode() === 'full'"
+        (click)="setMode('full')"
+      >
+        {{ 'REGISTRATION.FULL' | translate }}
+      </button>
+    </div>
+
+    <!-- FAST REGISTRATION FORM -->
+    <form
+      *ngIf="mode() === 'fast'"
+      [formGroup]="fastForm"
+      (ngSubmit)="submitFast()"
+      novalidate
+    >
+      <!-- Email -->
+      <div class="field">
+        <label for="fast-email">{{ 'REGISTRATION.EMAIL' | translate }}*</label>
+        <input
+          id="fast-email"
+          type="email"
+          class="input"
+          formControlName="userEmail"
+          placeholder="you@example.com"
+        />
+        <div class="field__error" *ngIf="fFast.userEmail.touched && fFast.userEmail.invalid">
+          <span *ngIf="fFast.userEmail.errors?.['required']">Email is required.</span>
+          <span *ngIf="fFast.userEmail.errors?.['email']">Enter a valid email address.</span>
+          <span *ngIf="fFast.userEmail.errors?.['maxlength']">Email is too long.</span>
+        </div>
+      </div>
+
+      <!-- Password -->
+      <div class="field">
+        <label for="fast-password">
+          {{ 'REGISTRATION.PASSWORD' | translate }}* (min 6 characters)
+        </label>
+        <input
+          id="fast-password"
+          type="password"
+          class="input"
+          formControlName="password"
+          placeholder="••••••••"
+        />
+        <div class="field__error" *ngIf="fFast.password.touched && fFast.password.invalid">
+          <span *ngIf="fFast.password.errors?.['required']">Password is required.</span>
+          <span *ngIf="fFast.password.errors?.['minlength']">
+            Password must be at least 6 characters.
+          </span>
+          <span *ngIf="fFast.password.errors?.['maxlength']">
+            Password is too long.
+          </span>
+        </div>
+      </div>
+
+      <!-- Terms & Privacy -->
+      <div class="field">
+        <label>
+          <input
+            type="checkbox"
+            formControlName="acceptTerms"
+            style="margin-right: 6px"
+          />
+          <span>
+            {{ 'REGISTRATION.ACCEPT_PREFIX' | translate }}
+            <a routerLink="/terms" target="_blank" rel="noopener">
+              {{ 'REGISTRATION.TERMS_LINK' | translate }}
+            </a>
+            {{ 'REGISTRATION.ACCEPT_AND' | translate }}
+            <a routerLink="/privacy" target="_blank" rel="noopener">
+              {{ 'REGISTRATION.PRIVACY_LINK' | translate }}
+            </a>.
+          </span>
+        </label>
+
+        <div
+          class="field__error"
+          *ngIf="fFast.acceptTerms.touched && fFast.acceptTerms.invalid"
+        >
+          {{ 'REGISTRATION.ACCEPT_ERROR' | translate }}
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <button
+        type="submit"
+        class="btn btn--primary auth__submit"
+        [disabled]="loading() || fastForm.invalid"
+      >
+        {{ loading() ? 'Creating account...' : ('REGISTRATION.CREATEACCOUNT' | translate) }}
+      </button>
+
+      <!-- Global error -->
+      <div class="auth__error" *ngIf="error()">
+        {{ error() }}
+      </div>
+
+      <p class="auth__hint">
+        Already registered?
+        <a routerLink="/auth/login">Sign in</a>
+      </p>
+    </form>
+
+    <!-- FULL REGISTRATION FORM (your existing fields) -->
+    <form
+      *ngIf="mode() === 'full'"
+      [formGroup]="fullForm"
+      (ngSubmit)="submitFull()"
+      novalidate
+    >
       <div class="field">
         <label for="email">{{ 'REGISTRATION.EMAIL' | translate }}*</label>
         <input
@@ -15,10 +136,10 @@
           formControlName="userEmail"
           placeholder="you@example.com"
         />
-        <div class="field__error" *ngIf="f.userEmail.touched && f.userEmail.invalid">
-          <span *ngIf="f.userEmail.errors?.['required']">Email is required.</span>
-          <span *ngIf="f.userEmail.errors?.['email']">Enter a valid email address.</span>
-          <span *ngIf="f.userEmail.errors?.['maxlength']">Email is too long.</span>
+        <div class="field__error" *ngIf="fFull.userEmail.touched && fFull.userEmail.invalid">
+          <span *ngIf="fFull.userEmail.errors?.['required']">Email is required.</span>
+          <span *ngIf="fFull.userEmail.errors?.['email']">Enter a valid email address.</span>
+          <span *ngIf="fFull.userEmail.errors?.['maxlength']">Email is too long.</span>
         </div>
       </div>
 
@@ -32,12 +153,12 @@
           formControlName="password"
           placeholder="••••••••"
         />
-        <div class="field__error" *ngIf="f.password.touched && f.password.invalid">
-          <span *ngIf="f.password.errors?.['required']">Password is required.</span>
-          <span *ngIf="f.password.errors?.['minlength']">
+        <div class="field__error" *ngIf="fFull.password.touched && fFull.password.invalid">
+          <span *ngIf="fFull.password.errors?.['required']">Password is required.</span>
+          <span *ngIf="fFull.password.errors?.['minlength']">
             Password must be at least 6 characters.
           </span>
-          <span *ngIf="f.password.errors?.['maxlength']">
+          <span *ngIf="fFull.password.errors?.['maxlength']">
             Password is too long.
           </span>
         </div>
@@ -54,7 +175,7 @@
             formControlName="userName"
             placeholder="Name"
           />
-          <div class="field__error" *ngIf="f.userName.touched && f.userName.invalid">
+          <div class="field__error" *ngIf="fFull.userName.touched && fFull.userName.invalid">
             First name is required.
           </div>
         </div>
@@ -67,7 +188,7 @@
             formControlName="userSurname"
             placeholder="Surname"
           />
-          <div class="field__error" *ngIf="f.userSurname.touched && f.userSurname.invalid">
+          <div class="field__error" *ngIf="fFull.userSurname.touched && fFull.userSurname.invalid">
             Last name is required.
           </div>
         </div>
@@ -85,7 +206,7 @@
             formControlName="userAge"
             placeholder="Optional"
           />
-          <div class="field__error" *ngIf="f.userAge.touched && f.userAge.errors?.['ageRange']">
+          <div class="field__error" *ngIf="fFull.userAge.touched && fFull.userAge.errors?.['ageRange']">
             Age should be between 18 and 75.
           </div>
         </div>
@@ -98,7 +219,7 @@
               {{ g.label }}
             </option>
           </select>
-          <div class="field__error" *ngIf="f.userGender.touched && f.userGender.invalid">
+          <div class="field__error" *ngIf="fFull.userGender.touched && fFull.userGender.invalid">
             Please choose your gender.
           </div>
         </div>
@@ -115,7 +236,7 @@
               {{ c }}
             </option>
           </select>
-          <div class="field__error" *ngIf="f.userCitizenship.touched && f.userCitizenship.invalid">
+          <div class="field__error" *ngIf="fFull.userCitizenship.touched && fFull.userCitizenship.invalid">
             Please select your citizenship.
           </div>
         </div>
@@ -138,15 +259,15 @@
           />
         </div>
         <div class="field__error"
-             *ngIf="(f.phoneCode.touched || f.phoneNumber.touched) &&
-                     (f.phoneCode.invalid || f.phoneNumber.invalid)">
-          <span *ngIf="f.phoneCode.errors?.['required']">
+             *ngIf="(fFull.phoneCode.touched || fFull.phoneNumber.touched) &&
+                     (fFull.phoneCode.invalid || fFull.phoneNumber.invalid)">
+          <span *ngIf="fFull.phoneCode.errors?.['required']">
             Country code is required.
           </span>
-          <span *ngIf="f.phoneNumber.errors?.['required']">
+          <span *ngIf="fFull.phoneNumber.errors?.['required']">
             Phone number is required.
           </span>
-          <span *ngIf="f.phoneNumber.errors?.['phoneInvalid']">
+          <span *ngIf="fFull.phoneNumber.errors?.['phoneInvalid']">
             Enter digits only (5–15 numbers).
           </span>
         </div>
@@ -173,7 +294,7 @@
         </label>
 
         <div class="field__error"
-            *ngIf="f.acceptTerms.touched && f.acceptTerms.invalid">
+            *ngIf="fFull.acceptTerms.touched && fFull.acceptTerms.invalid">
           {{ 'REGISTRATION.ACCEPT_ERROR' | translate }}
         </div>
       </div>
@@ -182,7 +303,7 @@
       <button
         type="submit"
         class="btn btn--primary auth__submit"
-        [disabled]="loading() || form.invalid"
+        [disabled]="loading() || fullForm.invalid"
       >
         {{ loading() ? 'Creating account...' : ('REGISTRATION.CREATEACCOUNT' | translate) }}
       </button>
