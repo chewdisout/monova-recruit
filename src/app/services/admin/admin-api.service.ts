@@ -9,7 +9,17 @@ import {
     AdminJobCreate,
     AdminJobUpdate,
     AdminUser,
-    AdminUserUpdate
+    AdminUserUpdate,
+    AdminCompany,
+    AdminCompanyCreate,
+    AdminCompanyUpdate,
+    AdminCompanyJob,
+    AdminCompanyJobCreate,
+    AdminCompanyJobUpdate,
+    AdminPlacement,
+    AdminPlacementDetailed,
+    AdminPlacementCreate,
+    AdminPlacementUpdate,
 } from '../../models/admin'
 
 @Injectable({ providedIn: 'root' })
@@ -75,6 +85,104 @@ export class AdminApiService {
         return this.http.put(
             `${this.apiBase}/admin/jobs/${jobId}/translations/${lang}`,
             payload
+        );
+    }
+
+    // --- Companies ---
+
+    getCompanies() {
+        return this.http.get<AdminCompany[]>(`${this.apiBase}/admin/companies`);
+    }
+
+    getCompany(id: number) {
+        return this.http.get<AdminCompany>(`${this.apiBase}/admin/companies/${id}`);
+    }
+
+    createCompany(payload: AdminCompanyCreate) {
+        return this.http.post<AdminCompany>(`${this.apiBase}/admin/companies`, payload);
+    }
+
+    updateCompany(id: number, payload: AdminCompanyUpdate) {
+        return this.http.patch<AdminCompany>(
+        `${this.apiBase}/admin/companies/${id}`,
+        payload
+        );
+    }
+
+    deleteCompany(id: number) {
+        return this.http.delete<void>(`${this.apiBase}/admin/companies/${id}`);
+    }
+
+
+    // --- Company Jobs (client positions) ---
+
+    getCompanyJobs(companyId: number) {
+        return this.http.get<AdminCompanyJob[]>(
+        `${this.apiBase}/admin/companies/${companyId}/jobs`
+        );
+    }
+
+    createCompanyJob(companyId: number, payload: AdminCompanyJobCreate) {
+        return this.http.post<AdminCompanyJob>(
+        `${this.apiBase}/admin/companies/${companyId}/jobs`,
+        payload
+        );
+    }
+
+    updateCompanyJob(jobId: number, payload: AdminCompanyJobUpdate) {
+        return this.http.patch<AdminCompanyJob>(
+        `${this.apiBase}/admin/company-jobs/${jobId}`,
+        payload
+        );
+    }
+
+    deleteCompanyJob(jobId: number) {
+        return this.http.delete<void>(
+        `${this.apiBase}/admin/company-jobs/${jobId}`
+        );
+    }
+
+
+    // --- Placements ---
+
+    // по кандидату (для вкладки на карточке кандидата)
+    getCandidatePlacements(candidateId: number) {
+        return this.http.get<AdminPlacementDetailed[]>(
+        `${this.apiBase}/admin/candidates/${candidateId}/placements`
+        );
+    }
+
+    createCandidatePlacement(candidateId: number, payload: AdminPlacementCreate) {
+        return this.http.post<AdminPlacement>(
+        `${this.apiBase}/admin/candidates/${candidateId}/placements`,
+        payload
+        );
+    }
+
+    updatePlacement(placementId: number, payload: AdminPlacementUpdate) {
+        return this.http.patch<AdminPlacement>(
+        `${this.apiBase}/admin/placements/${placementId}`,
+        payload
+        );
+    }
+
+    deletePlacement(placementId: number) {
+        return this.http.delete<void>(
+        `${this.apiBase}/admin/placements/${placementId}`
+        );
+    }
+
+    // по компании (аналитика по клиенту)
+    getCompanyPlacements(companyId: number) {
+        return this.http.get<AdminPlacementDetailed[]>(
+        `${this.apiBase}/admin/companies/${companyId}/placements`
+        );
+    }
+
+    createPlacementForCompany(companyId: number, payload: AdminPlacementCreate) {
+        return this.http.post<AdminPlacement>(
+        `${this.apiBase}/admin/companies/${companyId}/placements`,
+        payload
         );
     }
 }

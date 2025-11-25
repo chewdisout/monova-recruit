@@ -1,61 +1,164 @@
+/* === CARD LAYOUT === */
+
+.admin-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 14px 16px 10px;
+  box-shadow: var(--mnv-shadow-sm);
+  border: 1px solid rgba(15, 35, 76, 0.06);
+}
+
+.admin-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+
+  h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .hint {
+    margin: 2px 0 0;
+    font-size: 12px;
+    color: var(--mnv-text-soft);
+  }
+}
+
+/* === TEXT STATES === */
+
+.muted {
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--mnv-text-soft);
+}
+
+.state {
+  margin-top: 4px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+.state--error {
+  background: #fef2f2;
+  color: var(--mnv-danger);
+}
+
+/* === TABLE === */
+
 .admin-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 14px;
+  font-size: 12px;
+  margin-top: 4px;
+
+  th,
+  td {
+    padding: 7px 6px;
+    border-bottom: 1px solid #f0f2f7;
+  }
+
+  th {
+    text-align: left;
+    font-weight: 500;
+    color: var(--mnv-text-soft);
+    font-size: 11px;
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  tbody tr:hover {
+    background: #f7f9ff;
+  }
+
+  &__title {
+    font-weight: 500;
+    color: #111827;
+  }
 }
 
-.admin-table th,
-.admin-table td {
-  padding: 10px 12px;
-  border-bottom: 1px solid #e5e7eb;
+/* === PILL (STATUS) === */
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  border: 1px solid #e1e7f5;
+  color: var(--mnv-text-soft);
+  background: #f4f6fb;
 }
 
-.admin-table thead th {
-  font-weight: 600;
-  color: #6b7280;
-  text-align: left;
+.pill--yes {
+  border-color: #22c55e33;
+  background: #22c55e11;
+  color: #15803d;
 }
 
-.admin-table tbody tr:nth-child(odd) {
-  background: #f9fafb;
-}
+/* === ACTIONS === */
 
-.admin-table tbody tr:hover {
-  background: #eef2ff;
-}
-
-.admin-table__title {
-  font-weight: 500;
+.ta-right {
+  text-align: right;
 }
 
 .table-actions {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .link-sm {
-  font-size: 13px;
-  color: #2563eb;
+  font-size: 11px;
+  color: var(--mnv-blue-700);
   text-decoration: none;
-  padding: 2px 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &--danger {
+    color: var(--mnv-danger);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: default;
+    text-decoration: none;
+  }
 }
 
-.link-sm:hover {
-  text-decoration: underline;
+/* === BUTTONS (reuse общие, но можно чуть ужать) === */
+
+.btn-sm {
+  font-size: 12px;
+  padding: 6px 10px;
 }
 
-.link-sm--danger {
-  color: #dc2626;
-}
+/* === RESPONSIVE === */
 
-.link-sm--danger[disabled] {
-  opacity: 0.6;
-  cursor: not-allowed;
-  text-decoration: none;
-}
+@media (max-width: 768px) {
+  .admin-card {
+    padding: 12px 12px 8px;
+  }
 
-.state--error {
-  color: #b91c1c;
-  margin-bottom: 8px;
+  .admin-card__head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .admin-table th,
+  .admin-table td {
+    padding: 6px 4px;
+  }
 }

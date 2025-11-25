@@ -97,6 +97,18 @@ export const routes: Routes = [
                     import('./features/admin/jobs/admin-job-edit.component')
                     .then(m => m.AdminJobEditComponent),
             },
+            {
+                path: 'companies',
+                loadComponent: () =>
+                    import('./features/admin/companies/admin-companies-list.component')
+                    .then(m => m.AdminCompaniesListComponent),
+            },
+            {
+                path: 'companies/:id',
+                loadComponent: () =>
+                    import('./features/admin/companies/admin-company-detail.component')
+                    .then(m => m.AdminCompanyDetailComponent),
+            },
         ],
     },
     { path: '**', redirectTo: '', pathMatch: 'full' } 

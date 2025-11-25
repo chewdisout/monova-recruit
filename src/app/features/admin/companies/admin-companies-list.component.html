@@ -1,0 +1,128 @@
+<section class="page">
+  <header class="page__header">
+    <div>
+      <div class="eyebrow">Clients overview</div>
+      <h1>Companies</h1>
+      <p class="lead">
+        Manage partner companies and their open positions.
+      </p>
+    </div>
+
+    <button
+      class="btn btn--primary"
+      [routerLink]="['/admin/companies', 'new']"
+    >
+      + New company
+    </button>
+  </header>
+
+  <div class="card">
+    <div class="card__head">
+      <div class="card__title">Companies</div>
+
+      @if (!loading()) {
+        <div class="card__meta">
+          {{ companies().length }} total
+        </div>
+      }
+    </div>
+
+    <!-- loading state -->
+    @if (loading()) {
+      <div class="state">
+        Loading companies…
+      </div>
+    }
+
+    <!-- error state -->
+    @if (!loading() && error()) {
+      <div class="state state--error">
+        {{ error() }}
+      </div>
+    }
+
+    <!-- table -->
+    @if (!loading() && !error() && companies().length) {
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Contact</th>
+            <th>Status</th>
+            <th>Open positions</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (c of companies(); track c.id) {
+            <tr>
+              <!-- Name -->
+              <td>
+                {{ c.name || '—' }}
+              </td>
+
+              <!-- Location -->
+              <td>
+                @if (c.country) {
+                  <span>{{ c.country }}</span>
+                }
+                @if (c.city) {
+                  <span> / {{ c.city }}</span>
+                }
+              </td>
+
+              <!-- Contact -->
+              <td>
+                @if (c.hr_contact_name) {
+                  <div class="company-contact-name">
+                    {{ c.hr_contact_name }}
+                  </div>
+                }
+                @if (c.hr_contact_email) {
+                  <div class="company-contact-email mono">
+                    {{ c.hr_contact_email }}
+                  </div>
+                }
+                @if (!c.hr_contact_name && !c.hr_contact_email) {
+                  <span>—</span>
+                }
+              </td>
+
+              <!-- Status -->
+              <td>
+                <span
+                  class="pill pill--status"
+                  [ngClass]="{
+                    'pill--status-active': c.status === 'active',
+                    'pill--status-paused': c.status === 'paused',
+                    'pill--status-inactive': c.status === 'inactive'
+                  }"
+                >
+                  {{ c.status || 'unknown' }}
+                </span>
+              </td>
+
+              <!-- Actions -->
+              <td class="ta-right">
+                <a
+                  class="link-view"
+                  [routerLink]="['/admin/companies', c.id]"
+                >
+                  View
+                </a>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    }
+
+    <!-- empty state -->
+    @if (!loading() && !error() && !companies().length) {
+      <div class="state">
+        No companies yet.
+      </div>
+    }
+  </div>
+</section>

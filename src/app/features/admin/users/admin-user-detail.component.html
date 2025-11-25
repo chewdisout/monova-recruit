@@ -198,6 +198,56 @@
         </div>
       </ng-template>
     </section>
+    <!-- Placements card -->
+    <section class="admin-card apps-card">
+      <h2>Placements</h2>
+      <p class="admin-header__subtitle">
+        Where this candidate has been placed and feedback from clients.
+      </p>
+
+      <div class="state state--loading" *ngIf="placementsLoading()">
+        Loading placements…
+      </div>
+
+      <ul
+        class="apps-list"
+        *ngIf="!placementsLoading() && placements().length; else noPlacements"
+      >
+        <li *ngFor="let p of placements()" class="app-item">
+          <div class="app-item__top">
+            <div class="app-title">
+              {{ p.company_name || ('Company #' + p.company_id) }}
+            </div>
+            <span class="badge badge--status">{{ p.status }}</span>
+          </div>
+
+          <div class="app-meta">
+            <span *ngIf="p.company_job_title">{{ p.company_job_title }}</span>
+            <span *ngIf="p.job_title">• {{ p.job_title }}</span>
+            <span *ngIf="p.start_date">
+              • from {{ p.start_date | date: 'MMM d, y' }}
+            </span>
+            <span *ngIf="p.end_date">
+              to {{ p.end_date | date: 'MMM d, y' }}
+            </span>
+          </div>
+
+          <div class="app-meta" *ngIf="p.rating || p.company_feedback">
+            <span *ngIf="p.rating">Rating: {{ p.rating }}/5</span>
+            <span *ngIf="p.company_feedback">
+              • "{{ p.company_feedback }}"
+            </span>
+          </div>
+        </li>
+      </ul>
+
+      <ng-template #noPlacements>
+        <div class="state state--muted">
+          No placements recorded yet.
+        </div>
+      </ng-template>
+    </section>
+
 
   </main>
 </div>

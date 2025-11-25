@@ -1,0 +1,330 @@
+<div class="admin-page">
+  <main class="admin-main">
+
+    <header class="admin-header">
+      <h1>
+        @if (isNew()) {
+          New company
+        } @else {
+          {{ company()?.name || 'Company' }}
+        }
+      </h1>
+      <p class="admin-header__subtitle">
+        Manage partner company details, contacts and placements.
+      </p>
+    </header>
+
+    @if (loading()) {
+      <div class="state state--loading">
+        Loading company…
+      </div>
+    } @else if (error()) {
+      <div class="state state--error">
+        {{ error() }}
+      </div>
+    } @else {
+
+      <!-- Form -->
+      <section class="admin-card">
+        <form [formGroup]="form" (ngSubmit)="save()" class="user-form">
+
+          <div class="form-grid-2">
+            <div class="field">
+              <label for="name">Company name</label>
+              <input
+                id="name"
+                type="text"
+                class="input"
+                formControlName="name"
+                placeholder="Company"
+              />
+            </div>
+
+            <div class="field">
+              <label for="status">Status</label>
+              <input
+                id="status"
+                type="text"
+                class="input"
+                formControlName="status"
+                placeholder="active / paused / blacklisted…"
+              />
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="field">
+              <label for="country">Country</label>
+              <input
+                id="country"
+                type="text"
+                class="input"
+                formControlName="country"
+                placeholder="LV / LT / PL…"
+              />
+            </div>
+
+            <div class="field">
+              <label for="city">City</label>
+              <input
+                id="city"
+                type="text"
+                class="input"
+                formControlName="city"
+                placeholder="Riga"
+              />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="address">Address</label>
+            <input
+              id="address"
+              type="text"
+              class="input"
+              formControlName="address"
+              placeholder="Street, building, etc."
+            />
+          </div>
+
+          <div class="form-grid-3">
+            <div class="field">
+              <label for="hrName">HR contact name</label>
+              <input
+                id="hrName"
+                type="text"
+                class="input"
+                formControlName="hr_contact_name"
+                placeholder="Person we talk to"
+              />
+            </div>
+
+            <div class="field">
+              <label for="hrEmail">HR contact email</label>
+              <input
+                id="hrEmail"
+                type="email"
+                class="input"
+                formControlName="hr_contact_email"
+                placeholder="hr@company.com"
+              />
+            </div>
+
+            <div class="field">
+              <label for="hrPhone">HR contact phone</label>
+              <input
+                id="hrPhone"
+                type="text"
+                class="input"
+                formControlName="hr_contact_phone"
+                placeholder="+371…"
+              />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="notes">Notes</label>
+            <textarea
+              id="notes"
+              class="textarea"
+              rows="3"
+              formControlName="notes"
+              placeholder="Internal notes about this client…"
+            ></textarea>
+          </div>
+
+          <div class="actions-row">
+            <button
+              type="submit"
+              class="btn btn--primary"
+              [disabled]="saving() || form.invalid"
+            >
+              {{ saving() ? 'Saving…' : 'Save changes' }}
+            </button>
+
+            @if (!isNew()) {
+              <button
+                type="button"
+                class="btn btn--outline btn--danger"
+                (click)="deleteCompany()"
+                [disabled]="deleting() || loading()"
+              >
+                {{ deleting() ? 'Deleting…' : 'Delete company' }}
+              </button>
+            }
+
+            @if (error() && !loading()) {
+              <span class="error-inline">
+                {{ error() }}
+              </span>
+            }
+          </div>
+        </form>
+      </section>
+
+      <!-- Company jobs -->
+      @if (!isNew()) {
+        <section class="admin-card apps-card">
+          <h2>Company positions</h2>
+          <p class="admin-header__subtitle">
+            Internal positions we recruited for this company.
+          </p>
+
+          @if (!jobs().length) {
+            <div class="state state--muted">
+              No company positions yet.
+            </div>
+          } @else {
+            <ul class="apps-list">
+              @for (j of jobs(); track j.id) {
+                <li class="app-item">
+                  <div class="app-item__top">
+                    <div class="app-title">
+                      {{ j.title }}
+                    </div>
+                    @if (!j.is_active) {
+                      <span class="badge badge--status">
+                        inactive
+                      </span>
+                    }
+                  </div>
+
+                  <div class="app-meta">
+                    @if (j.country) {
+                      <span>{{ j.country }}</span>
+                    }
+                    @if (j.city) {
+                      <span> / {{ j.city }}</span>
+                    }
+                    @if (j.open_slots !== null && j.open_slots !== undefined) {
+                      <span> • open: {{ j.open_slots }}</span>
+                    }
+                    @if (j.filled_slots !== null && j.filled_slots !== undefined) {
+                      <span> • filled: {{ j.filled_slots }}</span>
+                    }
+                  </div>
+
+                  @if (j.short_description) {
+                    <div class="app-meta">
+                      {{ j.short_description }}
+                    </div>
+                  }
+                </li>
+              }
+            </ul>
+          }
+        </section>
+
+        <!-- Placements -->
+        <section class="admin-card apps-card">
+          <h2>Placements</h2>
+          <p class="admin-header__subtitle">
+            Candidates we placed to this company.
+          </p>
+
+          @if (!placements().length) {
+            <div class="state state--muted">
+              No placements recorded yet.
+            </div>
+          } @else {
+            <ul class="apps-list">
+              @for (p of placements(); track p.id) {
+                <li class="app-item">
+                  <div class="app-item__top">
+                    <div class="app-title">
+                      {{ p.candidate_name || ('Candidate #' + p.candidate_id) }}
+                    </div>
+                    <span class="badge badge--status">
+                      {{ p.status }}
+                    </span>
+                  </div>
+
+                  <div class="app-meta">
+                    @if (p.company_job_title) {
+                      <span>{{ p.company_job_title }}</span>
+                    }
+                    @if (p.job_title) {
+                      <span> • {{ p.job_title }}</span>
+                    }
+                    @if (p.start_date) {
+                      <span>
+                        • from {{ p.start_date | date: 'MMM d, y' }}
+                      </span>
+                    }
+                    @if (p.end_date) {
+                      <span>
+                        to {{ p.end_date | date: 'MMM d, y' }}
+                      </span>
+                    }
+                  </div>
+
+                  @if (p.rating || p.company_feedback) {
+                    <div class="app-meta">
+                      @if (p.rating) {
+                        <span>Rating: {{ p.rating }}/5</span>
+                      }
+                      @if (p.company_feedback) {
+                        <span> • "{{ p.company_feedback }}"</span>
+                      }
+                    </div>
+                  }
+                </li>
+              }
+            </ul>
+          }
+        </section>
+      }
+
+    }
+    <!-- Assign candidate to this company -->
+    @if (!isNew()) {
+    <section class="admin-card apps-card">
+        <h2>Assign candidate</h2>
+        <p class="admin-header__subtitle">
+        Choose a candidate and attach them to this company.
+        </p>
+
+        @if (candidatesLoading()) {
+        <div class="state state--loading">
+            Loading candidates…
+        </div>
+        } @else if (!candidates().length) {
+        <div class="state state--muted">
+            No candidates available.
+        </div>
+        } @else {
+        <form
+            [formGroup]="assignForm"
+            (ngSubmit)="assignCandidateToCompany()"
+            class="user-form"
+        >
+            <div class="form-grid-2">
+            <div class="field">
+                <label>Candidate</label>
+                <select class="input" formControlName="candidateId">
+                <option [ngValue]="null">Select candidate…</option>
+                @for (u of candidates(); track u.userId) {
+                    <option [ngValue]="u.candidateId">
+                    {{ u.userName || '-' }} {{ u.userSurname || '' }}
+                    ({{ u.userEmail }})
+                    </option>
+                }
+                </select>
+            </div>
+            </div>
+
+            <div class="actions-row">
+            <button
+                type="submit"
+                class="btn btn--primary"
+                [disabled]="assigning() || assignForm.invalid"
+            >
+                {{ assigning() ? 'Assigning…' : 'Assign to company' }}
+            </button>
+            </div>
+        </form>
+        }
+    </section>
+    }
+  </main>
+</div>

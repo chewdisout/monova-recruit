@@ -1,0 +1,329 @@
+/* Каркас страницы */
+
+.admin-page {
+  min-height: 100vh;
+  padding: 24px 32px;
+  background: #f5f7fb;
+}
+
+.admin-main {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+/* Хедер */
+
+.admin-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.admin-header h1 {
+  font-size: 26px;
+  font-weight: 600;
+  margin: 0;
+  color: #111827;
+}
+
+.admin-header__subtitle {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* Карточки */
+
+.admin-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 20px 20px 18px;
+  box-shadow:
+    0 10px 25px rgba(15, 23, 42, 0.06),
+    0 0 0 1px rgba(15, 23, 42, 0.03);
+  margin-bottom: 20px;
+}
+
+.apps-card h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+
+.apps-card .admin-header__subtitle {
+  margin-bottom: 12px;
+}
+
+/* Стейты */
+
+.state {
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #f3f4f6;
+  color: #4b5563;
+  font-size: 14px;
+}
+
+.state--loading {
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.state--error {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.state--muted {
+  background: #f9fafb;
+  color: #9ca3af;
+}
+
+/* Форма компании */
+
+.user-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-grid-2,
+.form-grid-3 {
+  display: grid;
+  gap: 14px;
+}
+
+.form-grid-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.form-grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 768px) {
+  .form-grid-2,
+  .form-grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-page {
+    padding: 16px;
+  }
+
+  .admin-card {
+    padding: 16px 14px 14px;
+  }
+}
+
+/* Поля */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.input,
+.textarea,
+select.input {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  padding: 8px 10px;
+  font-size: 14px;
+  outline: none;
+  background: #ffffff;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.input:focus,
+.textarea:focus,
+select.input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.5);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: #9ca3af;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Чекбоксы */
+
+.field--checkbox {
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #374151;
+}
+
+.checkbox-label input[type='checkbox'] {
+  width: 16px;
+  height: 16px;
+}
+
+/* Кнопки / actions */
+
+.actions-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.btn {
+  border-radius: 999px;
+  border: 1px solid transparent;
+  padding: 7px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.btn--primary {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+  box-shadow: 0 8px 16px rgba(37, 99, 235, 0.32);
+}
+
+.btn--primary:hover:enabled {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+}
+
+.btn--outline {
+  background: #ffffff;
+  color: #374151;
+  border-color: #d1d5db;
+}
+
+.btn--outline:hover:enabled {
+  background: #f3f4f6;
+}
+
+.btn--danger {
+  color: #b91c1c;
+  border-color: #fecaca;
+  background: #fef2f2;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+  box-shadow: none;
+}
+
+.saved {
+  font-size: 13px;
+  color: #059669;
+}
+
+.error-inline {
+  font-size: 13px;
+  color: #b91c1c;
+}
+
+/* Листинг плейсментов / company jobs */
+
+.apps-list {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.app-item {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.app-item__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.app-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.app-meta {
+  font-size: 13px;
+  color: #6b7280;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* Бейджи */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.badge--status {
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.badge--status.badge--danger {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+/* Мелочи */
+
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
+  font-size: 13px;
+}
+
+.ta-right {
+  text-align: right;
+}

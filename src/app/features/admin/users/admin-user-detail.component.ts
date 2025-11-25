@@ -2,6 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ReactiveFormsModule, FormBuilder } from '@angular/forms';
+import { AdminPlacementDetailed } from '../../../models/admin';
 
 import {
     AdminApiService,
@@ -25,6 +26,9 @@ export class AdminUserDetailComponent {
   private route = inject(ActivatedRoute);
   private api = inject(AdminApiService);
   private router = inject(Router);
+
+  placements = signal<AdminPlacementDetailed[]>([]);
+  placementsLoading = signal<boolean>(false);
 
   deleting = signal(false);
 
@@ -84,6 +88,10 @@ export class AdminUserDetailComponent {
           userTellAboutYourSelf: user.userTellAboutYourSelf || '',
           is_admin: !!user.is_admin, // or !!user.isAdmin depending on your AdminUser model
         });
+
+        if (user.candidateId) {
+          this.loadPlacements(user.candidateId);
+        }
 
         this.loading.set(false);
         this.touched.set(false);
@@ -161,4 +169,18 @@ export class AdminUserDetailComponent {
       },
     });
   }
+
+  loadPlacements(candidateId: number) {
+    this.placementsLoading.set(true);
+    this.api.getCandidatePlacements(candidateId).subscribe({
+      next: (data) => {
+        this.placements.set(data);
+        this.placementsLoading.set(false);
+      },
+      error: (err) => {
+        console.error(err);
+        this.placementsLoading.set(false);
+      },
+    });
+  }  
 }
