@@ -1,13 +1,13 @@
 <section class="jobs">
   <div class="jobs__header">
-    <h1 class="jobs__title">Available Jobs</h1>
-    <p class="jobs__subtitle">Explore verified positions across Europe.</p>
+    <h1 class="jobs__title">{{ 'JOBS.LIST.TITLE' | translate }}</h1>
+    <p class="jobs__subtitle">{{ 'JOBS.LIST.SUBTITLE' | translate }}</p>
 
     <!-- TOP FILTER CONTROLS -->
     <div class="jobs__controls">
       <div class="jobs__control">
         <label for="countryFilter" class="jobs__control-label">
-          Country
+          {{ 'JOBS.LIST.FILTER_LOCATION' | translate }}
         </label>
         <select
           id="countryFilter"
@@ -51,12 +51,12 @@
         </ng-container>
         <ng-container *ngIf="currentCategory()">
           <ng-container *ngIf="currentCountry()"> · </ng-container>
-          category: <strong>{{ currentCategory() }}</strong>
+          {{ "JOBS.LIST.FILTER_CATEGORY" | translate }}: <strong>{{ currentCategory() }}</strong>
         </ng-container>
       </span>
 
       <a class="jobs__filter-reset" [routerLink]="['/jobs']">
-        Clear filters
+        {{ 'JOBS.LIST.FILTER_RESET' | translate }}
       </a>
     </div>
   </div>

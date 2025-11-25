@@ -226,6 +226,16 @@
     }
   },
   "JOBS": {
+    "LIST": {
+      "TITLE": "Galimi darbo pasiūlymai",
+      "SUBTITLE": "Naršykite patvirtintus darbo pasiūlymus visoje Europoje.",
+      "FILTER_LOCATION": "Vieta",
+      "FILTER_CATEGORY": "Kategorija",
+      "FILTER_TYPE": "Tipas",
+      "FILTER_RESET": "Atstatyti filtrus",
+      "NO_JOBS": "Pagal jūsų kriterijus darbo pasiūlymų nerasta. Pakoreguokite filtrus arba bandykite vėliau.",
+      "COUNTRY": "Šalis"
+    },
     "CATEGORIES": {
       "SHIPBUILDING": "Laivų statyba",
       "WELDER": "Suvirintojas",

@@ -226,6 +226,16 @@
     }
   },
   "JOBS": {
+    "LIST": {
+      "TITLE": "Saadaval töökohad",
+      "SUBTITLE": "Avasta kontrollitud tööpakkumisi üle Euroopa.",
+      "FILTER_LOCATION": "Asukoht",
+      "FILTER_CATEGORY": "Kategooria",
+      "FILTER_TYPE": "Tüüp",
+      "FILTER_RESET": "Lähtesta filtrid",
+      "NO_JOBS": "Ühtegi sobivat tööpakkumist ei leitud. Palun kohanda filtreid või tule hiljem tagasi.",
+      "COUNTRY": "Riik"
+    },
     "CATEGORIES": {
       "SHIPBUILDING": "Laevaehitus",
       "WELDER": "Keevitaja",

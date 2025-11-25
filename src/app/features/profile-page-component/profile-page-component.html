@@ -62,12 +62,30 @@
               <input class="input" formControlName="userPhoneNumber" />
             </label>
             <label class="field">
-              <span class="label">Citizenship</span>
-              <input class="input" formControlName="userCitizenship" />
+              <span for="citizenship" class="label">Citizenship*</span>
+              <select
+                id="citizenship"
+                class="select"
+                formControlName="userCitizenship"
+              >
+                <option value="" disabled>Select</option>
+                <option *ngFor="let c of citizenships" [value]="c">
+                  {{ c }}
+                </option>
+              </select>
             </label>
             <label class="field">
-              <span class="label">Gender</span>
-              <input class="input" formControlName="userGender" />
+              <span for="gender" class="label">Gender*</span>
+              <select
+                id="gender"
+                class="select"
+                formControlName="userGender"
+              >
+                <option value="" disabled>Select</option>
+                <option *ngFor="let c of genders" [value]="c.value">
+                  {{ c.label }}
+                </option>
+              </select>
             </label>
             <label class="field">
               <span class="label">Age</span>

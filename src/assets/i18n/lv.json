@@ -226,6 +226,16 @@
     }
   },
   "JOBS": {
+    "LIST": {
+      "TITLE": "Pieejamie darbi",
+      "SUBTITLE": "Apskati pārbaudītas vakances visā Eiropā.",
+      "FILTER_LOCATION": "Atrašanās vieta",
+      "FILTER_CATEGORY": "Kategorija",
+      "FILTER_TYPE": "Veids",
+      "FILTER_RESET": "Atiestatīt filtrus",
+      "NO_JOBS": "Nav atrastas nevienas vakances pēc jūsu kritērijiem. Lūdzu, mainiet filtrus vai pārbaudiet vēlāk.",
+      "COUNTRY": "Valsts"
+    },
     "CATEGORIES": {
       "SHIPBUILDING": "Kuģubūve",
       "WELDER": "Metinātājs",

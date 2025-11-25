@@ -226,6 +226,16 @@
     }
   },
   "JOBS": {
+    "LIST": {
+      "TITLE": "Dostępne oferty pracy",
+      "SUBTITLE": "Przeglądaj zweryfikowane oferty z całej Europy.",
+      "FILTER_LOCATION": "Lokalizacja",
+      "FILTER_CATEGORY": "Kategoria",
+      "FILTER_TYPE": "Typ",
+      "FILTER_RESET": "Wyczyść filtry",
+      "NO_JOBS": "Nie znaleziono ofert spełniających Twoje kryteria. Zmień filtry lub sprawdź ponownie później.",
+      "COUNTRY": "Kraj"
+    },
     "CATEGORIES": {
       "SHIPBUILDING": "Stoczniowość",
       "WELDER": "Spawacz",

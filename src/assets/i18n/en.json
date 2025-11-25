@@ -226,6 +226,16 @@
         }
     },
     "JOBS": {
+        "LIST": {
+            "TITLE": "Available Jobs",
+            "SUBTITLE": "Explore verified positions across Europe.",
+            "FILTER_LOCATION": "Location",
+            "FILTER_CATEGORY": "Category",
+            "FILTER_TYPE": "Type",
+            "FILTER_RESET": "Reset filters",
+            "NO_JOBS": "No jobs found matching your criteria. Please adjust your filters or check back later.",
+            "COUNTRY": "Country"
+        },
         "CATEGORIES": {
             "SHIPBUILDING": "Shipbuilding",
             "WELDER": "Welder",

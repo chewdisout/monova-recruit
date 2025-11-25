@@ -6,7 +6,7 @@ import { TranslateModule } from '@ngx-translate/core';
 @Component({
   standalone: true,
   selector: 'mnv-footer',
-  imports: [RouterLink, TranslateModule, UpperCasePipe],
+  imports: [RouterLink, TranslateModule],
   templateUrl: './footer-component.html',
   styleUrls: ['./footer-component.scss'],
 })

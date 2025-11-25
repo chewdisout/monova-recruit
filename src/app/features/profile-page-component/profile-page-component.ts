@@ -19,6 +19,7 @@ import { ProfileUpdatePayload } from '../../models/user';
 import { ApplicationsService, ApplicationWithJob } from '../../services/application/applications.service';
 import { AuthService } from '../../services/auth/auth.services';
 import { RouterLink } from '@angular/router';
+import { citizenships, phoneCodes, genders } from '../../services/helpers/dropdowns';
 
 @Component({
   selector: 'app-profile-page-component',
@@ -31,6 +32,10 @@ export class ProfilePageComponent {
     private userService = inject(UserService);
     private apps = inject(ApplicationsService);
     private auth = inject(AuthService);
+    
+    citizenships = citizenships;
+    phoneCodes = phoneCodes;
+    genders = genders;
 
     @ViewChild('cvInput') cvInput?: ElementRef<HTMLInputElement>;
 
@@ -65,6 +70,13 @@ export class ProfilePageComponent {
       'Driver',
       'Cleaner',
       'Hospitality staff',
+      'Customer service',
+      'Shipbuilding',
+      'Construction worker',
+      'Ship Mechanic',
+      'Electrician',
+      'Plumber',
+      'Other'
     ];
 
     locationOptions = [
@@ -83,7 +95,7 @@ export class ProfilePageComponent {
 
       userCitizenship: ['', [Validators.required]],
       userGender: ['', [Validators.required]],
-      userAge: ['', [Validators.required]],
+      userAge: ['', [Validators.required, Validators.pattern('^[0-9]+$'), Validators.min(18), Validators.max(100)]],
 
       userPrefferedJob: [''],
       userSecondPrefferedJob: [''],
