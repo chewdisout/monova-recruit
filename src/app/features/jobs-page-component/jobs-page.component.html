@@ -1,46 +1,8 @@
 <section class="jobs">
-  <div class="jobs__header">
+  <!-- HEADER (title + subtitle + active filters line) -->
+  <header class="jobs__header">
     <h1 class="jobs__title">{{ 'JOBS.LIST.TITLE' | translate }}</h1>
     <p class="jobs__subtitle">{{ 'JOBS.LIST.SUBTITLE' | translate }}</p>
-
-    <!-- TOP FILTER CONTROLS -->
-    <div class="jobs__controls">
-      <div class="jobs__control">
-        <label for="countryFilter" class="jobs__control-label">
-          {{ 'JOBS.LIST.FILTER_LOCATION' | translate }}
-        </label>
-        <select
-          id="countryFilter"
-          class="select"
-          [value]="currentCountry() || ''"
-          (change)="onCountryChange($event)"
-        >
-          <option value="">All countries</option>
-          <option *ngFor="let c of countries" [value]="c.value">
-            {{ c.label }}
-          </option>
-        </select>
-      </div>
-
-      <!-- 
-      <div class="jobs__control">
-        <label for="categoryFilter" class="jobs__control-label">
-          Category
-        </label>
-        <select
-          id="categoryFilter"
-          class="select"
-          [value]="currentCategory() || ''"
-          (change)="onCategoryChange($event)"
-        >
-          <option value="">All categories</option>
-          <option *ngFor="let cat of categories" [value]="cat.value">
-            {{ cat.label }}
-          </option>
-        </select>
-      </div>
-      -->
-    </div>
 
     <!-- ACTIVE FILTERS INFO -->
     <div class="jobs__filters" *ngIf="currentCountry() || currentCategory()">
@@ -51,7 +13,8 @@
         </ng-container>
         <ng-container *ngIf="currentCategory()">
           <ng-container *ngIf="currentCountry()"> · </ng-container>
-          {{ "JOBS.LIST.FILTER_CATEGORY" | translate }}: <strong>{{ currentCategory() }}</strong>
+          {{ "JOBS.LIST.FILTER_CATEGORY" | translate }}:
+          <strong>{{ currentCategory() }}</strong>
         </ng-container>
       </span>
 
@@ -59,70 +22,244 @@
         {{ 'JOBS.LIST.FILTER_RESET' | translate }}
       </a>
     </div>
-  </div>
+  </header>
 
-  <!-- STATES -->
-  <div *ngIf="loading()" class="jobs__state jobs__state--loading">
-    Loading jobs...
-  </div>
-
-  <div *ngIf="error()" class="jobs__state jobs__state--error">
-    {{ error() }}
-  </div>
-
-  <div
-    *ngIf="!loading() && !error() && jobs().length === 0"
-    class="jobs__state jobs__state--empty"
-  >
-    No jobs found for selected filters.
-  </div>
-
-  <!-- JOB LIST -->
-  <div class="jobs__list" *ngIf="!loading() && !error() && jobs().length > 0">
-    <article *ngFor="let job of jobs()" class="job-row">
-      <div class="job-row__image-wrap" *ngIf="job.image">
-        <img [src]="job.image" [alt]="job.title" class="job-row__image" />
-      </div>
-
-      <div class="job-row__content">
-        <header class="job-row__header">
-          <div class="job-row__title-block">
-            <h3 class="job-row__title">{{ job.title }}</h3>
-            <p class="job-row__company">
-              {{ job.company_name || 'Verified employer' }}
-            </p>
-          </div>
-
-          <div class="job-row__location">
-            <span>{{ job.city || '—' }}, {{ job.country }}</span>
-          </div>
-        </header>
-
-        <div class="job-row__meta">
-          <span *ngIf="job.salary_from" class="job-row__salary">
-            💶 {{ job.salary_from }}
-            <span *ngIf="job.salary_to">– {{ job.salary_to }}</span>
-            {{ job.currency || 'EUR' }}
-            <ng-container *ngIf="job.salary_type">
-              /{{ job.salary_type }}
-            </ng-container>
-          </span>
-
-          <span *ngIf="job.employment_type" class="job-row__type">
-            {{ job.employment_type | translate }}
-          </span>
-        </div>
-
-        <p class="job-row__desc">
-          {{ job.short_description || job.full_description }}
+  <!-- MAIN LAYOUT: LEFT FILTERS, RIGHT RESULTS -->
+  <div class="jobs__layout">
+    <!-- STICKY FILTERS PANEL -->
+    <aside class="jobs__filters-panel">
+      <div class="jobs__filters-head">
+        <h2 class="jobs__filters-title">
+          {{ 'JOBS.LIST.FILTER_TITLE' | translate : { default: 'Filter jobs' } }}
+        </h2>
+        <p class="jobs__filters-subtitle">
+          {{ 'JOBS.LIST.FILTER_SUBTITLE' | translate : { default: 'Adjust filters to narrow down results.' } }}
         </p>
+      </div>
 
-        <div class="job-row__footer">
-          <a class="btn btn--outline" [routerLink]="['/jobs', job.id]">
-            View details
-          </a>
+      <div class="jobs__controls">
+        <!-- Country -->
+        <div class="jobs__control">
+          <label for="countryFilter" class="jobs__control-label">
+            {{ 'JOBS.LIST.FILTER_LOCATION' | translate }}
+          </label>
+          <select
+            id="countryFilter"
+            class="select"
+            [value]="currentCountry() || ''"
+            (change)="onCountryChange($event)"
+          >
+            <option value="">
+              {{ 'JOBS.LIST.FILTER_LOCATION_ANY' | translate : { default: 'All countries' } }}
+            </option>
+            <option *ngFor="let c of countries" [value]="c.value">
+              {{ c.label }}
+            </option>
+          </select>
+        </div>
+
+        <!-- Category -->
+        <div class="jobs__control">
+          <label for="categoryFilter" class="jobs__control-label">
+            {{ 'JOBS.LIST.FILTER_CATEGORY' | translate }}
+          </label>
+          <select
+            id="categoryFilter"
+            class="select"
+            [value]="currentCategory() || ''"
+            (change)="onCategoryChange($event)"
+          >
+            <option value="">
+              {{ 'JOBS.LIST.FILTER_CATEGORY_ANY' | translate : { default: 'All categories' } }}
+            </option>
+            <option *ngFor="let c of categories" [value]="c.value">
+              {{ c.label }}
+            </option>
+          </select>
+        </div>
+
+        <!-- Housing provided -->
+        <div class="jobs__control">
+          <label for="housingFilter" class="jobs__control-label">
+            {{ 'JOBS.LIST.FILTER_HOUSING' | translate : { default: 'Housing provided' } }}
+          </label>
+          <select
+            id="housingFilter"
+            class="select"
+            [value]="housingFilter()"
+            (change)="onHousingChange($event)"
+          >
+            <option value="">
+              {{ 'JOBS.LIST.FILTER_ANY' | translate : { default: 'Any' } }}
+            </option>
+            <option value="yes">
+              {{ 'JOBS.LIST.FILTER_HOUSING_YES' | translate : { default: 'Yes' } }}
+            </option>
+            <option value="no">
+              {{ 'JOBS.LIST.FILTER_HOUSING_NO' | translate : { default: 'No' } }}
+            </option>
+          </select>
+        </div>
+
+        <!-- Transport provided -->
+        <div class="jobs__control">
+          <label for="transportFilter" class="jobs__control-label">
+            {{ 'JOBS.LIST.FILTER_TRANSPORT' | translate : { default: 'Transport provided' } }}
+          </label>
+          <select
+            id="transportFilter"
+            class="select"
+            [value]="transportFilter()"
+            (change)="onTransportChange($event)"
+          >
+            <option value="">
+              {{ 'JOBS.LIST.FILTER_ANY' | translate : { default: 'Any' } }}
+            </option>
+            <option value="yes">
+              {{ 'JOBS.LIST.FILTER_TRANSPORT_YES' | translate : { default: 'Yes' } }}
+            </option>
+            <option value="no">
+              {{ 'JOBS.LIST.FILTER_TRANSPORT_NO' | translate : { default: 'No' } }}
+            </option>
+          </select>
+        </div>
+
+        <!-- Shift type -->
+        <div class="jobs__control">
+          <label for="shiftFilter" class="jobs__control-label">
+            {{ 'JOBS.LIST.FILTER_SHIFT' | translate : { default: 'Shift type' } }}
+          </label>
+          <select
+            id="shiftFilter"
+            class="select"
+            [value]="shiftFilter() || ''"
+            (change)="onShiftChange($event)"
+          >
+            <option value="">
+              {{ 'JOBS.LIST.FILTER_ANY' | translate : { default: 'Any' } }}
+            </option>
+            <option *ngFor="let s of shiftTypes" [value]="s.value">
+              {{ s.label }}
+            </option>
+          </select>
+        </div>
+
+        <!-- Minimum salary -->
+        <div class="jobs__control jobs__control--min-salary">
+          <label for="minSalaryFilter" class="jobs__control-label">
+            {{ 'JOBS.LIST.FILTER_MIN_SALARY' | translate : { default: 'Minimum salary' } }}
+          </label>
+          <input
+            id="minSalaryFilter"
+            class="input jobs__min-salary-input"
+            type="number"
+            min="0"
+            [value]="minSalaryFilter() ?? ''"
+            (change)="onMinSalaryChange($event)"
+            placeholder="0"
+          />
+        </div>
+
+        <!-- Sort -->
+        <div class="jobs__control jobs__control--sort">
+          <label for="sortOrder" class="jobs__control-label">
+            {{ 'JOBS.LIST.SORT_LABEL' | translate : { default: 'Sort by' } }}
+          </label>
+          <select
+            id="sortOrder"
+            class="select"
+            [value]="sortOrder()"
+            (change)="onSortChange($event)"
+          >
+            <option value="recent">
+              {{ 'JOBS.LIST.SORT_RECENT' | translate : { default: 'Most recent first' } }}
+            </option>
+            <option value="oldest">
+              {{ 'JOBS.LIST.SORT_OLDEST' | translate : { default: 'Oldest first' } }}
+            </option>
+          </select>
         </div>
       </div>
-    </article>
+
+      <!-- Optional: clear-all shortcut -->
+      <button
+        type="button"
+        class="jobs__filters-clear btn btn--ghost btn--sm"
+        [routerLink]="['/jobs']"
+      >
+        {{ 'JOBS.LIST.FILTER_RESET' | translate }}
+      </button>
+    </aside>
+
+    <!-- RIGHT COLUMN: JOB RESULTS -->
+    <div class="jobs__results">
+      <!-- STATES -->
+      <div *ngIf="loading()" class="jobs__state jobs__state--loading">
+        Loading jobs...
+      </div>
+
+      <div *ngIf="error()" class="jobs__state jobs__state--error">
+        {{ error() }}
+      </div>
+
+      <div
+        *ngIf="!loading() && !error() && filteredJobs().length === 0"
+        class="jobs__state jobs__state--empty"
+      >
+        No jobs found for selected filters.
+      </div>
+
+      <!-- JOB LIST -->
+      <div
+        class="jobs__list"
+        *ngIf="!loading() && !error() && filteredJobs().length > 0"
+      >
+        <article *ngFor="let job of filteredJobs()" class="job-row">
+          <div class="job-row__image-wrap" *ngIf="job.image">
+            <img [src]="job.image" [alt]="job.title" class="job-row__image" />
+          </div>
+
+          <div class="job-row__content">
+            <header class="job-row__header">
+              <div class="job-row__title-block">
+                <h3 class="job-row__title">{{ job.title }}</h3>
+                <p class="job-row__company">
+                  {{ job.company_name || 'Verified employer' }}
+                </p>
+              </div>
+
+              <div class="job-row__location">
+                <span>{{ job.city || '—' }}, {{ job.country }}</span>
+              </div>
+            </header>
+
+            <div class="job-row__meta">
+              <span *ngIf="job.salary_from" class="job-row__salary">
+                💶 {{ job.salary_from }}
+                <span *ngIf="job.salary_to">– {{ job.salary_to }}</span>
+                {{ job.currency || 'EUR' }}
+                <ng-container *ngIf="job.salary_type">
+                  /{{ job.salary_type }}
+                </ng-container>
+              </span>
+
+              <span *ngIf="job.employment_type" class="job-row__type">
+                {{ job.employment_type | translate }}
+              </span>
+            </div>
+
+            <p class="job-row__desc">
+              {{ job.short_description || job.full_description }}
+            </p>
+
+            <div class="job-row__footer">
+              <a class="btn btn--outline" [routerLink]="['/jobs', job.id]">
+                View details
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
   </div>
 </section>

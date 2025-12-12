@@ -2,98 +2,126 @@ import { Component, HostListener, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { TranslateService, TranslatePipe } from '@ngx-translate/core';
 import { AuthService } from '../../../services/auth/auth.services';
+import { NgClass } from '@angular/common';
 
 type NavItem = {
   label: string;
-  link?: string;
-  children?: { label: string; link: string }[];
-  key?: string;
+  link: string;
+};
+
+type LangDef = {
+  code: string;
+  name: string;
+  flag: string;
 };
 
 @Component({
   selector: 'mnv-navbar',
-  imports: [RouterLink, RouterLinkActive, TranslatePipe],
+  imports: [RouterLink, RouterLinkActive, TranslatePipe, NgClass],
   templateUrl: './navbar-component.html',
   styleUrls: ['./navbar-component.scss'],
 })
 export class NavbarComponent {
   readonly auth = inject(AuthService);
 
-  isOpen = false;
-  openKey: string | null = 'jobs';
   drawerOpen = false;
+  langMenuOpen = false;
+  isScrolled = false;
 
   constructor(public translate: TranslateService) {
-    const langs = ['en', 'pl', 'ee', 'ru', 'lv', 'lt'];
-    translate.addLangs(langs);
+    const langsCodes = ['en', 'pl', 'ee', 'ru', 'lv', 'lt'];
+    translate.addLangs(langsCodes);
     translate.setFallbackLang('en');
 
     const saved = (typeof localStorage !== 'undefined'
       ? localStorage.getItem('mnv-lang')
       : null) as string | null;
 
-    const startLang =
-      saved && langs.includes(saved) ? saved : 'en';
+    const startLang = saved && langsCodes.includes(saved) ? saved : 'en';
 
     this.setLang(startLang.toUpperCase());
   }
 
-  menu: NavItem[] = [
-    {
-      label: 'NAV.JOBS',
-      key: 'jobs',
-      children: [
-        { label: 'MAIN.GERMANY', link: 'DE' },
-        { label: 'MAIN.NETHERLANDS', link: 'NL' },
-        { label: 'MAIN.FINLAND', link: 'FI' },
-        { label: 'MAIN.BELGIUM', link: 'BE' },
-        { label: 'MAIN.FRANCE', link: 'FR' },
-      ]
-    },
-    { label: 'NAV.FAQ',      link: '/faq' },
-    { label: 'NAV.CONTACTS', link: '/contacts' },
-    { label: 'REFERRAL.TITLE', link: '/referral' }
-  ];
-
-  socials = [
-    { key: 'tiktok',   href: 'https://www.tiktok.com/@monovarecruit?_r=1&_t=ZN-91HcctpOzji',    label: 'TikTok' },
-    { key: 'linkedin', href: 'https://www.linkedin.com/company/monova-recruitment/', label: 'LinkedIn' },
-    { key: 'facebook', href: 'https://www.facebook.com/monovarecruit/', label: 'Facebook' },
-    { key: 'instagram',href: 'https://www.instagram.com/monovarecruit?igsh=MW12dDd4MTczd3dweA%3D%3D&utm_source=qr', label: 'Instagram' },
-  ];
-
-  langs = [
-    { code: 'EN', name: 'English' },
-    { code: 'PL', name: 'Polish' },
-    { code: 'EE', name: 'Estonian' },
-    { code: 'RU', name: 'Russian' },
-    { code: 'LV', name: 'Latvian' },
-    { code: 'LT', name: 'Lithuanian' },
-  ];
-
-  activeLang = 'EN';
-
-  toggle() { this.isOpen = !this.isOpen; }
-  close() { this.isOpen = false; }
-  @HostListener('document:keydown.escape') onEsc() { this.close(); }
-
-  toggleSection(key?: string) {
-    if (!key) return;
-    this.openKey = this.openKey === key ? null : key;
+  ngOnInit(): void {
+    // Set correct state on initial load / reload
+    this.updateScrolledState();
   }
 
-  toggleDrawer() { this.drawerOpen = !this.drawerOpen; }
-  closeDrawer()  { this.drawerOpen = false; }
+  @HostListener('window:scroll', [])
+  onWindowScroll(): void {
+    this.updateScrolledState();
+  }
 
-  toggleTheme() {
-    const el = document.documentElement;
-    el.setAttribute('data-theme', 'dark');
+  private updateScrolledState(): void {
+    const y =
+      window.scrollY ||
+      document.documentElement.scrollTop ||
+      document.body.scrollTop ||
+      0;
+
+    const next = y > 40;
+
+    // tiny optimization to avoid pointless change detection
+    if (next !== this.isScrolled) {
+      this.isScrolled = next;
+    }
+  }
+
+  // SIMPLE MENU – “Jobs” goes to all jobs
+  menu: NavItem[] = [
+    { label: 'NAV.JOBS', link: '/jobs' },
+    { label: 'NAV.FAQ', link: '/faq' },
+    { label: 'NAV.CONTACTS', link: '/contacts' },
+    { label: 'REFERRAL.TITLE', link: '/referral' },
+  ];
+
+  // ICON-ONLY LANG DEFINITIONS (adjust paths to your flags)
+  langs: LangDef[] = [
+    { code: 'EN', name: 'English',   flag: 'gb' },
+    { code: 'PL', name: 'Polish',    flag: 'pl' },
+    { code: 'EE', name: 'Estonian',  flag: 'ee' },
+    { code: 'RU', name: 'Russian',   flag: 'ru' },
+    { code: 'LV', name: 'Latvian',   flag: 'lv' },
+    { code: 'LT', name: 'Lithuanian',flag: 'lt' },
+  ];
+
+  activeLang: LangDef['code'] = 'EN';
+  activeLangDef: LangDef = this.langs[0];
+
+  // ========== NAV BEHAVIOUR ==========
+
+  toggleDrawer() {
+    this.drawerOpen = !this.drawerOpen;
+    if (!this.drawerOpen) {
+      this.langMenuOpen = false;
+    }
+  }
+
+  closeDrawer() {
+    this.drawerOpen = false;
+    this.langMenuOpen = false;
+  }
+
+  onLogout() {
+    this.auth.logout();
+    this.closeDrawer();
+  }
+
+  // ========== LANGUAGE HANDLING ==========
+
+  toggleLangMenu() {
+    this.langMenuOpen = !this.langMenuOpen;
   }
 
   setLang(code: string) {
     const lower = code.toLowerCase();
     this.translate.use(lower);
     this.activeLang = code as typeof this.activeLang;
+
+    const found = this.langs.find(l => l.code === code);
+    if (found) {
+      this.activeLangDef = found;
+    }
 
     if (typeof localStorage !== 'undefined') {
       localStorage.setItem('mnv-lang', lower);
@@ -102,5 +130,7 @@ export class NavbarComponent {
     if (typeof document !== 'undefined') {
       document.documentElement.setAttribute('lang', lower);
     }
+
+    this.langMenuOpen = false;
   }
 }

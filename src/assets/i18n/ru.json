@@ -22,7 +22,9 @@
       "TITLE": "Работай за границей с Monova",
       "SUBTITLE": "От резюме до переезда — быстрое трудоустройство у проверенных европейских партнёров.",
       "FIND_JOB": "Найти работу",
-      "FOR_COMPANIES": "Для компаний"
+      "FOR_COMPANIES": "Для компаний",
+      "COUNTRIES_LABEL": "Самые популярные направления",
+      "COUNTRIES_SUBTITLE": "Выберите страну и посмотрите доступные вакансии."
     },
     "WHY": {
       "TITLE": "Почему выбирают Monova",
@@ -234,7 +236,26 @@
       "FILTER_TYPE": "Тип",
       "FILTER_RESET": "Сбросить фильтры",
       "NO_JOBS": "По вашему запросу вакансий не найдено. Измените параметры фильтров или попробуйте позже.",
-      "COUNTRY": "Страна"
+      "COUNTRY": "Страна",
+      "FILTER_LOCATION_ANY": "Все страны",
+      "FILTER_CATEGORY_ANY": "Все категории",
+      "FILTER_ANY": "Любые",
+
+      "FILTER_HOUSING": "Жильё предоставляется",
+      "FILTER_HOUSING_YES": "Да",
+      "FILTER_HOUSING_NO": "Нет",
+
+      "FILTER_TRANSPORT": "Транспорт предоставляется",
+      "FILTER_TRANSPORT_YES": "Да",
+      "FILTER_TRANSPORT_NO": "Нет",
+
+      "FILTER_SHIFT": "Тип смены",
+
+      "FILTER_MIN_SALARY": "Минимальная зарплата",
+
+      "SORT_LABEL": "Сортировать по",
+      "SORT_RECENT": "Сначала новые",
+      "SORT_OLDEST": "Сначала старые"
     },
     "CATEGORIES": {
       "SHIPBUILDING": "Судостроение",

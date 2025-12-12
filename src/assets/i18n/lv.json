@@ -22,7 +22,9 @@
       "TITLE": "Strādā ārzemēs ar Monova",
       "SUBTITLE": "No CV līdz pārcelšanās brīdim – ātra saskaņošana ar uzticamiem Eiropas partneriem.",
       "FIND_JOB": "Atrast darbu",
-      "FOR_COMPANIES": "Uzņēmumiem"
+      "FOR_COMPANIES": "Uzņēmumiem",
+      "COUNTRIES_LABEL": "Populārākie galamērķi",
+      "COUNTRIES_SUBTITLE": "Izvēlies valsti un apskati pieejamās vakances."
     },
     "WHY": {
       "TITLE": "Kāpēc izvēlēties Monova",
@@ -234,7 +236,26 @@
       "FILTER_TYPE": "Veids",
       "FILTER_RESET": "Atiestatīt filtrus",
       "NO_JOBS": "Nav atrastas nevienas vakances pēc jūsu kritērijiem. Lūdzu, mainiet filtrus vai pārbaudiet vēlāk.",
-      "COUNTRY": "Valsts"
+      "COUNTRY": "Valsts",
+      "FILTER_LOCATION_ANY": "Visas valstis",
+      "FILTER_CATEGORY_ANY": "Visas kategorijas",
+      "FILTER_ANY": "Jebkurš",
+
+      "FILTER_HOUSING": "Nodrošināta dzīvesvieta",
+      "FILTER_HOUSING_YES": "Jā",
+      "FILTER_HOUSING_NO": "Nē",
+
+      "FILTER_TRANSPORT": "Nodrošināts transports",
+      "FILTER_TRANSPORT_YES": "Jā",
+      "FILTER_TRANSPORT_NO": "Nē",
+
+      "FILTER_SHIFT": "Maiņas veids",
+
+      "FILTER_MIN_SALARY": "Minimālā alga",
+
+      "SORT_LABEL": "Kārtot pēc",
+      "SORT_RECENT": "Jaunākie piedāvājumi",
+      "SORT_OLDEST": "Vecākie piedāvājumi"
     },
     "CATEGORIES": {
       "SHIPBUILDING": "Kuģubūve",

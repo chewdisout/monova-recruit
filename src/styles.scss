@@ -1,30 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
-
-:root {
-  color-scheme: light;
-}
-
-html, body { overflow-x: clip; }
-@supports not (overflow-x: clip) {
-  html, body { overflow-x: hidden; }
-}
-
-.full-bleed {
-  width: 100%;
-}
-
-.u-break {
-  overflow-wrap: anywhere;
-  word-break: break-word;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-img, svg, video { max-width: 100%; height: auto; display: block; }
+@import "flag-icons/css/flag-icons.min.css";
 
 :root {
   --mnv-blue-900: #0E2A47;
@@ -53,24 +28,32 @@ img, svg, video { max-width: 100%; height: auto; display: block; }
   --mnv-shadow-md: 0 10px 28px rgba(14,42,71,.12);
 
   --rail-w: 300px;
+  --mnv-nav-h: 72px;
+  color-scheme: light;
 }
 
-/*:root[data-theme="dark"] {
-  --mnv-bg:        #0B1320;
-  --mnv-surface:   #101B2E;
-  --mnv-border:    #1D2A44;
-  --mnv-text:      rgba(255,255,255,.92);
-  --mnv-text-dim:  rgba(255,255,255,.72);
-  --mnv-text-soft: rgba(255,255,255,.55);
 
-  --mnv-blue-900: #CFE4FF;
-  --mnv-blue-800: #A9C9F4;
-  --mnv-blue-700: #7FB5F2;
-  --mnv-blue-500: #63A7F0;
+html, body { overflow-x: clip; }
+@supports not (overflow-x: clip) {
+  html, body { overflow-x: hidden; }
+}
 
-  --mnv-shadow-sm: 0 6px 18px rgba(0,0,0,.35);
-  --mnv-shadow-md: 0 12px 30px rgba(0,0,0,.45);
-}*/
+.full-bleed {
+  width: 100%;
+}
+
+.u-break {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img, svg, video { max-width: 100%; height: auto; display: block; }
 
 html, body {
   min-height: 100%;
@@ -81,17 +64,13 @@ body {
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   color: var(--mnv-text);
   background: var(--mnv-bg);
-  padding-right: var(--rail-w);
-  padding-bottom: 16px;
-  padding-bottom: calc(env(safe-area-inset-bottom) + 16px);
-}
 
-body.no-rail-padding {
-  padding-right: 0 !important;
-}
+  /* MAIN CHANGE: space for fixed top navbar */
+  padding-top: calc(env(safe-area-inset-top, 0px) + var(--mnv-nav-h));
 
-@media (max-width: 1024px) {
-  body { padding-right: 0; }
+  @media (max-width: 1024px) {
+    padding-top: 0;
+  }
 }
 
 h1,h2,h3,h4 { font-family: "DM Sans", Inter, system-ui, sans-serif; color: var(--mnv-blue-900); }

@@ -22,7 +22,9 @@
       "TITLE": "Tööta välismaal koos Monovaga",
       "SUBTITLE": "Alates CV saatmisest kuni kolimiseni – kiire vastavus usaldusväärsete Euroopa partneritega.",
       "FIND_JOB": "Leia töö",
-      "FOR_COMPANIES": "Ettevõtetele"
+      "FOR_COMPANIES": "Ettevõtetele",
+      "COUNTRIES_LABEL": "Kõige populaarsemad sihtkohad",
+      "COUNTRIES_SUBTITLE": "Vali riik ja vaata hetkel avatud tööpakkumisi."
     },
     "WHY": {
       "TITLE": "Miks valida Monova",
@@ -234,7 +236,26 @@
       "FILTER_TYPE": "Tüüp",
       "FILTER_RESET": "Lähtesta filtrid",
       "NO_JOBS": "Ühtegi sobivat tööpakkumist ei leitud. Palun kohanda filtreid või tule hiljem tagasi.",
-      "COUNTRY": "Riik"
+      "COUNTRY": "Riik",
+      "FILTER_LOCATION_ANY": "Kõik riigid",
+      "FILTER_CATEGORY_ANY": "Kõik kategooriad",
+      "FILTER_ANY": "Ükskõik milline",
+
+      "FILTER_HOUSING": "Majutus on tagatud",
+      "FILTER_HOUSING_YES": "Jah",
+      "FILTER_HOUSING_NO": "Ei",
+
+      "FILTER_TRANSPORT": "Transport on tagatud",
+      "FILTER_TRANSPORT_YES": "Jah",
+      "FILTER_TRANSPORT_NO": "Ei",
+
+      "FILTER_SHIFT": "Vahetuse tüüp",
+
+      "FILTER_MIN_SALARY": "Miinimumpalk",
+
+      "SORT_LABEL": "Sorteeri",
+      "SORT_RECENT": "Uuemad eespool",
+      "SORT_OLDEST": "Vanemad eespool"
     },
     "CATEGORIES": {
       "SHIPBUILDING": "Laevaehitus",

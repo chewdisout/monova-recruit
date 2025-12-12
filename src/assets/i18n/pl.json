@@ -22,7 +22,9 @@
       "TITLE": "Pracuj za granicą z Monova",
       "SUBTITLE": "Od CV po relokację – szybkie dopasowanie z zaufanymi partnerami w całej Europie.",
       "FIND_JOB": "Znajdź pracę",
-      "FOR_COMPANIES": "Dla firm"
+      "FOR_COMPANIES": "Dla firm",
+      "COUNTRIES_LABEL": "Najpopularniejsze kierunki",
+      "COUNTRIES_SUBTITLE": "Wybierz kraj i zobacz dostępne oferty pracy."
     },
     "WHY": {
       "TITLE": "Dlaczego warto wybrać Monova",
@@ -234,7 +236,26 @@
       "FILTER_TYPE": "Typ",
       "FILTER_RESET": "Wyczyść filtry",
       "NO_JOBS": "Nie znaleziono ofert spełniających Twoje kryteria. Zmień filtry lub sprawdź ponownie później.",
-      "COUNTRY": "Kraj"
+      "COUNTRY": "Kraj",
+      "FILTER_LOCATION_ANY": "Wszystkie kraje",
+      "FILTER_CATEGORY_ANY": "Wszystkie kategorie",
+      "FILTER_ANY": "Dowolne",
+
+      "FILTER_HOUSING": "Zakwaterowanie zapewnione",
+      "FILTER_HOUSING_YES": "Tak",
+      "FILTER_HOUSING_NO": "Nie",
+
+      "FILTER_TRANSPORT": "Transport zapewniony",
+      "FILTER_TRANSPORT_YES": "Tak",
+      "FILTER_TRANSPORT_NO": "Nie",
+
+      "FILTER_SHIFT": "Rodzaj zmiany",
+
+      "FILTER_MIN_SALARY": "Minimalne wynagrodzenie",
+
+      "SORT_LABEL": "Sortuj według",
+      "SORT_RECENT": "Najnowsze oferty",
+      "SORT_OLDEST": "Najstarsze oferty"
     },
     "CATEGORIES": {
       "SHIPBUILDING": "Stoczniowość",

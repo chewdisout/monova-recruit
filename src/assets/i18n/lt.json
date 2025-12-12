@@ -22,7 +22,9 @@
       "TITLE": "Dirbk užsienyje su Monova",
       "SUBTITLE": "Nuo CV iki persikėlimo – greitas suderinimas su patikimais Europos partneriais.",
       "FIND_JOB": "Rasti darbą",
-      "FOR_COMPANIES": "Įmonėms"
+      "FOR_COMPANIES": "Įmonėms",
+      "COUNTRIES_LABEL": "Populiariausios kryptys",
+      "COUNTRIES_SUBTITLE": "Pasirink šalį ir peržiūrėk laisvas darbo vietas."
     },
     "WHY": {
       "TITLE": "Kodėl verta rinktis Monova",
@@ -234,7 +236,26 @@
       "FILTER_TYPE": "Tipas",
       "FILTER_RESET": "Atstatyti filtrus",
       "NO_JOBS": "Pagal jūsų kriterijus darbo pasiūlymų nerasta. Pakoreguokite filtrus arba bandykite vėliau.",
-      "COUNTRY": "Šalis"
+      "COUNTRY": "Šalis",
+      "FILTER_LOCATION_ANY": "Visos šalys",
+      "FILTER_CATEGORY_ANY": "Visos kategorijos",
+      "FILTER_ANY": "Bet kuri",
+
+      "FILTER_HOUSING": "Suteikiamas būstas",
+      "FILTER_HOUSING_YES": "Taip",
+      "FILTER_HOUSING_NO": "Ne",
+
+      "FILTER_TRANSPORT": "Suteikiamas transportas",
+      "FILTER_TRANSPORT_YES": "Taip",
+      "FILTER_TRANSPORT_NO": "Ne",
+
+      "FILTER_SHIFT": "Pamainos tipas",
+
+      "FILTER_MIN_SALARY": "Minimalus atlyginimas",
+
+      "SORT_LABEL": "Rikiuoti pagal",
+      "SORT_RECENT": "Naujausi pasiūlymai",
+      "SORT_OLDEST": "Seniausi pasiūlymai"
     },
     "CATEGORIES": {
       "SHIPBUILDING": "Laivų statyba",

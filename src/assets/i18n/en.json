@@ -22,7 +22,9 @@
             "TITLE": "Work Abroad with Monova",
             "SUBTITLE": "From CV to relocation — fast matching with trusted European partners.",
             "FIND_JOB": "Find Job",
-            "FOR_COMPANIES": "For Companies"
+            "FOR_COMPANIES": "For Companies",
+            "COUNTRIES_LABEL": "Most popular destinations",
+            "COUNTRIES_SUBTITLE": "Pick a country and explore open positions right now."
         },
         "WHY": {
             "TITLE": "Why Choose Monova",
@@ -234,7 +236,28 @@
             "FILTER_TYPE": "Type",
             "FILTER_RESET": "Reset filters",
             "NO_JOBS": "No jobs found matching your criteria. Please adjust your filters or check back later.",
-            "COUNTRY": "Country"
+            "COUNTRY": "Country",
+            "FILTER_LOCATION_ANY": "All countries",
+            "FILTER_CATEGORY_ANY": "All categories",
+            "FILTER_ANY": "Any",
+
+            "FILTER_HOUSING": "Housing provided",
+            "FILTER_HOUSING_YES": "Yes",
+            "FILTER_HOUSING_NO": "No",
+
+            "FILTER_TRANSPORT": "Transport provided",
+            "FILTER_TRANSPORT_YES": "Yes",
+            "FILTER_TRANSPORT_NO": "No",
+
+            "FILTER_SHIFT": "Shift type",
+
+            "FILTER_MIN_SALARY": "Minimum salary",
+
+            "SORT_LABEL": "Sort by",
+            "SORT_RECENT": "Most recent first",
+            "SORT_OLDEST": "Oldest first",
+            "FILTER_TITLE": "Filter jobs",
+            "FILTER_SUBTITLE": "Adjust filters to narrow down results."
         },
         "CATEGORIES": {
             "SHIPBUILDING": "Shipbuilding",

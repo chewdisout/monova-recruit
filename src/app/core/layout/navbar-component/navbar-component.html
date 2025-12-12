@@ -2,61 +2,58 @@
   class="mnv-toggle"
   type="button"
   aria-label="Toggle menu"
-  (click)="toggle()"
+  (click)="toggleDrawer()"
 >
-  <span [class.open]="isOpen"></span>
+  <span [class.open]="drawerOpen"></span>
 </button>
 
-@if (isOpen) {
-  <div class="mnv-overlay" (click)="close()"></div>
-}
-
-<nav class="rail mnv-sidebar" role="navigation" aria-label="Main" [class.open]="isOpen">
+<nav 
+  class="rail mnv-navbar" 
+  [class.navbar--scrolled]="isScrolled" 
+  role="navigation" 
+  aria-label="Main"
+>
   <div class="rail__header" routerLink="/">
     <div class="brand">
-      <img 
-        src="../../../../assets/img/left_horz.svg" 
-        alt="Monova logo" 
-        class="navbar-logo" 
-        (click)="close()"
+      <img
+        src="../../../../assets/img/left_horz.svg"
+        alt="Monova logo"
+        class="navbar-logo"
+        (click)="closeDrawer()"
       />
     </div>
   </div>
 
+  <!-- MAIN NAV LINKS (desktop) -->
   <ul class="rail__nav">
     @for (item of menu; track item.label) {
-      <li class="nav-item" [class.has-children]="!!item.children" [class.is-open]="openKey===item.key">
-        @if (item.children?.length) {
-          <button class="nav-link job-desktop" type="button" (click)="toggleSection(item.key)">
-            <span class="label">{{ item.label | translate }}</span>
-            <span class="chev" aria-hidden="true">▸</span>
-          </button>
-          <button class="nav-link job-mobile" type="button" (click)="close()" routerLink="/jobs">
-            <span class="label">{{ item.label | translate }}</span>
-          </button>
-          @if (openKey===item.key) {
-              <ul class="subnav job-desktop">
-                @for (c of item.children; track c.label) {
-                  <li><a href="/jobs?country={{ c.link }}" (click)="close()">{{ c.label | translate }}</a></li>
-                }
-              </ul>
-            }
-        } @else {
-          <a (click)="close()" class="nav-link" [routerLink]="item.link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-            <span class="label">{{ item.label | translate }}</span>
-          </a>
-        }
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          [routerLink]="item.link"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          (click)="closeDrawer()"
+        >
+          <span class="label">{{ item.label | translate }}</span>
+        </a>
       </li>
     }
   </ul>
 
+  <!-- RIGHT SIDE: AUTH + LANG DROPDOWN -->
   <div class="rail__bottom">
     <div class="profile">
       @if (auth.isLoggedIn()) {
         <div class="profile">
-          <a routerLink="/profile" class="profile__pill" (click)="close()">
+          <a routerLink="/profile" class="profile__pill">
             <div class="profile__avatar">
-              {{ (auth.currentUser()?.name || auth.currentUser()?.email || 'U').charAt(0) }}
+              {{
+                (auth.currentUser()?.name ||
+                  auth.currentUser()?.email ||
+                  'U'
+                ).charAt(0)
+              }}
             </div>
             <div class="profile__text">
               <div class="profile__name">
@@ -66,94 +63,151 @@
             </div>
           </a>
 
-          <button type="button" class="btn btn--primary" (click)="auth.logout()">
+          <button
+            type="button"
+            class="btn btn--primary btn--sm"
+            (click)="onLogout()"
+          >
             {{ 'NAV.LOGOUT' | translate }}
           </button>
         </div>
       } @else {
         <div class="login-buttons">
-          <a class="btn btn--primary" routerLink="/auth/login" (click)="close()">
+          <a
+            class="btn btn--primary btn--sm"
+            routerLink="/auth/login"
+          >
             {{ 'NAV.SIGN_IN' | translate }}
           </a>
-          <a class="btn btn--outline" routerLink="/auth/register" (click)="close()">
+          <a
+            class="btn btn--outline btn--sm"
+            routerLink="/auth/register"
+          >
             {{ 'NAV.SIGN_UP' | translate }}
           </a>
         </div>
       }
     </div>
-    <div class="socials" aria-label="Social media">
-        @for (s of socials; track s.key) {
-            <a class="sbtn" [href]="s.href" target="_blank" rel="noopener" aria-label="{{ s.label }}">
-            @switch (s.key) {
-                @case ('tiktok') {
-                  <img style="width: 25px; height: 25px;" src="../../../../assets/img/icons/tiktok.png" alt="">
-                }
-                @case ('linkedin') {
-                  <img style="width: 25px; height: 25px;" src="../../../../assets/img/icons/linkedin.png" alt="">
-                }
-                @case ('facebook') {
-                  <img style="width: 25px; height: 25px;" src="../../../../assets/img/icons/facebook.png" alt="">
-                }
-                @case ('instagram') {
-                  <img style="width: 25px; height: 25px;" src="../../../../assets/img/icons/instagram.png" alt="">
-                }
-                @default {
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-                    <circle cx="12" cy="12" r="9"></circle>
-                </svg>
-                }
-            }
-            </a>
-        }
-    </div>
 
-    <div class="langs" role="group" aria-label="Languages">
-      @for (l of langs; track l.code) {
-        <button
-          type="button"
-          class="lang-pill"
-          [class.active]="activeLang===l.code"
-          (click)="setLang(l.code)">
-          {{ l.code }}
-        </button>
+    <!-- LANGUAGE DROPDOWN (icon only) -->
+    <div class="lang-dropdown">
+      <button
+        type="button"
+        class="lang-trigger"
+        aria-label="Change language"
+        [attr.aria-expanded]="langMenuOpen"
+        (click)="toggleLangMenu()"
+      >
+        <span class="fi" [ngClass]="'fi-' + activeLangDef.flag"></span>
+      </button>
+
+      @if (langMenuOpen) {
+        <ul class="lang-menu" role="menu">
+          @for (l of langs; track l.code) {
+            <li>
+              <button
+                type="button"
+                class="lang-option"
+                role="menuitem"
+                [class.active]="activeLang === l.code"
+                (click)="setLang(l.code)"
+              >
+                <span class="fi" [ngClass]="'fi-' + l.flag"></span>
+              </button>
+            </li>
+          }
+        </ul>
       }
     </div>
   </div>
 
-  @if (drawerOpen) {
-    <div class="drawer" (click)="closeDrawer()">
-      <aside class="drawer__panel" (click)="$event.stopPropagation()">
-        <button class="drawer__close" (click)="closeDrawer()" aria-label="Close">×</button>
-        <div class="brand brand--drawer">
-          <div class="brand__name">MONOVA</div>
-          <div class="brand__tag">Recruitment</div>
-        </div>
-        <ul class="drawer__nav">
-          @for (item of menu; track item.label) {
-            <li>
-              @if (item.children?.length) {
-                <div class="drawer__heading">{{ item.label }}</div>
-                <ul>
-                  @for (c of item.children; track c.label) {
-                    <li><a [routerLink]="c.link" (click)="closeDrawer()">{{ c.label }}</a></li>
-                  }
-                </ul>
-              } @else {
-                <a [routerLink]="item.link" (click)="closeDrawer()">{{ item.label }}</a>
-              }
-            </li>
-          }
-        </ul>
-        <div class="drawer__langs">
-          @for (l of langs; track l.code) {
+  <!-- MOBILE DRAWER -->
+@if (drawerOpen) {
+  <div class="drawer" (click)="closeDrawer()">
+    <aside class="drawer__panel" (click)="$event.stopPropagation()">
+
+      <div class="brand brand--drawer">
+        <div class="brand__name">MONOVA</div>
+        <div class="brand__tag">Recruitment</div>
+      </div>
+
+      <ul class="drawer__nav">
+        @for (item of menu; track item.label) {
+          <li>
+            <a
+              [routerLink]="item.link"
+              (click)="closeDrawer()"
+            >
+              {{ item.label | translate }}
+            </a>
+          </li>
+        }
+      </ul>
+
+      <!-- AUTH BLOCK INSIDE DRAWER -->
+      <div class="drawer__auth">
+        @if (auth.isLoggedIn()) {
+          <div class="profile profile--drawer">
+            <a routerLink="/profile" class="profile__pill" (click)="closeDrawer()">
+              <div class="profile__avatar">
+                {{
+                  (auth.currentUser()?.name ||
+                    auth.currentUser()?.email ||
+                    'U'
+                  ).charAt(0)
+                }}
+              </div>
+              <div class="profile__text">
+                <div class="profile__name">
+                  {{ auth.currentUser()?.name || auth.currentUser()?.email }}
+                </div>
+                <div class="profile__sub">View profile</div>
+              </div>
+            </a>
+
             <button
-              [class.active]="activeLang===l.code"
-              (click)="setLang(l.code)">
-              {{ l.code }}
+              type="button"
+              class="btn btn--primary btn--sm drawer__logout"
+              (click)="onLogout(); closeDrawer()"
+            >
+              {{ 'NAV.LOGOUT' | translate }}
             </button>
-          }
-        </div>
-      </aside>
-    </div>
-  }
+          </div>
+        } @else {
+          <div class="login-buttons login-buttons--drawer">
+            <a
+              class="btn btn--primary btn--sm"
+              routerLink="/auth/login"
+              (click)="closeDrawer()"
+            >
+              {{ 'NAV.SIGN_IN' | translate }}
+            </a>
+            <a
+              class="btn btn--outline btn--sm"
+              routerLink="/auth/register"
+              (click)="closeDrawer()"
+            >
+              {{ 'NAV.SIGN_UP' | translate }}
+            </a>
+          </div>
+        }
+      </div>
+
+      <!-- LANGUAGES -->
+      <div class="drawer__langs">
+        @for (l of langs; track l.code) {
+          <button
+            type="button"
+            [class.active]="activeLang === l.code"
+            (click)="setLang(l.code)"
+          >
+            <span class="fi" [ngClass]="'fi-' + l.flag"></span>
+          </button>
+        }
+      </div>
+
+    </aside>
+  </div>
+}
+
 </nav>

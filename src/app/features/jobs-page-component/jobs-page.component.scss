@@ -4,15 +4,15 @@
   padding: 0 24px;
 
   &__header {
-    margin-bottom: 28px;
-    text-align: center;
+    margin-bottom: 20px;
+    text-align: left;
   }
 
   &__title {
     font-size: 32px;
     font-weight: 700;
     color: var(--mnv-blue-900);
-    margin-bottom: 8px;
+    margin-bottom: 4px;
   }
 
   &__subtitle {
@@ -20,28 +20,61 @@
     font-size: 15px;
   }
 
+  /* NEW: 2-column layout */
+  &__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  &__results {
+    min-width: 0;
+  }
+
   /* TOP FILTER CONTROLS */
   &__controls {
-    margin-top: 18px;
-    margin-bottom: 8px;
     display: flex;
-    gap: 14px;
-    justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 8px;
   }
 
   &__control {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    min-width: 180px;
-    max-width: 220px;
     font-size: 12px;
     color: var(--mnv-text-soft);
   }
 
   &__control-label {
     margin-bottom: 4px;
+    font-weight: 500;
+  }
+
+  &__control--min-salary .jobs__min-salary-input {
+    width: 100%;
+  }
+
+  .jobs__min-salary-input {
+    font-size: 13px;
+  }
+
+  &__control--sort select {
+    font-size: 13px;
+  }
+
+  &__control--sort {
+    justify-self: flex-end;
+
+    @media (max-width: 768px) {
+      justify-self: stretch;
+    }
+  }
+
+  .jobs__min-salary-input {
+    font-size: 13px;
   }
 
   /* ACTIVE FILTER SUMMARY */
@@ -71,6 +104,41 @@
 
   &__filter-reset:hover {
     text-decoration: underline;
+  }
+
+  &__filters-panel {
+    position: sticky;
+    top: calc(var(--mnv-nav-h, 72px) + 16px); // under navbar
+    align-self: flex-start;
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid var(--mnv-border);
+    box-shadow: 0 10px 26px rgba(15, 23, 42, 0.12);
+    padding: 16px 14px 14px;
+  }
+
+  &__filters-head {
+    margin-bottom: 10px;
+  }
+
+  &__filters-title {
+    margin: 0 0 2px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--mnv-blue-900);
+  }
+
+  &__filters-subtitle {
+    margin: 0;
+    font-size: 12px;
+    color: var(--mnv-text-soft);
+  }
+
+  &__filters-clear {
+    margin-top: 10px;
+    width: 100%;
+    justify-content: center;
+    font-size: 12px;
   }
 
   /* STATES */
@@ -226,5 +294,23 @@
 
   .jobs__control {
     min-width: 100%;
+  }
+}
+
+
+@media (max-width: 900px) {
+  .jobs {
+    padding: 0 16px;
+  }
+
+  .jobs__layout {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .jobs__filters-panel {
+    position: static;
+    box-shadow: none;
+    border-radius: 12px;
   }
 }
