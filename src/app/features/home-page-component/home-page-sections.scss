@@ -1,4 +1,6 @@
-// ===== Steps =====
+/* =======================
+   Steps Section
+======================= */
 
 .steps {
   list-style: none;
@@ -73,9 +75,15 @@
   }
 }
 
+/* Stagger for Steps section (appInView) */
+.step:nth-child(1) { transition-delay: 0.10s; }
+.step:nth-child(2) { transition-delay: 0.20s; }
+.step:nth-child(3) { transition-delay: 0.30s; }
+.step:nth-child(4) { transition-delay: 0.40s; }
+
 /* =======================
    Industries Section
-========================== */
+======================= */
 
 .section--industries {
   background: var(--mnv-bg);
@@ -144,7 +152,7 @@
 
 /* =======================
    Success Stories – timeline
-========================== */
+======================= */
 
 .section--stories {
   background: var(--mnv-bg);
@@ -188,7 +196,7 @@
   background: linear-gradient(
     to bottom,
     rgba(30, 102, 255, 0.18),
-    rgba(34, 211, 238, 0.0)
+    rgba(34, 211, 238, 0)
   );
 }
 
